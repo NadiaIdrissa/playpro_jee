@@ -1,0 +1,19 @@
+1 - git pull origin "develop"
+quand j'ai fini de travailler
+2- git status 
+pour voir les fichiers affectuer par mes modif
+3- git add les chemins en rouge du status des fichers que j'ai modifié ou créé
+
+4- git commit -m "mettre un commentaire"
+5- git push origin nadia
+
+dans git
+6- repository - graph
+7- merge request - new merge request
+8- select source branch + my branch
+9- target branch + dev branch
+10- compare + continue
+11- assign to me
+12- merge 
+13- merge 
+
