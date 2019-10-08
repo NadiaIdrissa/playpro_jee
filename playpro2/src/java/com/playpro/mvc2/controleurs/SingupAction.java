@@ -9,11 +9,12 @@ package com.playpro.mvc2.controleurs;
  *
  * @author toute
  */
-public class SingupAction extends AbstractAction{
+public class SingupAction extends AbstractAction {
 
     @Override
     public String execute() {
+
         return "signup";
     }
-    
+
 }
