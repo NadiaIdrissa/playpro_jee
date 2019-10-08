@@ -8,9 +8,11 @@ package com.playpro.mvc2.servlets;
 import com.playpro.mvc2.servlets.*;
 import com.playpro.mvc2.controleurs.AbstractAction;
 import com.playpro.mvc2.controleurs.Action;
+import com.playpro.mvc2.controleurs.ContactAction;
 import com.playpro.mvc2.controleurs.DefaultAction;
 import com.playpro.mvc2.controleurs.SingupAction;
 import com.playpro.mvc2.controleurs.LoginAction;
+import com.playpro.mvc2.controleurs.NotreProjetAction;
 import com.playpro.mvc2.controleurs.ProfilAction;
 //import com.playpro.mvc2.controleurs.SoustractionAction;
 import java.io.IOException;
@@ -54,6 +56,12 @@ public class ControleurFrontal extends HttpServlet {
                 break;
             case "profil":
                 action = new ProfilAction();
+                break;
+            case "contact":
+                action = new ContactAction();
+                break;
+            case "notreProjet":
+                action = new NotreProjetAction();
                 break;
             default :
                 action = new DefaultAction();
