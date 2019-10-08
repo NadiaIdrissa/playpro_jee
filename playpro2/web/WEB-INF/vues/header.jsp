@@ -55,7 +55,7 @@
   <!-- The slideshow -->
     <div class="carousel-inner">
     <div class="carousel-item active">
-        <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(81).jpg" class="img-fluid" alt="Responsive image">
+        <img src="static/images/maxresdefault.jpg" class="img-fluid" alt="Responsive image">
         <div class="carousel-caption">
             <h1>Football</h1>
         </div>
