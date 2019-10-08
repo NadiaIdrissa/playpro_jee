@@ -24,16 +24,16 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Structure de la table `admin`
---
+-- --
+-- -- Structure de la table `admin`
+-- --
 
-CREATE TABLE `admin` (
-  `nom` int(11) NOT NULL,
-  `prenom` int(11) NOT NULL,
-  `id` int(11) NOT NULL,
-  `mdp` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- CREATE TABLE `admin` (
+--   `nom` int(11) NOT NULL,
+--   `prenom` int(11) NOT NULL,
+--   `id` int(11) NOT NULL,
+--   `mdp` int(11) NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 -- Structure de la table `adresse`
 --
 
-CREATE TABLE `adresse` (
+CREATE TABLE `lieu` (
   `id_lieu` int(11) NOT NULL,
   `nom` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `numero` int(7) NOT NULL,
@@ -72,9 +72,9 @@ CREATE TABLE `annonce` (
 -- Structure de la table `entraineur`
 --
 
-CREATE TABLE `entraineur` (
-  `sport` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- CREATE TABLE `entraineur` (
+--   `sport` varchar(25) NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -113,9 +113,9 @@ INSERT INTO `equipe` (`nom_equipe`, `capitaine`, `sport`, `nb_parties_jouees`, `
 -- Structure de la table `joueur`
 --
 
-CREATE TABLE `joueur` (
-  `niveau` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- CREATE TABLE `joueur` (
+--   `niveau` varchar(25) DEFAULT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,9 @@ CREATE TABLE `joueur` (
 --
 
 CREATE TABLE `lieu_sport` (
-  `id_lieu_sport` int(11) NOT NULL
+  `id_lieu_sport` int(11) NOT NULL,
+  `nom_du_sport` varchar(30) NOT NULL,
+  `zone_sport` varchar(6) CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -132,6 +134,21 @@ CREATE TABLE `lieu_sport` (
 --
 -- Structure de la table `membre`
 --
+
+-- CREATE TABLE `membre` (
+--   `id` int(11) NOT NULL,
+--   `pseudo` varchar(255) NOT NULL,
+--   `sexe` varchar(20) DEFAULT NULL,
+--   `nom` varchar(255) NOT NULL,
+--   `prenom` varchar(255) NOT NULL,
+--   `année_naiss` date DEFAULT NULL,
+--   `courriel` varchar(255) NOT NULL,
+--   `date_inscription` date NOT NULL,
+--   `type_membre` varchar(255) NOT NULL,
+--   `mdp` varchar(255) NOT NULL,
+--   `equipe` varchar(100) DEFAULT NULL,
+--   `photo` longblob NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `membre` (
   `id` int(11) NOT NULL,
@@ -147,6 +164,7 @@ CREATE TABLE `membre` (
   `equipe` varchar(100) DEFAULT NULL,
   `photo` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Déchargement des données de la table `membre`
@@ -211,6 +229,7 @@ INSERT INTO `partie` (`id_partie`, `date_partie_heure`, `sport`, `equipe_1`, `eq
 
 -- --------------------------------------------------------
 
+
 --
 -- Structure de la table `sport`
 --
@@ -229,14 +248,15 @@ CREATE TABLE `sport` (
 --
 -- Index pour la table `admin`
 --
-ALTER TABLE `admin`
-  ADD KEY `id` (`id`);
+-- ALTER TABLE `admin`
+--   ADD KEY `id` (`id`);
 
 --
 -- Index pour la table `adresse`
 --
-ALTER TABLE `adresse`
-  ADD KEY `Adresse_FK_id_lieu` (`id_lieu`) USING BTREE;
+ALTER TABLE `lieu`
+  ADD KEY `Lieu_FK_id_lieu` (`id_lieu`),
+  ADD KEY `Lieu_FK_codepost` (`code_postal`) USING BTREE;
 
 --
 -- Index pour la table `annonce`
@@ -257,7 +277,9 @@ ALTER TABLE `equipe`
 -- Index pour la table `lieu_sport`
 --
 ALTER TABLE `lieu_sport`
-  ADD PRIMARY KEY (`id_lieu_sport`);
+  ADD PRIMARY KEY (`id_lieu_sport`),
+  ADD KEY `Lieu_FK_codepostale` (`zone_sport`),
+  ADD KEY `Sport_FK_sport` (`nom_du_sport`) USING BTREE;
 
 --
 -- Index pour la table `membre`
@@ -275,6 +297,11 @@ ALTER TABLE `partie`
   ADD KEY `Partie_FK_nom_equipe1` (`equipe_1`),
   ADD KEY `Partie_FK_nom_equipe2` (`equipe_2`),
   ADD KEY `Partie_FK_sport` (`sport`) USING BTREE;
+
+--
+-- Index pour la table `lieu_sport`
+--
+
 
 --
 -- Index pour la table `sport`
@@ -333,12 +360,26 @@ ALTER TABLE `equipe`
 ALTER TABLE `membre`
   ADD CONSTRAINT `Membre_FK_nom_equipe` FOREIGN KEY (`equipe`) REFERENCES `equipe` (`nom_equipe`);
 
+-- ALTER TABLE `membre`
+--   ADD CONSTRAINT `Membre_FK_nom_equipe` FOREIGN KEY (`equipe`) REFERENCES `equipe` (`nom_equipe`),
+--   ADD CONSTRAINT Membre_CK_type CHECK (`type_membre` IN (`Joueur`,`Entraineur`,`Administrateur`))
+-- SET DEFAULT `Joueur`;
+
+ALTER TABLE `membre` 
+  ADD CONSTRAINT Membre_CK_type CHECK (`type_membre` IN (`Joueur`,`Entraineur`,`Administrateur`));
 --
 -- Contraintes pour la table `partie`
 --
 ALTER TABLE `partie`
   ADD CONSTRAINT `Partie_FK_nom_equipe1` FOREIGN KEY (`equipe_1`) REFERENCES `equipe` (`nom_equipe`),
   ADD CONSTRAINT `Partie_FK_nom_equipe2` FOREIGN KEY (`equipe_2`) REFERENCES `equipe` (`nom_equipe`);
+
+
+ALTER TABLE `lieu_sport`
+  ADD CONSTRAINT `Lieu_FK_codepostale` FOREIGN KEY (`zone_sport`) REFERENCES `lieu` (`code_postal`),
+  ADD CONSTRAINT `Sport_FK_sport` FOREIGN KEY (`nom_du_sport`) REFERENCES `sport` (`nom_sport`);
+
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
