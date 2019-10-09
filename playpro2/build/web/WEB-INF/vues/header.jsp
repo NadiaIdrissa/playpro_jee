@@ -45,7 +45,10 @@
 </nav> 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> bf1dcbb156791894c1b5ba124ba4d7d760c06086
 <div class="container lg-12">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -110,4 +113,7 @@
     </div>
 </div>
 </div> 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bf1dcbb156791894c1b5ba124ba4d7d760c06086

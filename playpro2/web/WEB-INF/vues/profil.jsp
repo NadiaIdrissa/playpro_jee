@@ -76,6 +76,9 @@
 
     </style>
     <body>
+        <%
+            
+        %>
         <form>
             <div class="form-group">
                 <div class="col-lg-12">
