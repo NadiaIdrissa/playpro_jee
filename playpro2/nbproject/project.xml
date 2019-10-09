@@ -7,8 +7,94 @@
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <web-module-libraries>
                 <library dirs="200">
-                    <file>${file.reference.mysql-connector-java-8.0.17.jar}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
+                    <file>${file.reference.mysql-connector-java-8.0.17.jar-2}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.annotations-api.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.catalina-ant.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.catalina-ha.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.catalina-storeconfig.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.catalina-tribes.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.catalina.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.ecj-4.6.3.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.el-api.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.jasper-el.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.jasper.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.jaspic-api.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.jsp-api.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.servlet-api.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-api.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-coyote.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-dbcp.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-i18n-de.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-i18n-es.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-i18n-fr.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-i18n-ja.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-i18n-ko.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-i18n-ru.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-i18n-zh-CN.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-jdbc.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-jni.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-util-scan.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-util.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.tomcat-websocket.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.websocket-api.jar}</file>
                 </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
