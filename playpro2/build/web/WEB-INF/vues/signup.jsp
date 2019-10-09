@@ -19,6 +19,7 @@
         <title>Inscription</title>
     </head>
     <body>
+        <%@include file="header.jsp" %>
         <div class="signup-form">
             <form action="/examples/actions/confirmation.php" method="post">
                 <h2>Inscription</h2>
@@ -63,5 +64,6 @@
                     : document.getElementById("confirm_password").setCustomValidity('');
         })
     </script>
+    <%@include file="footer.jsp" %>
 
 </html>

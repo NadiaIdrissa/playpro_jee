@@ -17,6 +17,7 @@
         <title>Connexion</title>
     </head>
     <body>
+        <%@include file="header.jsp" %>
         <div class="container">
             <form class="form-signin">
               
@@ -38,5 +39,6 @@
             
         <div class="text-center signup-form">Vous n'avez pas de compte ? <a href="./signup_view.jsp">Inscrivez-vous</a></div>    
         </div> <!-- /container -->
+        <%@include file="footer.jsp" %>
     </body>
 </html>

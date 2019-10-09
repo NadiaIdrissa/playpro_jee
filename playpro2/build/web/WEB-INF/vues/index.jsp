@@ -15,6 +15,7 @@
     </head>
     <body>
         <%@include file="header.jsp" %>
+        <%@include file="carousel.jsp" %>
     <h1>
         ACCUEIL
         ACCUEIL
