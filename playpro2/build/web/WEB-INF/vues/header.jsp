@@ -10,21 +10,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="nav nav-tabs">        
         <li class="nav-item">
-          <a class="nav-link " href="#">Calendrier</a>
+          <a class="nav-link " href="?action=calendar">Calendrier</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="#">À propos de nous</a>
+          <a class="nav-link " href="?action=aPropos">À propos de nous</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="#">Nous joindre</a>
+          <a class="nav-link " href="?action=nousJoindre">Nous joindre</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="?action=signup">Sign Up <span class="glyphicon glyphicon-user"></span> </a>      
+            <a href="?action=signup"><span class="glyphicon glyphicon-user"></span>Sign Up  </a>      
         </li>
-        <li class="nav-item">
-            <a class="nav-link " href="?action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        <li>
+            <a href="?action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
         </li>
-        <li class="nav-item">
+        <li>
             <a class="nav-link " href="?action=profil"><span class="glyphicon glyphicon-log-in"></span> Profil</a>
         </li>
     </ul>
@@ -33,7 +33,7 @@
             <input class="form-control mr-sm-2" type="Recherche" placeholder="Recherche" aria-label="Recherche">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
         </form>
-        
+
     </ul>
  
   </div>    
