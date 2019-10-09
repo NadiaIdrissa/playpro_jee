@@ -53,6 +53,7 @@ public class ControleurFrontal extends HttpServlet {
             case "index":
                 action = new IndexAction();
                 break;
+
             case "signup":
                 action = new SingupAction();
                 break;
