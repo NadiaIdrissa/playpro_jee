@@ -27,7 +27,7 @@
         @import url('https://fonts.googleapis.com/css?family=Anton');      
         body {
           background: #29AB87;
-          background-image: url("soccer.jpg");
+          background-image: url("static/images/head01.png");
           background-repeat: no-repeat;
           background-size: 100%;
 
