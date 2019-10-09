@@ -71,7 +71,8 @@ public class ControleurFrontal extends HttpServlet {
                 break;  
             case "nousJoindre":
                 action = new nousJoindreAction();
-                break;  
+                break; 
+
             default :
                 action = new DefaultAction();
         }

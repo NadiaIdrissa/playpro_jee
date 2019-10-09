@@ -18,7 +18,9 @@
     </head>
     <body>
         <%@include file="header.jsp" %>
-        <div id="calendar"></div>
+        <script>
+            
+        </script>
         <%@include file="footer.jsp" %>
         
         
