@@ -17,8 +17,10 @@
         <title>Calendrier</title>
     </head>
     <body>
-       
+        <%@include file="header.jsp" %>
         <div id="calendar"></div>
+        <%@include file="footer.jsp" %>
+        
         
     </body>
 </html>
