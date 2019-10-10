@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  ven. 04 oct. 2019 à 16:17
+-- Généré le :  jeu. 10 oct. 2019 à 12:23
 -- Version du serveur :  5.7.27-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.19-0ubuntu0.18.04.2
 
@@ -24,57 +24,17 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
--- --
--- -- Structure de la table `admin`
--- --
-
--- CREATE TABLE `admin` (
---   `nom` int(11) NOT NULL,
---   `prenom` int(11) NOT NULL,
---   `id` int(11) NOT NULL,
---   `mdp` int(11) NOT NULL
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `adresse`
---
-
-CREATE TABLE `lieu` (
-  `id_lieu` int(11) NOT NULL,
-  `nom` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `numero` int(7) NOT NULL,
-  `rue` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `code_postal` varchar(6) CHARACTER SET utf8 NOT NULL,
-  `ville` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `pays` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT 'Canada',
-  `infos` varchar(255) CHARACTER SET utf8 DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
 --
 -- Structure de la table `annonce`
 --
 
 CREATE TABLE `annonce` (
   `id_annonce` int(11) NOT NULL,
-  `pseudo_créateur` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `pseudo_createur` varchar(255) CHARACTER SET utf8 NOT NULL,
   `titre_annonce` varchar(100) CHARACTER SET utf8 NOT NULL,
   `message` text CHARACTER SET utf8 NOT NULL,
   `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `entraineur`
---
-
--- CREATE TABLE `entraineur` (
---   `sport` varchar(25) NOT NULL
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -110,12 +70,19 @@ INSERT INTO `equipe` (`nom_equipe`, `capitaine`, `sport`, `nb_parties_jouees`, `
 -- --------------------------------------------------------
 
 --
--- Structure de la table `joueur`
+-- Structure de la table `lieu`
 --
 
--- CREATE TABLE `joueur` (
---   `niveau` varchar(25) DEFAULT NULL
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `lieu` (
+  `id_lieu` int(11) NOT NULL,
+  `nom` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `numero` int(7) NOT NULL,
+  `rue` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `code_postal` varchar(6) CHARACTER SET utf8 NOT NULL,
+  `ville` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `pays` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT 'Canada',
+  `infos` varchar(255) CHARACTER SET utf8 DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -135,56 +102,40 @@ CREATE TABLE `lieu_sport` (
 -- Structure de la table `membre`
 --
 
--- CREATE TABLE `membre` (
---   `id` int(11) NOT NULL,
---   `pseudo` varchar(255) NOT NULL,
---   `sexe` varchar(20) DEFAULT NULL,
---   `nom` varchar(255) NOT NULL,
---   `prenom` varchar(255) NOT NULL,
---   `année_naiss` date DEFAULT NULL,
---   `courriel` varchar(255) NOT NULL,
---   `date_inscription` date NOT NULL,
---   `type_membre` varchar(255) NOT NULL,
---   `mdp` varchar(255) NOT NULL,
---   `equipe` varchar(100) DEFAULT NULL,
---   `photo` longblob NOT NULL
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `membre` (
   `id` int(11) NOT NULL,
   `pseudo` varchar(255) NOT NULL,
   `sexe` varchar(20) DEFAULT NULL,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
-  `année_naiss` date DEFAULT NULL,
+  `annee_naiss` date DEFAULT NULL,
   `courriel` varchar(255) NOT NULL,
-  `date_inscription` date NOT NULL,
+  `date_inscription` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `type_membre` varchar(255) NOT NULL,
   `mdp` varchar(255) NOT NULL,
   `equipe` varchar(100) DEFAULT NULL,
-  `photo` longblob NOT NULL
+  `photo` longblob
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 --
 -- Déchargement des données de la table `membre`
 --
 
-INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `année_naiss`, `courriel`, `date_inscription`, `type_membre`, `mdp`, `equipe`, `photo`) VALUES
-(1, 'yami', NULL, 'yoyo', 'yoyo', NULL, 'y.d@ggg.com', '2019-04-12', '', '$2y$10$Gf7g8Xj43KpSkRWrV4dzoevxB/B4Aajv/5ouL4ofcL32hnuP59WcK', 'AS Vital', ''),
-(2, 'ken', 'Femme', 'Kalomba', 'Kennedy', NULL, 'ra@g.c', '2019-04-13', 'admin', '$2y$10$x5I9CN06da8HezX1DRDf..JNVK9ZMn4TR5DvnDQJKseBiBxcIZEPy', NULL, ''),
-(3, 'root', 'Homme', 'Meilleur', 'Julien', NULL, 'root@root.ca', '2019-04-20', 'admin', '$2y$10$Gf7g8Xj43KpSkRWrV4dzoevxB/B4Aajv/5ouL4ofcL32hnuP59WcK', 'Aviron aviron', ''),
-(4, 'lala', 'Homme', 'lala', 'lala', NULL, 'y@k.co', '2019-04-30', 'admin', '$2y$10$D2N2Zrr85tYpAHY5kCt6ruT/HnJ76ZYeUwCb7EFhLUhCbeOmR91uO', NULL, ''),
-(5, 'bebe', 'Femme', 'bebe', 'bebe', NULL, 'bebe@b.ca', '2019-05-01', 'joueur', '$2y$10$dURiXdGWpSm90jHv8wCjAulrIe1c8x/iEFGt/V3cnRZEppOUzN2hO', NULL, ''),
-(6, 'baba', 'Homme', 'baba', 'baba', NULL, 'b@b.ca', '2019-05-01', 'joueur', '$2y$10$7/HZXXe4HiAH/LTDjPZSJOZrrgPlUbXoBlnQpCjF/dtJvh7IPGoiq', NULL, ''),
-(7, 'haha', 'Homme', 'haha', 'haha', NULL, 'al@al.ca', '2019-05-01', 'admin', '$2y$10$Ebz0.VSh9YY9Tvdi.WC2rOI23sizUWPdvjTNY4eOq0o3MXnfmpwya', NULL, ''),
-(8, 'jojo', 'Femme', 'Lemieux', 'Joel', NULL, 'al@al.ca', '2019-05-01', 'joueur', '$2y$10$nIta0boEFBhpPMnWxP.hLOD4X8a0njJqPc3O9CcW/wV71GQMA4bqS', NULL, ''),
-(9, 'bob', 'Homme', 'Robert', 'Bob', NULL, 'al@al.ca', '2019-05-01', 'joueur', '$2y$10$aFE9jJiEf/IYXqozRf.SSeAtrPt8fNrsCTbK5JUBEfQ.x5hnXGYhy', NULL, ''),
-(10, 'rob', 'Homme', 'Robert', 'Robert', NULL, 'al@al.ca', '2019-05-01', 'joueur', '$2y$10$Tyw51VWC4sHqF4p8/CHF6.y64ie8Q9AkyXROELL6toEU11JAzDja.', NULL, ''),
-(11, 'val', 'Femme', 'Valois', 'Valerie', NULL, 'al@al.ca', '2019-05-01', 'joueur', '$2y$10$gRfCY1m4p4Vmm2ZFU1n4bOjYCwfRuihPsHjyqhtrkJWxHmYM3aRnC', 'Fc Concorde', ''),
-(12, 'fany', 'Femme', 'Dadou', 'Fany', NULL, 'al@al.ca', '2019-05-01', 'joueur', '$2y$10$pwVlMM/bSILBWKZXzKUVJu2jVf0HqTS6rpg2jXjUDLcVXKVsykHzW', NULL, ''),
-(13, 'ely', 'Femme', 'lili', 'ely', NULL, 'al@al.ca', '2019-05-01', 'joueur', '$2y$10$MeqYzEpwStZMWZ7e5Ma4XukBBETkJGtWo8VjrDyvsf12GlaNMYxFi', NULL, ''),
-(14, 'lowis', 'Femme', 'lewis', 'lowis', NULL, 'al@al.ca', '2019-05-01', 'joueur', '$2y$10$8cKfMzTK0ueDLOq7eUIl9uZD2CK3ngI5H/USx868ZYFV4DNp5E4ye', NULL, '');
+INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `courriel`, `date_inscription`, `type_membre`, `mdp`, `equipe`, `photo`) VALUES
+(1, 'yami', NULL, 'yoyo', 'yoyo', NULL, 'y.d@ggg.com', '2019-04-12 04:00:00', '', '$2y$10$Gf7g8Xj43KpSkRWrV4dzoevxB/B4Aajv/5ouL4ofcL32hnuP59WcK', 'AS Vital', ''),
+(2, 'ken', 'Femme', 'Kalomba', 'Kennedy', NULL, 'ra@g.c', '2019-04-13 04:00:00', 'admin', '$2y$10$x5I9CN06da8HezX1DRDf..JNVK9ZMn4TR5DvnDQJKseBiBxcIZEPy', NULL, ''),
+(3, 'root', 'Homme', 'Meilleur', 'Julien', NULL, 'root@root.ca', '2019-04-20 04:00:00', 'admin', '$2y$10$Gf7g8Xj43KpSkRWrV4dzoevxB/B4Aajv/5ouL4ofcL32hnuP59WcK', 'Aviron aviron', ''),
+(4, 'lala', 'Homme', 'lala', 'lala', NULL, 'y@k.co', '2019-04-30 04:00:00', 'admin', '$2y$10$D2N2Zrr85tYpAHY5kCt6ruT/HnJ76ZYeUwCb7EFhLUhCbeOmR91uO', NULL, ''),
+(5, 'bebe', 'Femme', 'bebe', 'bebe', NULL, 'bebe@b.ca', '2019-05-01 04:00:00', 'joueur', '$2y$10$dURiXdGWpSm90jHv8wCjAulrIe1c8x/iEFGt/V3cnRZEppOUzN2hO', NULL, ''),
+(6, 'baba', 'Homme', 'baba', 'baba', NULL, 'b@b.ca', '2019-05-01 04:00:00', 'joueur', '$2y$10$7/HZXXe4HiAH/LTDjPZSJOZrrgPlUbXoBlnQpCjF/dtJvh7IPGoiq', NULL, ''),
+(7, 'haha', 'Homme', 'haha', 'haha', NULL, 'al@al.ca', '2019-05-01 04:00:00', 'admin', '$2y$10$Ebz0.VSh9YY9Tvdi.WC2rOI23sizUWPdvjTNY4eOq0o3MXnfmpwya', NULL, ''),
+(8, 'jojo', 'Femme', 'Lemieux', 'Joel', NULL, 'al@al.ca', '2019-05-01 04:00:00', 'joueur', '$2y$10$nIta0boEFBhpPMnWxP.hLOD4X8a0njJqPc3O9CcW/wV71GQMA4bqS', NULL, ''),
+(9, 'bob', 'Homme', 'Robert', 'Bob', NULL, 'al@al.ca', '2019-05-01 04:00:00', 'joueur', '$2y$10$aFE9jJiEf/IYXqozRf.SSeAtrPt8fNrsCTbK5JUBEfQ.x5hnXGYhy', NULL, ''),
+(10, 'rob', 'Homme', 'Robert', 'Robert', NULL, 'al@al.ca', '2019-05-01 04:00:00', 'joueur', '$2y$10$Tyw51VWC4sHqF4p8/CHF6.y64ie8Q9AkyXROELL6toEU11JAzDja.', NULL, ''),
+(11, 'val', 'Femme', 'Valois', 'Valerie', NULL, 'al@al.ca', '2019-05-01 04:00:00', 'joueur', '$2y$10$gRfCY1m4p4Vmm2ZFU1n4bOjYCwfRuihPsHjyqhtrkJWxHmYM3aRnC', 'Fc Concorde', ''),
+(12, 'fany', 'Femme', 'Dadou', 'Fany', NULL, 'al@al.ca', '2019-05-01 04:00:00', 'joueur', '$2y$10$pwVlMM/bSILBWKZXzKUVJu2jVf0HqTS6rpg2jXjUDLcVXKVsykHzW', NULL, ''),
+(13, 'ely', 'Femme', 'lili', 'ely', NULL, 'al@al.ca', '2019-05-01 04:00:00', 'joueur', '$2y$10$MeqYzEpwStZMWZ7e5Ma4XukBBETkJGtWo8VjrDyvsf12GlaNMYxFi', NULL, ''),
+(14, 'lowis', 'Femme', 'lewis', 'lowis', NULL, 'al@al.ca', '2019-05-01 04:00:00', 'joueur', '$2y$10$8cKfMzTK0ueDLOq7eUIl9uZD2CK3ngI5H/USx868ZYFV4DNp5E4ye', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -229,7 +180,6 @@ INSERT INTO `partie` (`id_partie`, `date_partie_heure`, `sport`, `equipe_1`, `eq
 
 -- --------------------------------------------------------
 
-
 --
 -- Structure de la table `sport`
 --
@@ -246,24 +196,11 @@ CREATE TABLE `sport` (
 --
 
 --
--- Index pour la table `admin`
---
--- ALTER TABLE `admin`
---   ADD KEY `id` (`id`);
-
---
--- Index pour la table `adresse`
---
-ALTER TABLE `lieu`
-  ADD KEY `Lieu_FK_id_lieu` (`id_lieu`),
-  ADD KEY `Lieu_FK_codepost` (`code_postal`) USING BTREE;
-
---
 -- Index pour la table `annonce`
 --
 ALTER TABLE `annonce`
   ADD PRIMARY KEY (`id_annonce`),
-  ADD KEY `Annonce_FK_pseudo` (`pseudo_créateur`) USING BTREE;
+  ADD KEY `Annonce_FK_pseudo` (`pseudo_createur`) USING BTREE;
 
 --
 -- Index pour la table `equipe`
@@ -272,6 +209,13 @@ ALTER TABLE `equipe`
   ADD PRIMARY KEY (`nom_equipe`),
   ADD KEY `Equipe_FK_capitaine` (`capitaine`),
   ADD KEY `Equipe_FK_sport` (`sport`) USING BTREE;
+
+--
+-- Index pour la table `lieu`
+--
+ALTER TABLE `lieu`
+  ADD KEY `Lieu_FK_id_lieu` (`id_lieu`),
+  ADD KEY `Lieu_FK_codepost` (`code_postal`) USING BTREE;
 
 --
 -- Index pour la table `lieu_sport`
@@ -297,11 +241,6 @@ ALTER TABLE `partie`
   ADD KEY `Partie_FK_nom_equipe1` (`equipe_1`),
   ADD KEY `Partie_FK_nom_equipe2` (`equipe_2`),
   ADD KEY `Partie_FK_sport` (`sport`) USING BTREE;
-
---
--- Index pour la table `lieu_sport`
---
-
 
 --
 -- Index pour la table `sport`
@@ -355,31 +294,24 @@ ALTER TABLE `equipe`
   ADD CONSTRAINT `Equipe_FK_capitaine` FOREIGN KEY (`capitaine`) REFERENCES `membre` (`id`);
 
 --
+-- Contraintes pour la table `lieu_sport`
+--
+ALTER TABLE `lieu_sport`
+  ADD CONSTRAINT `Lieu_FK_codepostale` FOREIGN KEY (`zone_sport`) REFERENCES `lieu` (`code_postal`),
+  ADD CONSTRAINT `Sport_FK_sport` FOREIGN KEY (`nom_du_sport`) REFERENCES `sport` (`nom_sport`);
+
+--
 -- Contraintes pour la table `membre`
 --
 ALTER TABLE `membre`
   ADD CONSTRAINT `Membre_FK_nom_equipe` FOREIGN KEY (`equipe`) REFERENCES `equipe` (`nom_equipe`);
 
--- ALTER TABLE `membre`
---   ADD CONSTRAINT `Membre_FK_nom_equipe` FOREIGN KEY (`equipe`) REFERENCES `equipe` (`nom_equipe`),
---   ADD CONSTRAINT Membre_CK_type CHECK (`type_membre` IN (`Joueur`,`Entraineur`,`Administrateur`))
--- SET DEFAULT `Joueur`;
-
-ALTER TABLE `membre` 
-  ADD CONSTRAINT Membre_CK_type CHECK (`type_membre` IN (`Joueur`,`Entraineur`,`Administrateur`));
 --
 -- Contraintes pour la table `partie`
 --
 ALTER TABLE `partie`
   ADD CONSTRAINT `Partie_FK_nom_equipe1` FOREIGN KEY (`equipe_1`) REFERENCES `equipe` (`nom_equipe`),
   ADD CONSTRAINT `Partie_FK_nom_equipe2` FOREIGN KEY (`equipe_2`) REFERENCES `equipe` (`nom_equipe`);
-
-
-ALTER TABLE `lieu_sport`
-  ADD CONSTRAINT `Lieu_FK_codepostale` FOREIGN KEY (`zone_sport`) REFERENCES `lieu` (`code_postal`),
-  ADD CONSTRAINT `Sport_FK_sport` FOREIGN KEY (`nom_du_sport`) REFERENCES `sport` (`nom_sport`);
-
-
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
