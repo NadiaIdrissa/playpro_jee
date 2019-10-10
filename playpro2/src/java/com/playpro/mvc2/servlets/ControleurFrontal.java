@@ -13,7 +13,7 @@ import com.playpro.mvc2.servlets.*;
 import com.playpro.mvc2.controleurs.AbstractAction;
 import com.playpro.mvc2.controleurs.Action;
 import com.playpro.mvc2.controleurs.DefaultAction;
-import com.playpro.mvc2.controleurs.SingupAction;
+import com.playpro.mvc2.controleurs.SignupAction;
 import com.playpro.mvc2.controleurs.LoginAction;
 import com.playpro.mvc2.controleurs.ProfilAction;
 //import com.playpro.mvc2.controleurs.SoustractionAction;
@@ -55,7 +55,7 @@ public class ControleurFrontal extends HttpServlet {
                 break;
 
             case "signup":
-                action = new SingupAction();
+                action = new SignupAction();
                 break;
             case "login":
                 action = new LoginAction();
@@ -80,7 +80,8 @@ public class ControleurFrontal extends HttpServlet {
         action.setResponse(response);
         
         vue = action.execute();
-        //System.out.println("vue = "+vue);
+        System.out.println("vue = "+vue);
+        System.out.println("-------------");
         request.getRequestDispatcher("/WEB-INF/vues/"+vue+".jsp").forward(request, response);
     }
 
