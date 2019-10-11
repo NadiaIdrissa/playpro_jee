@@ -76,6 +76,7 @@
 
     </style>
     <body>
+        <%@include file="header.jsp" %>
         <form>
             <div class="form-group">
                 <div class="col-lg-12">
