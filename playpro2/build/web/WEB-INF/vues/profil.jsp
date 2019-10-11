@@ -22,6 +22,9 @@
         <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    
     </head>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Anton');      
@@ -154,19 +157,16 @@
                             </div>
                             <!-- /.col-lg-6 -->
                         </div>
-                                                                <br><div class="container">
-                                    <div class="row">
-                                        <div class="col-sm-2 imgUp">
-                                            <div class="imagePreview"></div>
-                                            <label class="btn btn-primary">
-                                            Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
-                                            </label>
-                                            
-                                             
-                                        </div><!-- col-2 -->
- 
-                                    </div><!-- row -->
-                                </div><!-- container --> 
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-2 imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                    Télécharger<input type="file" id="t11" class="uploadFile img" disabled value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                                    </label>                                                                                         
+                                    </div><!-- col-2 --> 
+                                 </div><!-- row -->
+                            </div><!-- container --> 
                         <div class="row">
                             <div class="col-lg-12 col-xs-12">
                                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -185,10 +185,10 @@
                                         </div>
                                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                           <div class="panel-body">
-                                              Pseudo:<input type="text" value="Mickey">
-                                              Mot de passe:<input type="password" value="Mickey" > 
-                                              Nom:<input type="text" value="Mickey"> 
-                                              Prènom:<input type="text" value="Mickey" >
+                                              Pseudo:<input type="text" id="t1" placeholder="Miqui" disabled>
+                                              Mot de passe:<input type="password" id="t2" value="Mickey" disabled> 
+                                              Nom:<input type="text" value="Mickey" id="t3" disabled> 
+                                              Prènom:<input type="text" value="Mickey" id="t4" disabled>
                                           </div>
                                         </div>
                                     </div>
@@ -208,15 +208,15 @@
                                         </div>
                                         <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
                                             <div class="panel-body">
-                                                Sexe: <select>
+                                                Sexe: <select id="t5" disabled>
                                                           <option>Homme</option>
                                                           <option>Femme</option>
                                                           <option>Autre</option>                         
                                                       </select>
 
-                                                Type de membre:<input type="text" > 
-                                                Équipe:<input type="text" >
-                                                Photo:<input type="text" >                                                 
+                                                Type de membre:<input type="text" id="t6" disabled /> 
+                                                Équipe:<input type="text" id="t7" disabled/>
+                                                Date-Inscription:<input type="text" placeholder="jj/mm/aa" id="t9" disabled/>                                                 
                                             </div>
                                         </div>
                                     </div>
@@ -236,17 +236,18 @@
                                         </div>
                                         <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
                                             <div class="panel-body">
-                                                Courriel:<input type="text" placeholder="myemail@gmail.com" > 
-                                                Date-Inscription:<input type="text" placeholder="jj/mm/aa" > 
-                                                Date naissance:<input type="text" placeholder="my date" >                   
+                                                   Courriel:<input type="text" placeholder="myemail@gmail.com" id="t8" disabled/> 
+                                                   Date naissance: <input id="datepicker" width="276"   id="t10" disabled/>
+
                                             </div>
+                               
                                         </div>
                                     </div>
                                 </div>
                 
                                 <div class="btn-toolbar justify-content-between">
-                                    <button type="button" class="btn btn-outline-primary" disabled>Annuler</button>
-                                    <button type="button" class="btn btn-outline-success">Modifier</button>
+                                    <button type="button" class="btn btn-outline-primary" onclick="myFunction2()" id="sauv" disabled>Annuler</button>
+                                    <button type="button" class="btn btn-outline-success" onclick="myFunction()">Modifier</button>
                                 </div>
                                 <p>Information entièrement confidentielle</p>
                             </div>
@@ -258,6 +259,42 @@
                     
     <!-- Container -->
         </form>
+
+        
+        <script type="text/javascript">
+    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
+</script>            
+        <script>
+            function myFunction(){
+            
+                document.getElementById("t1").disabled=false;
+                document.getElementById("t2").disabled=false;
+                document.getElementById("t3").disabled=false;
+                document.getElementById("t4").disabled=false;
+                document.getElementById("t5").disabled=false;
+                document.getElementById("t6").disabled=false;
+
+                document.getElementById("t11").disabled=false;
+                document.getElementById("sauv").innerHTML="Sauvegarde";
+                document.getElementById("sauv").disabled=false;
+            }
+        </script>
+        
+                <script>
+            function myFunction2(){
+            
+                document.getElementById("t1").disabled=true;
+                document.getElementById("t2").disabled=true;
+                document.getElementById("t3").disabled=true;
+                document.getElementById("t4").disabled=true;
+                document.getElementById("t5").disabled=true;
+                document.getElementById("t6").disabled=true;
+
+                document.getElementById("sauv").innerHTML="Annuler";
+                document.getElementById("sauv").disabled=true;
+                document.getElementById("t11").disabled=true;
+            }
+        </script>
     <script>
         $('.collapse').not(':first').collapse(); // Collapse all but the first row on the page.
 </script>
