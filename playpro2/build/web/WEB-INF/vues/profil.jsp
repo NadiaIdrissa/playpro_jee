@@ -9,7 +9,7 @@
 <html>
                 
     <head>
-        <link href="static/css/styles.css" rel="stylesheet">
+       <link href="static/css/styles.css" rel="stylesheet">
        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Membre</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,9 +24,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    
+    <!-- <link href="static/css/styles.css" rel="stylesheet" type="text/css"/> -->
+      
     </head>
-    <style>
+  <  <style>
         @import url('https://fonts.googleapis.com/css?family=Anton');      
         body {
           background: #29AB87;
@@ -124,7 +125,7 @@
   cursor:pointer;
   font-size:15px;
 }
-    </style>
+    </style> 
     <body>
         <form>
             
