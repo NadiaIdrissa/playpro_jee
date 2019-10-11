@@ -33,7 +33,7 @@
             <a class="nav-link " href="?action=signup"><span class="glyphicon glyphicon-user"></span> S'incrire </a>      
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="?action=login"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a>
+            <a class="nav-link " href="?action=login"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
         </li>
     </ul>
  
