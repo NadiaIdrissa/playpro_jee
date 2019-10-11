@@ -1,5 +1,5 @@
 <div class="container lg-12">
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
   <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -11,7 +11,7 @@
     </ol>
 
   <!-- The slideshow -->
-    <div class="carousel-inner">
+    <div class="carousel-inner"role="listbox">
     <div class="carousel-item active">
         <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(39).jpg" class="img-fluid" alt="Responsive image">
         <div class="carousel-caption">
