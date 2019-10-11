@@ -113,7 +113,7 @@
                                                    href="#collapseOne" 
                                                    aria-expanded="true" 
                                                    aria-controls="collapseOne">
-                                                 <i class="fa fa-user fa-fw" aria-hidden="true"></i>Information Personnel
+                                                 <i class="fa fa-user fa-fw" aria-hidden="true"></i>Informations Personnelles
                                                 </a>
                                             </h4>
                                         </div>
@@ -122,7 +122,7 @@
                                               Pseudo:<input type="text" value="Mickey">
                                               Mot de passe:<input type="password" value="Mickey" > 
                                               Nom:<input type="text" value="Mickey"> 
-                                              Prènom:<input type="text" value="Mickey" >
+                                              Prénom:<input type="text" value="Mickey" >
                                           </div>
                                         </div>
                                     </div>
@@ -164,7 +164,7 @@
                                                     href="#collapseThree" 
                                                     aria-expanded="false" 
                                                     aria-controls="collapseThree">
-                                                    <i class="fa fa-envelope fa-fw" aria-hidden="true"></i>Mes contactes
+                                                    <i class="fa fa-envelope fa-fw" aria-hidden="true"></i>Mes contacts
                                                 </a>
                                             </h4>
                                         </div>
