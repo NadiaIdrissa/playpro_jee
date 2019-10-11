@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+                
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="static/css/styles.css" rel="stylesheet">
@@ -34,7 +35,7 @@
         @import url('https://fonts.googleapis.com/css?family=Anton');      
         body {
           background: #29AB87;
-          background-image: url("soccer.jpg");
+          background-image: url("static/images/soccer-933037_960_720.jpg");
           background-repeat: no-repeat;
           background-size: 100%;
 
@@ -80,11 +81,60 @@
              font-size: 1.4em;
           color: blue;   
         }
-
+.imagePreview {
+    width: 100%;
+    height: 180px;
+    background-position: center center;
+  background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+  background-color:#fff;
+    background-size: cover;
+  background-repeat:no-repeat;
+    display: inline-block;
+  box-shadow:0px -3px 6px 2px rgba(0,0,0,0.2);
+}
+.btn-primary
+{
+  display:block;
+  border-radius:0px;
+  box-shadow:0px 4px 6px 2px rgba(0,0,0,0.2);
+  margin-top:-5px;
+}
+.imgUp
+{
+  margin-bottom:15px;
+}
+.del
+{
+  position:absolute;
+  top:0px;
+  right:15px;
+  width:30px;
+  height:30px;
+  text-align:center;
+  line-height:30px;
+  background-color:rgba(255,255,255,0.6);
+  cursor:pointer;
+}
+.imgAdd
+{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background-color:#4bd7ef;
+  color:#fff;
+  box-shadow:0px 0px 2px 1px rgba(0,0,0,0.2);
+  text-align:center;
+  line-height:30px;
+  margin-top:0px;
+  cursor:pointer;
+  font-size:15px;
+}
     </style>
     <body>
         <%@include file="header.jsp" %>
         <form>
+            
+
             <div class="form-group">
                 <div class="col-lg-12">
                   <div class="container">
@@ -95,9 +145,13 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                   <h1>Membres</h1>
-                                </div>
+                                  
+                                  
 
-                                <div class="col-lg-9">
+                                </div>
+ 
+
+                                <div class="col-lg-7">
                                     <div class="input-group">
                                         <span class="input-group-btn">
                                            <button class="btn btn-default" type="button">
@@ -109,6 +163,16 @@
                             </div>
                             <!-- /.col-lg-6 -->
                         </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-2 imgUp">
+                                    <div class="imagePreview"></div>
+                                    <label class="btn btn-primary">
+                                    Télécharger<input type="file" id="t11" class="uploadFile img" disabled value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                                    </label>                                                                                         
+                                    </div><!-- col-2 --> 
+                                 </div><!-- row -->
+                            </div><!-- container --> 
                         <div class="row">
                             <div class="col-lg-12 col-xs-12">
                                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -127,10 +191,10 @@
                                         </div>
                                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                           <div class="panel-body">
-                                              Pseudo:<input type="text" value="Mickey">
-                                              Mot de passe:<input type="password" value="Mickey" > 
-                                              Nom:<input type="text" value="Mickey"> 
-                                              Prénom:<input type="text" value="Mickey" >
+                                              Pseudo:<input type="text" id="t1" placeholder="Miqui" disabled>
+                                              Mot de passe:<input type="password" id="t2" value="Mickey" disabled> 
+                                              Nom:<input type="text" value="Mickey" id="t3" disabled> 
+                                              Prènom:<input type="text" value="Mickey" id="t4" disabled>
                                           </div>
                                         </div>
                                     </div>
@@ -150,15 +214,15 @@
                                         </div>
                                         <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
                                             <div class="panel-body">
-                                                Sexe: <select>
+                                                Sexe: <select id="t5" disabled>
                                                           <option>Homme</option>
                                                           <option>Femme</option>
                                                           <option>Autre</option>                         
                                                       </select>
 
-                                                Type de membre:<input type="text" > 
-                                                Équipe:<input type="text" >
-                                                Photo:<input type="text" >                                                 
+                                                Type de membre:<input type="text" id="t6" disabled /> 
+                                                Équipe:<input type="text" id="t7" disabled/>
+                                                Date-Inscription:<input type="text" placeholder="jj/mm/aa" id="t9" disabled/>                                                 
                                             </div>
                                         </div>
                                     </div>
@@ -178,17 +242,18 @@
                                         </div>
                                         <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
                                             <div class="panel-body">
-                                                Courriel:<input type="text" placeholder="myemail@gmail.com" > 
-                                                Date-Inscription:<input type="text" placeholder="jj/mm/aa" > 
-                                                Date naissance:<input type="text" placeholder="my date" >                   
+                                                   Courriel:<input type="text" placeholder="myemail@gmail.com" id="t8" disabled/> 
+                                                   Date naissance: <input id="datepicker" width="276"   id="t10" disabled/>
+
                                             </div>
+                               
                                         </div>
                                     </div>
                                 </div>
                 
                                 <div class="btn-toolbar justify-content-between">
-                                    <button type="button" class="btn btn-outline-primary" disabled>Annuler</button>
-                                    <button type="button" class="btn btn-outline-success">Modifier</button>
+                                    <button type="button" class="btn btn-outline-primary" onclick="myFunction2()" id="sauv" disabled>Annuler</button>
+                                    <button type="button" class="btn btn-outline-success" onclick="myFunction()">Modifier</button>
                                 </div>
                                 <p>Information entièrement confidentielle</p>
                             </div>
@@ -197,8 +262,45 @@
                     </div>
         <!-- Col -->
                 </div>
+                    
     <!-- Container -->
         </form>
+
+        
+        <script type="text/javascript">
+    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
+</script>            
+        <script>
+            function myFunction(){
+            
+                document.getElementById("t1").disabled=false;
+                document.getElementById("t2").disabled=false;
+                document.getElementById("t3").disabled=false;
+                document.getElementById("t4").disabled=false;
+                document.getElementById("t5").disabled=false;
+                document.getElementById("t6").disabled=false;
+
+                document.getElementById("t11").disabled=false;
+                document.getElementById("sauv").innerHTML="Sauvegarde";
+                document.getElementById("sauv").disabled=false;
+            }
+        </script>
+        
+                <script>
+            function myFunction2(){
+            
+                document.getElementById("t1").disabled=true;
+                document.getElementById("t2").disabled=true;
+                document.getElementById("t3").disabled=true;
+                document.getElementById("t4").disabled=true;
+                document.getElementById("t5").disabled=true;
+                document.getElementById("t6").disabled=true;
+
+                document.getElementById("sauv").innerHTML="Annuler";
+                document.getElementById("sauv").disabled=true;
+                document.getElementById("t11").disabled=true;
+            }
+        </script>
     <script>
         $('.collapse').not(':first').collapse(); // Collapse all but the first row on the page.
 </script>
@@ -230,6 +332,36 @@
 }());
 // End Show and Hide Triggers
 </script>
+<script>
+$(".imgAdd").click(function(){
+  $(this).closest(".row").find('.imgAdd').before('<div class="col-sm-2 imgUp"><div class="imagePreview"></div><label class="btn btn-primary">Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;"></label><i class="fa fa-times del"></i></div>');
+});
+$(document).on("click", "i.del" , function() {
+	$(this).parent().remove();
+});
+$(function() {
+    $(document).on("change",".uploadFile", function()
+    {
+    		var uploadFile = $(this);
+        var files = !!this.files ? this.files : [];
+        if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+ 
+        if (/^image/.test( files[0].type)){ // only image file
+            var reader = new FileReader(); // instance of the FileReader
+            reader.readAsDataURL(files[0]); // read the local file
+ 
+            reader.onloadend = function(){ // set image data as background of div
+                //alert(uploadFile.closest(".upimage").find('.imagePreview').length);
+uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url("+this.result+")");
+            }
+        }
+      
+    });
+});
+</script>
 
+
+  
+        
     </body>
 </html>
