@@ -5,16 +5,20 @@
  */
 package com.playpro.mvc2.controleurs;
 
+import com.playpro.mvc2.controleurs.AbstractAction;
+
 /**
  *
- * @author toute
+ * @author nadym
  */
-public class SingupAction extends AbstractAction {
+public class IndexAction extends AbstractAction {
+
+    public IndexAction() {
+    }
 
     @Override
     public String execute() {
-
-        return "signup";
+        return "index";
     }
-
+    
 }

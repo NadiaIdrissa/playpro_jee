@@ -19,8 +19,10 @@
         <title>Inscription</title>
     </head>
     <body>
+        <%@include file="header.jsp" %>
         <div class="signup-form">
-            <form action="/examples/actions/confirmation.php" method="post">
+            <form action="" method="post" name="action" value="signup">
+                
                 <h2>Inscription</h2>
 
                 <p class="hint-text">Devenez membre de PlayPro !</p>
@@ -59,9 +61,10 @@
             debugger;
             var pass1 = $("#password").val();
             var pass2 = $("#confirm_password").val();
-            pass1 != pass2 ? document.getElementById("confirm_password").setCustomValidity("Passwords don't Match")
+            pass1 != pass2 ? document.getElementById("confirm_password").setCustomValidity("Les mots de passe sont différents")
                     : document.getElementById("confirm_password").setCustomValidity('');
         })
     </script>
+    <%@include file="footer.jsp" %>
 
 </html>
