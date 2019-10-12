@@ -19,9 +19,6 @@
           <a class="nav-link " href="?action=nousJoindre">Nous joindre</a>
         </li>
         
-        <li class="nav-item">
-            <a class="nav-link " href="?action=profil"><span class="glyphicon glyphicon-log-in"></span> Profil</a>
-        </li>
 
     </ul>
     <ul class="nav navbar-nav navbar-right">

@@ -121,7 +121,7 @@
 }
     </style>
     <body>
-        <%@include file="header.jsp" %>
+        <%@include file="headerMembre.jsp" %>
         <form>
             <br>
             <br>
