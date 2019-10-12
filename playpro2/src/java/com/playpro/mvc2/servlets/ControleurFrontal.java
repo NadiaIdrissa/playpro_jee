@@ -15,6 +15,7 @@ import com.playpro.mvc2.controleurs.Action;
 import com.playpro.mvc2.controleurs.DefaultAction;
 import com.playpro.mvc2.controleurs.SignupAction;
 import com.playpro.mvc2.controleurs.LoginAction;
+import com.playpro.mvc2.controleurs.LogoutAction;
 import com.playpro.mvc2.controleurs.ProfilAction;
 //import com.playpro.mvc2.controleurs.SoustractionAction;
 import java.io.IOException;
@@ -127,13 +128,5 @@ public class ControleurFrontal extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    private static class LogoutAction extends AbstractAction {
-
-        @Override
-        public String execute() {
-            return "index";
-        }
-    }
 
 }
