@@ -35,9 +35,6 @@
         <li class="nav-item">
             <a class="nav-link " href="?action=login"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link " href="?action=equipe"><i class="fas fa-sign-in-alt"></i> Équipe</a>
-        </li>
     </ul>
  
   </div>    
