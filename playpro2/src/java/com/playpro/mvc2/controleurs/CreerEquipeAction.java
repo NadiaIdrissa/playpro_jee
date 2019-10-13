@@ -9,10 +9,10 @@ package com.playpro.mvc2.controleurs;
  *
  * @author salpy
  */
-public class EquipeAction extends AbstractAction  {
+public class CreerEquipeAction extends AbstractAction  {
    @Override
     public String execute() {
-        return "equipe";
+        return "creerequipe";
     }
     
 }
