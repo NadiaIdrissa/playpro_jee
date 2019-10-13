@@ -36,9 +36,19 @@
     </head>
     <body>
         <%@include file="header.jsp" %>
-        <h1>Notre projet</h1>
+        <h1 style="
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            ">Notre projet</h1>
         <br>
-        <h3>PlayPro est une plateforme web qui permettra aux sportifs amateurs de sports collectifs de gérer leurs matchs. 
+        <h3 style="
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            ">PlayPro est une plateforme web qui permettra aux sportifs amateurs de sports collectifs de gérer leurs matchs. 
             Notre application sera un outil de communication entre amateurs qui offrira des services afin qu’ils puissent
             organiser la pratique de leurs sports collectifs préférés. Il servira également pour les sportifs professionnels :
             des outils leur seront offerts afin qu’ils puissent agrandir leur clientèle ou s’en créer une. 
