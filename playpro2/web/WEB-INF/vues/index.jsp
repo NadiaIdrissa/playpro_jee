@@ -6,10 +6,10 @@
     <head>
         <title>PlayPro</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!--        <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
-                <script src="static/bootstrap/js/bootstrap.min.js" ></script>
-                <link href="static/css/styles.css" rel="stylesheet">
-                <script src="static/js/gestion.js" ></script>-->
+<!--        <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
+        <script src="static/bootstrap/js/bootstrap.min.js" ></script>
+        <link href="static/css/styles.css" rel="stylesheet">
+        <script src="static/js/gestion.js" ></script>-->
         <link href="static/css/styles.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -18,67 +18,61 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <%if ((request.getSession().getAttribute("connected") == null) || ((boolean) request.getSession().getAttribute("connected") == false)) {%>
         <%@include file="header.jsp" %>
         <%@include file="carousel.jsp" %>
-
-        <%} else {%>
-        <%@include file="headerMembre.jsp" %>
-
-        <% }%>
-        <h1>
-            ACCUEIL
-            ACCUEIL
-            ACCUEIL
-            ACCUEIL
-            ACCUEIL
-            ACCUEIL
-            ACCUEIL
-            ACCUEIL
-            ACCUEIL
-            ACCUEIL
-            ACCUEIL
-
-        </h1>
-        <h2>uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-            uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
-
-        </h2>
-        <%@include file="footer.jsp" %>
-    </body>
+    <h1>
+        ACCUEIL
+        ACCUEIL
+        ACCUEIL
+        ACCUEIL
+        ACCUEIL
+        ACCUEIL
+        ACCUEIL
+        ACCUEIL
+        ACCUEIL
+        ACCUEIL
+        ACCUEIL
+        
+    </h1>
+    <h2>uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+        uhsnvusfrnhuwfchwsdcfiwcfiwcfinwncidcfrd
+                
+    </h2>
+    <%@include file="footer.jsp" %>
+</body>
 </html>

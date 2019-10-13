@@ -26,16 +26,15 @@ public class Membre {
     protected Equipe equipe;
     protected BufferedImage photo;
 
-    public Membre(String pseudo,String courriel, String mpd, String nom, String prenom) {
+    public Membre(String pseudo, String mpd, String nom, String prenom) {
         this.pseudo = pseudo;
         this.mpd = mpd;
         this.nom = nom;
         this.prenom = prenom;
-        this.courriel = courriel;
     }
 
     public Membre() {
-        this("ken","kalo@al.ca", "1234","Kalomba", "Kennedy");
+        this("ken", "1234","Kalomba", "Kennedy");
     
     }
     
