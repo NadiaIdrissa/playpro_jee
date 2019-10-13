@@ -34,10 +34,10 @@
                     <div class="row">
 
                         <div class="collapse multi-collapse" id="multiCollapseExample1">
-                            <div class="card card-body">
-                                <div class="checkbox float-left"><input type="checkbox" class="radio" value="1" name="fooby[1][]">Débutant</div>
-                                <div class="checkbox float-left"><input type="checkbox" class="radio" value="1" name="fooby[1][]">Intermédiaire</div>
-                                <div class="checkbox float-left"><input type="checkbox" class="radio" value="1" name="fooby[1][]">Expert</div>
+                            <div class="card card-body  text-center">
+                                <div class="checkbox"><input type="checkbox" class="radio" value="1" name="fooby[1][]">Débutant</div>
+                                <div class="checkbox"><input type="checkbox" class="radio" value="1" name="fooby[1][]">Intermédiaire</div>
+                                <div class="checkbox"><input type="checkbox" class="radio" value="1" name="fooby[1][]">Expert</div>
                             </div>
                         </div>
 
