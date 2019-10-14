@@ -7,87 +7,21 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
-        <script src="static/bootstrap/js/bootstrap.min.js" ></script>
-   
-        <script src="static/js/gestion.js" ></script>
+        <script src="static/bootstrap/jQuery/jquery-3.2.1.slim.min.js" ></script>
+  
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
+        <script src="static/bootstrap/js/bootstrap.min.js" ></script>            
         <link href="static/css/styleMembre.css" rel="stylesheet" type="text/css">
         <title>Membres</title>
         <!--a telecharger--><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <style>
-/* .card{
-  /*background-color: aqua !important;
-  background-color: rgba(255, 255, 255, .7)!important;
-  border: solid 2px #ccc;
-}
-.del
-{
+        <!--<link href="static/bootstrap/fontAwesome/css/all.min.css" rel="stylesheet" type="text/css">-->
+    </head>            
+<style>
 
-  
-  /*text-align:center;
-  
-  background-color:rgba(5, 79, 97,0.2);
-  
-}
-
-.imagePreview {
-    width: 100%;
-    height: 180px;
-    background-position: center center;
-  background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
-  background-color:#fff;
-    background-size: cover;
-  background-repeat:no-repeat;
-    display: inline-block;
-  box-shadow:0px -3px 6px 2px rgba(0,0,0,0.2);
-}
-.btn-primary
-{
-  display:block;
-  border-radius:0px;
-  box-shadow:0px 4px 6px 2px rgba(0,0,0,0.2);
-  margin-top:-5px;
-}
-.imgUp
-{
-  margin-bottom:15px;
-}
-
-.input-group {
-          margin-top: 20px;
-          margin-bottom: 10px;
-}
-
-.btn-default {
-          border: solid 1.5px #ccc;
-}
-.fa-search {
-  font-size: 1.3em;
-}
-.cardmargin{
-  margin-top: 8%;
-}
-
-.titreCard{
-  font-family: 'Anton', sans-serif;
-  color: white;
-  margin-top: 15%;
-}
-.panel-heading {
-          background-color:rgb(195, 194, 201)!important;
-        }
-#infPers{
-  color: black;
-}
-
- .fa-user,.fa-male,.fa-envelope  {
-      font-size: 1.0em;
-  color: blue;   
-}
-*/
-
-        </style>
+</style>
     <body>
         <div class="container">
         <br>  <p class="text-center">Header </p>
@@ -263,9 +197,7 @@
         <!--a telecharger-->
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <script>
         $(".imgAdd").click(function(){
           $(this).closest(".row").find('.imgAdd').before('<div class="col-sm-2 imgUp"><div class="imagePreview"></div><label class="btn btn-primary">Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;"></label><i class="fa fa-times del"></i></div>');
