@@ -105,7 +105,7 @@
 
     <script>
         function GestionBouton() {
-            StatutBouton = document.getElementById(joueur).disabled;
+            StatutBouton = document.getElementById(joueur);
 
             if (StatutBouton === true) {
                 document.getElementById(joueur).disabled = false;
