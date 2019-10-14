@@ -4,6 +4,7 @@
     Author     : Piaf
 --%>
 
+<%@page import="com.playpro.entities.Membre"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,6 +23,9 @@
     <style>
 
     </style>
+    <%
+        Membre m=(Membre)request.getSession().getAttribute("membre");
+    %>
     <body>
         <%@include file="header.jsp" %>
         <div class="container">
@@ -59,7 +63,7 @@
                                     </div>
                                 </div>
                                 <div class="titreCard text-center">
-                                    <h1>Bienvenue Alain!</h1>
+                                    <h1>Bienvenue <%=m.getPrenom()%>!</h1>
 
 
 
