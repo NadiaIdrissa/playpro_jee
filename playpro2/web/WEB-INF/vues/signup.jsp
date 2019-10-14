@@ -28,8 +28,8 @@
                 <p class="hint-text">Devenez membre de PlayPro !</p>
                 <div class="container text-center border-1">
                     <div class="container d-flex">
-                        <button class="btn btn-primary float-left" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Joueur</button>
-                        <button class="btn btn-primary float-right" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample2">Entrainer</button>
+                        <button id="joueur" class="btn btn-primary float-left" onclick="verif_button();" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Joueur</button>
+                        <button id="entraineur" class="btn btn-primary float-right" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample2">Entrainer</button>
                     </div>
                     <div class="row">
 
@@ -102,6 +102,27 @@
         });
 
     </script>
+
+    <script>
+        function GestionBouton() {
+            StatutBouton = document.getElementById(joueur).disabled;
+
+            if (StatutBouton === true) {
+                document.getElementById(joueur).disabled = false;
+                document.getElementById(entraineur).value = 'Désactiver le bouton';
+            } else {
+                document.getElementById(joueur).disabled = true;
+                document.getElementById(entraineur).value = 'Réactiver le bouton';
+            }
+        }
+
+    </script>
+    
+    
+<!--    <input type="button" onclick="GestionBouton(this.id, 'boutonmagique')" id="activationneur" value="Désactiver le bouton" /><br /><br />
+	<input type="button" id="boutonmagique" value="bouton changeant" />
+        -->
+        
     <%@include file="footer.jsp" %>
 
 </html>
