@@ -1,7 +1,7 @@
 <%-- 
     Document   : profil
     Created on : 2019-10-12, 18:30:53
-    Author     : Piaf
+    Author     : Alain
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -39,7 +39,7 @@
                                     <div class="card-body imgUp">
                                         <div class="imagePreview"></div>
                                         <label class="btn btn-primary">
-                                            Télécharger<input type="file"  class="uploadFile img"  value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                                            TÃ©lÃ©charger<input type="file"  class="uploadFile img"  value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
                                         </label>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                                 <button class="btn btn-default" type="button">
                                                     <i class="fa fa-search" aria-hidden="true"></i></button>
                                             </span>
-                                            <input type="search" id="accordion_search_bar" class="form-control" placeholder="Tapez l'information à modifier.">
+                                            <input type="search" id="accordion_search_bar" class="form-control" placeholder="Tapez l'information Ã  modifier.">
                                         </div>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
                                                     <input type="password" id="pwd" value="Mickey" disabled> 
                                                     <label for="nom">Nom:</label>
                                                     <input type="text" value="Mickey" id="nom" disabled> 
-                                                    <label for="pwd">Prénom:</label>
+                                                    <label for="pwd">PrÃ©nom:</label>
                                                     <input type="text" value="Mickey" id="prenom" disabled>
                                                 </div>
                                             </div>
@@ -130,7 +130,7 @@
                                                     </select><br>
                                                     <label for="tmemb">Type de membre:</label>
                                                     <input type="text" id="tmemb" disabled />
-                                                    <label for="equi">Équipe:</label>
+                                                    <label for="equi">Ãquipe:</label>
                                                     <input type="text" id="equi" disabled/>
                                                     <label for="dInsc">Date-Inscription:</label>
                                                     <input type="text" placeholder="jj/mm/aa" id="dInsc" disabled/>
@@ -167,7 +167,7 @@
                                                 <button type="button" class="btn btn-outline-primary" onclick="myFunction2()" id="sauv" disabled>Annuler</button>
                                                 <button type="button" class="btn btn-outline-success" onclick="myFunction()">Modifier</button>
                                             </div>
-                                            <p>Information entièrement confidentielle</p>
+                                            <p>Information entiÃ¨rement confidentielle</p>
                                         </div>
                                     </div>  <!--End row2-->         
                                 </div><!--End container fluid-->
