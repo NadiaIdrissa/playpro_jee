@@ -23,28 +23,9 @@
 
     </style>
     <body>
-<<<<<<< HEAD
         <div class="container">
             <br>  <p class="text-center">Header </p>
             <hr>
-=======
-        <%@include file="header.jsp" %>
-        <form>
-            
-
-            <div class="form-group">
-                <div class="col-lg-12">
-                  <div class="container">
-                    <div class="row">
-                      <section class="panel panel-default">
-                        <div class="panel-body">
-
-                            <div class="row">
-                                <div class="col-lg-3">
-                                  <h1>Membres</h1>
-                                  
-                                  
->>>>>>> 957459503fbd9307c729303e7d57beb500da464c
 
             <div class="card bg-light">
                 <article>
@@ -63,7 +44,6 @@
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
                             <div class="col-sm-12 col-md-6 col-lg-6 my-1">
 
                                 <div>
@@ -74,43 +54,6 @@
                                                     <i class="fa fa-search" aria-hidden="true"></i></button>
                                             </span>
                                             <input type="search" id="accordion_search_bar" class="form-control" placeholder="Tapez l'information à modifier.">
-=======
-                            <!-- /.col-lg-6 -->
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-2 imgUp">
-                                    <div class="imagePreview"></div>
-                                    <label class="btn btn-primary">
-                                    Télécharger<input type="file" id="t11" class="uploadFile img" disabled value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
-                                    </label>                                                                                         
-                                    </div><!-- col-2 --> 
-                                 </div><!-- row -->
-                            </div><!-- container --> 
-                        <div class="row">
-                            <div class="col-lg-12 col-xs-12">
-                                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default" id="collapseOne_container">
-                                        <div class="panel-heading" role="tab" id="headingOne">
-                                            <h4 class="panel-title">
-                                                <a role="button" 
-                                                   data-toggle="collapse" 
-                                                   data-parent="#accordion" 
-                                                   href="#collapseOne" 
-                                                   aria-expanded="true" 
-                                                   aria-controls="collapseOne">
-                                                 <i class="fa fa-user fa-fw" aria-hidden="true"></i>Informations Personnelles
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                          <div class="panel-body">
-                                              Pseudo:<input type="text" id="t1" placeholder="Miqui" disabled>
-                                              Mot de passe:<input type="password" id="t2" value="Mickey" disabled> 
-                                              Nom:<input type="text" value="Mickey" id="t3" disabled> 
-                                              Prènom:<input type="text" value="Mickey" id="t4" disabled>
-                                          </div>
->>>>>>> 957459503fbd9307c729303e7d57beb500da464c
                                         </div>
                                     </div>
                                 </div>
@@ -196,7 +139,6 @@
 
 
                                         </div>
-<<<<<<< HEAD
                                         <div class="panel panel-default" id="collapseThree_Container">
                                             <div class="panel-heading" role="tab" id="headingThree">
                                                 <h4 class="panel-title">
@@ -219,27 +161,6 @@
                                                     <input id="datepicker" width="276"   id="dateN" disabled/>
 
                                                 </div>
-=======
-                                    </div>
-                                    <div class="panel panel-default" id="collapseThree_Container">
-                                        <div class="panel-heading" role="tab" id="headingThree">
-                                            <h4 class="panel-title">
-                                                <a class="collapsed" 
-                                                    role="button" 
-                                                    data-toggle="collapse" 
-                                                    data-parent="#accordion" 
-                                                    href="#collapseThree" 
-                                                    aria-expanded="false" 
-                                                    aria-controls="collapseThree">
-                                                    <i class="fa fa-envelope fa-fw" aria-hidden="true"></i>Mes contacts
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
-                                            <div class="panel-body">
-                                                   Courriel:<input type="text" placeholder="myemail@gmail.com" id="t8" disabled/> 
-                                                   Date naissance: <input id="datepicker" width="276"   id="t10" disabled/>
->>>>>>> 957459503fbd9307c729303e7d57beb500da464c
 
                                             </div>
                                             <div class="btn-toolbar justify-content-between">
