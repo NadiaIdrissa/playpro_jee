@@ -23,6 +23,7 @@
 
     </style>
     <body>
+        <%@include file="header.jsp" %>
         <div class="container">
             <br>  <p class="text-center">Header </p>
             <hr>
