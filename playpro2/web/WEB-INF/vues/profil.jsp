@@ -13,13 +13,13 @@
         <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
         <script src="static/bootstrap/jQuery/jquery-3.2.1.slim.min.js" ></script>
 
-        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="static/bootstrap/js/bootstrap.min.js" ></script>            
         <link href="static/css/styleMembre.css" rel="stylesheet" type="text/css">
         <script src="static/js/profil.js" ></script>
         <title>Membres</title>
         <!--a telecharger--><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!--<link href="static/bootstrap/fontAwesome/css/all.min.css" rel="stylesheet" type="text/css">-->
+
     </head>            
     <style>
 
@@ -207,32 +207,7 @@
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
         <script>
-            $(".imgAdd").click(function () {
-                $(this).closest(".row").find('.imgAdd').before('<div class="col-sm-2 imgUp"><div class="imagePreview"></div><label class="btn btn-primary">Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;"></label><i class="fa fa-times del"></i></div>');
-            });
-            $(document).on("click", "i.del", function () {
-                $(this).parent().remove();
-            });
-            $(function () {
-                $(document).on("change", ".uploadFile", function ()
-                {
-                    var uploadFile = $(this);
-                    var files = !!this.files ? this.files : [];
-                    if (!files.length || !window.FileReader)
-                        return; // no file selected, or no FileReader support
 
-                    if (/^image/.test(files[0].type)) { // only image file
-                        var reader = new FileReader(); // instance of the FileReader
-                        reader.readAsDataURL(files[0]); // read the local file
-
-                        reader.onloadend = function () { // set image data as background of div
-                            //alert(uploadFile.closest(".upimage").find('.imagePreview').length);
-                            uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url(" + this.result + ")");
-                        }
-                    }
-
-                });
-            });
         </script>
 
 
