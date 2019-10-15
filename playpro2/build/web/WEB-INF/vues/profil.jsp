@@ -16,7 +16,8 @@
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
         <script src="static/bootstrap/js/bootstrap.min.js" ></script>            
         <link href="static/css/styleMembre.css" rel="stylesheet" type="text/css">
-        <title>Profil</title>
+        <script src="static/js/profil.js" ></script>
+        <title>Membres</title>
         <!--a telecharger--><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <!--<link href="static/bootstrap/fontAwesome/css/all.min.css" rel="stylesheet" type="text/css">-->
     </head>            
