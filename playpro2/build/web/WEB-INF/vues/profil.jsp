@@ -17,7 +17,7 @@
         <script src="static/bootstrap/js/bootstrap.min.js" ></script>            
         <link href="static/css/styleMembre.css" rel="stylesheet" type="text/css">
         <title>Profil</title>
-        <!--a telecharger--><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="static/bootstrap/fontAwesome/css/font-awesome.min.css">
         <!--<link href="static/bootstrap/fontAwesome/css/all.min.css" rel="stylesheet" type="text/css">-->
     </head>            
     <style>
