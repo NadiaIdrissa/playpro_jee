@@ -5,6 +5,7 @@
  */
 package com.playpro.mvc2.servlets;
 
+import com.playpro.mvc2.controleurs.ErrorAction;
 import com.playpro.mvc2.controleurs.IndexAction;
 import com.playpro.mvc2.controleurs.nousJoindreAction;
 import com.playpro.mvc2.controleurs.aProposAction;
@@ -79,6 +80,9 @@ public class ControleurFrontal extends HttpServlet {
                 break;
             case "creerEquipe":
                 action = new CreerEquipeAction();
+                break;
+            case "erreur":
+                action = new ErrorAction();
                 break;
 
             default:
