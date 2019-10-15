@@ -7,15 +7,15 @@ package com.playpro.mvc2.controleurs;
 
 /**
  *
- * @author salpy
+ * @author toute
  */
-public class EquipeAction extends AbstractAction  {
-   @Override
+public class LogoutAction extends AbstractAction{
+
+    @Override
     public String execute() {
-        return "equipe";
+        
+        request.getSession().invalidate();
+        return "index";
     }
     
 }
-
-    
-

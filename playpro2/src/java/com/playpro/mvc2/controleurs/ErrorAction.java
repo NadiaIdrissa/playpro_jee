@@ -5,17 +5,17 @@
  */
 package com.playpro.mvc2.controleurs;
 
+import com.playpro.mvc2.controleurs.AbstractAction;
+
 /**
  *
- * @author toute
+ * @author nadym
  */
-public class logoutAction extends AbstractAction{
+public class ErrorAction extends AbstractAction {
 
     @Override
     public String execute() {
-        
-        request.getSession().invalidate();
-        return "index";
+        return "erreur";
     }
     
 }
