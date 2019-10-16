@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <listener>
+        <description>Listener de l'application</description>
+        <listener-class>com.playpro.listeners.ApplicationListener</listener-class>
+    </listener>
+    <listener>
+        <description>Ecouteur de session</description>
+        <listener-class>com.playpro.listeners.SessionListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>com.playpro.mvc2.servlets.ControleurFrontal</servlet-class>
@@ -8,12 +16,10 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
-            <servlet-name>default</servlet-name>
-            <url-pattern>/static/*</url-pattern>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/static/*</url-pattern>
     </servlet-mapping>
-    
     <session-config>
         <session-timeout>
             30
