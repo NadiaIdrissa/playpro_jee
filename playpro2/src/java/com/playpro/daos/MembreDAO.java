@@ -25,10 +25,10 @@ public class MembreDAO {
     private static final Map<String, Membre> membres = new HashMap();
 
     static {  //bloc d'initialisation statique
-        membres.put("toto@al.ca", new Membre("toto","toto@al.ca", "toto","Totoli", "Riviere"));
-        membres.put("titi@al.ca", new Membre("titi","titi@al.ca", "titi", "Tim","Tapioka"));
-        membres.put("riva@al.ca", new Membre("riva","riva@al.ca","rive","Roly","Raliera"));
-        membres.put("mimi@al.ca", new Membre("mimi","mimi@al.ca","mimi","Mam","Mimiche"));
+        membres.put("toto@al.ca", new Membre("toto","toto@al.ca", "toto","Totoli", "Riviere","Homme"));
+        membres.put("titi@al.ca", new Membre("titi","titi@al.ca", "titi", "Tim","Tapioka","Homme"));
+        membres.put("riva@al.ca", new Membre("riva","riva@al.ca","rive","Roly","Raliera","Autre"));
+        membres.put("mimi@al.ca", new Membre("mimi","mimi@al.ca","mimi","Mam","Mimiche","Femme"));
     }
 
     public static List<String> getListeMembres() {
