@@ -13,8 +13,10 @@ import com.playpro.mvc2.servlets.*;
 import com.playpro.mvc2.controleurs.AbstractAction;
 import com.playpro.mvc2.controleurs.Action;
 import com.playpro.mvc2.controleurs.DefaultAction;
+import com.playpro.mvc2.controleurs.CreerEquipeAction;
 import com.playpro.mvc2.controleurs.SignupAction;
 import com.playpro.mvc2.controleurs.LoginAction;
+import com.playpro.mvc2.controleurs.LogoutAction;
 import com.playpro.mvc2.controleurs.ProfilAction;
 //import com.playpro.mvc2.controleurs.SoustractionAction;
 import java.io.IOException;
@@ -48,7 +50,7 @@ public class ControleurFrontal extends HttpServlet {
         if (actionAFaire == null) {
             actionAFaire = "";
         }
-        System.out.println("a faire = "+actionAFaire);
+        System.out.println("a faire = " + actionAFaire);
         switch (actionAFaire) {
             case "index":
                 action = new IndexAction();
@@ -60,29 +62,36 @@ public class ControleurFrontal extends HttpServlet {
             case "login":
                 action = new LoginAction();
                 break;
+            case "logout":
+                action = new LogoutAction();
+                break;
             case "profil":
                 action = new ProfilAction();
                 break;
             case "calendar":
                 action = new CalendarAction();
-                break;    
+                break;
             case "aPropos":
                 action = new aProposAction();
-                break;  
+                break;
             case "nousJoindre":
                 action = new nousJoindreAction();
-                break;  
-            default :
+                break;
+            case "creerEquipe":
+                action = new CreerEquipeAction();
+                break;
+
+            default:
                 action = new DefaultAction();
         }
         //On injecte dans le contrôleur les objets request et response :
         action.setRequest(request);
         action.setResponse(response);
-        
+
         vue = action.execute();
-        System.out.println("vue = "+vue);
+        System.out.println("vue = " + vue);
         System.out.println("-------------");
-        request.getRequestDispatcher("/WEB-INF/vues/"+vue+".jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/vues/" + vue + ".jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
