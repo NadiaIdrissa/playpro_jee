@@ -44,15 +44,15 @@
                 <div class="container d-flex btn-floating">
 
                     <!--<button onclick="document.getElementById('id01').style.display = 'block'" class="btn btn-primary float-left" style="width:auto;">Joueur</button>-->
-                    
+
                     <!--<button onclick="document.getElementById('id02').style.display = 'block'" class="btn btn-primary float-right" style="width:auto;">Entraineur</button>-->
-                
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#id01">
-  Joueur
-</button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#id02">
-  Entraineur
-</button>
+
+                    <button id='btnJ' onclick="cacherE()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#id02">
+                        Joueur
+                    </button>
+                    <button id='btnE' onclick="cacherJ()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#id02">
+                        Entraineur
+                    </button>
                 </div>            
             </div>
         </div>
@@ -60,306 +60,6 @@
 
 
         <%@include file="modals.jsp" %>
-        <!--<button onclick="document.getElementById('id01').style.display = 'block'" style="width:auto;">Sign Up</button>-->
-
-
-        <!--        <div class="container text-center border-1">
-                    <div class="container d-flex">
-                        <button onclick="myFunction()" id="joueur" class="btn btn-primary float-left"  type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Joueur</button>
-                        <button onclick="myFunction()" id="entraineur" class="btn btn-primary float-right"  type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample2" style="">Entrainer</button>
-        
-                        <button id="joueur" class="btn btn-primary float-left afficher-joueur"  type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Joueur</button>
-                        <button  id="entraineur" class="btn btn-primary float-right"  type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample2" style="">Entrainer</button>
-        
-        
-                    </div>-->
-
-
-
-
-
-
-
-
-
-
-        <!--        <div id="id02" class="modal" tabindex="-1" role="dialog">
-                    <span onclick="document.getElementById('id02').style.display = 'none'" class="close" title="Close Modal">&times;</span>
-                    <form class="modal-content" action="">
-        
-                        <div class="container">
-                            <form action="">
-                                <div class="row">
-                                    <h2 style="text-align:center">Login with Social Media or Manually</h2>
-                                    <div class="vl">
-                                        <span class="vl-innertext">or</span>
-                                    </div>
-        
-                                    <div class="col">
-                                        <a href="#" class="fb btn">
-                                            <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                                        </a>
-                                        <a href="#" class="twitter btn">
-                                            <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-                                        </a>
-                                        <a href="#" class="google btn"><i class="fa fa-google fa-fw">
-                                            </i> Login with Google+
-                                        </a>
-                                    </div>
-        
-                                    <div class="col">
-                                        <div class="hide-md-lg">
-                                            <p>Or sign in manually:</p>
-                                        </div>
-        
-                                        <input type="text" name="username" placeholder="hello" required>
-                                        <input type="password" name="password" placeholder="hello" required>
-                                        <input type="password" name="password" placeholder="hello" required>
-                                        <input type="password" name="password" placeholder="hello" required>
-                                        <input type="password" name="password" placeholder="hello" required>
-                                        <input type="submit" value="Login">
-                                    </div>
-        
-                                </div>
-                            </form>
-                        </div>
-        
-                        <div class="bottom-container">
-                            <div class="row">
-                                <div class="col">
-                                    <a href="#" style="color:white" class="btn">Sign up</a>
-                                </div>
-                                <div class="col">
-                                    <a href="#" style="color:white" class="btn">Forgot password?</a>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>-->
-
-
-
-
-
-
-
-        <!--        <div id="id01" class="modal" tabindex="-1" role="dialog">
-                    <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
-                    <form class="modal-content" action="">
-        
-                        <div class="container">
-                            <form action="">
-                                <div class="row">
-                                    <h2 style="text-align:center">Login with Social Media or Manually</h2>
-                                    <div class="vl">
-                                        <span class="vl-innertext">or</span>
-                                    </div>
-        
-                                    <div class="col">
-                                        <a href="#" class="fb btn">
-                                            <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                                        </a>
-                                        <a href="#" class="twitter btn">
-                                            <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-                                        </a>
-                                        <a href="#" class="google btn"><i class="fa fa-google fa-fw">
-                                            </i> Login with Google+
-                                        </a>
-                                    </div>
-        
-                                    <div class="col">
-                                        <div class="hide-md-lg">
-                                            <p>Or sign in manually:</p>
-                                        </div>
-        
-                                        <input type="text" name="username" placeholder="Username" required>
-                                        <input type="password" name="password" placeholder="Password" required>
-                                        <input type="password" name="password" placeholder="Password" required>
-                                        <input type="password" name="password" placeholder="Password" required>
-                                        <input type="password" name="password" placeholder="Password" required>
-                                        <input type="submit" value="Login">
-                                    </div>
-        
-                                </div>
-                            </form>
-                        </div>
-        
-                        <div class="bottom-container">
-                            <div class="row">
-                                <div class="col">
-                                    <a href="#" style="color:white" class="btn">Sign up</a>
-                                </div>
-                                <div class="col">
-                                    <a href="#" style="color:white" class="btn">Forgot password?</a>
-                                </div>
-                            </div>
-                        </div>-->
-
-        <!--                <div class="container">
-                            <h1>Sign Up</h1>
-                            <p>Please fill in this form to create an account.</p>
-                            <hr>
-                            <label for="email"><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" name="email" required>
-        
-                            <label for="psw"><b>Password</b></label>
-                            <input type="password" placeholder="Enter Password" name="psw" required>
-        
-                            <label for="psw-repeat"><b>Repeat Password</b></label>
-                            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-        
-                            <label>
-                                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                            </label>
-        
-                            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-        
-                            <div class="clearfix">
-                                <button type="button" onclick="document.getElementById('id01').style.display = 'none'" class="cancelbtn">Cancel</button>
-                                <button type="submit" class="signupbtn">Sign Up</button>
-                            </div>
-                        </div>-->
-        <!--            </form>
-                </div>-->
-
-        <!--        <div class="signup-form">
-        
-                    <form action="" method="post" name="action" value="signup">
-        
-                        <h2>Inscription</h2>
-                        <p class="hint-text">Devenez membre de PlayPro !</p>
-        
-        
-                        <div class="container text-center border-1">
-                            <div class="container d-flex">
-        
-                                <button id="joueur" class="btn btn-primary float-left afficher-joueur"  type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Joueur</button>
-                                <button  id="entraineur" class="btn btn-primary float-right"  type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample2" style="">Entrainer</button>
-        
-        
-        
-                            </div>
-        
-                            <div class="login-form hide afficher-joueur">
-                                <input type="text" class="form-control" name="prenom" placeholder="Nom" required="required">
-                            </div>
-        
-        
-                    </form>
-        
-        
-                </div>-->
-
-
-        <!--<div class="signup-form">-->
-
-
-
-
-
-        <!--            <form action="" method="post" name="action" value="signup">
-        
-                        <h2>Inscription</h2>
-        
-                        <p class="hint-text">Devenez membre de PlayPro !</p>-->
-
-        <!--                <div id="accordion">
-                            <h3>Joueur</h3>
-                            <div>
-                                <p>
-                                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                                </p>
-                            </div>
-                            <h3>Entraineur</h3>
-                            <div>
-                                <p>
-                                    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                                    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                                    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                                    suscipit faucibus urna.
-                                </p>
-                            </div>
-                            
-                            <h3>Administrateur</h3>
-                            <div>
-                                <p>
-                                    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                                    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                                    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                                    suscipit faucibus urna.
-                                </p>
-                            </div>
-                        </div>-->
-
-
-
-        <!--
-                        <div class="container text-center border-1">
-                            <div class="container d-flex">
-                                                        <button onclick="myFunction()" id="joueur" class="btn btn-primary float-left"  type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Joueur</button>
-                                                        <button onclick="myFunction()" id="entraineur" class="btn btn-primary float-right"  type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample2" style="">Entrainer</button>
-        
-                                <button id="joueur" class="btn btn-primary float-left afficher-joueur"  type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Joueur</button>
-                                <button  id="entraineur" class="btn btn-primary float-right"  type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample2" style="">Entrainer</button>
-        
-        
-                            </div>
-                            <div class="row">
-        
-                                <div class="collapse multi-collapse" id="multiCollapseExample1">
-                                    <div class="card card-body  text-center">
-                                        <div class="checkbox"><input type="checkbox" class="radio" value="1" name="fooby[1][]">Débutant</div>
-                                        <div class="checkbox"><input type="checkbox" class="radio" value="1" name="fooby[1][]">Intermédiaire</div>
-                                        <div class="checkbox"><input type="checkbox" class="radio" value="1" name="fooby[1][]">Expert</div>
-                                    </div>
-                                </div>
-        
-                            </div>
-                            <div class="row">
-                                <div class="collapse multi-collapse" id="multiCollapseExample2">
-                                    <div class="card card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-        
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="prenom" placeholder="Nom" required="required">
-                        </div>
-        
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="nom" placeholder="Prénom" required="required">      	
-                        </div>
-        
-                        <div class="form-group">
-                            <input type="email" class="form-control" name="email" placeholder="Courriel" required="required">
-                        </div>
-        
-                        <div class="form-group">
-                            <input id="password" type="password" class="form-control" name="password" placeholder="Mot de passe" required="required">
-                        </div>
-        
-                        <div class="form-group">
-                            <input id="confirm_password" type="password" class="form-control" name="confirm_password" placeholder="Confirmez le mot de passe" required="required">
-                        </div> 
-        
-                        <div class="form-group">
-                            <button id="commit" type="submit" class="btn btn-success btn-lg btn-block">S'inscrire</button>
-                        </div>
-                    </form>-->
-
-        <!--<div class="text-center">Vous avez déjà un compte ? <a href="/login_view.jsp">Connectez-vous</a></div>-->
-        <!--</div>-->
-
-
-
-
-
 
 
 
@@ -367,7 +67,6 @@
     <script>
 
         $("#commit").on("click", function validatePassword() {
-            debugger;
             var pass1 = $("#password").val();
             var pass2 = $("#confirm_password").val();
             pass1 != pass2 ? document.getElementById("confirm_password").setCustomValidity("Les mots de passe sont différents")
@@ -375,24 +74,72 @@
         })
     </script>
 
+    <script>
+//        var sport = document.getElementById("sport");
 
+        function  cacherE() {
+            var niveau = document.getElementById("niveau");
+            var sport = document.getElementById("sport");
 
+            if (sport.style.display === "none") {
 
-<!--    <script>
-        // afficher modal
-        var modal = document.getElementById('id01');
-        var modal2 = document.getElementById('id02');
-        // fermer onclick n'importe où
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            } else {
+                sport.style.display = "none";
+                sport.children[0].required = false
             }
+            if (niveau.style.display === "none") {
+                niveau.style.display = "block";
+                niveau.children[0].children[1].required = true;
+            } else {
 
-            if (event.target == modal2) {
-                modal2.style.display = "none";
             }
         }
-    </script>-->
+        function  cacherJ() {
+            var niveau = document.getElementById("niveau");
+            var sport = document.getElementById("sport");
+            
+
+            if (niveau.style.display === "none") {
+
+            } else {
+                niveau.style.display = "none";
+                niveau.children[0].children[1].required = false;
+            }
+            if (sport.style.display === "none") {
+                sport.style.display = "block";
+                sport.children[0].required = true;
+            } else {
+
+            }
+        }
+
+
+
+    </script>
+
+
+
+
+
+    <script>
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+// Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 
 
     <%@include file="footer.jsp" %>
