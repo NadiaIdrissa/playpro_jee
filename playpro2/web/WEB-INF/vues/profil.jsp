@@ -64,7 +64,7 @@
                             <div class="titreCard text-center">
                                 <h1>Bienvenue</h1>
                             </div>
-<<<<<<< HEAD
+
                         </div><!--End row-->
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12"> 
@@ -145,7 +145,6 @@
                                                         <i class="fa fa-envelope fa-fw" aria-hidden="true"></i></i><span id="infPers">Mes contacts</span>
                                                     </a>
                                                 </h4>
-=======
                         </div>
                         
                         <div class="col-sm-12 col-md-6 col-lg-3 my-1">
@@ -218,7 +217,7 @@
                                                 <input type="text" id="equi" disabled/>
                                                 <label for="dInsc">Date-Inscription:</label>
                                                 <input type="text" placeholder="jj/mm/aa" id="dInsc" disabled/>
->>>>>>> 1bfa7a46c103c280c9530aec0fe84721fb6e7eb7
+
                                             </div>
                                         </div>
                                     </div>
@@ -246,13 +245,13 @@
 
                                             </div>
                                         </div>
-<<<<<<< HEAD
+
 
 
 
                                     </div>  <!--End row2-->         
                                 </div><!--End container fluid-->
-=======
+
                                         <div class="btn-toolbar justify-content-between">
                                             <button type="button" class="btn btn-outline-primary" onclick="myFunction2()" id="sauv" disabled>Annuler</button>
                                             <button type="button" class="btn btn-outline-success" onclick="myFunction()">Modifier</button>
@@ -261,7 +260,7 @@
                                     </div>
                                     
                                 </div>  <!--End row2-->         
->>>>>>> 1bfa7a46c103c280c9530aec0fe84721fb6e7eb7
+
                             </div><!--End container fluid-->
                         </div><!--End container fluid-->
                     </div><!--End container fluid-->
@@ -315,7 +314,7 @@
                     };
                 };
 
-<<<<<<< HEAD
+
         <script>
 // This section makes the search work.
             (function () {
@@ -344,11 +343,11 @@
             }());
 // End Show and Hide Triggers
         </script>
-=======
+
             });
         });
     </script>
->>>>>>> 1bfa7a46c103c280c9530aec0fe84721fb6e7eb7
+
 
 
 </body>
