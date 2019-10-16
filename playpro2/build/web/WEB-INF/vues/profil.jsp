@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                                 <div class="titreCard text-center">
-                                    <h1>Bienvenue <%=m.getNom()%>!</h1>
+                                    <h1>Bienvenue <%=m.getPseudo()%>!</h1>
                                 </div>
                             </div>
 
@@ -98,13 +98,13 @@
                                             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                                 <div class="panel-body">
                                                     <label for="pseudo">Pseudo:</label>
-                                                    <input type="text" id="pseudo" placeholder="Miqui" disabled><br>
+                                                    <input type="text" id="pseudo" placeholder="<%= m.getPseudo()%>" disabled><br>
                                                     <label for="pwd">Mot de passe:</label>
-                                                    <input type="password" id="pwd" value="Mickey" disabled> 
+                                                    <input type="password" id="pwd" value="<%= m.getMpd()%>" disabled> 
                                                     <label for="nom">Nom:</label>
-                                                    <input type="text" value="Mickey" id="nom" disabled> 
+                                                    <input type="text" placeholder="<%= m.getNom()%>" id="nom" disabled> 
                                                     <label for="pwd">Prénom:</label>
-                                                    <input type="text" value="Mickey" id="prenom" disabled>
+                                                    <input type="text" placeholder="<%= m.getPrenom()%>" id="prenom" disabled>
                                                 </div>
                                             </div>
                                         </div> 
@@ -128,9 +128,11 @@
                                                     <label for="sex">Sexe:</label>
 
                                                     <select id="sex">
-                                                        <option>Homme</option>
-                                                        <option>Femme</option>
-                                                        <option>Autre</option>                         
+                                                        <option value=""disabled selected><%=m.getSexe()%>
+                                                        <option value="1">Homme</option>
+                                                        <option value="2">Femme</option>
+                                                        <option value="3">Autre</option> 
+                                                        
                                                     </select><br>
                                                     <label for="tmemb">Type de membre:</label>
                                                     <input type="text" id="tmemb" disabled />
@@ -160,7 +162,7 @@
                                             <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
                                                 <div class="panel-body">
                                                     <label for="email">Courriel:</label>
-                                                    <input type="text" placeholder="myemail@gmail.com" id="email" disabled/> 
+                                                    <input type="text" placeholder="<%=m.getCourriel()%>" id="email" disabled/> 
                                                     <label for="dateN">Date de naissance:</label>
                                                     <input id="datepicker" width="276"   id="dateN" disabled/>
 
