@@ -19,9 +19,6 @@
           <a class="nav-link " href="?action=nousJoindre">Nous joindre</a>
         </li>
         
-        <li class="nav-item">
-            <a class="nav-link " href="?action=profil"><span class="glyphicon glyphicon-log-in"></span> Profil</a>
-        </li>
 
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -30,10 +27,13 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
         </form>        
         <li class="nav-item">
-            <a class="nav-link " href="?action=signup"><span class="glyphicon glyphicon-user"></span>Sign Up  </a>      
+            <a class="nav-link " href="?action=signup"><span class="glyphicon glyphicon-user"></span> S'incrire </a>      
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="?action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+            <a class="nav-link " href="?action=login"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="?action=creerEquipe"><i class="fas fa-sign-in-alt"></i>Créer Équipe</a>
         </li>
     </ul>
  
