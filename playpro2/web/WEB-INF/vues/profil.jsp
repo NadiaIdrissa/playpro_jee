@@ -25,7 +25,7 @@
 
     </style>
     <%
-        Membre m=(Membre)request.getSession().getAttribute("membre");
+        Membre m = (Membre) request.getSession().getAttribute("membre");
     %>
     <body>
         <%@include file="header.jsp" %>
@@ -113,6 +113,8 @@
                                                     <input type="text" value="Mickey" id="prenom" disabled>
                                                 </div>
                                             </div>
+                                        </div> <!--voir-->
+                                        <div class="panel panel-default" id="collapseThree_container">
                                             <div class="panel-heading" role="tab" id="headingTwo">
                                                 <h4 class="panel-title">
                                                     <a role="button" 
@@ -142,9 +144,9 @@
                                                     <input type="text" placeholder="jj/mm/aa" id="dInsc" disabled/>
                                                 </div>
                                             </div>
+                                        </div> 
 
-
-                                        </div>
+                                        <!--ici>-->
                                         <div class="panel panel-default" id="collapseThree_Container">
                                             <div class="panel-heading" role="tab" id="headingThree">
                                                 <h4 class="panel-title">
@@ -175,6 +177,9 @@
                                             </div>
                                             <p>Information entièrement confidentielle</p>
                                         </div>
+
+
+
                                     </div>  <!--End row2-->         
                                 </div><!--End container fluid-->
                             </div><!--End container fluid-->
@@ -208,30 +213,30 @@
 
         <script>
 // This section makes the search work.
-(function() {
-  var searchTerm, panelContainerId;
-  $('#accordion_search_bar').on('change keyup', function() {
-    searchTerm = $(this).val();
-    $('#accordion > .panel').each(function() {
-      panelContainerId = '#' + $(this).attr('id');
+            (function () {
+                var searchTerm, panelContainerId;
+                $('#accordion_search_bar').on('change keyup', function () {
+                    searchTerm = $(this).val();
+                    $('#accordion > .panel').each(function () {
+                        panelContainerId = '#' + $(this).attr('id');
 
-      // Makes search to be case insesitive 
-      $.extend($.expr[':'], {
-        'contains': function(elem, i, match, array) {
-          return (elem.textContent || elem.innerText || '').toLowerCase()
-            .indexOf((match[3] || "").toLowerCase()) >= 0;
-        }
-      });
+                        // Makes search to be case insesitive 
+                        $.extend($.expr[':'], {
+                            'contains': function (elem, i, match, array) {
+                                return (elem.textContent || elem.innerText || '').toLowerCase()
+                                        .indexOf((match[3] || "").toLowerCase()) >= 0;
+                            }
+                        });
 
-      // END Makes search to be case insesitive
+                        // END Makes search to be case insesitive
 
-      // Show and Hide Triggers
-      $(panelContainerId + ':not(:contains(' + searchTerm + '))').hide(); //Hide the rows that done contain the search query.
-      $(panelContainerId + ':contains(' + searchTerm + ')').show(); //Show the rows that do!
+                        // Show and Hide Triggers
+                        $(panelContainerId + ':not(:contains(' + searchTerm + '))').hide(); //Hide the rows that done contain the search query.
+                        $(panelContainerId + ':contains(' + searchTerm + ')').show(); //Show the rows that do!
 
-    });
-  });
-}());
+                    });
+                });
+            }());
 // End Show and Hide Triggers
         </script>
 
