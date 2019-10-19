@@ -17,7 +17,7 @@ public class Membre {
     protected int idMembre;
     protected String pseudo;
     protected String mpd;
-    protected String sexe;
+    protected Sexe sexe;
     protected String nom;
     protected String prenom;
     protected int anneeNaissance;
@@ -26,7 +26,7 @@ public class Membre {
     protected Equipe equipe;
     protected BufferedImage photo;
 
-    public Membre(String pseudo,String courriel, String mpd, String nom, String prenom,String sexe) {
+    public Membre(String pseudo,String courriel, String mpd, String nom, String prenom,Sexe sexe) {
         this.pseudo = pseudo;
         this.mpd = mpd;
         this.nom = nom;
@@ -36,7 +36,7 @@ public class Membre {
     }
 
     public Membre() {
-        this("ken","kalo@al.ca", "1234","Kalomba", "Kennedy","sexe");
+        this("ken","kalo@al.ca", "1234","Kalomba", "Kennedy",Sexe.Homme);
     
     }
     
@@ -66,11 +66,11 @@ public class Membre {
         this.mpd = mpd;
     }
 
-    public String getSexe() {
+    public Sexe getSexe() {
         return sexe;
     }
 
-    public void setSexe(String sexe) {
+    public void setSexe(Sexe sexe) {
         this.sexe = sexe;
     }
 
