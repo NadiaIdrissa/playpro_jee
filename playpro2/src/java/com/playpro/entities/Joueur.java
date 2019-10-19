@@ -13,8 +13,8 @@ public class Joueur extends Membre {
 
     private Niveau niveau;
 
-    public Joueur(String pseudo, String courriel, String mpd, String nom, String prenom, Niveau niveau) {
-        super(pseudo, courriel, mpd, nom, prenom);
+    public Joueur(String pseudo, String courriel, String mpd, String nom, String prenom, Niveau niveau, Sexe sexe) {
+        super(pseudo, courriel, mpd, nom, prenom, sexe);
         this.niveau = niveau;
     }
 
