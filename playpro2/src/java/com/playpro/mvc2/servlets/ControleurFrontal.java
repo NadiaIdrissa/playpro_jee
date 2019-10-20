@@ -91,6 +91,8 @@ public class ControleurFrontal extends HttpServlet {
         //On injecte dans le contrôleur les objets request et response :
         action.setRequest(request);
         action.setResponse(response);
+        
+        
 
         vue = action.execute();
         System.out.println("vue = " + vue);

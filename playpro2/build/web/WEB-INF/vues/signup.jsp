@@ -98,10 +98,10 @@
             }
         }
         function  cacherJ() {
-            
+
             var niveau = document.getElementById("niveau");
             var sport = document.getElementById("sport");
-            
+
 
             if (niveau.style.display === "none") {
 
@@ -119,9 +119,6 @@
 
             }
         }
-
-
-
     </script>
 
 
