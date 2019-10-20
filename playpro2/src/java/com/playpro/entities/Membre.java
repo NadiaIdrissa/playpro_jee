@@ -14,7 +14,7 @@ import java.time.LocalDate;
  */
 public class Membre {
 
-    protected int idMembre;
+    protected String id;
     protected String pseudo;
     protected String mpd;
     protected Sexe sexe;
@@ -42,12 +42,12 @@ public class Membre {
     
     
 
-    public int getIdMembre() {
-        return idMembre;
+    public String getId() {
+        return id;
     }
 
-    public void setIdMembre(int idMembre) {
-        this.idMembre = idMembre;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getPseudo() {
@@ -129,6 +129,13 @@ public class Membre {
     public void setPhoto(BufferedImage photo) {
         this.photo = photo;
     }
+
+    @Override
+    public String toString() {
+        return "Membre{" + "id=" + id + ", pseudo=" + pseudo + ", mpd=" + mpd + ", nom=" + nom + ", prenom=" + prenom + ", courriel=" + courriel + '}';
+    }
+    
+    
     
 
 
