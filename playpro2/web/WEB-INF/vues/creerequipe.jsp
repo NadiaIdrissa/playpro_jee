@@ -4,6 +4,10 @@
     Author     : salpy
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.playpro.entities.Membre"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -91,6 +95,16 @@
                     </div> 
                 </div>
             </div> 
+
+            <%
+                List<Membre> liste = new LinkedList<Membre>();
+                liste = (LinkedList<Membre>) request.getAttribute("Membres");
+                
+                for (Object elem : liste) {
+                    out.println(elem);
+                }
+                
+            %>
 
 
 
