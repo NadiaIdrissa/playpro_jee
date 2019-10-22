@@ -84,37 +84,41 @@
             if (sport.style.display === "none") {
 
             } else {
+                debugger
                 sport.style.display = "none";
+                ($("img")[1]).style.display = "none";
                 sport.children[0].required = false
             }
             if (niveau.style.display === "none") {
                 niveau.style.display = "block";
+                ($("img")[0]).style.display = "block";
                 niveau.children[0].children[1].required = true;
             } else {
 
             }
         }
         function  cacherJ() {
+
             var niveau = document.getElementById("niveau");
             var sport = document.getElementById("sport");
-            
+
 
             if (niveau.style.display === "none") {
 
             } else {
+                debugger
                 niveau.style.display = "none";
+                ($("img")[0]).style.display = "none";
                 niveau.children[0].children[1].required = false;
             }
             if (sport.style.display === "none") {
                 sport.style.display = "block";
+                ($("img")[1]).style.display = "block";
                 sport.children[0].required = true;
             } else {
 
             }
         }
-
-
-
     </script>
 
 

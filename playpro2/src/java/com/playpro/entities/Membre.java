@@ -14,10 +14,10 @@ import java.time.LocalDate;
  */
 public class Membre {
 
-    protected int idMembre;
+    protected String id;
     protected String pseudo;
     protected String mpd;
-    protected String sexe;
+    protected Sexe sexe;
     protected String nom;
     protected String prenom;
     protected int anneeNaissance;
@@ -26,27 +26,28 @@ public class Membre {
     protected Equipe equipe;
     protected BufferedImage photo;
 
-    public Membre(String pseudo,String courriel, String mpd, String nom, String prenom) {
+    public Membre(String pseudo,String courriel, String mpd, String nom, String prenom,Sexe sexe) {
         this.pseudo = pseudo;
         this.mpd = mpd;
         this.nom = nom;
         this.prenom = prenom;
         this.courriel = courriel;
+        this.sexe= sexe;
     }
 
     public Membre() {
-        this("ken","kalo@al.ca", "1234","Kalomba", "Kennedy");
+        this("ken","kalo@al.ca", "1234","Kalomba", "Kennedy",Sexe.Homme);
     
     }
     
     
 
-    public int getIdMembre() {
-        return idMembre;
+    public String getId() {
+        return id;
     }
 
-    public void setIdMembre(int idMembre) {
-        this.idMembre = idMembre;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getPseudo() {
@@ -65,11 +66,11 @@ public class Membre {
         this.mpd = mpd;
     }
 
-    public String getSexe() {
+    public Sexe getSexe() {
         return sexe;
     }
 
-    public void setSexe(String sexe) {
+    public void setSexe(Sexe sexe) {
         this.sexe = sexe;
     }
 
@@ -128,7 +129,14 @@ public class Membre {
     public void setPhoto(BufferedImage photo) {
         this.photo = photo;
     }
+
+    @Override
+    public String toString() {
+        return "Membre{" + "id=" + id + ", pseudo=" + pseudo + ", mpd=" + mpd + ", nom=" + nom + ", prenom=" + prenom + ", courriel=" + courriel + '}';
+    }
     
     
+    
+
 
 }

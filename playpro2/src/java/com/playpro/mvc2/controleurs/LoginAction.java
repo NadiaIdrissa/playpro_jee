@@ -26,7 +26,7 @@ public class LoginAction extends AbstractAction {
             System.out.println("Infos inexistantes");
             return "login";
         } else {
-            membre = dao.getMembre(email);
+            //membre = dao.getMembre(email);
             if (membre == null) {
 
             } else {
