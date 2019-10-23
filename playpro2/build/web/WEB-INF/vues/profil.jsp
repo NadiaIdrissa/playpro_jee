@@ -28,6 +28,7 @@
         Membre m = (Membre) request.getSession().getAttribute("membre");
     %>
     <body>
+        <!-- commentaire-->
         <%@include file="header.jsp" %>
         <div class="container">
             <br>  <p class="text-center">Header</p>
