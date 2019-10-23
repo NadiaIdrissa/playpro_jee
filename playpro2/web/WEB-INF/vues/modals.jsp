@@ -4,6 +4,7 @@
     Author     : younes-dilali
 --%>
 
+<%@page import="com.playpro.entities.Sexe"%>
 <%@page import="com.playpro.entities.Niveau"%>
 <!--<div id="id01" class="modal"  aria-labelledby="exampleModalLabel" aria-hidden="true"> 
     <div class="modal-dialog-centered" role="document">
@@ -81,7 +82,8 @@
             <div class="modal-header">
                 <!--<h5 class="modal-title text-center" id="exampleModalLabel" >JOUEUR</h5>-->
                 <div class="text-center">
-                    <img src="static/images/joueur.png" class="rounded" alt="...">
+                    <img id='imagejoueur' src="static/images/joueur.png" class="rounded" alt="...">
+                    <img id='imageentraineur' src="static/images/entraineur.png" class="rounded" alt="...">
                 </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -143,12 +145,25 @@
                                         </div>
                                         <div class="col-md-12 mb-12">
 
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
+                                            <div class="input-group" >
+                                                <div class="input-group-prepend" style='padding-top: 5px' >
                                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                                                 </div>
-                                                <input type="text" name='pseudo' class="form-control" id="validationCustomUsername" placeholder="Pseudo"
-                                                       aria-describedby="inputGroupPrepend" required>
+                                                    <input type="text" name='pseudo' class="form-control" id="validationCustomUsername" placeholder="Pseudo"
+                                                           aria-describedby="inputGroupPrepend" required>
+                                                <div class="input-group-prepend" style='padding-top: 5px'>
+                                                    <select class="form-control" name="sexe" required>
+                                                        <option value='' >Choisissez...</option>
+
+                                                        <%for (Sexe s : Sexe.values()) {%>
+
+                                                        <option value='<%=s.toString()%>'><%=s.toString()%></option>
+
+                                                        <%}%>
+
+                                                    </select>
+                                                </div>
+
                                                 <div class="invalid-feedback">
                                                     Champs recquis.
                                                 </div>
