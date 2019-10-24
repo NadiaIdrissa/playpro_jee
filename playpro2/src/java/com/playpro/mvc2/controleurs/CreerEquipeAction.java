@@ -19,12 +19,15 @@ public class CreerEquipeAction extends AbstractAction  {
     public String execute() {
         MembreDAO dao = new MembreDAO();
         List<Membre> liste = new LinkedList<>();
-        liste = dao.findAll();
-        request.setAttribute("Membres", liste);
-        for (Membre membre : liste) {
-            System.out.println("Taaille: "+liste.size());
-            System.out.println(membre.getNom());
-       }
+//        liste = dao.findAll();
+//        request.setAttribute("Membres", liste);
+//        for (Membre membre : liste) {
+//            System.out.println("Taaille: "+liste.size());
+//            System.out.println(membre.getNom());
+//       }
+        boolean reussi = dao.create(new Membre());
+        
+        System.out.println("Ecriture : "+reussi);
         
         return "creerequipe";
     }
