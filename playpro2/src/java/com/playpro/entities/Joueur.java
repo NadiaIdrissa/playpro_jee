@@ -22,6 +22,20 @@ public class Joueur extends Membre {
         super();
         this.niveau = Niveau.DEBUTANT;
     }
-    
-    
+
+    public Niveau getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(String niveau) {
+        if (niveau.toLowerCase().equals("professionnel")) {
+
+            this.niveau = Niveau.PROFESSIONNEL;
+        }else if (niveau.toLowerCase().equals("intermediaire")){
+            this.niveau = Niveau.INTERMEDIAIRE;
+        }else{
+            this.niveau = Niveau.DEBUTANT;
+        }
+    }
+
 }

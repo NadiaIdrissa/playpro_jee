@@ -11,6 +11,16 @@ package com.playpro.entities;
  */
 public class Entraineur extends Joueur{
     private String sport;
+
+    public String getSport() {
+        return sport;
+    }
+
+    public void setSport(String sport) {
+        this.sport = sport;
+    }
+    
+    
     
     
 }
