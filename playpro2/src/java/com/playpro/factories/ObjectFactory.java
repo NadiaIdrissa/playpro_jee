@@ -17,14 +17,12 @@ import java.util.UUID;
 public class ObjectFactory {
     public static Membre getNewMembre() {
         Membre objet = new Membre();
+        
+        
         objet.setId(UUID.randomUUID().toString());
         return objet;
     }
-//    public static Projet getNewProjet() {
-//        Projet objet = new Projet();
-//        objet.setId(UUID.randomUUID().toString());
-//        return objet;
-//    }    
+      
 //    public static Tache getNewTache() {
 //        Tache objet = new Tache();
 //        objet.setId(UUID.randomUUID().toString());
