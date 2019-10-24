@@ -3,13 +3,16 @@
     <div class="row">
         <img src="static/images/logo.png" class="rounded float-left affichageLogo" alt="Responsive image">
     <%
-    Membre m = null;
-    if (((boolean) request.getSession().getAttribute("connected") == true)){
+    if ((request.getSession().getAttribute("connected") != null) && 
+       ((boolean) request.getSession().getAttribute("connected") == true)){
+        Membre m = null;
         m = (Membre) request.getSession().getAttribute("membre");
     %>
         <span class="affichageNom">Bienvenue <%=m.getPrenom()%></span>
-    <%}%>
+        <button id="showMenu" class="affichageMenuBtn">Menu</button>
+    <%}else{%>
     <button id="showMenu" class="affichageMenuBtn">Menu</button>
+    <%}%>
     </div>
 </header>
 
