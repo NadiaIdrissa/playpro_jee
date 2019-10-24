@@ -143,7 +143,7 @@ html, body, .perspective {
 }
 
 .outer-nav.horizontal a {
-	margin: 15px 20px;
+	margin: 30px 20px;
 }
 
 .outer-nav a::before {
@@ -383,7 +383,7 @@ html, body, .perspective {
 
 /* Effect Move Down */
 .effect-movedown {
-	background: #34495e;
+	background: #003A5C;
 }
 
 .effect-movedown .container {
@@ -415,7 +415,7 @@ html, body, .perspective {
 }
 
 .effect-movedown .outer-nav a:hover {
-	color: #ed8151;
+	color: #FF1744;
 }
 
 .effect-movedown.animate .outer-nav a {
@@ -481,7 +481,7 @@ html, body, .perspective {
 
 .effect-rotatetop .outer-nav a {
 	opacity: 0;
-	color: #ed8151;
+	color: #FF1744;
 	-webkit-transform: translateY(200px) translateZ(-1000px);
 	transform: translateY(200px) translateZ(-1000px);
 	-webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
@@ -622,7 +622,7 @@ html, body, .perspective {
 	
 	.outer-nav.horizontal {
 		font-size: 1.7em;
-		width: 6.2em;
+		width: 8em;
 	}
 
 	.outer-nav.horizontal a {
