@@ -35,7 +35,7 @@ public class LoginAction extends AbstractAction {
                 request.getSession().setAttribute("membre", membre);
             }
         }
-        return "login";
+        return "portail";
     }
 
 }
