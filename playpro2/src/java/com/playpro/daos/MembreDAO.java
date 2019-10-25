@@ -21,9 +21,29 @@ public class MembreDAO extends DAO<Membre> {
     public boolean create(Membre x) {
         // TODO Auto-generated method stub
 
-        String req = "INSERT INTO membre (`NUMERO` , `PRENOM` ,`NOM` , `COURRIEL` , `PSEUDO`, `MDP` ) "
-                + "VALUES ('" + x.getId() + "','" + x.getPrenom() + "','" + x.getNom() + "','" + x.getCourriel() + "','" + x.getPseudo() + "','" + x.getMpd() + "')'";
+//        String req = "INSERT INTO `membre`(`ID`, `PSEUDO` , `PRENOM` ,`NOM` , `COURRIEL` , `ANNEE_NAISSS`, `MDP` ) "
+//                + "VALUES ('" + x.getId() + "','" + x.getPseudo()+ "','" + x.getPrenom()+ "','" + x.getNom() 
+//                + "','" + x.getCourriel() + "','" + x.getAnneeNaissance()+ "','" + x.getMpd() + "')";
         //System.out.println("REQUETE "+req);
+        String type = "";
+        
+        
+        System.out.println("e.getsport "+x.getSport());
+        System.out.println(x);
+        if(x.getSport().equals("")){
+            type = "Joueur";
+        }else{
+            type = "Entraineur";
+        }
+        
+        System.out.println("Type : "+type );
+        
+//        String req = "INSERT INTO `membre`(`id`) VALUES ('OOOOOOOO')";
+        String req = "INSERT INTO `membre` (`ID`,`NOM`,`PRENOM`,`COURRIEL`,`TYPE_MEMBRE`,`SPORT`,`SEXE`,`NIVEAU`,`MDP`,`PSEUDO`) "
+                + "VALUES('"+x.getId()+"','"+x.getNom()+"','"+x.getPrenom()+"','"+x.getCourriel()+"','"+type+"','"
+                +x.getSport()+"','"+x.getSexe()+"','"+x.getNiveau()+"','"+x.getMpd()+"','"+x.getPseudo()+"')";
+        
+        
         Statement stm = null;
         try {
             stm = cnx.createStatement();
@@ -37,9 +57,9 @@ public class MembreDAO extends DAO<Membre> {
             if (stm != null) {
                 try {
                     stm.close();
-                } catch (SQLException e) {
+                } catch (SQLException exp) {
                     // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    exp.printStackTrace();
                 }
             }
         }

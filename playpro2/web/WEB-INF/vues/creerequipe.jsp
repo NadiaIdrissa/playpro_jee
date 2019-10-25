@@ -97,12 +97,7 @@
             </div> 
 
             <%
-                List<Membre> liste = new LinkedList<Membre>();
-                liste = (LinkedList<Membre>) request.getAttribute("Membres");
                 
-                for (Object elem : liste) {
-                    out.println(elem);
-                }
                 
             %>
 

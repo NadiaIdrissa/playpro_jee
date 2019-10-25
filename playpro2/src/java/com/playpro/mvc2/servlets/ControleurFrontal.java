@@ -18,6 +18,7 @@ import com.playpro.mvc2.controleurs.CreerEquipeAction;
 import com.playpro.mvc2.controleurs.SignupAction;
 import com.playpro.mvc2.controleurs.LoginAction;
 import com.playpro.mvc2.controleurs.LogoutAction;
+import com.playpro.mvc2.controleurs.PortailAction;
 import com.playpro.mvc2.controleurs.ProfilAction;
 //import com.playpro.mvc2.controleurs.SoustractionAction;
 import java.io.IOException;
@@ -77,6 +78,9 @@ public class ControleurFrontal extends HttpServlet {
                 break;
             case "nousJoindre":
                 action = new nousJoindreAction();
+                break;
+            case "portail":
+                action = new PortailAction();
                 break;
             case "creerEquipe":
                 action = new CreerEquipeAction();

@@ -5,17 +5,16 @@
  */
 package com.playpro.mvc2.controleurs;
 
-import com.playpro.mvc2.controleurs.AbstractAction;
-
 /**
  *
- * @author nadym
+ * @author dd
  */
-public class IndexAction extends AbstractAction {
+public class PortailAction extends AbstractAction {
 
     @Override
     public String execute() {
-        return "index";
+        return "portail";
     }
+
     
 }

@@ -10,7 +10,12 @@
 		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
 }
 
-*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+*, *:after, *:before { 
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    list-style-type: none;
+}
 
 body {
 	background: #ddd;
@@ -122,6 +127,11 @@ a:hover, a:focus {
 .main {
 	max-width: 69em;
 	margin: 0 auto;
+        
+}
+
+.mainPortail{
+    margin-left: 250px;
 }
 
 .column {
@@ -171,13 +181,13 @@ button {
 }
 
 button {
-	font-size: 75%;
-	background: #ed8151;
+/*	font-size: 75%;*/
+	background: #ff1744;
 }
 
 button:hover,
 button:active {
-	background: #e86a32;
+	background: #ed294f;
 }
 
 .related {
@@ -232,4 +242,55 @@ button:active {
 		display: none;
 	}
 
+}
+
+/* Sidebar Styles */
+
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Nav Styles */
+
+.affichageNom{
+    justify-content: center;
+    display: inline-flex;
+    /* height: 100%; */
+    width: 90%;
+    font-size: 3em;
+    font-weight: bold;
+    font-variant: all-petite-caps;
+    position: absolute;
+}
+
+.affichageLogo{
+    display: inline-block;
+    width: 30px; 
+    height: auto;
+    margin: 12px;
+}
+
+.affichageMenuBtn{
+    float: right; 
+    display:inline-block;
 }
