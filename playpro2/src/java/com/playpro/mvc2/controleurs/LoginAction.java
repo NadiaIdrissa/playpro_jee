@@ -7,6 +7,7 @@ package com.playpro.mvc2.controleurs;
 
 import com.playpro.daos.MembreDAO;
 import com.playpro.entities.Membre;
+import com.playpro.services.MembreServices;
 
 /**
  *
@@ -21,18 +22,30 @@ public class LoginAction extends AbstractAction {
         String email = (String) request.getParameter("email");
         String mdp = (String) request.getParameter("mdp");
 
+        System.out.println("E-mail:" + email);
+        System.out.println("MDP ::" + mdp);
+
         if (email == null || mdp == null) {
             request.getSession().setAttribute("connected", false);
-            System.out.println("Infos inexistantes");
             return "login";
         } else {
-            //membre = dao.getMembre(email);
+
+            membre = MembreServices.seConnecter(email, mdp);
             if (membre == null) {
+                System.out.println("Infos inexistantes");
+                request.setAttribute("authentification", "email invalide");
+                return "login";
 
             } else {
-                request.getSession(true);
-                request.getSession().setAttribute("connected", true);
-                request.getSession().setAttribute("membre", membre);
+                if (membre.getMpd().equals(mdp)) {
+                    request.setAttribute("authentification", "mot de passe invalide");
+                    return "login";
+                } else {
+                    request.getSession(true);
+                    request.getSession().setAttribute("connected", true);
+                    request.getSession().setAttribute("membre", membre);
+
+                }
             }
         }
         return "portail";
