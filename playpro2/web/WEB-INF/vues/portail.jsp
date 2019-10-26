@@ -31,9 +31,7 @@
                         <%@include file="calendrier.jsp" %>
                         <div class="column">
 
-
                         </div>
-
                     </div>
                 </div>
             </div>
