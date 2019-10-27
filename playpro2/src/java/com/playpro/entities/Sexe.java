@@ -3,19 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.playpro.mvc2.controleurs;
+package com.playpro.entities;
 
 /**
  *
- * @author salpy
+ * @author toute
  */
-public class EquipeAction extends AbstractAction  {
-   @Override
-    public String execute() {
-        return "equipe";
-    }
-    
+public enum Sexe {
+    Homme,
+    Femme,
+    Autre;
 }
-
-    
-

@@ -9,7 +9,7 @@ package com.playpro.mvc2.controleurs;
  *
  * @author toute
  */
-public class logoutAction extends AbstractAction{
+public class LogoutAction extends AbstractAction{
 
     @Override
     public String execute() {

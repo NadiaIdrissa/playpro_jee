@@ -9,6 +9,33 @@ package com.playpro.entities;
  *
  * @author toute
  */
-public class Joueur extends Membre{
+public class Joueur extends Membre {
+
     private Niveau niveau;
+
+    public Joueur(String pseudo, String courriel, String mpd, String nom, String prenom, Niveau niveau, Sexe sexe) {
+        super(pseudo, courriel, mpd, nom, prenom, sexe);
+        this.niveau = niveau;
+    }
+
+    public Joueur() {
+        super();
+        this.niveau = Niveau.DEBUTANT;
+    }
+
+    public Niveau getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(String niveau) {
+        if (niveau.toLowerCase().equals("professionnel")) {
+
+            this.niveau = Niveau.PROFESSIONNEL;
+        }else if (niveau.toLowerCase().equals("intermediaire")){
+            this.niveau = Niveau.INTERMEDIAIRE;
+        }else{
+            this.niveau = Niveau.DEBUTANT;
+        }
+    }
+
 }
