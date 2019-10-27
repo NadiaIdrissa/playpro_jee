@@ -6,6 +6,11 @@
 
 <%@page import="com.playpro.entities.Sexe"%>
 <%@page import="com.playpro.entities.Niveau"%>
+<%@page import="com.playpro.entities.Membre"%>
+    <%
+        Membre m = (Membre) request.getAttribute("membre");
+        //String nom=(String)m.getNom();
+    %>
 
 <div id="id02" class="modal"  aria-labelledby="exampleModalLabel" aria-hidden="true"> 
     <div class="modal-dialog-centered" role="document">
@@ -14,7 +19,7 @@
                 <!--<h5 class="modal-title text-center" id="exampleModalLabel" >JOUEUR</h5>-->
                 <div class="text-center">
                     <img id='imagejoueur' src="static/images/head01.png" class="rounded" alt="imgprofil">
-                    
+                    <h1>Bienvenue</h1>
                 </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -68,12 +73,31 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='anneeN' class="form-control" id="validationCustom" placeholder="Année de nassaince" required>
+                                            <input type="text" name='anneeN' class="form-control" id="validationCustom5" placeholder="Année de nassaince" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
                                         </div>
+              
+                                        <div id='niveaug' class="col-md-12 mb-12">
+                                            <div  class="form-group">
+                                                <label for="inputLevel">Niveau</label>
+                                                <select class="form-control" name="niveau" required>
+                                                    <option value='' >Choisissez...</option>
 
+                                                    <%for (Niveau n : Niveau.values()) {%>
+
+                                                    <option value='<%=n.toString()%>'><%=n.toString()%></option>
+
+                                                    <%}%>
+
+                                                </select>
+
+                                            </div>
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
                                         <div id='prenom' class="col-md-12 mb-12">
                                             <div  class="form-group">
                                                 <label for="inputLevel">Sexe</label>
