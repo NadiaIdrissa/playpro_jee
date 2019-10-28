@@ -61,13 +61,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='prenom' class="form-control" id="validationCustom03" placeholder="Prénom" required>
+                                            <input type="text" name='prenom' class="form-control" id="validationCustom03" placeholder="${sessionScope.membre.nom}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='nom' class="form-control" id="validationCustom04" placeholder="Nom" required>
+                                            <input type="text" name='nom' class="form-control" id="validationCustom04" placeholder="${sessionScope.membre.prenom}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
@@ -122,7 +122,7 @@
 
 
                                         <div class="col-md-12 mb-12">
-                                            <input type="email" name='email' class="form-control" id="validationCustom05" placeholder="exemple@playpro.ca" required>
+                                            <input type="email" name='email' class="form-control" id="validationCustom05" placeholder="${sessionScope.membre.courriel}" required>
                                             <div class="invalid-feedback">
                                                 Entrez un courriel valide.
                                             </div>

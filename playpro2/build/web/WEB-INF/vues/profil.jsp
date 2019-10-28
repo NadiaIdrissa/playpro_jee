@@ -43,7 +43,7 @@
         <br><br><br><br><br><br><br><br><br><br><br>
         <div class="signup-form">
             <div class="container text-center border-1">
-                <h2>Mon profil <%=nom%></h2>
+                <h2>Mon profil</h2>
 
                 <div class="container d-flex btn-floating">
 
