@@ -43,12 +43,7 @@
                         <a class="nav-link " href="?action=profil"><span class="glyphicon glyphicon-log-in"></span> Profil</a>
                     </li>
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="Recherche" placeholder="Recherche" aria-label="Recherche">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
-                    </form>        
+                     
                     <li class="nav-item">
                         <a class="nav-link " href="?action=logout"><span class="glyphicon glyphicon-user"></span>Log out</a>      
                     </li>

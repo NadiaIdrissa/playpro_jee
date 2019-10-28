@@ -15,7 +15,7 @@
         </li>
         
         <li>
-            <a href="?action=calendar">
+            <a href="?action=portail">
                 <i class="fa fa-paper-plane"></i> Calendrier
             </a>
         </li>
@@ -36,14 +36,14 @@
 //        if (m.getTypeMembre() == "Entraineur")){  
         %>
             <li>
-                <a href="?action=annonce">
+                <a href="#">
                     <i class="fa fa-list-ul"></i> Annonces
                 </a>
             </li>
         <% //}%>
         
         <li>
-            <a href="?action=membre">
+            <a href="#">
                 <i class="fa fa-paper-plane"></i> Membres
             </a>
         </li>
