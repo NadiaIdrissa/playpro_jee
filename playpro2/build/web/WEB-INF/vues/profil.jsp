@@ -63,7 +63,7 @@
                                     </div>
                                 </div>
                                 <div class="titreCard text-center">
-                                    <h1>Bienvenue <%=m.getPseudo()%>!</h1>
+                                    <h1>Bienvenue <%=m.getNom()%>!</h1>
                                 </div>
                             </div>
 
