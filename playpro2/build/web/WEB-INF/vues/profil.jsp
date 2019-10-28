@@ -28,31 +28,27 @@
                     });
                 </script>-->
 
+        <%
+            Membre m = (Membre) request.getSession().getAttribute("membre");
+            String nom = m.getNom();
+        %>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <title>Profil</title>
     </head>
-    </style>
-    <%
-        Membre m = (Membre) request.getSession().getAttribute("membre");
-    %>
     <body>
-        <!-- commentaire-->
         <%@include file="header.jsp" %>
-        <div class="container">
-            <br>  <p class="text-center">Header</p>
-            <hr>
 
         <br><br><br><br><br><br><br><br><br><br><br>
         <div class="signup-form">
             <div class="container text-center border-1">
-                <h2>Mon profil</h2>
+                <h2>Mon profil <%=nom%></h2>
 
                 <div class="container d-flex btn-floating">
 
 
-                    <button id='btnJ' onclick="cacherE()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#id02">
+                    <button id='btnJ'  type="button" class="btn btn-primary" data-toggle="modal" data-target="#id02">
                         Continuer
                     </button>
 
@@ -67,64 +63,9 @@
 
 
     </body>
-    <script>
-
-        $("#commit").on("click", function validatePassword() {
-            var pass1 = $("#password").val();
-            var pass2 = $("#confirm_password").val();
-            pass1 != pass2 ? document.getElementById("confirm_password").setCustomValidity("Les mots de passe sont différents")
-                    : document.getElementById("confirm_password").setCustomValidity('');
-        })
-    </script>
 
     <script>
-//        var sport = document.getElementById("sport");
 
-        function  cacherE() {
-            var niveau = document.getElementById("niveau");
-            var sport = document.getElementById("sport");
-
-            if (sport.style.display === "none") {
-
-            } else {
-                debugger
-                sport.style.display = "none";
-                ($("img")[1]).style.display = "none";
-                sport.children[0].required = false
-            }
-            if (niveau.style.display === "none") {
-                niveau.style.display = "block";
-                ($("img")[0]).style.display = "block";
-                niveau.children[0].children[1].required = true;
-            } else {
-
-            }
-        }
-
-    </script>
-
-
-
-
-
-    <script>
-        (function () {
-            'use strict';
-            window.addEventListener('load', function () {
-// Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-// Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
     </script>
 
 

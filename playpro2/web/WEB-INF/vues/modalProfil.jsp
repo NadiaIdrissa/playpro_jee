@@ -7,11 +7,11 @@
 <%@page import="com.playpro.entities.Sexe"%>
 <%@page import="com.playpro.entities.Niveau"%>
 <%@page import="com.playpro.entities.Membre"%>
-    <%
-        Membre m = (Membre) request.getAttribute("membre");
-        //String nom=(String)m.getNom();
-    %>
-
+<%
+    //Membre m = (Membre) request.getSession().getAttribute("membre");
+    // String nom=(String)m.getNom();
+%>
+<h1></h1>
 <div id="id02" class="modal"  aria-labelledby="exampleModalLabel" aria-hidden="true"> 
     <div class="modal-dialog-centered" role="document">
         <div class="modal-content "style="width: 1000px;">
@@ -55,7 +55,7 @@
 
                                     <div class="form-row">
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='pseudo' class="form-control" id="validationCustom03" placeholder="Pseudo" required>
+                                            <input type="text" name='pseudo' class="form-control" id="validationCustom03" placeholder="${sessionScope.membre.pseudo}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
@@ -78,7 +78,7 @@
                                                 Champs recquis.
                                             </div>
                                         </div>
-              
+
                                         <div id='niveaug' class="col-md-12 mb-12">
                                             <div  class="form-group">
                                                 <label for="inputLevel">Niveau</label>
@@ -149,7 +149,7 @@
                                     </div>
                                     <div class="modal-footer">
 
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>-->
                                         <button type="button" class="btn btn-success" data-dismiss="modal">Modifier</button>
                                         <button class="btn btn-primary btn-sm" id="commit" type="submit">Ok</button>
                                     </div>
@@ -169,3 +169,4 @@
             </div>
         </div>
     </div>
+</div>
