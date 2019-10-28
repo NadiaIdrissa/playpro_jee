@@ -33,8 +33,16 @@
 
         <title>Profil</title>
     </head>
+    </style>
+    <%
+        Membre m = (Membre) request.getSession().getAttribute("membre");
+    %>
     <body>
+        <!-- commentaire-->
         <%@include file="header.jsp" %>
+        <div class="container">
+            <br>  <p class="text-center">Header</p>
+            <hr>
 
         <br><br><br><br><br><br><br><br><br><br><br>
         <div class="signup-form">
