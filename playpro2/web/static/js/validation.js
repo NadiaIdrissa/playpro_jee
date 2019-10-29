@@ -71,7 +71,9 @@ function  cacherJ() {
 
 // fait disparaître le message après 2 secondes
 setTimeout(function () {
-    document.getElementById('FormulaireConnexion').removeChild(document.getElementById("message"));
-}, 4000);
-
+message = document.getElementById("message");
+        if (typeof (message) != 'undefined' && message != null) {
+document.getElementById('FormulaireConnexion').removeChild(message);
+        },
+4000);
 
