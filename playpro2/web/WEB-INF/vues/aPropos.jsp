@@ -12,12 +12,14 @@
         
     </head>
     <body>
-
+        
         <%@include file="menu.jsp" %>
         <div id="perspective" class="perspective effect-movedown">
             <div class="container">
+                
                 <div class="wrapper"><!-- wrapper needed for scroll -->
-
+                     
+                     
                     <header class="codrops-header">
                         <h1>Équipe de PlayPro <span>Changeant la vision de pratiquer son sport en tant qu'amateur</span></h1>	
                     </header>
@@ -35,7 +37,8 @@
                     </div>
                 </div>
             </div>
-            <%@include file="header3.jsp" %>
+            
+            <%@include file="headerNonMembre.jsp" %>
         </div>
         <script src="static/js/classie.js"></script>
         <script src="static/js/menu.js"></script>
