@@ -11,19 +11,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="static/bootstrap/js/bootstrap.min.js" ></script>
+
         <link href="static/css/styles.css" rel="stylesheet">
         <link href="static/css/styleslogin.css" rel="stylesheet">
-        <script src="static/js/gestion.js" ></script>
-        <script src="static/js/validation.js" ></script>
+
         <link href="static/css/stylesyoun.css" rel="stylesheet" type="text/css">
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
+        
+
         <!--        <script>
                     $(function () {
                         $("#accordion").accordion();
@@ -62,18 +60,27 @@
 
 
         <%@include file="modals.jsp" %>
+        
+        
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="static/js/gestion.js" ></script>
+        <script src="static/js/validation.js" ></script>
+        <script src="static/bootstrap/js/bootstrap.min.js" ></script>
+        
 
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </body>
     <script>
 
-        $("#commit").on("click", function validatePassword() {
-            var pass1 = $("#password").val();
-            var pass2 = $("#confirm_password").val();
-            pass1 != pass2 ? document.getElementById("confirm_password").setCustomValidity("Les mots de passe sont différents")
-                    : document.getElementById("confirm_password").setCustomValidity('');
-        })
+                        $("#commit").on("click", function validatePassword() {
+                            var pass1 = $("#password").val();
+                            var pass2 = $("#confirm_password").val();
+                            pass1 != pass2 ? document.getElementById("confirm_password").setCustomValidity("Les mots de passe sont différents")
+                                    : document.getElementById("confirm_password").setCustomValidity('');
+                        })
     </script>
 
     <script>
@@ -84,7 +91,7 @@
 
 
     <script>
-       
+
     </script>
 
 
