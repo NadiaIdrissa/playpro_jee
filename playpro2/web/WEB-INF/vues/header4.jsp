@@ -5,8 +5,9 @@
 --%>
 <nav class="outer-nav top horizontal">
     <a href="?action=index" class="icon-home">Accueil</a>
-    <a href="?action=aPropos" class="icon-image">À propos de nous</a>
-    <a href="?action=nousJoindre" class="icon-upload">Nous joindre</a>
+    <a href="?action=aPropos" class="icon-image">À propos</a>
+    <a href="?action=nousJoindre" class="icon-upload">Contact</a>
+    <a href="#" class="icon-upload">Créer Equipe</a>
     <a href="?action=logout" class="icon-mail">Se déconnecter</a>
     <!--<a href="#" class="icon-lock">Security</a>-->
 </nav>
