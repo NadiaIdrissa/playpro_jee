@@ -31,7 +31,7 @@
         <div class="card-body">
           <!--Header-->
           <div class="form-header blue accent-1">
-            <h3><i class="fas fa-envelope"></i> Nous crire:</h3>
+            <h3><i class="fas fa-envelope"></i> Nous écrire:</h3>
           </div>
 
           <p>Vous pouvez nous envoyer vos suggestions.</p>

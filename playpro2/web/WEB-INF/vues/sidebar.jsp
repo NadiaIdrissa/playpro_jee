@@ -20,13 +20,13 @@
             </a>
         </li>
         <li>
-            <a href="?action=equipe">
+            <a href="#">
                 <i class="fa fa-list-ul"></i> Equipes
             </a>
         </li>
         
         <li>
-            <a href="?action=partie">
+            <a href="#">
                 <i class="fa fa-paper-plane"></i> Parties
             </a>
         </li>

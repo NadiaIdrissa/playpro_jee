@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="fr" class="no-js">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
@@ -21,16 +21,27 @@
                      
                      
                     <header class="codrops-header">
-                        <h1>Équipe de PlayPro <span>Changeant la vision de pratiquer son sport en tant qu'amateur</span></h1>	
+                        <h1>Equipe de PlayPro <span>Changeant la vision de pratiquer son sport en tant qu'amateur</span></h1>	
                     </header>
                     <div class="main clearfix">
                         <div class="column">
                             <!--<p><button id="showMenu">Show Menu</button></p>-->
-                            <p>En tant que joueur, vous pouvez kjhdsf kjsdhf kjdhf kjdhf ksjdhf ksjdhf skdhf lkdhf sldkjf slkdjhf ksjdfh skdjhfg. </p>
+                            <p>
+                                PlayPro est une plateforme web qui permettra aux sportifs amateurs
+                                de sports collectifs de gérer leurs matchs.
+                                Notre application sera un outil de communication 
+                                entre amateurs qui offrira des services afin qu'ils puissent organiser 
+                                la pratique de leurs sports collectifs préférés.
+                            </p>
                         </div>
                         <div class="column">
 
-                            <p>En tant qu'entraineur, vous pouvez kjhdsf kjsdhf kjdhf kjdhf ksjdhf ksjdhf skdhf lkdhf sldkjf slkdjhf ksjdfh skdjhfg. </p>
+                            <p>
+                                 Il servira egalement pour les sportifs professionnels : des outils leur seront
+                                 offerts afin qu'ils puissent agrandir leur clientèle ou s'en créer une. De plus,
+                                 l'application gèrera les notifications afin de tenir l'utilisateur à jour, en tout temps,
+                                 de tout changement relatif à ses activités.
+                            </p>
 
                         </div>
 
@@ -39,6 +50,8 @@
             </div>
             
             <%@include file="headerNonMembre.jsp" %>
+            <%@include file="footer.jsp" %>
+
         </div>
         <script src="static/js/classie.js"></script>
         <script src="static/js/menu.js"></script>
