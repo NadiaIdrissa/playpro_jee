@@ -45,7 +45,7 @@
 
                         <div class="col">
 
-                            <form  action="" method="post" name="action" value="signup" novalidate>
+                            <form  action="" method="post" name="action" value="profil" novalidate>
                                 <div class="form-group">
 
 
@@ -58,13 +58,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='prenomR' class="form-control" id="validationCustom03" placeholder="${sessionScope.membre.nom}" required>
+                                            <input type="text" name='nomR' class="form-control" id="validationCustom03" placeholder="${sessionScope.membre.nom}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='nomR' class="form-control" id="validationCustom04" placeholder="${sessionScope.membre.prenom}" required>
+                                            <input type="text" name='prenomR' class="form-control" id="validationCustom04" placeholder="${sessionScope.membre.prenom}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
