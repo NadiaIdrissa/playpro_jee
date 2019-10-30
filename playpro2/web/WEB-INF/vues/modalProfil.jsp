@@ -83,7 +83,8 @@
                                             <div  class="form-group">
                                                 <label for="inputLevel">Niveau</label>
                                                 <select class="form-control" name="niveau" required>
-                                                    <option value='' >Choisissez...</option>
+                                                    <option value='' >${sessionScope.membre.niveau}</option>
+                                                        
 
                                                     <%for (Niveau n : Niveau.values()) {%>
 
@@ -102,7 +103,7 @@
                                             <div  class="form-group">
                                                 <label for="inputLevel">Sexe</label>
                                                 <select class="form-control" name="sexeM" required>
-                                                    <option value='' >Choisissez...</option>
+                                                    <option value='' >${sessionScope.membre.sexe}</option>
 
                                                     <%for (Sexe s : Sexe.values()) {%>
 

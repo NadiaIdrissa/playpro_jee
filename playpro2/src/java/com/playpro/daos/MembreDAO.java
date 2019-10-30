@@ -120,7 +120,8 @@ public class MembreDAO extends DAO<Membre> {
                 System.out.println(r.getString("nom"));
                 System.out.println(r.getString("prenom"));
                 System.out.println(r.getString("pseudo"));   
-                System.out.println(r.getString("mdp"));   
+                System.out.println(r.getString("mdp")); 
+                
                 
                 System.out.println("------------------------");
                 
@@ -131,6 +132,7 @@ public class MembreDAO extends DAO<Membre> {
                 c.setCourriel(r.getString("courriel"));
                 c.setPseudo(r.getString("pseudo"));
                 c.setMpd(r.getString("mdp"));
+                c.setNiveau(r.getString("niveau"));
                 r.close();
                 stm.close();
                 return c;
