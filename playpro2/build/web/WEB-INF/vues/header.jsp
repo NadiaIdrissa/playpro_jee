@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!--<div class="container">
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light" role="navigation">
     <div class="container-fluid">
@@ -73,7 +75,7 @@
     <div class="container headerV">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="?action=index">
-            <img src="static/images/logo.png" width="100" height="100" class="d-inline-block align-top" alt="">
+                <img src="static/images/logo.png" width="100" height="100" class="d-inline-block align-top" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -103,35 +105,44 @@
                             <a class="dropdown-item" href="?action=signup">Créer un compte</a>
                         </div>
                     </li>
-                    
-                    
-                    
+
+
+
                 </ul>
-               
+
             </div>
         </nav>
     </div>
 </header>
 
-<section class="banner">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <h2>
-                    Avec PlayPro, pratiquez votre sport préféré avec professionalisme.
-                    
-                </h2>
-                <p>
-                    Il s'agit d'une plateforme gratuite qui vous permettra d'organiser tous vos événements sportifs ainsi
-                    que vos propres équipes. En tant qu'un simple visiteur, vous pouvez consulter toutes les parties qui
-                    existent, mais pour y participer, il faut créer un compte. Ainsi, vous pouvez profiter de tous les
-                    avantages de PlayPro. 
-                </p>
-                <a href='#' class="btnD">Créer un compte</a>
-                    
+
+
+<c:if test="${sessionScope.connected == null }">
+
+    <%--<jsp:forward page="login.jsp" />--%>
+    <section class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>
+                        Avec PlayPro, pratiquez votre sport préféré avec professionalisme.
+
+                    </h2>
+                    <p>
+                        Il s'agit d'une plateforme gratuite qui vous permettra d'organiser tous vos événements sportifs ainsi
+                        que vos propres équipes. En tant qu'un simple visiteur, vous pouvez consulter toutes les parties qui
+                        existent, mais pour y participer, il faut créer un compte. Ainsi, vous pouvez profiter de tous les
+                        avantages de PlayPro. 
+                    </p>
+                    <a href='#' class="btnD">Créer un compte</a>
+
+                </div>
             </div>
         </div>
-    </div>
-    
-    
-</section>
+    </section>
+
+</c:if>
+
+
+
+
