@@ -26,6 +26,10 @@
 
 <script src= "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
 </script> 
+    <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/component.css" />
+    <script src="static/js/modernizr.custom.25376.js"></script>
 <title>Création d'équipe</title>
 
 
@@ -33,9 +37,8 @@
 </head>
 
 <body>
-    <%@include file="headerMembre.jsp" %>
-    <br>
-    <br>
+    <%@include file="menu.jsp" %>
+    <%@include file="header4.jsp" %>
     <br>
     <h1 class="text-success text-center">Formulaire de création d'une équipe</h1> 
 
@@ -105,8 +108,10 @@
 
             <button type="submit" class="btn bg-success">CÉER MON ÉQUIPE</button> 
         </form> 
+        <script src="static/js/classie.js"></script>
+        <script src="static/js/menu.js"></script>
     </div> 
-    <br>
+   
     <%@include file="footer.jsp" %>
 </body> 
 

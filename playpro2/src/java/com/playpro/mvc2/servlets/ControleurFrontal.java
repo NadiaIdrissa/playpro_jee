@@ -9,7 +9,6 @@ import com.playpro.mvc2.controleurs.ErrorAction;
 import com.playpro.mvc2.controleurs.IndexAction;
 import com.playpro.mvc2.controleurs.nousJoindreAction;
 import com.playpro.mvc2.controleurs.aProposAction;
-import com.playpro.mvc2.controleurs.CalendarAction;
 import com.playpro.mvc2.servlets.*;
 import com.playpro.mvc2.controleurs.AbstractAction;
 import com.playpro.mvc2.controleurs.Action;
@@ -69,9 +68,6 @@ public class ControleurFrontal extends HttpServlet {
                 break;
             case "profil":
                 action = new ProfilAction();
-                break;
-            case "calendar":
-                action = new CalendarAction();
                 break;
             case "aPropos":
                 action = new aProposAction();

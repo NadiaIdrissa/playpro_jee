@@ -13,10 +13,19 @@
         <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
         <script src="static/bootstrap/js/bootstrap.min.js" ></script>
         <link href="static/css/styles.css" rel="stylesheet">
-        <script src="static/js/gestion.js" ></script>
+        <script src="static/js/gestion.js" ></script> 
         <script src="static/js/validation.js" ></script>
         <link href="static/css/styles.css" rel="stylesheet" type="text/css">
         <link href="static/css/styleslogin.css" rel="stylesheet" type="text/css">
+        
+ 
+        
+         <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+        </script>
+     
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -31,7 +40,9 @@
             String message = (String) request.getAttribute("authentification");
 
             if ((request.getSession().getAttribute("connected") == null) || ((boolean) request.getSession().getAttribute("connected") == false)) {%>
+        
         <%@include file="header.jsp" %>
+
 
         <%         courriel = "Courriel";
         %>
@@ -39,6 +50,7 @@
             Membre membre = (Membre) request.getSession().getAttribute("membre");
             courriel = membre.getCourriel();
         %>
+       
         <%@include file="headerMembre.jsp" %>
 
         <% } %>
