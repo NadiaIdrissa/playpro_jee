@@ -18,7 +18,19 @@
         <link href="static/css/styleMembre.css" rel="stylesheet" type="text/css">
         <script src="static/js/profil.js" ></script>
         <title>Membres</title>
-        <!--a telecharger--><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="static/css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="static/css/component.css" />
+        <link rel="stylesheet" type="text/css" href="static/css/calendrier.css"/>
+        <!--<link rel="stylesheet" href="static/bootstrap3/css/bootstrap.min.css"/>-->
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+        </script>
+        <script src="static/js/calendrier.js"></script>
+        <script src="static/js/modernizr.custom.25376.js"></script>
         <!--<link href="static/bootstrap/fontAwesome/css/all.min.css" rel="stylesheet" type="text/css">-->
     </head>            
     <style>
@@ -29,6 +41,7 @@
     %>
     <body>
         <!-- commentaire-->
+        <%--<%@include file="header4.jsp" %>--%>
         <%@include file="header4.jsp" %>
         <div class="container">
             <br>  <p class="text-center">Header</p>
