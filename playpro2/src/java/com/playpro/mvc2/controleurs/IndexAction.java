@@ -13,9 +13,6 @@ import com.playpro.mvc2.controleurs.AbstractAction;
  */
 public class IndexAction extends AbstractAction {
 
-    public IndexAction() {
-    }
-
     @Override
     public String execute() {
         return "index";
