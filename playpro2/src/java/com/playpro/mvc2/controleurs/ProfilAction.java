@@ -37,8 +37,12 @@ public class ProfilAction extends AbstractAction {
                 && !(mdp == null) && !("".equals(mdp.trim()))
                 ) {
             
+            return "portail";
+        }else{
+            request.getSession().setAttribute("messageCaisseVide",true);
+            return "profil";
         }
-        return "profil";
+        //return "profil";
     }
 
 }
