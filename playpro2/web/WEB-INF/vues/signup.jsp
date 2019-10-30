@@ -15,6 +15,7 @@
 
         <link href="static/css/styles.css" rel="stylesheet">
         <link href="static/css/styleslogin.css" rel="stylesheet">
+        <script src="static/js/validation.js" ></script>
 
         <link href="static/css/stylesyoun.css" rel="stylesheet" type="text/css">
 

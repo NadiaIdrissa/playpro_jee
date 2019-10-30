@@ -51,7 +51,8 @@ public class ApplicationListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        System.out.println("com.playpro.listeners.ApplicationListener.contextDestroyed()");
+        System.out.println("Application arrétée.");
+        Connexion.close();
     }
 
 }
