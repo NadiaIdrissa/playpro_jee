@@ -70,8 +70,6 @@
     </nav>
 </header>-->
 
-
-<header>
     <div class="container headerV">
         <nav class="navbar navbar-expand-lg navbar-light bg-secondary text-white fixed-top" role="navigation">
             <a class="navbar-brand" href="?action=index">
@@ -117,31 +115,6 @@
 
 
 
-<c:if test="${sessionScope.connected == null }">
-
-    <%--<jsp:forward page="login.jsp" />--%>
-    <section class="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h2>
-                        Avec PlayPro, pratiquez votre sport préféré avec professionalisme.
-
-                    </h2>
-                    <p>
-                        Il s'agit d'une plateforme gratuite qui vous permettra d'organiser tous vos événements sportifs ainsi
-                        que vos propres équipes. En tant qu'un simple visiteur, vous pouvez consulter toutes les parties qui
-                        existent, mais pour y participer, il faut créer un compte. Ainsi, vous pouvez profiter de tous les
-                        avantages de PlayPro. 
-                    </p>
-                    <a href='#' class="btnD">Créer un compte</a>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-</c:if>
 
 
 
