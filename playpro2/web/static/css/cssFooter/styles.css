@@ -1,9 +1,11 @@
+Ancien css footer younes
+
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 
-/*body{
+body{
     font-family: 'Poppins', sans-serif;
-}*/
+}
 
 .search-text{
 	margin-top:50px;
@@ -81,3 +83,6 @@ footer .menu li a:hover{
 .fa.fa-tumblr:hover {
 	color:#6794c2;
 }
+
+
+
