@@ -19,7 +19,7 @@
                 <!--<h5 class="modal-title text-center" id="exampleModalLabel" >JOUEUR</h5>-->
                 <div class="text-center">
                     <img id='imagejoueur' src="static/images/head01.png" class="rounded" alt="imgprofil">
-                    <h1>Bienvenue</h1>
+                    
                 </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -38,12 +38,9 @@
                             <a href="#" class="fb btn">
                                 <i class="fa fa-facebook fa-fw"></i> Login with Facebook
                             </a>
-                            <a href="#" class="twitter btn">
-                                <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-                            </a>
-                            <a href="#" class="google btn"><i class="fa fa-google fa-fw">
-                                </i> Login with Google+
-                            </a>
+
+                            <a href="#" class="btn btn-info" role="button">Link Modifier</a>
+                            <a href="#" class="btn btn-success" role="button">confirmer</a>
                         </div>
 
                         <div class="col">
@@ -151,8 +148,8 @@
                                     <div class="modal-footer">
 
                                         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>-->
-                                        <button type="button" class="btn btn-success" data-dismiss="modal">Modifier</button>
-                                        <button class="btn btn-primary btn-sm" id="commit" type="submit">Ok</button>
+                                       
+                                        <button class="btn btn-primary btn-sm" id="commit" type="submit">Enregistrer</button>
                                     </div>
 
                                 </div>
