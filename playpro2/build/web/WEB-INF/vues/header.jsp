@@ -70,8 +70,6 @@
     </nav>
 </header>-->
 
-
-<header>
     <div class="container headerV">
         <nav class="navbar navbar-expand-lg navbar-light bg-secondary text-white fixed-top" role="navigation">
             <a class="navbar-brand" href="?action=index">

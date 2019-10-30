@@ -31,10 +31,11 @@
         <%
             Membre mee =null;
             mee = (Membre) request.getSession().getAttribute("membre");
-            String nom = mee.getNom();
+//            String nom = mee.getNom();
         %>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 
 
@@ -63,6 +64,7 @@
                     <div class="signup-form">
                         <div class="container text-center border-1">
                             <h2>Mon profil</h2>
+
 
                             <div class="container d-flex btn-floating">
 
