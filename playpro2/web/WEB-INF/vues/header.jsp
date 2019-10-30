@@ -73,7 +73,7 @@
 
 <header>
     <div class="container headerV">
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary text-white fixed-top" role="navigation">
             <a class="navbar-brand" href="?action=index">
                 <img src="static/images/logo.png" width="100" height="100" class="d-inline-block align-top" alt="">
             </a>
@@ -93,7 +93,7 @@
                         <a class="nav-link" href="?action=aPropos">À propos <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="?action=nousJoindre">Nous joindre<span class="sr-only"></span></a>
+                        <a class="nav-link" href="?action=nousJoindre">Contact<span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
