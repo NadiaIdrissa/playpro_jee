@@ -161,6 +161,9 @@ public class MembreDAO extends DAO<Membre> {
         try {
             String req = "UPDATE membre SET NOM = '" + x.getNom() + "',"
                     + "COURRIEL = '" + x.getCourriel() + "',"
+                    + "SEXE = '" + x.getSexe() + "',"
+                    + "NIVEAU = '" + x.getNiveau() + "',"
+                    + "ANNEE_NAISS = '" + x.getAnneeNaissance() + "',"
                     + "PRENNOM = '" + x.getPrenom() + "'"
                     + " WHERE id = '" + x.getId() + "'";
             //System.out.println("REQUETE "+req);
