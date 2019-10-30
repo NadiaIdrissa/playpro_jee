@@ -1,33 +1,44 @@
 <%-- 
-    Document   : profil
-    Created on : 2019-10-12, 18:30:53
-    Author     : Piaf
+    Document   : signup_view
+    Created on : 2019-10-05, 15:53:52
+    Author     : dd
 --%>
 
-<%@page import="com.playpro.entities.Membre"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
-        <script src="static/bootstrap/jQuery/jquery-3.2.1.slim.min.js" ></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="static/bootstrap/js/bootstrap.min.js" ></script>
+        <link href="static/css/styles.css" rel="stylesheet">
+        <script src="static/js/gestion.js" ></script>
+        <link href="static/css/stylesyoun.css" rel="stylesheet" type="text/css">
 
-        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
-        <script src="static/bootstrap/js/bootstrap.min.js" ></script>            
-        <link href="static/css/styleMembre.css" rel="stylesheet" type="text/css">
-        <script src="static/js/profil.js" ></script>
-        <title>Membres</title>
-        <!--a telecharger--><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!--<link href="static/bootstrap/fontAwesome/css/all.min.css" rel="stylesheet" type="text/css">-->
-    </head>            
-    <style>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <!--        <script>
+                    $(function () {
+                        $("#accordion").accordion();
+                    });
+                </script>-->
 
-    </style>
-    <%
-        Membre m = (Membre) request.getSession().getAttribute("membre");
-    %>
+        <%
+            Membre m = (Membre) request.getSession().getAttribute("membre");
+            String nom = m.getNom();
+        %>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <title>Profil</title>
+    </head>
     <body>
+<<<<<<< HEAD
         <!-- commentaire-->
         <%@include file="header4.jsp" %>
         <div class="container">
@@ -228,13 +239,39 @@
                         // Show and Hide Triggers
                         $(panelContainerId + ':not(:contains(' + searchTerm + '))').hide(); //Hide the rows that done contain the search query.
                         $(panelContainerId + ':contains(' + searchTerm + ')').show(); //Show the rows that do!
+=======
+        <%@include file="header.jsp" %>
+>>>>>>> e53a4768286429cccc812760548a7ae881ade31a
 
-                    });
-                });
-            }());
-            // End Show and Hide Triggers
-        </script>
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <div class="signup-form">
+            <div class="container text-center border-1">
+                <h2>Mon profil</h2>
+
+                <div class="container d-flex btn-floating">
+
+
+                    <button id='btnJ'  type="button" class="btn btn-primary" data-toggle="modal" data-target="#id02">
+                        Continuer
+                    </button>
+
+                </div>            
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br>
+
+
+        <%@include file="modalProfil.jsp" %>
+
 
 
     </body>
+
+    <script>
+
+    </script>
+
+
+    <%@include file="footer.jsp" %>
+
 </html>
