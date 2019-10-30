@@ -39,7 +39,7 @@
                                 <i class="fa fa-facebook fa-fw"></i> Login with Facebook
                             </a>
 
-                            <a href="#" class="btn btn-info" role="button">Link Modifier</a>
+
                             <a href="#" class="btn btn-success" role="button">confirmer</a>
                         </div>
 
