@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -30,6 +31,32 @@
         <%@include file="headerMembre.jsp" %>
 
         <% }%>
+
+        <c:if test="${sessionScope.connected == null }">
+
+    <%--<jsp:forward page="login.jsp" />--%>
+    <section class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>
+                        Avec PlayPro, pratiquez votre sport préféré avec professionalisme.
+
+                    </h2>
+                    <p>
+                        Il s'agit d'une plateforme gratuite qui vous permettra d'organiser tous vos événements sportifs ainsi
+                        que vos propres équipes. En tant qu'un simple visiteur, vous pouvez consulter toutes les parties qui
+                        existent, mais pour y participer, il faut créer un compte. Ainsi, vous pouvez profiter de tous les
+                        avantages de PlayPro. 
+                    </p>
+                    <a href='#' class="btnD">Créer un compte</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</c:if>
 
         <br><br><br>
         <h1>Une gestion d'événements hors du commun</h1>
