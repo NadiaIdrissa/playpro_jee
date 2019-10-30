@@ -180,15 +180,10 @@ header .headerV{
     color: #fff;
 }
 
-.navbar-light .navbar-nav .nav-item .nav-link {
-    color: #265a88;
-    padding: 5px 15px;
-}
-
 .banner {
     position: relative;
     background: url(https://www.bethard.com/static/media/bethard.a2b18dbe.png);
-    min-height: 100vh;
+    min-height: 50vh;
     background-size: cover;
     background-position: center;
     padding: 250px 0 200px;
@@ -237,4 +232,15 @@ h1{
 
     
 }
-
+.mapouter{
+    position:relative;
+    text-align:right;
+    height:500px;
+    width:600px;
+}
+.gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    height:450px;
+    width:750px
+}
