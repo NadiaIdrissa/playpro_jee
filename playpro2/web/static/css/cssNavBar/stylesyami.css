@@ -231,5 +231,10 @@ header .headerV{
     outline: none;
 }
 
+h1{
+   text-transform: uppercase;
+    color:white;
 
+    
+}
 
