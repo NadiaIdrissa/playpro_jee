@@ -55,25 +55,25 @@
 
                                     <div class="form-row">
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='pseudo' class="form-control" id="validationCustom03" placeholder="${sessionScope.membre.pseudo}" required>
+                                            <input type="text" name='pseudoR' class="form-control" id="validationCustom03" placeholder="${sessionScope.membre.pseudo}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='prenom' class="form-control" id="validationCustom03" placeholder="${sessionScope.membre.nom}" required>
+                                            <input type="text" name='prenomR' class="form-control" id="validationCustom03" placeholder="${sessionScope.membre.nom}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='nom' class="form-control" id="validationCustom04" placeholder="${sessionScope.membre.prenom}" required>
+                                            <input type="text" name='nomR' class="form-control" id="validationCustom04" placeholder="${sessionScope.membre.prenom}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='anneeN' class="form-control" id="validationCustom5" placeholder="Année de nassaince" required>
+                                            <input type="text" name='anneeR' class="form-control" id="validationCustom5" placeholder="Année de nassaince" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
@@ -82,7 +82,7 @@
                                         <div id='niveaug' class="col-md-12 mb-12">
                                             <div  class="form-group">
                                                 <label for="inputLevel">Niveau</label>
-                                                <select class="form-control" name="niveau" required>
+                                                <select class="form-control" name="niveauR" required>
                                                     <option value='' >${sessionScope.membre.niveau}</option>
                                                         
 
@@ -102,7 +102,7 @@
                                         <div id='prenom' class="col-md-12 mb-12">
                                             <div  class="form-group">
                                                 <label for="inputLevel">Sexe</label>
-                                                <select class="form-control" name="sexeM" required>
+                                                <select class="form-control" name="sexeR" required>
                                                     <option value='' >${sessionScope.membre.sexe}</option>
 
                                                     <%for (Sexe s : Sexe.values()) {%>
@@ -123,14 +123,14 @@
 
 
                                         <div class="col-md-12 mb-12">
-                                            <input type="email" name='email' class="form-control" id="validationCustom05" placeholder="${sessionScope.membre.courriel}" required>
+                                            <input type="email" name='emailR' class="form-control" id="validationCustom05" placeholder="${sessionScope.membre.courriel}" required>
                                             <div class="invalid-feedback">
                                                 Entrez un courriel valide.
                                             </div>
                                         </div>
 
                                         <div class="col-md-12 mb-12">
-                                            <input type="password" id='password' name='password' class="form-control"  placeholder="Mot de passe" required>
+                                            <input type="password" id='password' name='passwordR' class="form-control"  placeholder="Mot de passe" required>
                                             <div class="invalid-feedback">
                                                 Mot de passe recquis.
                                             </div>

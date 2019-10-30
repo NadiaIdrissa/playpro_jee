@@ -133,6 +133,7 @@ public class MembreDAO extends DAO<Membre> {
                 c.setPseudo(r.getString("pseudo"));
                 c.setMpd(r.getString("mdp"));
                 c.setNiveau(r.getString("niveau"));
+                c.setSexe("sexe");
                 r.close();
                 stm.close();
                 return c;
