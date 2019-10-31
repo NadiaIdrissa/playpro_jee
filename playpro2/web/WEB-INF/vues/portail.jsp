@@ -37,6 +37,13 @@
             </div>
             <%@include file="header4.jsp" %>
         </div>
+        
+        
+        
+        <%--<%@include file="modalProfil.jsp" %>--%>
+        
+        
+        
         <script src="static/js/classie.js"></script>
         <script src="static/js/menu.js"></script>
     </body>
