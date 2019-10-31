@@ -120,7 +120,8 @@ public class MembreDAO extends DAO<Membre> {
                 System.out.println(r.getString("nom"));
                 System.out.println(r.getString("prenom"));
                 System.out.println(r.getString("pseudo"));   
-                System.out.println(r.getString("mdp"));   
+                System.out.println(r.getString("mdp")); 
+                
                 
                 System.out.println("------------------------");
                 
@@ -131,6 +132,8 @@ public class MembreDAO extends DAO<Membre> {
                 c.setCourriel(r.getString("courriel"));
                 c.setPseudo(r.getString("pseudo"));
                 c.setMpd(r.getString("mdp"));
+                c.setNiveau(r.getString("niveau"));
+                c.setSexe("sexe");
                 r.close();
                 stm.close();
                 return c;
@@ -158,6 +161,9 @@ public class MembreDAO extends DAO<Membre> {
         try {
             String req = "UPDATE membre SET NOM = '" + x.getNom() + "',"
                     + "COURRIEL = '" + x.getCourriel() + "',"
+                    + "SEXE = '" + x.getSexe() + "',"
+                    + "NIVEAU = '" + x.getNiveau() + "',"
+                    + "ANNEE_NAISS = '" + x.getAnneeNaissance() + "',"
                     + "PRENNOM = '" + x.getPrenom() + "'"
                     + " WHERE id = '" + x.getId() + "'";
             //System.out.println("REQUETE "+req);
