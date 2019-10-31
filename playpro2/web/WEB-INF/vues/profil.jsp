@@ -33,9 +33,7 @@
         <script src="static/js/modernizr.custom.25376.js"></script>
         <!--<link href="static/bootstrap/fontAwesome/css/all.min.css" rel="stylesheet" type="text/css">-->
     </head>            
-    <style>
 
-    </style>
     <%
         Membre m = (Membre) request.getSession().getAttribute("membre");
     %>
