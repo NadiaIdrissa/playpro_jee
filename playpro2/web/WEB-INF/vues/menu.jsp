@@ -5,10 +5,10 @@
     <%
     if ((request.getSession().getAttribute("connected") != null) && 
        ((boolean) request.getSession().getAttribute("connected") == true)){
-        Membre m = null;
-        m = (Membre) request.getSession().getAttribute("membre");
+        Membre me = null;
+        me = (Membre) request.getSession().getAttribute("membre");
     %>
-        <span class="affichageNom">Bienvenue <%=m.getPrenom()%></span>
+        <span class="affichageNom">Bienvenue <%=me.getPrenom()%></span>
         <button id="showMenu" class="affichageMenuBtn">Menu</button>
     <%}else{%>
     <button id="showMenu" class="affichageMenuBtn">Menu</button>

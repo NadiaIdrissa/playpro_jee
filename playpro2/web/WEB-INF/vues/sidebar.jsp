@@ -10,6 +10,7 @@
     <ul class="nav">
         <li>
             <a href="?action=profil">
+                <!--<a data-toggle="modal" data-target="#id02">-->
                 <i class="fa fa-list-ul"></i> Mon profil
             </a>
         </li>
@@ -50,3 +51,4 @@
     </ul>
 </div>
 
+<%--<%@include file="modalProfil.jsp" %>--%>
