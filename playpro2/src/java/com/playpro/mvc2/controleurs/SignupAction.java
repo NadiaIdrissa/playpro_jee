@@ -84,7 +84,7 @@ public class SignupAction extends AbstractAction {
 
             if (reussi) {
                 request.setAttribute("membre", membre);
-                return "profil";
+                return "portail";
             } else {
                 return "index";
             }

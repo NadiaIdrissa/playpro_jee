@@ -8,6 +8,7 @@
 
 
 function  cacherE() {
+    debugger
     var niveau = document.getElementById("niveau");
     var sport = document.getElementById("sport");
 
@@ -16,12 +17,12 @@ function  cacherE() {
     } else {
         debugger
         sport.style.display = "none";
-        ($("img")[1]).style.display = "none";
+        ($("img")[2]).style.display = "none";
         sport.children[0].required = false
     }
     if (niveau.style.display === "none") {
         niveau.style.display = "block";
-        ($("img")[0]).style.display = "block";
+        ($("img")[1]).style.display = "block";
         niveau.children[0].children[1].required = true;
     } else {
 
@@ -38,12 +39,12 @@ function  cacherJ() {
     } else {
         debugger
         niveau.style.display = "none";
-        ($("img")[0]).style.display = "none";
+        ($("img")[1]).style.display = "none";
         niveau.children[0].children[1].required = false;
     }
     if (sport.style.display === "none") {
         sport.style.display = "block";
-        ($("img")[1]).style.display = "block";
+        ($("img")[2]).style.display = "block";
         sport.children[0].required = true;
     } else {
 
@@ -70,8 +71,10 @@ function  cacherJ() {
 })();
 
 // fait disparaître le message après 2 secondes
-setTimeout(function () {
-    document.getElementById('FormulaireConnexion').removeChild(document.getElementById("message"));
-}, 4000);
-
+//setTimeout(function () {
+//message = document.getElementById("message");
+//        if (typeof (message) != 'undefined' && message != null) {
+//document.getElementById('FormulaireConnexion').removeChild(message);
+//        },
+//4000);
 
