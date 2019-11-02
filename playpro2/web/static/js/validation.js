@@ -8,7 +8,11 @@
 
 
 function  cacherE() {
+<<<<<<< HEAD
     debugger;
+=======
+    debugger
+>>>>>>> 34db0805468a016a4dbecd2509383deda5df8b09
     var niveau = document.getElementById("niveau");
     var sport = document.getElementById("sport");
 
@@ -75,6 +79,10 @@ function  cacherJ() {
 //message = document.getElementById("message");
 //        if (typeof (message) != 'undefined' && message != null) {
 //document.getElementById('FormulaireConnexion').removeChild(message);
+<<<<<<< HEAD
 //},
+=======
+//        },
+>>>>>>> 34db0805468a016a4dbecd2509383deda5df8b09
 //4000);
 

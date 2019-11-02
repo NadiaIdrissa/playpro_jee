@@ -1,4 +1,4 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <!--<div class="container">
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light" role="navigation">
