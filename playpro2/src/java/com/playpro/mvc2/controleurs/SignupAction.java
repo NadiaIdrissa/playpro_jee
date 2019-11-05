@@ -49,14 +49,14 @@ public class SignupAction extends AbstractAction {
         }
 
         if (nom == null || prenom == null || email == null || mdp == null) {
-            System.out.println("Infos inexistantes");
+            
             return "signup";
         } else {
             Membre membre = ObjectFactory.getNewMembre();
             System.out.println("REQUEST SPORT : " + request.getParameter("sport"));
 
             if (!request.getParameter("sport").equals("")) {
-                System.out.println("yessssssssssssssssssss");
+                
                 niv = "Professionnel";
                 membre.setSport(request.getParameter("sport"));
             }
@@ -65,9 +65,9 @@ public class SignupAction extends AbstractAction {
                 mdpHash = PasswordHash.createHash(mdp);
                 membre.setMpd(mdpHash);
             } catch (NoSuchAlgorithmException ex) {
-                Logger.getLogger(CreermembreAction.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(SignupAction.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InvalidKeySpecException ex) {
-                Logger.getLogger(CreermembreAction.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(SignupAction.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             membre.setNom(nom);
@@ -84,7 +84,7 @@ public class SignupAction extends AbstractAction {
 
             if (reussi) {
                 request.setAttribute("membre", membre);
-                return "profil";
+                return "portail";
             } else {
                 return "index";
             }
