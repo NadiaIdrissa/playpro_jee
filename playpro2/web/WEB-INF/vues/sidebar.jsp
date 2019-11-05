@@ -10,23 +10,24 @@
     <ul class="nav">
         <li>
             <a href="?action=profil">
+                <!--<a data-toggle="modal" data-target="#id02">-->
                 <i class="fa fa-list-ul"></i> Mon profil
             </a>
         </li>
         
         <li>
-            <a href="?action=calendar">
+            <a href="?action=portail">
                 <i class="fa fa-paper-plane"></i> Calendrier
             </a>
         </li>
         <li>
-            <a href="?action=equipe">
+            <a href="#">
                 <i class="fa fa-list-ul"></i> Equipes
             </a>
         </li>
         
         <li>
-            <a href="?action=partie">
+            <a href="#">
                 <i class="fa fa-paper-plane"></i> Parties
             </a>
         </li>
@@ -36,17 +37,18 @@
 //        if (m.getTypeMembre() == "Entraineur")){  
         %>
             <li>
-                <a href="?action=annonce">
+                <a href="#">
                     <i class="fa fa-list-ul"></i> Annonces
                 </a>
             </li>
         <% //}%>
         
         <li>
-            <a href="?action=membre">
+            <a href="#">
                 <i class="fa fa-paper-plane"></i> Membres
             </a>
         </li>
     </ul>
 </div>
 
+<%--<%@include file="modalProfil.jsp" %>--%>

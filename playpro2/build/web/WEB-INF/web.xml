@@ -3,12 +3,12 @@
     <context-param>
         <description>Driver de connection jdbc</description>
         <param-name>piloteJDBC</param-name>
-        <param-value>"com.mysql.cj.jdbc.Driver"</param-value>
+        <param-value>com.mysql.cj.jdbc.Driver</param-value>
     </context-param>
     <context-param>
         <description>url connection jdbc</description>
         <param-name>urlBD</param-name>
-        <param-value>"jdbc:mysql://localhost/playpro2?serverTimezone=UTC"</param-value>
+        <param-value>jdbc:mysql://localhost/playpro2?serverTimezone=UTC</param-value>
     </context-param>
     <listener>
         <description>Listener de l'application</description>

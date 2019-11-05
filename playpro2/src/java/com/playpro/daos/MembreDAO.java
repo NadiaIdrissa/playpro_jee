@@ -26,24 +26,22 @@ public class MembreDAO extends DAO<Membre> {
 //                + "','" + x.getCourriel() + "','" + x.getAnneeNaissance()+ "','" + x.getMpd() + "')";
         //System.out.println("REQUETE "+req);
         String type = "";
-        
-        
-        System.out.println("e.getsport "+x.getSport());
+
+        System.out.println("e.getsport " + x.getSport());
         System.out.println(x);
-        if(x.getSport().equals("")){
+        if (x.getSport().equals("")) {
             type = "Joueur";
-        }else{
+        } else {
             type = "Entraineur";
         }
-        
-        System.out.println("Type : "+type );
-        
+
+        System.out.println("Type : " + type);
+
 //        String req = "INSERT INTO `membre`(`id`) VALUES ('OOOOOOOO')";
         String req = "INSERT INTO `membre` (`ID`,`NOM`,`PRENOM`,`COURRIEL`,`TYPE_MEMBRE`,`SPORT`,`SEXE`,`NIVEAU`,`MDP`,`PSEUDO`) "
-                + "VALUES('"+x.getId()+"','"+x.getNom()+"','"+x.getPrenom()+"','"+x.getCourriel()+"','"+type+"','"
-                +x.getSport()+"','"+x.getSexe()+"','"+x.getNiveau()+"','"+x.getMpd()+"','"+x.getPseudo()+"')";
-        
-        
+                + "VALUES('" + x.getId() + "','" + x.getNom() + "','" + x.getPrenom() + "','" + x.getCourriel() + "','" + type + "','"
+                + x.getSport() + "','" + x.getSexe() + "','" + x.getNiveau() + "','" + x.getMpd() + "','" + x.getPseudo() + "')";
+
         Statement stm = null;
         try {
             stm = cnx.createStatement();
@@ -102,16 +100,40 @@ public class MembreDAO extends DAO<Membre> {
         // TODO Auto-generated method stub
         Statement stm = null;
         ResultSet r = null;
+        String critere;
+
+        if (id.contains("@")) {
+            System.out.println("Il y a un @: "+id);
+            critere = "courriel";
+        } else {
+            critere = "id";
+            System.out.println("Il n y a pas de @: "+id);
+        }
+
         try {
             stm = cnx.createStatement();
-            r = stm.executeQuery("SELECT * FROM client WHERE id = '" + id + "'");
+            r = stm.executeQuery("SELECT * FROM membre WHERE "+critere+" = '" + id + "'");
             if (r.next()) {
                 Membre c = new Membre();
+                System.out.println("------------------------");
+                System.out.println(r.getString("id"));
+                System.out.println(r.getString("nom"));
+                System.out.println(r.getString("prenom"));
+                System.out.println(r.getString("pseudo"));   
+                System.out.println(r.getString("mdp")); 
+                
+                
+                System.out.println("------------------------");
+                
+                
                 c.setId(r.getString("id"));
                 c.setNom(r.getString("nom"));
                 c.setPrenom(r.getString("Prenom"));
                 c.setCourriel(r.getString("courriel"));
                 c.setPseudo(r.getString("pseudo"));
+                c.setMpd(r.getString("mdp"));
+                c.setNiveau(r.getString("niveau"));
+                c.setSexe("sexe");
                 r.close();
                 stm.close();
                 return c;
@@ -128,6 +150,7 @@ public class MembreDAO extends DAO<Membre> {
                 }
             }
         }
+
         return null;
     }
 
@@ -136,8 +159,11 @@ public class MembreDAO extends DAO<Membre> {
         // TODO Auto-generated method stub
         Statement stm = null;
         try {
-            String req = "UPDATE client SET NOM = '" + x.getNom() + "',"
+            String req = "UPDATE membre SET NOM = '" + x.getNom() + "',"
                     + "COURRIEL = '" + x.getCourriel() + "',"
+                    + "SEXE = '" + x.getSexe() + "',"
+                    + "NIVEAU = '" + x.getNiveau() + "',"
+                    + "ANNEE_NAISS = '" + x.getAnneeNaissance() + "',"
                     + "PRENNOM = '" + x.getPrenom() + "'"
                     + " WHERE id = '" + x.getId() + "'";
             //System.out.println("REQUETE "+req);
@@ -164,7 +190,7 @@ public class MembreDAO extends DAO<Membre> {
     @Override
     public List<Membre> findAll() {
         List<Membre> liste = new LinkedList<>();
-        
+
         try {
             Statement stm = cnx.createStatement();
             ResultSet r = stm.executeQuery("SELECT * FROM membre");
@@ -172,31 +198,29 @@ public class MembreDAO extends DAO<Membre> {
                 Membre c = new Entraineur();
                 Joueur j = new Joueur();
                 Entraineur e = new Entraineur();
-                System.out.println("Dennée: "+r.getString(2));
+                System.out.println("Dennée: " + r.getString(2));
                 //System.out.println("Donnée: "+r.getString("type_membre"));
-                
+
                 c.setId(r.getString("id"));
                 c.setPrenom(r.getString("nom"));
                 c.setNom(r.getString("nom"));
                 c.setCourriel(r.getString("courriel"));
                 c.setPseudo(r.getString("pseudo"));
                 c.setMpd(r.getString("mdp"));
-                
-                if(r.getString("type_membre").equals("joueur")){
-                    j = (Joueur)c;
+
+                if (r.getString("type_membre").equals("joueur")) {
+                    j = (Joueur) c;
                     liste.add(j);
-                }else if(r.getString("type_membre").equals("admin")){
+                } else if (r.getString("type_membre").equals("admin")) {
                     //e = (Entraineur)c; 
                     liste.add(c);
-                }else{
-                    
-                }
-                
-                //liste.add(c);
+                } else {
 
+                }
+
+                //liste.add(c);
             }
-                
-            
+
             r.close();
             stm.close();
         } catch (SQLException exp) {

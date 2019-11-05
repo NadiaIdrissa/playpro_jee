@@ -28,17 +28,18 @@ public class Membre {
     protected Niveau niveau;
     protected BufferedImage photo;
 
-    public Membre(String pseudo, String courriel, String mpd, String nom, String prenom, Sexe sexe) {
+    public Membre(String pseudo, String courriel, String mpd, String nom, String prenom, Sexe sexe, Niveau niveau) {
         this.pseudo = pseudo;
         this.mpd = mpd;
         this.nom = nom;
         this.prenom = prenom;
         this.courriel = courriel;
         this.sexe = sexe;
+        this.niveau=niveau;
     }
 
     public Membre() {
-        this("ken", "kalo@al.ca", "1234", "Kalomba", "Kennedy", Sexe.Homme);
+        this("ken", "kalo@al.ca", "1234", "Kalomba", "Kennedy", Sexe.Homme,Niveau.DEBUTANT);
 
     }
 
