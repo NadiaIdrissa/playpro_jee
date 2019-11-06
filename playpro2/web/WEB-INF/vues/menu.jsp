@@ -1,14 +1,18 @@
+<%@page import="com.playpro.entities.Membre"%>
 <header>
-    
-    <img src="static/images/logo.png" class="rounded float-left" style='width: 5%; height: auto;' alt="Responsive image">
-    <button id="showMenu" style='float: right;'>Menu</button>
+    <div class="row">
+        <img src="static/images/logo.png" class="rounded float-left affichageLogo" alt="Responsive image">
+    <%
+    if ((request.getSession().getAttribute("connected") != null) && 
+       ((boolean) request.getSession().getAttribute("connected") == true)){
+        Membre me = null;
+        me = (Membre) request.getSession().getAttribute("membre");
+    %>
+        <span class="affichageNom">Bienvenue <%=me.getPrenom()%></span>
+        <button id="showMenu" class="affichageMenuBtn">Menu</button>
+    <%}else{%>
+    <button id="showMenu" class="affichageMenuBtn">Menu</button>
+    <%}%>
+    </div>
 </header>
 
-
-
-<!--<div id="perspective" class="perspective effect-movedown">-->
-    
-    
-    
-
-<!--</div>-->

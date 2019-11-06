@@ -9,7 +9,6 @@ import com.playpro.mvc2.controleurs.ErrorAction;
 import com.playpro.mvc2.controleurs.IndexAction;
 import com.playpro.mvc2.controleurs.nousJoindreAction;
 import com.playpro.mvc2.controleurs.aProposAction;
-import com.playpro.mvc2.controleurs.CalendarAction;
 import com.playpro.mvc2.servlets.*;
 import com.playpro.mvc2.controleurs.AbstractAction;
 import com.playpro.mvc2.controleurs.Action;
@@ -18,6 +17,7 @@ import com.playpro.mvc2.controleurs.CreerEquipeAction;
 import com.playpro.mvc2.controleurs.SignupAction;
 import com.playpro.mvc2.controleurs.LoginAction;
 import com.playpro.mvc2.controleurs.LogoutAction;
+import com.playpro.mvc2.controleurs.PortailAction;
 import com.playpro.mvc2.controleurs.ProfilAction;
 //import com.playpro.mvc2.controleurs.SoustractionAction;
 import java.io.IOException;
@@ -69,14 +69,14 @@ public class ControleurFrontal extends HttpServlet {
             case "profil":
                 action = new ProfilAction();
                 break;
-            case "calendar":
-                action = new CalendarAction();
-                break;
             case "aPropos":
                 action = new aProposAction();
                 break;
             case "nousJoindre":
                 action = new nousJoindreAction();
+                break;
+            case "portail":
+                action = new PortailAction();
                 break;
             case "creerEquipe":
                 action = new CreerEquipeAction();

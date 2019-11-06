@@ -23,6 +23,7 @@ public class ApplicationListener implements ServletContextListener {
         ServletContext sc = sce.getServletContext();
         
         String pilote = (String) sc.getInitParameter("piloteJDBC");
+
         
         
         
@@ -33,6 +34,13 @@ public class ApplicationListener implements ServletContextListener {
 //        System.out.println("Pilote "+ pilote);
 //        System.out.println("URL = "+ url);
         
+
+        //String url = (String) sc.getInitParameter("urlBD");
+//        String url = "jdbc:mysql://localhost:8889/playpro2?serverTimezone=UTC";
+        System.out.println("Pilote : "+pilote);
+        System.out.println("URL :"+url);
+
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             

@@ -8,7 +8,9 @@
     <context-param>
         <description>url connection jdbc</description>
         <param-name>urlBD</param-name>
+
         <param-value>jdbc:mysql://localhost:8889/playpro2?serverTimezone=UTC</param-value>
+
     </context-param>
     
     <listener>

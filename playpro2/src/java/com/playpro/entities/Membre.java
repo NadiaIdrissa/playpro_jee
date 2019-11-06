@@ -24,23 +24,24 @@ public class Membre {
     protected String courriel;
     protected LocalDate dateInscription;
     protected Equipe equipe;
+    protected String sport;
+    protected Niveau niveau;
     protected BufferedImage photo;
 
-    public Membre(String pseudo,String courriel, String mpd, String nom, String prenom,Sexe sexe) {
+    public Membre(String pseudo, String courriel, String mpd, String nom, String prenom, Sexe sexe, Niveau niveau) {
         this.pseudo = pseudo;
         this.mpd = mpd;
         this.nom = nom;
         this.prenom = prenom;
         this.courriel = courriel;
-        this.sexe= sexe;
+        this.sexe = sexe;
+        this.niveau=niveau;
     }
 
     public Membre() {
-        this("ken","kalo@al.ca", "1234","Kalomba", "Kennedy",Sexe.Homme);
-    
+        this("ken", "kalo@al.ca", "1234", "Kalomba", "Kennedy", Sexe.Homme,Niveau.DEBUTANT);
+
     }
-    
-    
 
     public String getId() {
         return id;
@@ -70,8 +71,16 @@ public class Membre {
         return sexe;
     }
 
-    public void setSexe(Sexe sexe) {
-        this.sexe = sexe;
+    public void setSexe(String sexe) {
+
+        if (sexe.equalsIgnoreCase("homme")) {
+
+            this.sexe = Sexe.Homme;
+        }else if (sexe.equalsIgnoreCase("femme")){
+            this.sexe = Sexe.Femme;
+        }else{
+            this.sexe = Sexe.Autre;
+        }
     }
 
     public String getNom() {
@@ -121,6 +130,30 @@ public class Membre {
     public void setEquipe(Equipe equipe) {
         this.equipe = equipe;
     }
+    
+    public String getSport() {
+        return sport;
+    }
+
+    public void setSport(String sport) {
+        this.sport = sport;
+    }
+
+    public Niveau getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(String niveau) {
+        System.out.println("valeur: "+niveau.equalsIgnoreCase("Professionnel"));
+        if (niveau.equalsIgnoreCase("Professionnel")) {
+
+            this.niveau = Niveau.PROFESSIONNEL;
+        }else if (niveau.equalsIgnoreCase("intermediaire")){
+            this.niveau = Niveau.INTERMEDIAIRE;
+        }else{
+            this.niveau = Niveau.DEBUTANT;
+        }
+    }
 
     public BufferedImage getPhoto() {
         return photo;
@@ -132,11 +165,9 @@ public class Membre {
 
     @Override
     public String toString() {
-        return "Membre{" + "id=" + id + ", pseudo=" + pseudo + ", mpd=" + mpd + ", nom=" + nom + ", prenom=" + prenom + ", courriel=" + courriel + '}';
+        return "Membre{" + "id=" + id + ", pseudo=" + pseudo + ", mpd=" + mpd + ", sexe=" + sexe + ", nom=" + nom + ", prenom=" + prenom + ", anneeNaissance=" + anneeNaissance + ", courriel=" + courriel + ", dateInscription=" + dateInscription + ", equipe=" + equipe + ", sport=" + sport + ", niveau=" + niveau + ", photo=" + photo + '}';
     }
-    
-    
-    
 
+    
 
 }
