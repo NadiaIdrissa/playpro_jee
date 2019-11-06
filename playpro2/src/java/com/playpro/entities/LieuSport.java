@@ -10,6 +10,6 @@ package com.playpro.entities;
  * @author toute
  */
 class LieuSport {
-    private Lieu lieu;
+    private Lieux lieu;
     private Sport sport;
 }
