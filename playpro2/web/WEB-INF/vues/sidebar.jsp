@@ -31,6 +31,17 @@
                 <i class="fa fa-paper-plane"></i> Parties
             </a>
         </li>
+        <li>
+            <a href="?action=sports">
+                <i class="fa fa-paper-plane"></i> Les sports
+            </a>
+        </li>
+         <li>
+            <a href="#">
+                <i class="fa fa-paper-plane"></i> Les lieux
+            </a>
+        </li>
+        
         <%
 //        Membre m = null;
 //        m = (Membre) request.getSession().getAttribute("membre");

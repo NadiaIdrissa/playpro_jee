@@ -11,9 +11,11 @@ package com.playpro.entities;
  */
 public class Sport {
     private String id_sport;
-    private String nom_sport;
-    private int nb_joueurs_max;
-    private int nb_joueurs_min;
+    private String nom;
+    private int nb_max;
+    private int nb_min;
+    private String image;
+
     
     public Sport() {
     }
@@ -25,30 +27,30 @@ public class Sport {
 
     public Sport(String idSport, String nomSport) {
         this.id_sport = idSport;
-        this.nom_sport = nomSport;
+        this.nom = nomSport;
     }
 
     public Sport(String id_sport, String nomSport, int nb_joueurs_max, int nb_joueurs_min) {
         this.id_sport = id_sport;
-        this.nom_sport = nomSport;
-        this.nb_joueurs_max = nb_joueurs_max;
-        this.nb_joueurs_min = nb_joueurs_min;
+        this.nom = nomSport;
+        this.nb_max = nb_joueurs_max;
+        this.nb_min = nb_joueurs_min;
     }
 
-    public int getNb_joueurs_max() {
-        return nb_joueurs_max;
+    public int getNb_max() {
+        return nb_max;
     }
 
-    public int getNb_joueurs_min() {
-        return nb_joueurs_min;
+    public int getNb_min() {
+        return nb_min;
     }
 
-    public void setNb_joueurs_max(int nb_joueurs_max) {
-        this.nb_joueurs_max = nb_joueurs_max;
+    public void setNb_max(int nb_joueurs_max) {
+        this.nb_max = nb_joueurs_max;
     }
 
-    public void setNb_joueurs_min(int nb_joueurs_min) {
-        this.nb_joueurs_min = nb_joueurs_min;
+    public void setNb_min(int nb_joueurs_min) {
+        this.nb_min = nb_joueurs_min;
     }
     
 
@@ -56,21 +58,30 @@ public class Sport {
         return id_sport;
     }
 
-    public String getNom_sport() {
-        return nom_sport;
+    public String getNom() {
+        return nom;
     }
 
     public void setId_sport(String idSport) {
         this.id_sport = idSport;
     }
 
-    public void setNom_sport(String nomSport) {
-        this.nom_sport = nomSport;
+    public void setNom(String nomSport) {
+        this.nom = nomSport;
     }
+        
     
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+        
+    }
      @Override
     public String toString() {
-        return "Sport{" + "idSport=" + id_sport+ ", nomSport=" + nom_sport + ", nombre max de joueurs="+nb_joueurs_max+ ", nombre de joueures min="+nb_joueurs_min+'}';
+        return "Sport{" + "idSport=" + id_sport+ ", nomSport=" + nom + ", nombre max de joueurs="+nb_max+ ", nombre de joueurs min="+nb_min+'}';
     }
 
   
