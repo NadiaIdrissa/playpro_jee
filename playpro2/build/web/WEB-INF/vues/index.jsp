@@ -24,6 +24,12 @@
 
         <link href="static/css/cssFooter/styles.css" rel="stylesheet" type="text/css">
         <link href="static/css/cssNavBar/stylesyami.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="static/css/calendrier.css"/>
+        <script src="static/js/calendrier.js"></script>
+        <script src="static/js/modernizr.custom.25376.js"></script>
+
+
+
 
     </head>
     <body>
@@ -86,6 +92,7 @@
         </div>
 
         <br><br><br>
+        <%@include file="calendrier.jsp" %>
 
         <%@include file="calendrier2.jsp" %>
 

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en" class="no-js">
     <head>
         <meta charset="UTF-8" />
@@ -28,6 +29,9 @@
                     <%@include file="sidebar.jsp" %>
                     
                     <div class="main mainPortail clearfix">
+                        <c:if test="${requestScope.AfficherSports}">
+                            <%@include file="sports.jsp" %>
+                        </c:if>
                         <%@include file="calendrier.jsp" %>
                         <div class="column">
 

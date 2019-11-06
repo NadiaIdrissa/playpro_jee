@@ -18,8 +18,8 @@ public class SportDAO extends DAO<Sport>{
 
     @Override
     public boolean create(Sport x) {
-        String req = "INSERT INTO sport (`id_sport` , `nom_sport` , `nb_joueurs_max`, `nb_joueurs_min`) "+
-			     "VALUES ('"+x.getId_sport()+"','"+x.getNom_sport()+"','"+x.getNb_joueurs_max()+"','"+x.getNb_joueurs_min()+"')";
+        String req = "INSERT INTO sport (`id_sport` , `nom` , `nb_max`, `image`) "+
+			     "VALUES ('"+x.getId_sport()+"','"+x.getNom()+"','"+x.getNb_max()+"','"+x.getImage()+"')";
 		//System.out.println("REQUETE "+req);
 		Statement stm = null;
 		try 
@@ -60,23 +60,25 @@ public class SportDAO extends DAO<Sport>{
       
         try {
             stm = cnx.createStatement();
-            r = stm.executeQuery("SELECT * FROM sport WHERE nom_sport = '"+nom+"'");
+            r = stm.executeQuery("SELECT * FROM sport WHERE nom = '"+nom+"'");
 
             if (r.next()) {
                 Sport c = new Sport();
                 System.out.println("------------------------");
                 System.out.println(r.getString("id_sport"));
-                System.out.println(r.getString("nom_sport"));
+                System.out.println(r.getString("nom"));
                 System.out.println(r.getString("nb_joueur_max"));
-                System.out.println(r.getString("nb_joueur_min"));           
+                  
+                System.out.println(r.getString("image"));
                 
                 System.out.println("------------------------");
                 
                 
                 c.setId_sport(r.getString("id_sport"));
-                c.setNom_sport(r.getString("nom_sport"));
-                c.setNb_joueurs_max(r.getInt("nb_joueur_max"));
-                c.setNb_joueurs_min(r.getInt("nb_joueur_min"));
+                c.setNom(r.getString("nom_sport"));
+                c.setNb_max(r.getInt("nb_max"));
+                
+                c.setImage(r.getString("image"));
                 r.close();
                 stm.close();
                 return c;
@@ -103,9 +105,10 @@ public class SportDAO extends DAO<Sport>{
     public boolean update(Sport x) {
         Statement stm = null;
         try {
-            String req = "UPDATE sport SET nom_sport = '" + x.getNom_sport()+ "',"
-                    + "nb_joueurs_max = '" + x.getNb_joueurs_max()+ "',"
-                    + "nb_joueurs_min = '" + x.getNb_joueurs_min()+ "',"
+            String req = "UPDATE sport SET nom = '" + x.getNom()+ "',"
+                    + "nb_joueurs_max = '" + x.getNb_max()+ "',"
+                    + "nb_joueurs_min = '" + x.getNb_min()+ "',"
+                    + "image = '" + x.getImage()+ "',"
                     + " WHERE id = '" + x.getId_sport() + "'";
             //System.out.println("REQUETE "+req);
             stm = cnx.createStatement();
@@ -162,9 +165,10 @@ public class SportDAO extends DAO<Sport>{
                 System.out.println("Lecture sport :" +r.toString());
                 Sport c = new Sport();
                 c.setId_sport(r.getString("id_sport"));
-                c.setNom_sport(r.getString("nom_sport"));
-                c.setNb_joueurs_max(r.getInt("nb_joueurs_max"));
-                c.setNb_joueurs_min(r.getInt("nb_joueurs_min"));
+                c.setNom(r.getString("nom"));
+                c.setNb_max(r.getInt("nb_max"));
+                c.setNb_min(r.getInt("nb_min"));
+                c.setImage(r.getString("image"));
                              
 
                 liste.add(c);
