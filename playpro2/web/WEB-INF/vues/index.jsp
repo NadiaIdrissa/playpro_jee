@@ -35,10 +35,7 @@
         <%@include file="headerMembre.jsp" %>
 
         <% }%>
-        
-        <c:if test="${sessionScope.connected == null }">
 
-<<<<<<< HEAD
         <c:if test="${sessionScope.connected == null }">
 
     <%--<jsp:forward page="login.jsp" />--%>
@@ -63,39 +60,11 @@
         </div>
     </section>
 
-</c:if>
+</c:if >
 
-        <br><br><br>
-=======
-            <%--<jsp:forward page="login.jsp" />--%>
-            <section class="banner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h2>
-                                Avec PlayPro, pratiquez votre sport préféré avec professionalisme.
-
-                            </h2>
-                            <p>
-                                Il s'agit d'une plateforme gratuite qui vous permettra d'organiser tous vos événements sportifs ainsi
-                                que vos propres équipes. En tant qu'un simple visiteur, vous pouvez consulter toutes les parties qui
-                                existent, mais pour y participer, il faut créer un compte. Ainsi, vous pouvez profiter de tous les
-                                avantages de PlayPro. 
-                            </p>
-                            <a href='?action=signup' class="btnD">Créer un compte</a>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </c:if>
-
-        <br>
->>>>>>> ebbca3b487af26aa1ce647e1ccaf3169ee2a6fa9
         <h1>Une gestion d'événements hors du commun</h1>
 
-        <br><br><br>
+        <br><br>
 
 
         <div class="row present">
