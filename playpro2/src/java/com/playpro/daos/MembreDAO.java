@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.playpro.entities.Membre;
+import com.playpro.entities.Sexe;
 
 public class MembreDAO extends DAO<Membre> {
 
@@ -133,7 +134,8 @@ public class MembreDAO extends DAO<Membre> {
                 c.setPseudo(r.getString("pseudo"));
                 c.setMpd(r.getString("mdp"));
                 c.setNiveau(r.getString("niveau"));
-                c.setSexe("sexe");
+                c.setSexe(r.getString("sexe"));
+                c.setAnneeNaissance(r.getInt("annee_naiss"));
                 r.close();
                 stm.close();
                 return c;

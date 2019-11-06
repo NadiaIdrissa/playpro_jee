@@ -7,6 +7,7 @@ package com.playpro.mvc2.controleurs;
 
 import com.playpro.daos.MembreDAO;
 import com.playpro.entities.Membre;
+import com.playpro.entities.Sexe;
 import com.playpro.utils.PasswordHash;
 
 /**
@@ -23,10 +24,15 @@ public class ProfilAction extends AbstractAction {
 
         mCourrant = (Membre) request.getSession().getAttribute("membre");
         String id = mCourrant.getId();
+        int naiss = mCourrant.getAnneeNaissance();
+        Sexe sex=mCourrant.getSexe();
+        Sexe sexi;
         // String id=${sessionScope.membre.id};
         
        
         System.out.println("actuel = "+id);
+        System.out.println("actuel_naiss = "+naiss);
+        
 
         String pseudo = (String) request.getParameter("pseudoR");
         String nom = (String) request.getParameter("nomR");
@@ -36,6 +42,24 @@ public class ProfilAction extends AbstractAction {
         String sexe = (String) request.getParameter("sexeR");
         String email = (String) request.getParameter("emailR");
         String mdp = (String) request.getParameter("passwordR");
+        //int anneeNa=Integer.parseInt(annee);	
+        //Sexe dd=(Sexe)request.getParameter("anneeR");
+        if ("Autre".equals(sexe)){
+            sexi=Sexe.Autre;
+        }
+        else if ("Femme".equals(sexe)){
+            sexi=Sexe.Femme;
+        }
+        
+        else if ("Homme".equals(sexe)){
+            sexi=Sexe.Homme;
+        }
+        else {
+            sexi=mCourrant.getSexe();
+        }
+            
+        
+        
         
  
         System.out.println("pseudo = "+pseudo); 
@@ -46,7 +70,13 @@ public class ProfilAction extends AbstractAction {
         System.out.println("sexe = "+sexe);
         System.out.println("email = "+email);
         System.out.println("mdp = "+mdp);
+        System.out.println("bd sex = "+sex);
+        System.out.println(" var sexi = "+sexi);
         
+        
+        //if ("".equals(sexe.trim())){
+            //sex=(Sexe)mCourrant.getSexe();
+        //}
         PasswordHash mm=new PasswordHash();
         
         
@@ -61,12 +91,12 @@ public class ProfilAction extends AbstractAction {
             membre.setId(id);
             membre.setNom(nom);
             membre.setPrenom(prenom);
-            membre.setAnneeNaissance(1970);
+            membre.setAnneeNaissance(0);
             membre.setCourriel(email);
             membre.setSexe(sexe);
             membre.setMpd(mdp);
             membre.setNiveau(niveau);
-             dao.update(membre);
+             //dao.update(membre);
 //            UPDATE `membre` SET `prenom` = 'Viviane' WHERE `membre`.`id` = '29e405ab-2014-43e1-b01e-492d4dcc5ebd';
         }
         return "profil";
