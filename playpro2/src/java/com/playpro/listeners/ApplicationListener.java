@@ -36,7 +36,7 @@ public class ApplicationListener implements ServletContextListener {
         
 
         //String url = (String) sc.getInitParameter("urlBD");
-//        String url = "jdbc:mysql://localhost:8889/playpro2?serverTimezone=UTC";
+        String url = "jdbc:mysql://localhost/playpro2?serverTimezone=UTC";
         System.out.println("Pilote : "+pilote);
         System.out.println("URL :"+url);
 
