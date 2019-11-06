@@ -89,8 +89,8 @@ CREATE TABLE `lieu` (
 
 CREATE TABLE `lieu_sport` (
   `id_lieu_sport` char(36) NOT NULL,
-  `nom_sport` varchar(30) NOT NULL,
-  `zone_sport` varchar(6) CHARACTER SET utf8 NOT NULL
+  `id_sport` varchar(36) NOT NULL,
+  `zone_sport` varchar(36) CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -154,9 +154,11 @@ CREATE TABLE `partie` (
 
 CREATE TABLE `sport` (
   `id_sport` char(36) NOT NULL,
-  `nom_sport` varchar(30) NOT NULL,
-  `nb_joueurs_max` int(2) NOT NULL DEFAULT '2',
-  `nb_joueurs_min` int(1) NOT NULL DEFAULT '2'
+  `nom` varchar(30) NOT NULL,
+  `nb_max` int(2) NOT NULL DEFAULT '2',
+  `nb_min` int(1) NOT NULL DEFAULT '2',
+  `image` char(67)  NULL DEFAULT "blueplay.png" 
+
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -199,7 +201,7 @@ ALTER TABLE `lieu`
 ALTER TABLE `lieu_sport`
   ADD PRIMARY KEY (`id_lieu_sport`),
   ADD KEY `Zone_sport_FK_cp_Lieu` (`zone_sport`) USING BTREE,
-  ADD KEY `Nom_sport_FK_Sport` (`nom_sport`) USING BTREE;
+  ADD KEY `Nom_sport_FK_Sport` (`id_sport`) USING BTREE;
 
 --
 -- Index pour la table `membre`
@@ -223,7 +225,7 @@ ALTER TABLE `partie`
 --
 ALTER TABLE `sport`
   ADD PRIMARY KEY (`id_sport`),
-  ADD UNIQUE KEY `nom_sport` (`nom_sport`);
+  ADD UNIQUE KEY `nom_sport` (`nom`);
 
 --
 -- Contraintes pour les tables exportées
@@ -247,7 +249,7 @@ ALTER TABLE `invitation`
 --
 ALTER TABLE `lieu_sport`
   ADD CONSTRAINT `Lieu_FK_codepostale` FOREIGN KEY (`zone_sport`) REFERENCES `lieu` (`code_postal`),
-  ADD CONSTRAINT `Sport_FK_sport` FOREIGN KEY (`nom_sport`) REFERENCES `sport` (`nom_sport`);
+  ADD CONSTRAINT `Sport_FK_sport` FOREIGN KEY (`id_sport`) REFERENCES `sport` (`id_sport`);
 
 --
 -- Contraintes pour la table `membre`

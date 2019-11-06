@@ -19,31 +19,24 @@ public class ApplicationListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("Hellooooo ");
-        
+
         ServletContext sc = sce.getServletContext();
-        
+
         String pilote = (String) sc.getInitParameter("piloteJDBC");
 
-        
-        
-        
-        
         // À voir
-        String url =(String) sc.getInitParameter("urlBD");
-        
+        String url = (String) sc.getInitParameter("urlBD");
+
 //        System.out.println("Pilote "+ pilote);
 //        System.out.println("URL = "+ url);
-        
-
         //String url = (String) sc.getInitParameter("urlBD");
-        String url = "jdbc:mysql://localhost/playpro2?serverTimezone=UTC";
-        System.out.println("Pilote : "+pilote);
-        System.out.println("URL :"+url);
-
+        url = "jdbc:mysql://localhost/playpro2?serverTimezone=UTC";
+        System.out.println("Pilote : " + pilote);
+        System.out.println("URL :" + url);
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            
+
             Connexion.setUrl(url);
 //            System.out.println("trouvable");
         } catch (ClassNotFoundException e) {
@@ -55,7 +48,5 @@ public class ApplicationListener implements ServletContextListener {
     public void contextDestroyed(ServletContextEvent sce) {
         System.out.println("com.gdp.listeners.ApplicationListener.contextDestroyed()");
     }
-    
-    
-    
+
 }
