@@ -19,7 +19,7 @@
                 <!--<h5 class="modal-title text-center" id="exampleModalLabel" >JOUEUR</h5>-->
                 <div class="text-center">
                     <img id='imagejoueur' src="static/images/head01.png" class="rounded" alt="imgprofil">
-                    
+
                 </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -52,25 +52,26 @@
 
                                     <div class="form-row">
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='pseudoR' class="form-control" id="validationCustom03" placeholder="${sessionScope.membre.pseudo}" required>
+                                            <input type="text" name='pseudoR' class="form-control" id="validationCustom03" value="${sessionScope.membre.pseudo}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='nomR' class="form-control" id="validationCustom03" placeholder="${sessionScope.membre.nom}" required>
+                                            <input type="text" name='nomR' class="form-control" id="validationCustom03" value="${sessionScope.membre.nom}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='prenomR' class="form-control" id="validationCustom04" placeholder="${sessionScope.membre.prenom}" required>
+                                            <input type="text" name='prenomR' class="form-control" id="validationCustom04" value="${sessionScope.membre.prenom}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
-                                            <input type="text" name='anneeR' class="form-control" id="validationCustom5" placeholder="Année de nassaince" required>
+                                            <label for="inputLevel">Année de naissance</label>
+                                            <input type="text" name='anneeR' class="form-control" id="validationCustom5" value=${sessionScope.membre.anneeNaissance} required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
@@ -81,7 +82,7 @@
                                                 <label for="inputLevel">Niveau</label>
                                                 <select class="form-control" name="niveauR" required>
                                                     <option value='' >${sessionScope.membre.niveau}</option>
-                                                        
+
 
                                                     <%for (Niveau n : Niveau.values()) {%>
 
@@ -120,14 +121,15 @@
 
 
                                         <div class="col-md-12 mb-12">
-                                            <input type="email" name='emailR' class="form-control" id="validationCustom05" placeholder="${sessionScope.membre.courriel}" required>
+                                            <input type="email" name='emailR' class="form-control" id="validationCustom05" value="${sessionScope.membre.courriel}" required>
                                             <div class="invalid-feedback">
                                                 Entrez un courriel valide.
                                             </div>
                                         </div>
 
                                         <div class="col-md-12 mb-12">
-                                            <input type="password" id='password' name='passwordR' class="form-control"  placeholder="Mot de passe" required>
+                                            <label for="passwordR">Mot de passe</label>
+                                            <input type="password" id='password' name='passwordR' class="form-control"  value="${sessionScope.membre.mpd}" required>
                                             <div class="invalid-feedback">
                                                 Mot de passe recquis.
                                             </div>
@@ -148,7 +150,7 @@
                                     <div class="modal-footer">
 
                                         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>-->
-                                       
+
                                         <button class="btn btn-primary btn-sm" id="commit" type="submit">Enregistrer</button>
                                     </div>
 
