@@ -14,6 +14,7 @@ import com.playpro.mvc2.controleurs.AbstractAction;
 import com.playpro.mvc2.controleurs.Action;
 import com.playpro.mvc2.controleurs.DefaultAction;
 import com.playpro.mvc2.controleurs.CreerEquipeAction;
+import com.playpro.mvc2.controleurs.EquipesAction;
 import com.playpro.mvc2.controleurs.SignupAction;
 import com.playpro.mvc2.controleurs.LoginAction;
 import com.playpro.mvc2.controleurs.LogoutAction;
@@ -85,14 +86,16 @@ public class ControleurFrontal extends HttpServlet {
                 action = new ErrorAction();
                 break;
 
+            case "equipes":
+                action = new EquipesAction();
+                break;
+
             default:
                 action = new DefaultAction();
         }
         //On injecte dans le contrôleur les objets request et response :
         action.setRequest(request);
         action.setResponse(response);
-        
-        
 
         vue = action.execute();
         System.out.println("vue = " + vue);

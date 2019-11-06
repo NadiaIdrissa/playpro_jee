@@ -51,17 +51,15 @@
         </script>
         <!--<script src="static/js/calendrier.js"></script>-->
         <script src="static/js/modernizr.custom.25376.js"></script>
-<<<<<<< HEAD
-        <!--<link href="static/bootstrap/fontAwesome/css/all.min.css" rel="stylesheet" type="text/css">-->
-    </head>            
+          
 
     <%
         Membre m = (Membre) request.getSession().getAttribute("membre");
     %>
-=======
+
         <title>Profil</title>
     </head>
->>>>>>> 55a80f77ca776265b96e6b1f3ab1a7a9bebac50b
+
     <body>
         <%@include file="menu.jsp" %>
         <div id="perspective" class="perspective effect-movedown">

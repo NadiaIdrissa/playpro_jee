@@ -140,9 +140,18 @@ public class MembreDAO extends DAO<Membre> {
             }
         } catch (SQLException exp) {
         } finally {
-            if (stm != null) {
+            if (r != null) {
                 try {
                     r.close();
+                    
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            if (stm != null) {
+                try {
+                    
                     stm.close();
                 } catch (SQLException e) {
                     // TODO Auto-generated catch block
