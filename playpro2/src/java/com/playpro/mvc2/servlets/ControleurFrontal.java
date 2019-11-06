@@ -15,6 +15,7 @@ import com.playpro.mvc2.controleurs.Action;
 import com.playpro.mvc2.controleurs.DefaultAction;
 import com.playpro.mvc2.controleurs.CreerEquipeAction;
 import com.playpro.mvc2.controleurs.EquipesAction;
+import com.playpro.mvc2.controleurs.LieuxAction;
 import com.playpro.mvc2.controleurs.SignupAction;
 import com.playpro.mvc2.controleurs.LoginAction;
 import com.playpro.mvc2.controleurs.LogoutAction;
@@ -88,6 +89,9 @@ public class ControleurFrontal extends HttpServlet {
                 break;
             case "sports":
                 action = new SportsAction();
+                break;
+            case "lieux":
+                action = new LieuxAction();
                 break;
 
             case "equipes":

@@ -132,7 +132,7 @@ public class SportDAO extends DAO<Sport>{
     }
     @Override
     public boolean delete(Sport x) {
-         Statement stm = null;
+        Statement stm = null;
         try {
             stm = cnx.createStatement();
             int n = stm.executeUpdate("DELETE FROM sport WHERE id_sport='" + x.getId_sport()+ "'");
@@ -156,8 +156,7 @@ public class SportDAO extends DAO<Sport>{
 
     @Override
     public List<Sport> findAll() {
-               List<Sport> liste = new LinkedList<>();
-
+        List<Sport> liste = new LinkedList<>();
         try {
             Statement stm = cnx.createStatement();
             ResultSet r = stm.executeQuery("SELECT * FROM sport");
