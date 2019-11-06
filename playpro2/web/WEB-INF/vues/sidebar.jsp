@@ -11,24 +11,24 @@
         <li>
             <a href="?action=profil">
                 <!--<a data-toggle="modal" data-target="#id02">-->
-                <i class="fa fa-list-ul"></i> Mon profil
+                <i class="fa fa-user"></i> Mon profil
             </a>
         </li>
         
         <li>
             <a href="?action=portail">
-                <i class="fa fa-paper-plane"></i> Calendrier
+                <i class="fa fa-calendar-alt"></i> Calendrier
             </a>
         </li>
         <li>
             <a href="#">
-                <i class="fa fa-list-ul"></i> Equipes
+                <i class="fa fa-users"></i> Equipes
             </a>
         </li>
         
         <li>
             <a href="#">
-                <i class="fa fa-paper-plane"></i> Parties
+                <i class="fa fa-play-circle"></i> Parties
             </a>
         </li>
         <%
@@ -38,14 +38,14 @@
         %>
             <li>
                 <a href="#">
-                    <i class="fa fa-list-ul"></i> Annonces
+                    <i class="fa fa-file-signature"></i> Annonces
                 </a>
             </li>
         <% //}%>
         
         <li>
             <a href="#">
-                <i class="fa fa-paper-plane"></i> Membres
+                <i class="fa fa-users-cog"></i> Membres
             </a>
         </li>
     </ul>

@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="static/css/demo.css" />
         <link rel="stylesheet" type="text/css" href="static/css/component.css" />
         <link rel="stylesheet" type="text/css" href="static/css/calendrier.css"/>
-        <!--<link rel="stylesheet" href="static/bootstrap3/css/bootstrap.min.css"/>-->
+        <link rel="stylesheet" href="static/bootstrap/fontAwesome/css/fontawesome.min.css"/>
         <script
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -17,6 +17,7 @@
         </script>
         <script src="static/js/calendrier.js"></script>
         <script src="static/js/modernizr.custom.25376.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         
     </head>
     <body>
