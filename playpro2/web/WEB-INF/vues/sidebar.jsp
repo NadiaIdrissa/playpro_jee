@@ -21,7 +21,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="?action=equipes">
                 <i class="fa fa-list-ul"></i> Equipes
             </a>
         </li>
