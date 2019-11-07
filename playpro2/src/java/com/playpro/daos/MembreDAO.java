@@ -162,12 +162,14 @@ public class MembreDAO extends DAO<Membre> {
         Statement stm = null;
         try {
             String req = "UPDATE membre SET NOM = '" + x.getNom() + "',"
-                    + "COURRIEL = '" + x.getCourriel() + "',"
-                    + "SEXE = '" + x.getSexe() + "',"
-                    + "NIVEAU = '" + x.getNiveau() + "',"
-                    + "ANNEE_NAISS = '" + x.getAnneeNaissance() + "',"
-                    + "PRENNOM = '" + x.getPrenom() + "'"
+                    + "COURRIEL = '" + x.getCourriel() + "'"
+                   // + "SEXE = '" + x.getSexe() + "',"
+                   // + "NIVEAU = '" + x.getNiveau() + "',"
+                   // + "ANNEE_NAISS = '" + x.getAnneeNaissance() + "',"
+                  //  + "PRENOM = '" + x.getPrenom() + "'"
+                   // + "PSEUDO = '" + x.getPseudo() + "'"
                     + " WHERE id = '" + x.getId() + "'";
+            // UPDATE `membre` SET `prenom` = 'Viviane' WHERE `membre`.`id` = '29e405ab-2014-43e1-b01e-492d4dcc5ebd';
             //System.out.println("REQUETE "+req);
             stm = cnx.createStatement();
             int n = stm.executeUpdate(req);
