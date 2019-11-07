@@ -28,10 +28,10 @@ public class ProfilAction extends AbstractAction {
         int naiss = mCourrant.getAnneeNaissance();
         Sexe sex=mCourrant.getSexe();             
         Niveau niveauN=mCourrant.getNiveau();
-        // String id=${sessionScope.membre.id};
+      
         
        
-        System.out.println("actuel = "+id);
+        
         System.out.println("actuel_naiss = "+naiss);
         
 
@@ -43,38 +43,26 @@ public class ProfilAction extends AbstractAction {
         String sexe = (String) request.getParameter("sexeR");
         String email = (String) request.getParameter("emailR");
         String mdp = (String) request.getParameter("passwordR");
+        
       if (niveau==null ||"".equals(niveau.trim())){
           niveau=niveauN.toString();
-      }
-            
+      }           
          
-       if (sexe==null || "".equals(sexe.trim())){
-           System.out.println("null ou vide");
+       if (sexe==null || "".equals(sexe.trim())){         
             sexe=sex.toString();
         } 
+            
        
-       
-       
-       
-       
-        System.out.println("--------------------------------");
+        System.out.println("--------------Parametres----------------");
         System.out.println("id0 = "+id);
         System.out.println("pseudo1 = "+pseudo); 
-        System.out.println("nom2 = "+nom);
-        System.out.println("prenom3 = "+prenom);
-        System.out.println("annee4= "+annee);
-        System.out.println("niveau apres5 = "+niveau);
-        System.out.println("sexe apres6 = "+sexe);
-        System.out.println("email7 = "+email);
+   
         System.out.println("mdp8 = "+mdp);
         System.out.println("--------------------------------");
         
         System.out.println("bd sex = "+sex);
      
-        
-
-        
-        
+             
         
        if (!(pseudo == null) && !("".equals(pseudo.trim()))
                 && !(nom == null) && !("".equals(nom.trim()))
@@ -89,17 +77,17 @@ public class ProfilAction extends AbstractAction {
             membre.setNom(nom);
             membre.setPseudo(pseudo);
             membre.setPrenom(prenom);
-            membre.setAnneeNaissance(2001);
+            membre.setAnneeNaissance(naiss);
             membre.setCourriel(email);
             membre.setSexe(sexe);
             membre.setMpd(mdp);
             membre.setNiveau(niveau);
              System.out.println("----------affectation--------");
-             System.out.println("----membre.getNom- "+membre.getNom());
-             System.out.println("----membre.getCourriel- "+membre.getCourriel());
+             System.out.println("----membre.getNaiss- "+membre.getAnneeNaissance());
+
              dao.update(membre);
               System.out.println("-----dao.membre-----------"+dao.update(membre));
-//            UPDATE `membre` SET `prenom` = 'Viviane' WHERE `membre`.`id` = '29e405ab-2014-43e1-b01e-492d4dcc5ebd';
+     
         }
 
         return "profil";

@@ -52,18 +52,21 @@
 
                                     <div class="form-row">
                                         <div class="col-md-12 mb-12">
+                                            <label for="pseudoR">Pseudo</label>
                                             <input type="text" name='pseudoR' class="form-control" id="validationCustom03" value="${sessionScope.membre.pseudo}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
+                                            <label for="nomR">Nom</label>
                                             <input type="text" name='nomR' class="form-control" id="validationCustom03" value="${sessionScope.membre.nom}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
+                                            <label for="prenomR">Prénom</label>
                                             <input type="text" name='prenomR' class="form-control" id="validationCustom04" value="${sessionScope.membre.prenom}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
