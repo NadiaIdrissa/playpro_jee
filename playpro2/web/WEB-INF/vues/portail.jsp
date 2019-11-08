@@ -19,8 +19,12 @@
         <link rel="stylesheet" type="text/css" href="static/css/demo.css" />
         <link rel="stylesheet" type="text/css" href="static/css/component.css" />
         <link rel="stylesheet" type="text/css" href="static/css/calendrier.css"/>
+<<<<<<< HEAD
         <link rel="stylesheet" href="static/bootstrap/fontAwesome/css/font-awesome.min.css"/>
         <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
+=======
+        <link rel="stylesheet" href="static/bootstrap/fontAwesome/css/fontawesome.min.css"/>
+>>>>>>> 010c294a3fdaf359676f9931cf3fb274657aed34
         <script
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -28,7 +32,12 @@
         </script>
         <script src="static/js/calendrier.js"></script>
         <script src="static/js/modernizr.custom.25376.js"></script>
+<<<<<<< HEAD
         <script src="static/js/gestion.js" ></script>
+=======
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        
+>>>>>>> 010c294a3fdaf359676f9931cf3fb274657aed34
     </head>
     <body>
 

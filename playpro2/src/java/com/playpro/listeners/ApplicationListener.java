@@ -29,7 +29,11 @@ public class ApplicationListener implements ServletContextListener {
 
         String pilote = (String) sc.getInitParameter("piloteJDBC");
         //String url = (String) sc.getInitParameter("urlBD");
+<<<<<<< HEAD
         String url = "jdbc:mysql://localhost/playpro2?serverTimezone=UTC";
+=======
+        String url = "jdbc:mysql://localhost/java_playpro?serverTimezone=UTC";
+>>>>>>> 010c294a3fdaf359676f9931cf3fb274657aed34
         System.out.println("Pilote : "+pilote);
         System.out.println("URL :"+url);
 
