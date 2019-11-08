@@ -268,6 +268,7 @@ button:active {
 
 .sidenav a:hover {
   color: #f1f1f1;
+  text-decoration: none;
 }
 
 /* Nav Styles */
@@ -293,4 +294,15 @@ button:active {
 .affichageMenuBtn{
     float: right; 
     display:inline-block;
+}
+
+/*Header4 Style*/
+.header4 {
+    text-decoration: none !important;
+}
+
+/*Profil Style*/
+.contentProfil{
+    text-align: center !important;
+    margin-top: 20px;
 }

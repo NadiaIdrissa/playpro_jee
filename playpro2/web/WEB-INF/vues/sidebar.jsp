@@ -9,14 +9,13 @@
 
     <ul class="nav">
         <li>
-            <a href="?action=profil">
-                <!--<a data-toggle="modal" data-target="#id02">-->
+            <a href="?action=portail&sousAction=loadProfil">
                 <i class="fa fa-list-ul"></i> Mon profil
             </a>
         </li>
         
         <li>
-            <a href="?action=portail">
+            <a href="?action=portail&sousAction=loadCalendrier">
                 <i class="fa fa-paper-plane"></i> Calendrier
             </a>
         </li>
@@ -48,7 +47,12 @@
                 <i class="fa fa-paper-plane"></i> Membres
             </a>
         </li>
+        
+        <li>
+            <a href="#">
+                <i class="fa fa-paper-plane"></i> Invitations
+            </a>
+        </li>
     </ul>
 </div>
 
-<%--<%@include file="modalProfil.jsp" %>--%>
