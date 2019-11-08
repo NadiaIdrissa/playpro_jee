@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="static/bootstrap/js/bootstrap.min.js" ></script>
         <link href="static/css/styles.css" rel="stylesheet">
+        
         <script src="static/js/gestion.js" ></script>
         <link href="static/css/stylesyoun.css" rel="stylesheet" type="text/css">
 
