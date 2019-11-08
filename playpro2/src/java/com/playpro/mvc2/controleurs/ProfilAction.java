@@ -28,6 +28,7 @@ public class ProfilAction extends AbstractAction {
         int naiss = mCourrant.getAnneeNaissance();
         Sexe sex=mCourrant.getSexe();             
         Niveau niveauN=mCourrant.getNiveau();
+        int pAnnee=2000;
       
         
        
@@ -43,6 +44,18 @@ public class ProfilAction extends AbstractAction {
         String sexe = (String) request.getParameter("sexeR");
         String email = (String) request.getParameter("emailR");
         String mdp = (String) request.getParameter("passwordR");
+        
+        if((annee != null) && (!"".equals(annee))){
+         try {
+            pAnnee=Integer.parseInt(annee.trim());
+     
+        } catch (Exception e) {
+             System.out.println("Exeception ne pas un entier");
+        }           
+        }else{
+            pAnnee=naiss;
+        }
+
         
       if (niveau==null ||"".equals(niveau.trim())){
           niveau=niveauN.toString();
@@ -77,14 +90,14 @@ public class ProfilAction extends AbstractAction {
             membre.setNom(nom);
             membre.setPseudo(pseudo);
             membre.setPrenom(prenom);
-            membre.setAnneeNaissance(naiss);
+            membre.setAnneeNaissance(pAnnee);
             membre.setCourriel(email);
             membre.setSexe(sexe);
             membre.setMpd(mdp);
             membre.setNiveau(niveau);
              System.out.println("----------affectation--------");
              System.out.println("----membre.getNaiss- "+membre.getAnneeNaissance());
-
+         
              dao.update(membre);
               System.out.println("-----dao.membre-----------"+dao.update(membre));
      
