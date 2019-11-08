@@ -28,32 +28,20 @@
             <div class="modal-body">
                 <div class="container">
                     <!--<form  action="" method="post" name="action" value="signup">-->
-                    <div class="row">
+                    <form  action="" method="post" name="action" value="profil" novalidate>
+                        <div class="form-group">
+                            <div class="row">
 
-                        <div class="vl">
-                            <span class="vl-innertext">ou</span>
-                        </div>
+                                <div class="vl">
+                                    <span class="vl-innertext">ou</span>
+                                </div>
 
-                        <div class="col">
-                            <a href="#" class="fb btn">
-                                <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                            </a>
-
-                            <a href="#" class="btn btn-info" role="button">Link Modifier</a>
-                            <a href="#" class="btn btn-success" role="button">confirmer</a>
-                        </div>
-
-                        <div class="col">
-
-                            <form  action="" method="post" name="action" value="profil" novalidate>
-                                <div class="form-group">
-
-
+                                <div class="col">
 
                                     <div class="form-row">
                                         <div class="col-md-12 mb-12">
-                                            <label for="pseudoR">Pseudo</label>
-                                            <input type="text" name='pseudoR' class="form-control" id="validationCustom03" value="${sessionScope.membre.pseudo}" required>
+                                            <label for="pseudoR">Test</label>
+                                            <input type="text" name='testR' class="form-control" id="validationCustom03" value="${sessionScope.membre.pseudo}" required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
                                             </div>
@@ -65,6 +53,26 @@
                                                 Champs recquis.
                                             </div>
                                         </div>
+                                    </div>
+                                    <a href="#" class="btn btn-info" role="button">Link Modifier</a>
+                                    <a href="#" class="btn btn-success" role="button">confirmer</a>
+                                </div>
+
+                                <div class="col">
+
+
+
+
+
+                                    <div class="form-row">
+                                        <div class="col-md-12 mb-12">
+                                            <label for="pseudoR">Pseudo</label>
+                                            <input type="text" name='pseudoR' class="form-control" id="validationCustom03" value="${sessionScope.membre.pseudo}" required>
+                                            <div class="invalid-feedback">
+                                                Champs recquis.
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-12 mb-12">
                                             <label for="prenomR">Prénom</label>
                                             <input type="text" name='prenomR' class="form-control" id="validationCustom04" value="${sessionScope.membre.prenom}" required>
@@ -158,13 +166,13 @@
                                     </div>
 
                                 </div>
-                            </form>
+                                </form>
 
 
+                            </div>
+
+                            <!--</form>-->
                         </div>
-
-                        <!--</form>-->
-                    </div>
 
                 </div>
                 <div class="text-center">Vous avez déjà un compte ? <a href="?action=login">Connectez-vous</a></div>
