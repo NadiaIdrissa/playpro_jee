@@ -40,32 +40,6 @@
 
                                     <div class="form-row">
                                         <div class="col-md-12 mb-12">
-                                            <label for="pseudoR">Test</label>
-                                            <input type="text" name='testR' class="form-control" id="validationCustom03" value="${sessionScope.membre.pseudo}" required>
-                                            <div class="invalid-feedback">
-                                                Champs recquis.
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 mb-12">
-                                            <label for="nomR">Nom</label>
-                                            <input type="text" name='nomR' class="form-control" id="validationCustom03" value="${sessionScope.membre.nom}" required>
-                                            <div class="invalid-feedback">
-                                                Champs recquis.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="btn btn-info" role="button">Link Modifier</a>
-                                    <a href="#" class="btn btn-success" role="button">confirmer</a>
-                                </div>
-
-                                <div class="col">
-
-
-
-
-
-                                    <div class="form-row">
-                                        <div class="col-md-12 mb-12">
                                             <label for="pseudoR">Pseudo</label>
                                             <input type="text" name='pseudoR' class="form-control" id="validationCustom03" value="${sessionScope.membre.pseudo}" required>
                                             <div class="invalid-feedback">
@@ -73,6 +47,13 @@
                                             </div>
                                         </div>
 
+                                        <div class="col-md-12 mb-12">
+                                            <label for="nomR">Nom</label>
+                                            <input type="text" name='nomR' class="form-control" id="validationCustom03" value="${sessionScope.membre.nom}" required>
+                                            <div class="invalid-feedback">
+                                                Champs recquis.
+                                            </div>
+                                        </div>
                                         <div class="col-md-12 mb-12">
                                             <label for="prenomR">Prénom</label>
                                             <input type="text" name='prenomR' class="form-control" id="validationCustom04" value="${sessionScope.membre.prenom}" required>
@@ -85,27 +66,6 @@
                                             <input type="text" name='anneeR' class="form-control" id="validationCustom5" value=${sessionScope.membre.anneeNaissance} required>
                                             <div class="invalid-feedback">
                                                 Champs recquis.
-                                            </div>
-                                        </div>
-
-                                        <div id='niveaug' class="col-md-12 mb-12">
-                                            <div  class="form-group">
-                                                <label for="inputLevel">Niveau</label>
-                                                <select class="form-control" name="niveauR" required>
-                                                    <option value='' >${sessionScope.membre.niveau}</option>
-
-
-                                                    <%for (Niveau n : Niveau.values()) {%>
-
-                                                    <option value='<%=n.toString()%>'><%=n.toString()%></option>
-
-                                                    <%}%>
-
-                                                </select>
-
-                                            </div>
-                                            <div class="valid-feedback">
-                                                Looks good!
                                             </div>
                                         </div>
                                         <div id='prenom' class="col-md-12 mb-12">
@@ -127,6 +87,50 @@
                                                 Looks good!
                                             </div>
                                         </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col">
+
+
+
+
+
+                                    <div class="form-row">
+
+                                        <div class="col-md-12 mb-12">
+                                            <label for="pseudoR">Sport</label>
+                                            <input type="text" name='sportR' class="form-control" id="validationCustom03" value="${sessionScope.membre.sport}" required>
+                                            <div class="invalid-feedback">
+                                                Champs recquis.
+                                            </div>
+                                        </div>
+
+
+
+                                        <div id='niveaug' class="col-md-12 mb-12">
+                                            <div  class="form-group">
+                                                <label for="inputLevel">Niveau</label>
+                                                <select class="form-control" name="niveauR" required>
+                                                    <option value='' >${sessionScope.membre.niveau}</option>
+
+
+                                                    <%for (Niveau n : Niveau.values()) {%>
+
+                                                    <option value='<%=n.toString()%>'><%=n.toString()%></option>
+
+                                                    <%}%>
+
+                                                </select>
+
+                                            </div>
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+
 
 
 
@@ -175,7 +179,7 @@
                         </div>
 
                 </div>
-                <div class="text-center">Vous avez déjà un compte ? <a href="?action=login">Connectez-vous</a></div>
+                
                 <br>
             </div>
         </div>

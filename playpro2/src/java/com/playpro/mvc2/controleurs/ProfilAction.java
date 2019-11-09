@@ -26,15 +26,11 @@ public class ProfilAction extends AbstractAction {
         mCourrant = (Membre) request.getSession().getAttribute("membre");
         String id = mCourrant.getId();
         int naiss = mCourrant.getAnneeNaissance();
-        Sexe sex=mCourrant.getSexe();             
-        Niveau niveauN=mCourrant.getNiveau();
-        int pAnnee=2000;
-      
-        
-       
-        
-        System.out.println("actuel_naiss = "+naiss);
-        
+        Sexe sex = mCourrant.getSexe();
+        Niveau niveauN = mCourrant.getNiveau();
+        int pAnnee = 2000;
+
+        System.out.println("actuel_naiss = " + naiss);
 
         String pseudo = (String) request.getParameter("pseudoR");
         String nom = (String) request.getParameter("nomR");
@@ -44,47 +40,41 @@ public class ProfilAction extends AbstractAction {
         String sexe = (String) request.getParameter("sexeR");
         String email = (String) request.getParameter("emailR");
         String mdp = (String) request.getParameter("passwordR");
-        String test = (String) request.getParameter("testR");
-        System.out.println("testR para"+test);
-        System.out.println("nomR para"+nom);
-        if((annee != null) && (!"".equals(annee))){
-         try {
-            pAnnee=Integer.parseInt(annee.trim());
-     
-        } catch (Exception e) {
-             System.out.println("Exeception ne pas un entier");
-        }           
-        }else{
-            pAnnee=naiss;
+        String sport = (String) request.getParameter("sportR");
+        System.out.println("sportR para" + sport);
+        System.out.println("nomR para" + nom);
+        if ((annee != null) && (!"".equals(annee))) {
+            try {
+                pAnnee = Integer.parseInt(annee.trim());
+
+            } catch (Exception e) {
+                System.out.println("Exeception ne pas un entier");
+            }
+        } else {
+            pAnnee = naiss;
         }
 
-        
-      if (niveau==null ||"".equals(niveau.trim())){
-          niveau=niveauN.toString();
-      }           
-         
-       if (sexe==null || "".equals(sexe.trim())){         
-            sexe=sex.toString();
-        } 
-            
-       
+        if (niveau == null || "".equals(niveau.trim())) {
+            niveau = niveauN.toString();
+        }
+
+        if (sexe == null || "".equals(sexe.trim())) {
+            sexe = sex.toString();
+        }
+
         System.out.println("--------------Parametres----------------");
-        System.out.println("id0 = "+id);
-        System.out.println("pseudo1 = "+pseudo); 
-   
-        System.out.println("mdp8 = "+mdp);
+        System.out.println("id0 = " + id);
+        System.out.println("pseudo1 = " + pseudo);
+        System.out.println("sportR = " + sport);
+        System.out.println("mdp8 = " + mdp);
         System.out.println("--------------------------------");
-        
-        System.out.println("bd sex = "+sex);
-     
-             
-        
-       if (!(pseudo == null) && !("".equals(pseudo.trim()))
+
+        System.out.println("bd sex = " + sex);
+
+        if (!(pseudo == null) && !("".equals(pseudo.trim()))
                 && !(nom == null) && !("".equals(nom.trim()))
                 && !(prenom == null) && !("".equals(prenom.trim()))
-                
-                
-                
+                && !(sport == null) && !("".equals(sport.trim()))
                 && !(email == null) && !("".equals(email.trim()))
                 && !(mdp == null) && !("".equals(mdp.trim()))) {
             System.out.println("------apres null---------");
@@ -97,12 +87,13 @@ public class ProfilAction extends AbstractAction {
             membre.setSexe(sexe);
             membre.setMpd(mdp);
             membre.setNiveau(niveau);
-             System.out.println("----------affectation--------");
-             System.out.println("----membre.getNaiss- "+membre.getAnneeNaissance());
-         
-             dao.update(membre);
-              System.out.println("-----dao.membre-----------"+dao.update(membre));
-     
+            membre.setSport(sport);
+            System.out.println("----------affectation--------");
+            System.out.println("----membre.getNaiss- " + membre.getAnneeNaissance());
+
+            dao.update(membre);
+            System.out.println("-----dao.membre-----------" + dao.update(membre));
+
         }
 
         return "profil";
