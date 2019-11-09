@@ -99,6 +99,13 @@
 
 
                                     <div class="form-row">
+                                        <div class="col-md-12 mb-12">
+                                            <label for="tMembreR">Type de membre</label>
+                                            <input type="text" name='tMembreR' class="form-control" id="validationCustom03" value="${sessionScope.membre.typeMembre}" required>
+                                            <div class="invalid-feedback">
+                                                Champs recquis.
+                                            </div>
+                                        </div>
 
                                         <div class="col-md-12 mb-12">
                                             <label for="pseudoR">Sport</label>
@@ -152,15 +159,7 @@
 
                                     </div>
                                     <div class="form-group">
-                                        <div class="form-check">
-                                            <label class="form-check-label" for="invalidCheck">
-                                                <input style="width: 5%" class="form-check-input checkbox-primary" type="checkbox" value="" id="invalidCheck" required>
-                                                Agree to terms and conditions
-                                            </label>
-                                            <div class="invalid-feedback">
-                                                Vous devez accepter les termes et conditions d'utilisations.
-                                            </div>
-                                        </div>
+
                                     </div>
                                     <div class="modal-footer">
 
@@ -179,7 +178,7 @@
                         </div>
 
                 </div>
-                
+
                 <br>
             </div>
         </div>

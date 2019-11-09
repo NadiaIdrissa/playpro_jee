@@ -41,8 +41,10 @@ public class ProfilAction extends AbstractAction {
         String email = (String) request.getParameter("emailR");
         String mdp = (String) request.getParameter("passwordR");
         String sport = (String) request.getParameter("sportR");
+        String typeM = (String) request.getParameter("tMembreR");
         System.out.println("sportR para" + sport);
         System.out.println("nomR para" + nom);
+        System.out.println("typeM para" + typeM);
         if ((annee != null) && (!"".equals(annee))) {
             try {
                 pAnnee = Integer.parseInt(annee.trim());

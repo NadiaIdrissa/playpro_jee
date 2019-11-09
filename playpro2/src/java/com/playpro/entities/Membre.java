@@ -27,6 +27,7 @@ public class Membre {
     protected String sport;
     protected Niveau niveau;
     protected BufferedImage photo;
+    protected String typeMembre;
 
     public Membre(String pseudo, String courriel, String mpd, String nom, String prenom, Sexe sexe, Niveau niveau) {
         this.pseudo = pseudo;
@@ -137,6 +138,12 @@ public class Membre {
 
     public void setSport(String sport) {
         this.sport = sport;
+    }
+    public String getTypeMembre(){
+        return typeMembre;
+    }
+    public void setTypeMembre(String typeM){
+       this.typeMembre=typeM;
     }
 
     public Niveau getNiveau() {
