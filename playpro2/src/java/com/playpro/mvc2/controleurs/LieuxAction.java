@@ -30,10 +30,15 @@ public class LieuxAction extends AbstractAction{
         String cp = request.getParameter("code_postal");
         String infos = request.getParameter("infos");
         
-         if (ville == null || rue == null || pays == null || cp == null) {
-
-        } else {
-            
+//         if (ville == null || rue == null || pays == null || cp == null) {
+//
+//        } else {
+            nom="Nom";
+            rue="Rue";
+            numero = "1212";
+            ville ="Dorval";
+            pays = "Canada";
+            cp = "H1H 2H2";
             Lieux s = ObjectFactory.getNewLieu();
             s.setNom(nom);
             s.setRue(rue);
@@ -44,7 +49,7 @@ public class LieuxAction extends AbstractAction{
             s.setInfos(infos);
 
             LieuxServices.creerLieux(s);
-        }
+//        }
 
         System.out.println("Nom lieu : " + nom);
         System.out.println("rue : " + rue);

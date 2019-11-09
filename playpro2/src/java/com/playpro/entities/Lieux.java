@@ -13,7 +13,7 @@ public class Lieux {
 
     private String id_lieu;
     private String nom;
-    private int numero;
+    private String numero;
     private String rue;
     private String code_postal;
     private String ville;
@@ -31,7 +31,7 @@ public class Lieux {
         return nom;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
@@ -63,7 +63,7 @@ public class Lieux {
         this.nom = nom;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 

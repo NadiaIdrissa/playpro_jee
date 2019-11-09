@@ -37,7 +37,7 @@
             </a>
         </li>
          <li>
-            <a href="#">
+            <a href="?action=lieux">
                 <i class="fa fa-paper-plane"></i> Les lieux
             </a>
         </li>
