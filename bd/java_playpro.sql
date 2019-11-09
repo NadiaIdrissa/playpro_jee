@@ -73,7 +73,7 @@ CREATE TABLE `invitation` (
 CREATE TABLE `lieu` (
   `id_lieu` char(36) NOT NULL,
   `nom` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `numero` int(7) NOT NULL,
+  `numero` varchar(7) NOT NULL,
   `rue` varchar(255) CHARACTER SET utf8 NOT NULL,
   `code_postal` varchar(6) CHARACTER SET utf8 NOT NULL,
   `ville` varchar(255) CHARACTER SET utf8 NOT NULL,

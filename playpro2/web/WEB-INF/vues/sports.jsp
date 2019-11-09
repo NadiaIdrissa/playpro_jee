@@ -44,11 +44,11 @@
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
-            <span class="close">&times;</span>
+            <span class="close">&times;</span> 
             <h2>Nouveau sport</h2>
         </div>
         <div class="modal-body">
-            <form class="form-signin needs-validation" action="" method="post" name="action" value="sports" novalidate>
+            <form class="form-signin needs-validation" action="?action=sports" method="post" name="action" value="ajoutImage" enctype="multipart/form-data" novalidate>
 
                 <input type="text" name="nomSport" placeholder="Nom du sport"  />
                 <select name="nbMax">
@@ -60,7 +60,6 @@
                     %>
                 </select>
                 <input id="imageSport" name="imageSport" type="file"/>
-                <input type="text" name="sourceDirPath" id="sourceDirPath" class="myInput" />
                 <button class="" id="boutton1" type="submit">Créer</button>
             </form>
         </div>

@@ -6,6 +6,7 @@
 package com.playpro.daos;
 
 import com.playpro.entities.Lieux;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,13 +22,23 @@ public class LieuxDAO extends DAO<Lieux> {
     @Override
     public boolean create(Lieux x) {
         String req = "INSERT INTO lieu (`id_lieu` , `nom` , `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`) "+
-                     "VALUES ('"+x.getId_lieu()+"','"+x.getNom()+"','"+x.getNumero()+"','" +x.getRue()+"','"
-                     +x.getCode_postal()+"','"+x.getVille()+"','"+x.getPays()+"','"+x.getInfos()+"')";
+                     "VALUES (?,?,?,?,?,?,?,?)";
         //System.out.println("REQUETE "+req);
-        Statement stm = null;
+        PreparedStatement stm = null;
+        
+        ;
         try 
         {
-                stm = cnx.createStatement(); 
+            stm = cnx.prepareStatement(req);;
+            stm.setString(1, x.getId_lieu());
+            stm.setString(2, x.getNom());
+            stm.setString(3, x.getNumero());
+            stm.setString(4, x.getRue());
+            stm.setString(5, x.getCode_postal());
+            stm.setString(6, x.getVille());
+            stm.setString(7, x.getPays());
+            stm.setString(8, x.getInfos());
+                
                 int n= stm.executeUpdate(req);
                 if (n>0)
                 {
@@ -81,7 +92,7 @@ public class LieuxDAO extends DAO<Lieux> {
                 
                 c.setId_lieu(r.getString("id_lieu"));
                 c.setNom(r.getString("nom"));
-                c.setNumero(r.getInt("numero"));
+                c.setNumero(r.getString("numero"));
                 c.setRue(r.getString("rue"));
                 c.setCode_postal(r.getString("code_postal"));
                 c.setVille(r.getString("ville"));
@@ -175,7 +186,7 @@ public class LieuxDAO extends DAO<Lieux> {
                 Lieux c = new Lieux();
                 c.setId_lieu(r.getString("id_lieu"));
                 c.setNom(r.getString("nom"));
-                c.setNumero(r.getInt("numero"));
+                c.setNumero(r.getString("numero"));
                 c.setRue(r.getString("rue"));
                 c.setCode_postal(r.getString("code_postal"));
                 c.setVille(r.getString("ville"));
