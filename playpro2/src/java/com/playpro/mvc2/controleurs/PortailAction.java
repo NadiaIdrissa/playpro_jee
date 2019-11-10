@@ -5,6 +5,9 @@
  */
 package com.playpro.mvc2.controleurs;
 
+import com.playpro.daos.MembreDAO;
+import com.playpro.entities.Membre;
+
 /**
  *
  * @author dd
@@ -13,8 +16,12 @@ public class PortailAction extends AbstractAction {
 
     @Override
     public String execute() {
+        Membre membre = new Membre();
+        MembreDAO dao = new MembreDAO();
+        Membre mCourrant = new Membre();
+        mCourrant = (Membre) request.getSession().getAttribute("membre");
+        
         return "portail";
     }
 
-    
 }
