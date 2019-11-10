@@ -33,7 +33,7 @@
                             <div class="row">
 
                                 <div class="vl">
-                                    <span class="vl-innertext">ou</span>
+                                    <span class="vl-innertext">+</span>
                                 </div>
 
                                 <div class="col">
@@ -87,6 +87,12 @@
                                                 Looks good!
                                             </div>
                                         </div>
+                                        <div class="col-md-12 mb-12">
+                                            <input type="email" name='emailR' class="form-control" id="validationCustom05" value="${sessionScope.membre.courriel}" required>
+                                            <div class="invalid-feedback">
+                                                Entrez un courriel valide.
+                                            </div>
+                                        </div>
 
                                     </div>
 
@@ -104,16 +110,16 @@
                                             <div  class="form-group">
                                                 <label for="tMembreR">Type de membre</label>
                                                 <select class="form-control" name="tMembreR" required>
-                                                                                                
+
                                                     <option selected="selected">${sessionScope.membre.typeMembre}</option>
-                                                  
+
                                                     <option value='Joueur'>Joueur</option>
                                                 </select>
 
                                             </div>
 
                                         </div>
-          
+
 
                                         <div class="col-md-12 mb-12">
                                             <label for="pseudoR">Sport</label>
@@ -147,16 +153,26 @@
 
 
 
-                                        <div class="col-md-12 mb-12">
-                                            <input type="email" name='emailR' class="form-control" id="validationCustom05" value="${sessionScope.membre.courriel}" required>
-                                            <div class="invalid-feedback">
-                                                Entrez un courriel valide.
-                                            </div>
-                                        </div>
+
 
                                         <div class="col-md-12 mb-12">
-                                            <label for="passwordR">Mot de passe</label>
-                                            <input type="password" id='password' name='passwordR' class="form-control"  value="${sessionScope.membre.mpd}" required>
+
+                                            <label for="passwordR">Changement de mot de passe</label>
+                                            <input type="password" id='password' name='passwordR' class="form-control"  value="" required>
+                                            <%
+                                                if (request.getSession().getAttribute("valid") == "vrai" && request.getSession().getAttribute("valid") != null) {
+                                            %>
+                                            <label><span style="color: red;">Les mots de passes ne sont pas égaux</span></label>
+                                            <%
+                                                }
+                                            %>
+                                            <div class="invalid-feedback">
+                                                Mot de passe recquis.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-12">
+                                            <label for="CpasswordR">Confirmation mot de passe</label>
+                                            <input type="password" id='password' name='CpasswordR' class="form-control"  value="" required>
                                             <div class="invalid-feedback">
                                                 Mot de passe recquis.
                                             </div>
@@ -168,24 +184,29 @@
                                     </div>
                                     <div class="modal-footer">
 
-                                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>-->
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 
                                         <button class="btn btn-primary btn-sm" id="commit" type="submit">Enregistrer</button>
                                     </div>
 
                                 </div>
-                                </form>
+                                <!--</form>-->
 
 
                             </div>
 
                             <!--</form>-->
                         </div>
-
-                </div>
-
-                <br>
+                    </form>
+                    <div>                       
+                        <a class="btn btn-danger btn-sm" href="#" role="button">Suppression de compte</a>
+                    </div>
+                </div>btn btn-danger
             </div>
         </div>
-    </div>
+    </div>                        
 </div>
+
+
+<br>
+

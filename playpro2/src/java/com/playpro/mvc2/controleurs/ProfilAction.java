@@ -10,6 +10,10 @@ import com.playpro.entities.Membre;
 import com.playpro.entities.Niveau;
 import com.playpro.entities.Sexe;
 import com.playpro.utils.PasswordHash;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,7 +26,8 @@ public class ProfilAction extends AbstractAction {
         Membre membre = new Membre();
         MembreDAO dao = new MembreDAO();
         Membre mCourrant = new Membre();
-
+        PasswordHash m;
+        new PasswordHash();
         mCourrant = (Membre) request.getSession().getAttribute("membre");
         String id = mCourrant.getId();
         int naiss = mCourrant.getAnneeNaissance();
@@ -40,6 +45,7 @@ public class ProfilAction extends AbstractAction {
         String sexe = (String) request.getParameter("sexeR");
         String email = (String) request.getParameter("emailR");
         String mdp = (String) request.getParameter("passwordR");
+        String mdpC = (String) request.getParameter("CpasswordR");
         String sport = (String) request.getParameter("sportR");
         String typeM = (String) request.getParameter("tMembreR");
         System.out.println("sportR para" + sport);
@@ -62,6 +68,25 @@ public class ProfilAction extends AbstractAction {
 
         if (sexe == null || "".equals(sexe.trim())) {
             sexe = sex.toString();
+        }
+
+        if (mdp == null || "".equals(mdp.trim())) {
+            mdp = mCourrant.getMpd();
+        } else {
+            if (mdp == mdpC) {
+                request.getSession().setAttribute("valid", "vrai");
+
+                m=new PasswordHash();
+                try {
+                    mdp=m.createHash(mdp);
+                    
+                } catch (NoSuchAlgorithmException ex) {
+                    Logger.getLogger(ProfilAction.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InvalidKeySpecException ex) {
+                    Logger.getLogger(ProfilAction.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
         }
 
         System.out.println("--------------Parametres----------------");
