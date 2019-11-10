@@ -137,6 +137,7 @@ public class MembreDAO extends DAO<Membre> {
                 c.setSexe(r.getString("sexe"));
                 c.setAnneeNaissance(r.getInt("annee_naiss"));
                 c.setSport(r.getString("sport"));
+                c.setTypeMembre(r.getString("type_membre"));
                 r.close();
                 stm.close();
                 return c;
@@ -169,6 +170,7 @@ public class MembreDAO extends DAO<Membre> {
                     + "ANNEE_NAISS = '" + x.getAnneeNaissance() + "',"
                     + "PRENOM = '" + x.getPrenom() + "',"
                     + "SPORT = '" + x.getSport() + "',"
+                    + "TYPE_MEMBRE = '" + x.getTypeMembre() + "',"
                     + "PSEUDO = '" + x.getPseudo() + "'" //il y a un cle etragere dans pseudo
                     + " WHERE id = '" + x.getId() + "'";
            

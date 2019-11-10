@@ -90,6 +90,7 @@ public class ProfilAction extends AbstractAction {
             membre.setMpd(mdp);
             membre.setNiveau(niveau);
             membre.setSport(sport);
+            membre.setTypeMembre(typeM);
             System.out.println("----------affectation--------");
             System.out.println("----membre.getNaiss- " + membre.getAnneeNaissance());
 

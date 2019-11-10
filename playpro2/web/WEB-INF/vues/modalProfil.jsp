@@ -99,13 +99,21 @@
 
 
                                     <div class="form-row">
-                                        <div class="col-md-12 mb-12">
-                                            <label for="tMembreR">Type de membre</label>
-                                            <input type="text" name='tMembreR' class="form-control" id="validationCustom03" value="${sessionScope.membre.typeMembre}" required>
-                                            <div class="invalid-feedback">
-                                                Champs recquis.
+
+                                        <div id='niveaug' class="col-md-12 mb-12">
+                                            <div  class="form-group">
+                                                <label for="tMembreR">Type de membre</label>
+                                                <select class="form-control" name="tMembreR" required>
+                                                                                                
+                                                    <option selected="selected">${sessionScope.membre.typeMembre}</option>
+                                                  
+                                                    <option value='Joueur'>Joueur</option>
+                                                </select>
+
                                             </div>
+
                                         </div>
+          
 
                                         <div class="col-md-12 mb-12">
                                             <label for="pseudoR">Sport</label>
@@ -132,9 +140,6 @@
 
                                                 </select>
 
-                                            </div>
-                                            <div class="valid-feedback">
-                                                Looks good!
                                             </div>
                                         </div>
 
