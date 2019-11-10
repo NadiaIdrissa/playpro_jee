@@ -199,7 +199,7 @@
                         </div>
                     </form>
                     <div>                       
-                        <a class="btn btn-danger btn-sm" href="#" role="button">Suppression de compte</a>
+                        <a class="btn btn-danger btn-sm" href="?action=supp" role="button">Suppression de compte</a>
                     </div>
                 </div>btn btn-danger
             </div>
