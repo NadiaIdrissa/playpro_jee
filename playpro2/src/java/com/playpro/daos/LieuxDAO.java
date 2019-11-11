@@ -21,15 +21,12 @@ public class LieuxDAO extends DAO<Lieux> {
 
     @Override
     public boolean create(Lieux x) {
-        String req = "INSERT INTO lieu (`id_lieu` , `nom` , `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`) "+
-                     "VALUES (?,?,?,?,?,?,?,?)";
+        String req = "INSERT INTO lieu (`id_lieu` , `nom` , `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`) "
+                + "VALUES (?,?,?,?,?,?,?,?)";
         //System.out.println("REQUETE "+req);
         PreparedStatement stm = null;
-        
-        ;
-        try 
-        {
-            stm = cnx.prepareStatement(req);;
+        try {
+            stm = cnx.prepareStatement(req);
             stm.setString(1, x.getId_lieu());
             stm.setString(2, x.getNom());
             stm.setString(3, x.getNumero());
@@ -38,26 +35,24 @@ public class LieuxDAO extends DAO<Lieux> {
             stm.setString(6, x.getVille());
             stm.setString(7, x.getPays());
             stm.setString(8, x.getInfos());
-                
-                int n= stm.executeUpdate(req);
-                if (n>0)
-                {
-                        stm.close();
-                        return true;
-                }
-        }
-        catch (SQLException exp)
-        {
-        }
-        finally
-        {
-                if (stm!=null)
+
+            int n = stm.executeUpdate();
+            System.out.println("========================================");
+            if (n > 0) {
+                stm.close();
+                return true;
+            }
+        } catch (SQLException exp) {
+            exp.printStackTrace();
+        } finally {
+            if (stm != null) {
                 try {
-                        stm.close();
+                    stm.close();
                 } catch (SQLException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                }			
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
         }
         return false;
     }
@@ -71,25 +66,24 @@ public class LieuxDAO extends DAO<Lieux> {
     public Lieux findById(String nom) {
         Statement stm = null;
         ResultSet r = null;
-      
+
         try {
             stm = cnx.createStatement();
-            r = stm.executeQuery("SELECT * FROM lieu WHERE nom = '"+nom+"'");
+            r = stm.executeQuery("SELECT * FROM lieu WHERE nom = '" + nom + "'");
 
             if (r.next()) {
                 Lieux c = new Lieux();
                 System.out.println("------------------------");
                 System.out.println(r.getString("id_lieu"));
                 System.out.println(r.getString("nom"));
-                System.out.println(r.getString("numero"));                 
+                System.out.println(r.getString("numero"));
                 System.out.println(r.getString("rue"));
                 System.out.println(r.getString("code_postal"));
-                System.out.println(r.getString("ville"));                  
+                System.out.println(r.getString("ville"));
                 System.out.println(r.getString("pays"));
-                System.out.println(r.getString("infos"));                  
+                System.out.println(r.getString("infos"));
                 System.out.println("------------------------");
-                
-                
+
                 c.setId_lieu(r.getString("id_lieu"));
                 c.setNom(r.getString("nom"));
                 c.setNumero(r.getString("numero"));
@@ -122,13 +116,13 @@ public class LieuxDAO extends DAO<Lieux> {
     public boolean update(Lieux x) {
         Statement stm = null;
         try {
-            String req = "UPDATE lieu SET nom = '" + x.getNom()+ "',"
-                    + "numero = '" + x.getNumero()+ "',"
-                    + "rue = '" + x.getRue()+ "',"
-                    + "code_postal = '" + x.getCode_postal()+ "',"
-                    + "ville = '" + x.getVille()+ "',"
-                    + "pays = '" + x.getPays()+ "',"
-                    + "infos = '" + x.getInfos()+ "',"
+            String req = "UPDATE lieu SET nom = '" + x.getNom() + "',"
+                    + "numero = '" + x.getNumero() + "',"
+                    + "rue = '" + x.getRue() + "',"
+                    + "code_postal = '" + x.getCode_postal() + "',"
+                    + "ville = '" + x.getVille() + "',"
+                    + "pays = '" + x.getPays() + "',"
+                    + "infos = '" + x.getInfos() + "',"
                     + " WHERE id = '" + x.getId_lieu() + "'";
             //System.out.println("REQUETE "+req);
             stm = cnx.createStatement();
@@ -156,7 +150,7 @@ public class LieuxDAO extends DAO<Lieux> {
         Statement stm = null;
         try {
             stm = cnx.createStatement();
-            int n = stm.executeUpdate("DELETE FROM lieu WHERE id_lieu='" + x.getId_lieu()+ "'");
+            int n = stm.executeUpdate("DELETE FROM lieu WHERE id_lieu='" + x.getId_lieu() + "'");
             if (n > 0) {
                 stm.close();
                 return true;
@@ -177,12 +171,12 @@ public class LieuxDAO extends DAO<Lieux> {
 
     @Override
     public List<Lieux> findAll() {
-    List<Lieux> liste = new LinkedList<>();
+        List<Lieux> liste = new LinkedList<>();
         try {
             Statement stm = cnx.createStatement();
             ResultSet r = stm.executeQuery("SELECT * FROM lieu");
             while (r.next()) {
-                System.out.println("Lecture lieu :" +r.toString());
+                System.out.println("Lecture lieu :" + r.toString());
                 Lieux c = new Lieux();
                 c.setId_lieu(r.getString("id_lieu"));
                 c.setNom(r.getString("nom"));
@@ -191,7 +185,7 @@ public class LieuxDAO extends DAO<Lieux> {
                 c.setCode_postal(r.getString("code_postal"));
                 c.setVille(r.getString("ville"));
                 c.setPays(r.getString("pays"));
-                c.setInfos(r.getString("infos"));                                 
+                c.setInfos(r.getString("infos"));
 
                 liste.add(c);
                 System.out.println(liste.size());
@@ -203,5 +197,5 @@ public class LieuxDAO extends DAO<Lieux> {
         }
         return liste;
     }
-    
+
 }

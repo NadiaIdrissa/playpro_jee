@@ -38,28 +38,30 @@ public class LieuxAction extends AbstractAction{
             numero = "1212";
             ville ="Dorval";
             pays = "Canada";
-            cp = "H1H 2H2";
+            cp = "H1H2H2";
+            infos ="Accueil";
             Lieux s = ObjectFactory.getNewLieu();
             s.setNom(nom);
             s.setRue(rue);
             s.setVille(ville);
             s.setPays(pays);
-            //s.setNumero((Integer(numero)));
+            s.setNumero(numero);
             s.setCode_postal(cp);
             s.setInfos(infos);
 
             LieuxServices.creerLieux(s);
 //        }
 
+        System.out.println("Id lieu : "+ s.getId_lieu());
         System.out.println("Nom lieu : " + nom);
         System.out.println("rue : " + rue);
         System.out.println("ville : " + ville);
         System.out.println("code postal : " + cp);
         System.out.println("infos : " + infos);
         System.out.println("pays : " + pays);
-//        System.out.println("numero: " + numero);
+        System.out.println("numero: " + numero);
 
-        List<Lieux> liste = new LinkedList<Lieux>();
+        List<Lieux> liste = new LinkedList<>();
         liste.add(new Lieux());
         liste = dao.findAll();
         System.out.println("Liste" + liste);
