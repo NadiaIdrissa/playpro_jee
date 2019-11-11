@@ -23,7 +23,9 @@ public class SuppressionCompteAction extends AbstractAction{
         String stat=mCourrant.getStatus();
         String f=(String)request.getParameter("sta");       
         if ("a".equals(f)){
-            dao.UpdateStatus(mCourrant);           
+            dao.UpdateStatus(mCourrant);  
+            request.getSession().invalidate();
+            return "login";
         }
 
         return "suppressionCompte";     
