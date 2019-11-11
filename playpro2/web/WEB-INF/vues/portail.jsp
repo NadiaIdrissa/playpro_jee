@@ -10,6 +10,8 @@
         <link rel="stylesheet" type="text/css" href="static/css/demo.css" />
         <link rel="stylesheet" type="text/css" href="static/css/component.css" />
         <link rel="stylesheet" type="text/css" href="static/css/calendrier.css"/>
+        <link rel="stylesheet" type="text/css" href="static/css/sportsstyles.css" />
+
         <!--<link rel="stylesheet" href="static/bootstrap3/css/bootstrap.min.css"/>-->
         <script
             src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -18,7 +20,7 @@
         </script>
         <script src="static/js/calendrier.js"></script>
         <script src="static/js/modernizr.custom.25376.js"></script>
-        
+
     </head>
     <body>
 
@@ -27,7 +29,7 @@
             <div class="container">
                 <div class="wrapper"><!-- wrapper needed for scroll -->
                     <%@include file="sidebar.jsp" %>
-                    
+
                     <div class="main mainPortail clearfix">
                         <c:if test="${requestScope.AfficherSports}">
                             <%@include file="sports.jsp" %>
@@ -41,14 +43,15 @@
             </div>
             <%@include file="header4.jsp" %>
         </div>
-        
-        
-        
+
+
+
         <%--<%@include file="modalProfil.jsp" %>--%>
-        
-        
-        
+
+
+
         <script src="static/js/classie.js"></script>
         <script src="static/js/menu.js"></script>
+        <script src="static/js/sports.js"></script>
     </body>
 </html>

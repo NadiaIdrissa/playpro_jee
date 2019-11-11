@@ -14,7 +14,7 @@
 
                 <div class="card" >
                     <div class="card-body text-center">
-                        <!--<img src="static/images/sports/<c:out value="${unSport.image}"/> " />-->
+                        <img src="static/images/sports/<c:out value="${unSport.image}"/> " />
 
                         <p class='card-text'>Nom du sport: <c:out value="${unSport.nom}" /></p>
                         <p class="card-text">Nombre de joueurs par équipe: <c:out value="${unSport.nb_max}" /></p>
@@ -44,11 +44,11 @@
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
-            <span class="close">&times;</span>
+            <span class="close">&times;</span> 
             <h2>Nouveau sport</h2>
         </div>
         <div class="modal-body">
-            <form class="form-signin needs-validation" action="" method="post" name="action" value="sports" novalidate>
+            <form class="form-signin needs-validation" action="?action=sports" method="post" name="action" value="ajoutImage" enctype="multipart/form-data" novalidate>
 
                 <input type="text" name="nomSport" placeholder="Nom du sport"  />
                 <select name="nbMax">
@@ -60,7 +60,6 @@
                     %>
                 </select>
                 <input id="imageSport" name="imageSport" type="file"/>
-                <input type="text" name="sourceDirPath" id="sourceDirPath" class="myInput" />
                 <button class="" id="boutton1" type="submit">Créer</button>
             </form>
         </div>
