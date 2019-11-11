@@ -21,14 +21,9 @@ public class SuppressionCompteAction extends AbstractAction{
         Membre mCourrant = new Membre();
         mCourrant = (Membre) request.getSession().getAttribute("membre");
         String stat=mCourrant.getStatus();
-        System.out.println("status bd "+stat);
-        System.out.println(mCourrant.getCourriel());
-        System.out.println(mCourrant.getStatus());
-        String f=(String)request.getParameter("sta");
-        System.out.println("para sta var a "+f);
+        String f=(String)request.getParameter("sta");       
         if ("a".equals(f)){
-            dao.UpdateStatus(mCourrant);
-            System.out.println("dao process " + dao.UpdateStatus(mCourrant));            
+            dao.UpdateStatus(mCourrant);           
         }
 
         return "suppressionCompte";     

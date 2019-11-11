@@ -37,4 +37,5 @@ public abstract class DAO<T> {
 	public abstract boolean delete(T x);    //DELETE
 	public abstract List<T> findAll();      //SELECT
         public abstract boolean UpdateStatus(T x);
+        
 }

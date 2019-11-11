@@ -35,8 +35,7 @@ public class ProfilAction extends AbstractAction {
         Niveau niveauN = mCourrant.getNiveau();
         int pAnnee = 2000;
 
-        System.out.println("actuel_naiss = " + naiss);
-        System.out.println("bd statut cono "+mCourrant.getStatus());
+
 
         String pseudo = (String) request.getParameter("pseudoR");
         String nom = (String) request.getParameter("nomR");
@@ -49,9 +48,7 @@ public class ProfilAction extends AbstractAction {
         String mdpC = (String) request.getParameter("CpasswordR");
         String sport = (String) request.getParameter("sportR");
         String typeM = (String) request.getParameter("tMembreR");
-        System.out.println("sportR para" + sport);
-        System.out.println("nomR para" + nom);
-        System.out.println("typeM para" + typeM);
+
         if ((annee != null) && (!"".equals(annee))) {
             try {
                 pAnnee = Integer.parseInt(annee.trim());
@@ -70,7 +67,9 @@ public class ProfilAction extends AbstractAction {
         if (sexe == null || "".equals(sexe.trim())) {
             sexe = sex.toString();
         }
-
+        if (mdpC == null || "".equals(mdpC.trim())) {
+            mdpC ="";
+        }
         if (mdp == null || "".equals(mdp.trim())) {
             mdp = mCourrant.getMpd();
         } else {
