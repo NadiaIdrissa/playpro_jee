@@ -78,7 +78,12 @@ CREATE TABLE `lieu` (
   `code_postal` varchar(6) CHARACTER SET utf8 NOT NULL,
   `ville` varchar(255) CHARACTER SET utf8 NOT NULL,
   `pays` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT 'Canada',
-  `infos` varchar(255) CHARACTER SET utf8 DEFAULT NULL
+  `infos` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `image1` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `image2` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `image3` varchar(255) CHARACTER SET utf8 DEFAULT NULL
+  
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
