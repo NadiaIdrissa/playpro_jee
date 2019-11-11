@@ -34,6 +34,9 @@
                         <c:if test="${requestScope.AfficherSports}">
                             <%@include file="sports.jsp" %>
                         </c:if>
+                        <c:if test="${requestScope.AfficherLieux}">
+                            <%@include file="lieux.jsp" %>
+                        </c:if>
                         <%@include file="calendrier.jsp" %>
                         <div class="column">
 
