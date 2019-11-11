@@ -104,29 +104,27 @@ public class MembreDAO extends DAO<Membre> {
         String critere;
 
         if (id.contains("@")) {
-            System.out.println("Il y a un @: "+id);
+            System.out.println("Il y a un @: " + id);
             critere = "courriel";
         } else {
             critere = "id";
-            System.out.println("Il n y a pas de @: "+id);
+            System.out.println("Il n y a pas de @: " + id);
         }
 
         try {
             stm = cnx.createStatement();
-            r = stm.executeQuery("SELECT * FROM membre WHERE "+critere+" = '" + id + "'");
+            r = stm.executeQuery("SELECT * FROM membre WHERE " + critere + " = '" + id + "'");
             if (r.next()) {
                 Membre c = new Membre();
                 System.out.println("------------------------");
                 System.out.println(r.getString("id"));
                 System.out.println(r.getString("nom"));
                 System.out.println(r.getString("prenom"));
-                System.out.println(r.getString("pseudo"));   
-                System.out.println(r.getString("mdp")); 
-                
-                
+                System.out.println(r.getString("pseudo"));
+                System.out.println(r.getString("mdp"));
+
                 System.out.println("------------------------");
-                
-                
+
                 c.setId(r.getString("id"));
                 c.setNom(r.getString("nom"));
                 c.setPrenom(r.getString("Prenom"));
@@ -138,6 +136,7 @@ public class MembreDAO extends DAO<Membre> {
                 c.setAnneeNaissance(r.getInt("annee_naiss"));
                 c.setSport(r.getString("sport"));
                 c.setTypeMembre(r.getString("type_membre"));
+                c.setStatus(r.getString("statut"));
                 r.close();
                 stm.close();
                 return c;
@@ -173,8 +172,7 @@ public class MembreDAO extends DAO<Membre> {
                     + "TYPE_MEMBRE = '" + x.getTypeMembre() + "',"
                     + "PSEUDO = '" + x.getPseudo() + "'" //il y a un cle etragere dans pseudo
                     + " WHERE id = '" + x.getId() + "'";
-           
-            
+
             stm = cnx.createStatement();
             int n = stm.executeUpdate(req);
             if (n > 0) {
@@ -234,6 +232,45 @@ public class MembreDAO extends DAO<Membre> {
         } catch (SQLException exp) {
         }
         return liste;
+    }
+
+    @Override
+    public boolean UpdateStatus(Membre x) {
+        Statement stm = null;
+        String status;
+        if ("Actif".equals(x.getStatus())){
+            status="NotActif";
+            System.out.println("contenue de vas StatusDAO "+status);
+        }
+        else{
+            status="Actif";
+            System.out.println("contenue de vas StatusDAO "+status);
+        }
+        
+        
+        try {
+            String req = "UPDATE membre SET STATUT = '" + status + "'"
+                  
+                    + " WHERE id = '" + x.getId() + "'";
+
+            stm = cnx.createStatement();
+            int n = stm.executeUpdate(req);
+            if (n > 0) {
+                stm.close();
+                return true;
+            }
+        } catch (SQLException exp) {
+        } finally {
+            if (stm != null) {
+                try {
+                    stm.close();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
     }
 
 }

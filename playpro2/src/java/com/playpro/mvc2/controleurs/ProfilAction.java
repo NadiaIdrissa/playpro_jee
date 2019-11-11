@@ -36,6 +36,7 @@ public class ProfilAction extends AbstractAction {
         int pAnnee = 2000;
 
         System.out.println("actuel_naiss = " + naiss);
+        System.out.println("bd statut cono "+mCourrant.getStatus());
 
         String pseudo = (String) request.getParameter("pseudoR");
         String nom = (String) request.getParameter("nomR");

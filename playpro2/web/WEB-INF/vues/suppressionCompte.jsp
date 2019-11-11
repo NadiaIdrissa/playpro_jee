@@ -80,9 +80,7 @@
 
                             <a class="btn btn-primary" href="?action=portail" role="button">Annuler</a>
 
-                            <button id='btnJ'  type="button" class="btn btn-primary" data-toggle="modal" data-target="#id02">
-                                Continuer
-                            </button>
+                            <a class="btn btn-primary" href="?action=supp&sta=a" role="button">Suppression</a>
 
                         </div> 
                         <label>Votre compte pourra toujours se reactiver</label>
