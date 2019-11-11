@@ -36,8 +36,7 @@ public class LieuxAction extends AbstractAction {
         String pays = request.getParameter("pays");
         String numero = request.getParameter("numero");
         String cp = request.getParameter("code_postal");
-        String infos = request.getParameter("infos");
-        
+        String infos = request.getParameter("infos");        
         String image1 = request.getParameter("image1");
         
         Lieux s = new Lieux();

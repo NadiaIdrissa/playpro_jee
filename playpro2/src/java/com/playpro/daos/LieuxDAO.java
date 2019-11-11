@@ -21,8 +21,8 @@ public class LieuxDAO extends DAO<Lieux> {
 
     @Override
     public boolean create(Lieux x) {
-        String req = "INSERT INTO lieu (`id_lieu` , `nom` , `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`) "
-                + "VALUES (?,?,?,?,?,?,?,?)";
+        String req = "INSERT INTO lieu (`id_lieu` , `nom` , `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`, `image1`) "
+                + "VALUES (?,?,?,?,?,?,?,?,?)";
         //System.out.println("REQUETE "+req);
         PreparedStatement stm = null;
         try {
@@ -35,6 +35,7 @@ public class LieuxDAO extends DAO<Lieux> {
             stm.setString(6, x.getVille());
             stm.setString(7, x.getPays());
             stm.setString(8, x.getInfos());
+            stm.setString(9, x.getImage1());
 
             int n = stm.executeUpdate();
             System.out.println("========================================");

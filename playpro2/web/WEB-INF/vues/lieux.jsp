@@ -14,7 +14,7 @@
 
                 <div class="card" >
                     <div class="card-body text-center">
-                        <img src="static/images/lieux/<c:out value="${unlieu.image}"/> " />
+                        <img src="static/images/lieux/<c:out value="${unlieu.image1}"/> " />
 
                         <p class='card-text'>Nom des lieux: <c:out value="${unlieu.nom}" /></p>
                         <p class='card-text'>Numéro civic: <c:out value="${unlieu.numero}" /></p>
@@ -51,15 +51,15 @@
         <div class="modal-body">
             <form class="form-signin needs-validation" action="?action=lieux" method="post" name="action" value="ajoutImage" enctype="multipart/form-data" novalidate>
 
-                <input type="text" name="nomlieu" placeholder="Nom du lieu"  />
+                <input type="text" name="nom" placeholder="Nom du lieu"  />
                 <input type="text" name="numero" placeholder="Numero civic"  />
                 <input type="text" name="rue" placeholder="Nom de la rue"  />
                 <input type="text" name="ville" placeholder="Ville"  />
                 <input type="text" name="pays" placeholder="Pays"  />
                 <input type="text" name="code_postal" placeholder="Code postal"  />
-                <input type="text" name="info" placeholder="Info suplementaire"  />
+                <input type="text" name="infos" placeholder="Info suplementaire"  />
                 
-                <input id="imageSport" name="imageSport" type="file"/>
+                <input id="imageSport" name="image1" type="file"/>
                 <button class="" id="boutton1" type="submit">Créer</button>
             </form>
         </div>
