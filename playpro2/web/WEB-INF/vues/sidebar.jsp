@@ -19,6 +19,7 @@
                 <i class="fa fa-calendar"></i> Calendrier
             </a>
         </li>
+        
         <li>
             <a href="#">
                 <i class="fa fa-users"></i> Equipes
@@ -30,23 +31,26 @@
                 <i class="fa fa-play-circle"></i> Parties
             </a>
         </li>
+        
         <%
-//        Membre m = null;
-//        m = (Membre) request.getSession().getAttribute("membre");
-//        if (m.getTypeMembre() == "Entraineur")){  
+          if (!m.getTypeMembre().equals("Joueur")){  
         %>
             <li>
                 <a href="#">
                     <i class="fa fa-file"></i> Annonces
                 </a>
             </li>
-        <% //}%>
+        <%}%>
         
+        <%
+          if (m.getTypeMembre().equals("Admin")){  
+        %>
         <li>
             <a href="#">
                 <i class="fa fa-user-plus"></i> Membres
             </a>
         </li>
+        <%}%>
         
         <li>
             <a href="#">

@@ -127,7 +127,7 @@ public class MembreDAO extends DAO<Membre> {
 
                 c.setId(r.getString("id"));
                 c.setNom(r.getString("nom"));
-                c.setPrenom(r.getString("Prenom"));
+                c.setPrenom(r.getString("prenom"));
                 c.setCourriel(r.getString("courriel"));
                 c.setPseudo(r.getString("pseudo"));
                 c.setMpd(r.getString("mdp"));
@@ -208,16 +208,16 @@ public class MembreDAO extends DAO<Membre> {
                 //System.out.println("Donnée: "+r.getString("type_membre"));
 
                 c.setId(r.getString("id"));
-                c.setPrenom(r.getString("nom"));
+                c.setPrenom(r.getString("prenom"));
                 c.setNom(r.getString("nom"));
                 c.setCourriel(r.getString("courriel"));
                 c.setPseudo(r.getString("pseudo"));
                 c.setMpd(r.getString("mdp"));
 
-                if (r.getString("type_membre").equals("joueur")) {
+                if (r.getString("type_membre").equals("Joueur")) {
                     j = (Joueur) c;
                     liste.add(j);
-                } else if (r.getString("type_membre").equals("admin")) {
+                } else if (r.getString("type_membre").equals("Admin")) {
                     //e = (Entraineur)c; 
                     liste.add(c);
                 } else {

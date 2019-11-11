@@ -21,7 +21,7 @@
         <link rel="stylesheet" type="text/css" href="static/css/calendrier.css"/>
         <link rel="stylesheet" href="static/bootstrap/fontAwesome/css/font-awesome.min.css"/>
         <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
-        <link rel="stylesheet" href="static/bootstrap/fontAwesome/css/fontawesome.min.css"/>
+        <!--<link rel="stylesheet" href="static/bootstrap/fontAwesome/css/fontawesome.min.css"/>-->
         <script
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -30,8 +30,8 @@
         <script src="static/js/calendrier.js"></script>
         <script src="static/js/modernizr.custom.25376.js"></script>
         <script src="static/js/gestion.js" ></script>
-        <!--<script src='https://kit.fontawesome.com/a076d05399.js'></script>-->
-        
+        <link href="static/css/styles.css" rel="stylesheet">
+        <link href="static/css/stylesyoun.css" rel="stylesheet" type="text/css">
     </head>
     <body>
 
@@ -50,9 +50,6 @@
                         <%}else{%>
                             <%@include file="calendrier.jsp"%>
                         <%}%>
-                        <div class="column">
-
-                        </div>
                     </div>
                 </div>
             </div>
