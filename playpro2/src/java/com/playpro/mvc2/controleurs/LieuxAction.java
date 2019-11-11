@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author nadym
  */
-public class LieuxAction extends AbstractAction{
+public class LieuxAction extends AbstractAction {
 
     @Override
     public String execute() {
@@ -29,18 +29,19 @@ public class LieuxAction extends AbstractAction{
         String numero = request.getParameter("numero");
         String cp = request.getParameter("code_postal");
         String infos = request.getParameter("infos");
-        
-//         if (ville == null || rue == null || pays == null || cp == null) {
-//
-//        } else {
-            nom="Nom";
-            rue="Rue";
+        Lieux s = new Lieux();
+
+        if (ville == null || rue == null || pays == null || cp == null) {
+            
+        } else {
+            nom = "Nom";
+            rue = "Rue";
             numero = "1212";
-            ville ="Dorval";
+            ville = "Dorval";
             pays = "Canada";
             cp = "H1H2H2";
-            infos ="Accueil";
-            Lieux s = ObjectFactory.getNewLieu();
+            infos = "Accueil";
+            s = ObjectFactory.getNewLieu();
             s.setNom(nom);
             s.setRue(rue);
             s.setVille(ville);
@@ -50,9 +51,9 @@ public class LieuxAction extends AbstractAction{
             s.setInfos(infos);
 
             LieuxServices.creerLieux(s);
-//        }
+        }
 
-        System.out.println("Id lieu : "+ s.getId_lieu());
+        System.out.println("Id lieu : " + s.getId_lieu());
         System.out.println("Nom lieu : " + nom);
         System.out.println("rue : " + rue);
         System.out.println("ville : " + ville);
@@ -69,5 +70,5 @@ public class LieuxAction extends AbstractAction{
         request.setAttribute("AfficherLieux", true);
         return "portail";
     }
-    
+
 }
