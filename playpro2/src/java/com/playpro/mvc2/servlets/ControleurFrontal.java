@@ -19,6 +19,7 @@ import com.playpro.mvc2.controleurs.LoginAction;
 import com.playpro.mvc2.controleurs.LogoutAction;
 import com.playpro.mvc2.controleurs.PortailAction;
 import com.playpro.mvc2.controleurs.ProfilAction;
+import com.playpro.mvc2.controleurs.SuppressionCompteAction;
 //import com.playpro.mvc2.controleurs.SoustractionAction;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -84,7 +85,9 @@ public class ControleurFrontal extends HttpServlet {
             case "erreur":
                 action = new ErrorAction();
                 break;
-
+            case "supp":
+                action = new SuppressionCompteAction();
+                break;
             default:
                 action = new DefaultAction();
         }

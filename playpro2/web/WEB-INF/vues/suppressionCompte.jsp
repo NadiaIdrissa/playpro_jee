@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-<!--        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+        <!--        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -29,7 +29,7 @@
                 </script>-->
 
         <%
-            Membre mee =null;
+            Membre mee = null;
             mee = (Membre) request.getSession().getAttribute("membre");
 //            String nom = mee.getNom();
         %>
@@ -59,49 +59,50 @@
         Membre m = (Membre) request.getSession().getAttribute("membre");
     %>
 
-        <title>Profil</title>
-    </head>
+    <title>Supp_Compte</title>
+</head>
 
-    <body>
-        <%@include file="menu.jsp" %>
-        <div id="perspective" class="perspective effect-movedown">
-            <div class="container">
-                <div class="wrapper"> wrapper needed for scroll 
-                    <%@include file="sidebar.jsp" %>
-
-                   
-                    <div class="signup-form">
-                        <div class="container text-center border-1">
-                            <h2>Mon profil</h2>
+<body>
+    <%@include file="menu.jsp" %>
+    <div id="perspective" class="perspective effect-movedown">
+        <div class="container">
+            <div class="wrapper"> wrapper needed for scroll 
+                <%@include file="sidebar.jsp" %>
 
 
-                            <div class="container d-flex btn-floating">
+                <div class="signup-form">
+                    <div class="container text-center border-1">
+                        <h2>Confirmation</h2>
+                        <h6>Voulez vous vraiment supprimer votre compte</h6>
 
 
-                                <button id='btnJ'  type="button" class="btn btn-primary" data-toggle="modal" data-target="#id02">
-                                    Continuer
-                                </button>
+                        <div class="container d-flex btn-floating">
 
-                            </div>            
-                        </div>
+                            <a class="btn btn-primary" href="?action=portail" role="button">Annuler</a>
+
+                            <a class="btn btn-primary" href="?action=supp&sta=a" role="button">Suppression</a>
+
+                        </div> 
+                        <label>Votre compte pourra toujours se reactiver</label>
                     </div>
                 </div>
             </div>
         </div>
-            <%@include file="header4.jsp" %>
-
-            
-
-
-            <%@include file="modalProfil.jsp" %>
-
-            <%--<%@include file="footer.jsp" %>--%>
+    </div>
+    <%@include file="header4.jsp" %>
 
 
-            </body>
 
-            <script src="static/js/classie.js"></script>
-        <script src="static/js/menu.js"></script>
+
+    <%@include file="modalProfil.jsp" %>
+
+    <%--<%@include file="footer.jsp" %>--%>
+
+
+</body>
+
+<script src="static/js/classie.js"></script>
+<script src="static/js/menu.js"></script>
 
 
 

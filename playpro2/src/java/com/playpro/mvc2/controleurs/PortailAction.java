@@ -5,6 +5,9 @@
  */
 package com.playpro.mvc2.controleurs;
 
+import com.playpro.daos.MembreDAO;
+import com.playpro.entities.Membre;
+
 /**
  *
  * @author dd
@@ -32,5 +35,5 @@ public class PortailAction extends AbstractAction {
             
         request.getSession().setAttribute("viewConf",viewConf);
         return "portail";
-    }   
+    }
 }
