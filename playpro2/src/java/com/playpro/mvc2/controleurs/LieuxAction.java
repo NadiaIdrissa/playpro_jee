@@ -6,7 +6,9 @@
 package com.playpro.mvc2.controleurs;
 
 import com.playpro.daos.LieuxDAO;
+import com.playpro.daos.SportDAO;
 import com.playpro.entities.Lieux;
+import com.playpro.entities.Sport;
 import com.playpro.factories.ObjectFactory;
 import com.playpro.services.LieuxServices;
 import java.io.File;
@@ -23,26 +25,27 @@ import javax.servlet.http.Part;
  * @author nadym
  */
 public class LieuxAction extends AbstractAction {
-    
+
     private static final String UPLOAD_DIR = "static/images/lieux";
 
     @Override
     public String execute() {
         response.setContentType("text/html");
         LieuxDAO dao = new LieuxDAO();
+        SportDAO daoSport = new SportDAO();
         String nom = request.getParameter("nom");
         String rue = request.getParameter("rue");
         String ville = request.getParameter("ville");
         String pays = request.getParameter("pays");
         String numero = request.getParameter("numero");
         String cp = request.getParameter("code_postal");
-        String infos = request.getParameter("infos");        
+        String infos = request.getParameter("infos");
         String image1 = request.getParameter("image1");
-        
+
         Lieux s = new Lieux();
 
         if (ville == null || rue == null || pays == null || cp == null) {
-            
+
         } else {
             String applicationPath = request.getServletContext().getRealPath("");
             // constructs path of the directory to save uploaded file
@@ -62,7 +65,7 @@ public class LieuxAction extends AbstractAction {
                     if (!fileName.equals("")) {
                         part.write(uploadFilePath + File.separator + fileName);
                         image1 = fileName;
-                        System.out.println("FILE NAME : "+fileName);
+                        System.out.println("FILE NAME : " + fileName);
                     }
                 }
                 request.setAttribute("message", "File uploaded successfully!");
@@ -73,8 +76,7 @@ public class LieuxAction extends AbstractAction {
                 Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
                 request.setAttribute("message", "File NOT uploaded successfully!");
             }
-            
-            
+
             s = ObjectFactory.getNewLieu();
             s.setNom(nom);
             s.setRue(rue);
@@ -86,6 +88,7 @@ public class LieuxAction extends AbstractAction {
             s.setImage1(image1);
 
             LieuxServices.creerLieux(s);
+
         }
 
         System.out.println("Id lieu : " + s.getId_lieu());
@@ -97,15 +100,18 @@ public class LieuxAction extends AbstractAction {
         System.out.println("pays : " + pays);
         System.out.println("numero: " + numero);
 
-        List<Lieux> liste = new LinkedList<>();
-        liste.add(new Lieux());
+        List<Sport> listeSports = daoSport.findAll();
+        List<Lieux > liste = new LinkedList<>();
+        
         liste = dao.findAll();
-        System.out.println("Liste" + liste);
+        System.out.println("Liste des Sports" + listeSports);
+        
+        request.setAttribute("sports", listeSports);
         request.setAttribute("lieux", liste);
         request.setAttribute("AfficherLieux", true);
         return "portail";
     }
-    
+
     private String getFileName(Part part) {
         String contentDisp = part.getHeader("content-disposition");
         System.out.println("content-disposition header= " + contentDisp);
