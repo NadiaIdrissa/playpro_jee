@@ -187,6 +187,7 @@ public class LieuxDAO extends DAO<Lieux> {
                 c.setVille(r.getString("ville"));
                 c.setPays(r.getString("pays"));
                 c.setInfos(r.getString("infos"));
+                c.setImage1(r.getString("image1"));
 
                 liste.add(c);
                 System.out.println(liste.size());

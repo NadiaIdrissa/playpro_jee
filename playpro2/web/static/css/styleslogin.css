@@ -118,7 +118,7 @@ body {
 
 .btn-google {
   color: white;
-  background-color: #ea4335;
+  background-color: #ea4335 !important;
 }
 
 .btn-facebook {
