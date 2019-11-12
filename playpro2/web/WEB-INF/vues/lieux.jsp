@@ -32,7 +32,7 @@
     </div>
     <script>
         $('input[type=file]').change(function () {
-           // debugger;
+            // debugger;
             console.log(this.files[0].mozFullPath);
         });
     </script>
@@ -58,8 +58,15 @@
                 <input type="text" name="pays" placeholder="Pays"  />
                 <input type="text" name="code_postal" placeholder="Code postal"  />
                 <input type="text" name="infos" placeholder="Info suplementaire"  />
-                
+
                 <input id="imageSport" name="image1" type="file"/>
+                <select multiple >
+                    <option value="">Choisissez les sports offerts dans ce lieu</option>
+                    <c:forEach items="${requestScope.sports}" var="unSport"> 
+                        <option value="<c:out value="${unSport.id_sport}" />"><c:out value="${unSport.nom}" /></option> 
+                    </c:forEach>
+
+                </select>
                 <button class="" id="boutton1" type="submit">Créer</button>
             </form>
         </div>
