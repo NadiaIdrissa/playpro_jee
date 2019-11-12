@@ -21,7 +21,6 @@
         <link rel="stylesheet" type="text/css" href="static/css/calendrier.css"/>
         <link rel="stylesheet" href="static/bootstrap/fontAwesome/css/font-awesome.min.css"/>
         <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
-        <!--<link rel="stylesheet" href="static/bootstrap/fontAwesome/css/fontawesome.min.css"/>-->
         <script
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -40,24 +39,24 @@
             <div class="container" style="max-width: unset">
                 <div class="wrapper"><!-- wrapper needed for scroll -->
                     <%@include file="sidebar.jsp" %>
-                    
-                    <div class="main mainPortail clearfix">
-
-                        <%if (viewConf.equals("profilaccueil")){%>
-                            <%@include file="profil.jsp"%>
-                        <%}else if (viewConf.equals("calendrier")){%>
-                            <%@include file="calendrier.jsp"%>
-                        <%}else{%>
-                            <%@include file="calendrier.jsp"%>
-                        <%}%>
-                    </div>
+                </div>
+                
+                <div class="main mainPortail clearfix">
+                    <%if (viewConf.equals("profilaccueil")){%>
+                        <%@include file="profil.jsp"%>
+                    <%}else if (viewConf.equals("calendrier")){%>
+                        <%@include file="calendrier.jsp"%>
+                    <%}else if (viewConf.equals("suppCompte")){%>
+                        <%@include file="suppressionCompte.jsp"%>
+                    <%}else if (viewConf.equals("equipe")){%>
+                        <%@include file="creerEquipe.jsp"%>
+                    <%}else{%>
+                        <%@include file="calendrier.jsp"%>
+                    <%}%>
                 </div>
             </div>
             <%@include file="header4.jsp" %>
-        </div>
-        
-        <%--<%@include file="modalProfil.jsp" %>--%>
-        
+        </div>        
         <script src="static/js/classie.js"></script>
         <script src="static/js/menu.js"></script>
     </body>

@@ -10,25 +10,25 @@
     <ul class="nav">
         <li>
             <a href="?action=portail&sousAction=loadProfil">
-                <i class="fa fa-user"></i> Mon profil
+                <i class="fa fa-user"></i> <span class="sideLabel">Mon profil</span>
             </a>
         </li>
         
         <li>
             <a href="?action=portail&sousAction=loadCalendrier">
-                <i class="fa fa-calendar"></i> Calendrier
+                <i class="fa fa-calendar"></i> <span class="sideLabel">Calendrier</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="?action=portail&sousAction=loadEquipe">
+                <i class="fa fa-users"></i> <span class="sideLabel">Equipes</span>
             </a>
         </li>
         
         <li>
             <a href="#">
-                <i class="fa fa-users"></i> Equipes
-            </a>
-        </li>
-        
-        <li>
-            <a href="#">
-                <i class="fa fa-play-circle"></i> Parties
+                <i class="fa fa-play-circle"></i> <span class="sideLabel">Parties</span>
             </a>
         </li>
         
@@ -37,7 +37,7 @@
         %>
             <li>
                 <a href="#">
-                    <i class="fa fa-file"></i> Annonces
+                    <i class="fa fa-file"></i><span class="sideLabel"> Annonces</span>
                 </a>
             </li>
         <%}%>
@@ -47,14 +47,14 @@
         %>
         <li>
             <a href="#">
-                <i class="fa fa-user-plus"></i> Membres
+                <i class="fa fa-user-plus"></i><span class="sideLabel"> Membres</span>
             </a>
         </li>
         <%}%>
         
         <li>
             <a href="#">
-                <i class="fa fa-paper-plane"></i> Invitations
+                <i class="fa fa-paper-plane"></i><span class="sideLabel"> Invitations</span>
             </a>
         </li>
     </ul>

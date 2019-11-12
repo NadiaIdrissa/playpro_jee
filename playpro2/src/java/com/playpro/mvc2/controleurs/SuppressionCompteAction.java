@@ -20,15 +20,13 @@ public class SuppressionCompteAction extends AbstractAction{
         MembreDAO dao = new MembreDAO();
         Membre mCourrant = new Membre();
         mCourrant = (Membre) request.getSession().getAttribute("membre");
-        String stat=mCourrant.getStatus();
+        String stat = mCourrant.getStatus();
         String f=(String)request.getParameter("sta");       
         if ("a".equals(f)){
             dao.UpdateStatus(mCourrant);  
             request.getSession().invalidate();
             return "login";
         }
-
-        return "suppressionCompte";     
+        return "suppressionCompte";
     }
-    
 }

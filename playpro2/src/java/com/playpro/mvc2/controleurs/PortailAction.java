@@ -28,6 +28,12 @@ public class PortailAction extends AbstractAction {
             case "loadCalendrier" :
                 viewConf = "calendrier";
                 break;
+            case "loadSupp" :
+                viewConf = "suppCompte";
+                break;
+            case "loadEquipe" :
+                viewConf = "equipe";
+                break;
             default :
                 viewConf= "";
                 break;
