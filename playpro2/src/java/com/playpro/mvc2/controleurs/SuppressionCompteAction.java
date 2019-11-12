@@ -25,7 +25,7 @@ public class SuppressionCompteAction extends AbstractAction{
         if ("a".equals(f)){
             dao.UpdateStatus(mCourrant);  
             request.getSession().invalidate();
-            return "login";
+            return "index";
         }
 
         return "suppressionCompte";     
