@@ -52,7 +52,9 @@
         </script>
         <!--<script src="static/js/calendrier.js"></script>-->
         <script src="static/js/modernizr.custom.25376.js"></script>
-          
+
+        <!--<link href="static/bootstrap/fontAwesome/css/all.min.css" rel="stylesheet" type="text/css">-->
+    </head>            
 
     <%
         Membre m = (Membre) request.getSession().getAttribute("membre");
@@ -86,6 +88,7 @@
                     </div>
                 </div>
             </div>
+        </div>
             <%@include file="header4.jsp" %>
 
             
