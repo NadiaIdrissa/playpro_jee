@@ -196,6 +196,7 @@ public class LieuxDAO extends DAO<Lieux> {
             r.close();
             stm.close();
         } catch (SQLException exp) {
+             exp.printStackTrace();
         }
         return liste;
     }
