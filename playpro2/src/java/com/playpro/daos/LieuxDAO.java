@@ -201,4 +201,9 @@ public class LieuxDAO extends DAO<Lieux> {
         return liste;
     }
 
+    @Override
+    public boolean UpdateStatus(Lieux x) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

@@ -47,5 +47,10 @@ public class EquipesDAO extends DAO<Equipe> {
     public List<Equipe> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean UpdateStatus(Equipe x) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
