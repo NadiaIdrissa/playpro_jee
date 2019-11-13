@@ -16,12 +16,18 @@
                     <div class="card-body text-center">
                         <img src="static/images/lieux/<c:out value="${unlieu.image1}"/> " />
 
-                        <p class='card-text'>Nom des lieux: <c:out value="${unlieu.nom}" /></p>
-                        <p class='card-text'>Numéro civic: <c:out value="${unlieu.numero}" /></p>
-                        <p class='card-text'>Rue : <c:out value="${unlieu.rue}" /></p>
-                        <p class='card-text'>Ville: <c:out value="${unlieu.ville}" /></p>
-                        <p class='card-text'>Pays : <c:out value="${unlieu.pays}" /></p>                    
-                        <p class='card-text'>Code postal: <c:out value="${unlieu.code_postal}" /></p>
+                        <p class='card-text'>Nom : <c:out value="${unlieu.nom}" /></p>
+                        <p class='card-text'>Adresse: <c:out value="${unlieu.numero}" /> 
+                            <c:out value="${unlieu.rue}" />
+                            <c:out value="${unlieu.ville}" />
+                            <c:out value="${unlieu.pays}" />
+                            <c:out value="${unlieu.code_postal}" />
+
+                        </p>
+                        <a target="_blank" href="https://www.google.ca/maps/place/5409+Boul+Gouin+O,+Montr%C3%A9al,+QC+H4J+1C5/@45.5339919,-73.7183214,17z/data=!3m1!4b1!4m5!3m4!1s0x4cc9228bc76aab9b:0x7b319b40024fabcb!8m2!3d45.5339919!4d-73.7161327">
+                            Afficher sur la carte
+                        </a>
+                        
                         <p class='card-text'>Infos : <c:out value="${unlieu.infos}" /></p>
 
                     </div> 
