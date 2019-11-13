@@ -44,6 +44,8 @@ public class LoginAction extends AbstractAction {
                     request.getSession(true);
                     request.getSession().setAttribute("connected", true);
                     request.getSession().setAttribute("membre", membre);
+                    request.getSession().setAttribute("nomMembre", membre.getNom());
+                    
 
                 }
             }
