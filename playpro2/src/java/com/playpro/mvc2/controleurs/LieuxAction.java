@@ -42,14 +42,20 @@ public class LieuxAction extends AbstractAction {
         String infos = request.getParameter("infos");
         String image1 = request.getParameter("image1");
         String sports = request.getParameter("sports");
-        
-        System.out.println("Sports : " +sports);
+
+        System.out.println("Sports : " + sports);
+        int l = request.getParameter("sports").length();
+        System.out.println("Longueur" + l);
 
         Lieux s = new Lieux();
 
         if (ville == null || rue == null || pays == null || cp == null) {
 
         } else {
+            if (request.getParameter("sports") != null) {
+                int w = request.getParameter("sports").length();
+                System.out.println("Longueur" + l);
+            }
             String applicationPath = request.getServletContext().getRealPath("");
             // constructs path of the directory to save uploaded file
             String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
@@ -105,16 +111,16 @@ public class LieuxAction extends AbstractAction {
         System.out.println("sports: " + sports);
 
         List<Sport> listeSports = daoSport.findAll();
-        List<Lieux > liste = new LinkedList<>();
-        
+        List<Lieux> liste = new LinkedList<>();
+
         liste = dao.findAll();
         System.out.println("Liste des Sports" + listeSports);
-        
+
         request.setAttribute("sports", listeSports);
         request.setAttribute("lieux", liste);
         request.setAttribute("AfficherLieux", true);
-        
-        request.getSession().setAttribute("viewConf","lieux");
+
+        request.getSession().setAttribute("viewConf", "lieux");
         return "portail";
     }
 
