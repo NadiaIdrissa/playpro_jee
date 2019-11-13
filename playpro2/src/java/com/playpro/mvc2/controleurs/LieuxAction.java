@@ -5,6 +5,7 @@
  */
 package com.playpro.mvc2.controleurs;
 
+import com.playpro.daos.LieuSportDAO;
 import com.playpro.daos.LieuxDAO;
 import com.playpro.daos.SportDAO;
 import com.playpro.entities.Lieux;
@@ -35,6 +36,8 @@ public class LieuxAction extends AbstractAction {
         response.setContentType("text/html");
         LieuxDAO dao = new LieuxDAO();
         SportDAO daoSport = new SportDAO();
+        LieuSportDAO lsDao = new LieuSportDAO();
+        
         String nom = request.getParameter("nom");
         String rue = request.getParameter("rue");
         String ville = request.getParameter("ville");
@@ -99,9 +102,11 @@ public class LieuxAction extends AbstractAction {
             s.setImage1(image1);
 
             LieuxServices.creerLieux(s);
-
+            System.out.println("Longueur "+sports.length);
             for (int i = 0; i < sports.length; i++) {
+                System.out.println("Sport ==="+sports[i]);
                 sp = daoSport.findById(sports[i]);
+                System.out.println("sport trouve: "+sp.getNom());
                 ls.setLieu(s);
                 ls.setSport(sp);
                 
@@ -123,10 +128,14 @@ public class LieuxAction extends AbstractAction {
 
         List<Sport> listeSports = daoSport.findAll();
         List<Lieux> liste = new LinkedList<>();
+        List<LieuSport> listeLieuSport = new LinkedList<>();
+        
+        listeLieuSport = lsDao.findAll();
 
         liste = dao.findAll();
         System.out.println("Liste des Sports" + listeSports);
 
+        request.setAttribute("lieuxSports", listeLieuSport);
         request.setAttribute("sports", listeSports);
         request.setAttribute("lieux", liste);
         request.setAttribute("AfficherLieux", true);

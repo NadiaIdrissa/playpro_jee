@@ -6,13 +6,14 @@
 package com.playpro.services;
 
 import com.playpro.entities.LieuSport;
+import com.playpro.daos.LieuSportDAO;
 
 /**
  *
  * @author toute
  */
 public class LieuSportService {
-    private static LieuSportsDAO dao;
+    private static LieuSportDAO dao;
     public static boolean creerLieuSport(LieuSport s){
         
         dao = new LieuSportDAO();

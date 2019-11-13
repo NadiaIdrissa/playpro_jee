@@ -60,14 +60,14 @@ public class SportDAO extends DAO<Sport>{
       
         try {
             stm = cnx.createStatement();
-            r = stm.executeQuery("SELECT * FROM sport WHERE nom = '"+nom+"'");
+            r = stm.executeQuery("SELECT * FROM sport WHERE id_sport = '"+nom+"'");
 
             if (r.next()) {
                 Sport c = new Sport();
                 System.out.println("------------------------");
                 System.out.println(r.getString("id_sport"));
                 System.out.println(r.getString("nom"));
-                System.out.println(r.getString("nb_joueur_max"));
+                System.out.println(r.getString("nb_max"));
                   
                 System.out.println(r.getString("image"));
                 
@@ -75,7 +75,7 @@ public class SportDAO extends DAO<Sport>{
                 
                 
                 c.setId_sport(r.getString("id_sport"));
-                c.setNom(r.getString("nom_sport"));
+                c.setNom(r.getString("nom"));
                 c.setNb_max(r.getInt("nb_max"));
                 
                 c.setImage(r.getString("image"));
@@ -84,6 +84,7 @@ public class SportDAO extends DAO<Sport>{
                 return c;
             }
         } catch (SQLException exp) {
+            exp.printStackTrace();
         } finally {
             if (stm != null) {
                 try {

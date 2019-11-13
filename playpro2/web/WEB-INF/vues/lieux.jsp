@@ -24,11 +24,23 @@
                             <c:out value="${unlieu.code_postal}" />
 
                         </p>
+                        <p class="card-text">Sports offerts :
+                            <c:forEach items="${requestScope.lieuxSports}" var="ls"> 
+                                <c:if test="${ls.lieu.id_lieu == unlieu.id_lieu}"> 
+                                    <c:out value="${ls.sport.nom}" />
+                                </c:if>
+                            </c:forEach>
+                        </p>
+
                         <a target="_blank" href="https://www.google.ca/maps/place/5409+Boul+Gouin+O,+Montr%C3%A9al,+QC+H4J+1C5/@45.5339919,-73.7183214,17z/data=!3m1!4b1!4m5!3m4!1s0x4cc9228bc76aab9b:0x7b319b40024fabcb!8m2!3d45.5339919!4d-73.7161327">
                             Afficher sur la carte
                         </a>
-                        
+
                         <p class='card-text'>Infos : <c:out value="${unlieu.infos}" /></p>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Modifier</button>
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </div>
 
                     </div> 
                 </div> 

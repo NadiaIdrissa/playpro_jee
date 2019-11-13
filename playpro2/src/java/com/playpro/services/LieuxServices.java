@@ -19,6 +19,4 @@ public class LieuxServices {
         dao = new LieuxDAO();
         return  dao.create(s);
     }
-    
-    
 }

@@ -70,7 +70,7 @@ public class LieuxDAO extends DAO<Lieux> {
 
         try {
             stm = cnx.createStatement();
-            r = stm.executeQuery("SELECT * FROM lieu WHERE nom = '" + nom + "'");
+            r = stm.executeQuery("SELECT * FROM lieu WHERE id_lieu = '" + nom + "'");
 
             if (r.next()) {
                 Lieux c = new Lieux();
@@ -98,6 +98,7 @@ public class LieuxDAO extends DAO<Lieux> {
                 return c;
             }
         } catch (SQLException exp) {
+            exp.printStackTrace();
         } finally {
             if (stm != null) {
                 try {
