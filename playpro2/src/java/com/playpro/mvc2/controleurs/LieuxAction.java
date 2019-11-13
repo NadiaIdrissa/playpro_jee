@@ -9,7 +9,9 @@ import com.playpro.daos.LieuxDAO;
 import com.playpro.daos.SportDAO;
 import com.playpro.entities.Lieux;
 import com.playpro.entities.Sport;
+import com.playpro.entities.LieuSport;
 import com.playpro.factories.ObjectFactory;
+import com.playpro.services.LieuSportService;
 import com.playpro.services.LieuxServices;
 import java.io.File;
 import java.io.IOException;
@@ -41,20 +43,20 @@ public class LieuxAction extends AbstractAction {
         String cp = request.getParameter("code_postal");
         String infos = request.getParameter("infos");
         String image1 = request.getParameter("image1");
-        String sports = request.getParameter("sports");
+        String[] sports = request.getParameterValues("sports");
 
         System.out.println("Sports : " + sports);
-        int l = request.getParameter("sports").length();
-        System.out.println("Longueur" + l);
 
         Lieux s = new Lieux();
+        Sport sp = new Sport();
+        LieuSport ls = new LieuSport();
 
         if (ville == null || rue == null || pays == null || cp == null) {
 
         } else {
             if (request.getParameter("sports") != null) {
                 int w = request.getParameter("sports").length();
-                System.out.println("Longueur" + l);
+                System.out.println("Longueur" + w);
             }
             String applicationPath = request.getServletContext().getRealPath("");
             // constructs path of the directory to save uploaded file
@@ -97,6 +99,15 @@ public class LieuxAction extends AbstractAction {
             s.setImage1(image1);
 
             LieuxServices.creerLieux(s);
+
+            for (int i = 0; i < sports.length; i++) {
+                sp = daoSport.findById(sports[i]);
+                ls.setLieu(s);
+                ls.setSport(sp);
+                
+                LieuSportService.creerLieuSport(ls);
+                
+            }
 
         }
 
