@@ -3,9 +3,10 @@
     Created on : 2019-10-24, 10:38:17
     Author     : dd
 --%>
+
 <nav class="outer-nav top horizontal">
-    <a href="?action=portail" class="icon-home">Portail</a>
-    <a href="#" class="icon-upload">Créer Equipe</a>
-    <a href="?action=logout" class="icon-mail">Se déconnecter</a>
+    <a href="?action=portail" class="header4"><i class="fa fa-arrow-circle-down"></i> Mon portail</a>
+    <a href="#" class="header4"><i class="fa fa-home"></i> Retour au site</a>
+    <a href="?action=logout" class="header4"><i class="fa fa-sign-out"></i> Se déconnecter</a>
     <!--<a href="#" class="icon-lock">Security</a>-->
 </nav>

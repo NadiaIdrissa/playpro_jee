@@ -196,8 +196,14 @@ public class LieuxDAO extends DAO<Lieux> {
             r.close();
             stm.close();
         } catch (SQLException exp) {
+             exp.printStackTrace();
         }
         return liste;
+    }
+
+    @Override
+    public boolean UpdateStatus(Lieux x) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

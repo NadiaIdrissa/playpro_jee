@@ -103,6 +103,7 @@ public class SportsAction extends AbstractAction {
         System.out.println("Image sport : " + imageSport);
         System.out.println("Nb max sport : " + nbMax);
 
+        request.getSession().setAttribute("viewConf","sports");
         return "portail";
     }
 

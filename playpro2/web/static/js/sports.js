@@ -41,5 +41,10 @@ $('input[type=file]').change(function () {
     
 });
 
+// Material Select Initialization
+$(document).ready(function() {
+$('.mdb-select').materialSelect();
+});
+
 
 

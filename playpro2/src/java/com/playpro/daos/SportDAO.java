@@ -180,5 +180,10 @@ public class SportDAO extends DAO<Sport>{
         }
         return liste;
     }
+
+    @Override
+    public boolean UpdateStatus(Sport x) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

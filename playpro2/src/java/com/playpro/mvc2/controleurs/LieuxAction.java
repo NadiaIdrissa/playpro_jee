@@ -41,6 +41,9 @@ public class LieuxAction extends AbstractAction {
         String cp = request.getParameter("code_postal");
         String infos = request.getParameter("infos");
         String image1 = request.getParameter("image1");
+        String sports = request.getParameter("sports");
+        
+        System.out.println("Sports : " +sports);
 
         Lieux s = new Lieux();
 
@@ -99,6 +102,7 @@ public class LieuxAction extends AbstractAction {
         System.out.println("infos : " + infos);
         System.out.println("pays : " + pays);
         System.out.println("numero: " + numero);
+        System.out.println("sports: " + sports);
 
         List<Sport> listeSports = daoSport.findAll();
         List<Lieux > liste = new LinkedList<>();
@@ -109,6 +113,8 @@ public class LieuxAction extends AbstractAction {
         request.setAttribute("sports", listeSports);
         request.setAttribute("lieux", liste);
         request.setAttribute("AfficherLieux", true);
+        
+        request.getSession().setAttribute("viewConf","lieux");
         return "portail";
     }
 

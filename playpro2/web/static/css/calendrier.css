@@ -1,7 +1,7 @@
 /* Overall body and content */
 
 .contentcalendar {
-    overflow: hidden;
+    overflow: auto;
     max-width: 790px;
     padding: 0px 0;
     height: 500px;
@@ -325,18 +325,23 @@
 }
 
 /* Small phone screens */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
     .content, .events-container, .year-header, .calendar-container {
-        width: 320px;
+        width: 310px;
     }
     .dialog {
-        width: 320px;
+        width: 310px;
     }
     .months-table {
         display: block;
         margin: 0 auto;
-        width: 320px;
+        width: 310px;
     }
+    
+    .month{
+       width: 25px; 
+    }
+    
     .event-card {
         width: 300px;
     }
@@ -346,7 +351,7 @@
     .month {
         display: inline-block;
         padding: 10px 10px;
-        font-size: .8rem;
+        font-size: 9px;
     }
     .table-date {
         width: 20px;
@@ -354,7 +359,7 @@
         line-height: 20px;
     }
     .event-name, .event-count, .event-cancelled {
-        font-size: .8rem;
+        font-size: 9px;
     }
     .add-button{
         bottom: 10px;

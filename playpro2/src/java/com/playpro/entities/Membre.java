@@ -27,6 +27,8 @@ public class Membre {
     protected String sport;
     protected Niveau niveau;
     protected BufferedImage photo;
+    protected String typeMembre;
+    protected String status;
 
     public Membre(String pseudo, String courriel, String mpd, String nom, String prenom, Sexe sexe, Niveau niveau) {
         this.pseudo = pseudo;
@@ -35,11 +37,11 @@ public class Membre {
         this.prenom = prenom;
         this.courriel = courriel;
         this.sexe = sexe;
-        this.niveau=niveau;
+        this.niveau = niveau;
     }
 
     public Membre() {
-        this("ken", "kalo@al.ca", "1234", "Kalomba", "Kennedy", Sexe.Homme,Niveau.DEBUTANT);
+        this("ken", "kalo@al.ca", "1234", "Kalomba", "Kennedy", Sexe.Homme, Niveau.DEBUTANT);
 
     }
 
@@ -51,6 +53,13 @@ public class Membre {
         this.id = id;
     }
 
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status){
+        this.status=status;
+    }
+    
     public String getPseudo() {
         return pseudo;
     }
@@ -76,9 +85,9 @@ public class Membre {
         if (sexe.equalsIgnoreCase("homme")) {
 
             this.sexe = Sexe.Homme;
-        }else if (sexe.equalsIgnoreCase("femme")){
+        } else if (sexe.equalsIgnoreCase("femme")) {
             this.sexe = Sexe.Femme;
-        }else{
+        } else {
             this.sexe = Sexe.Autre;
         }
     }
@@ -130,7 +139,7 @@ public class Membre {
     public void setEquipe(Equipe equipe) {
         this.equipe = equipe;
     }
-    
+
     public String getSport() {
         return sport;
     }
@@ -139,18 +148,26 @@ public class Membre {
         this.sport = sport;
     }
 
+    public String getTypeMembre() {
+        return typeMembre;
+    }
+
+    public void setTypeMembre(String typeM) {
+        this.typeMembre = typeM;
+    }
+
     public Niveau getNiveau() {
         return niveau;
     }
 
     public void setNiveau(String niveau) {
-        System.out.println("valeur: "+niveau.equalsIgnoreCase("Professionnel"));
+        System.out.println("valeur: " + niveau.equalsIgnoreCase("Professionnel"));
         if (niveau.equalsIgnoreCase("Professionnel")) {
 
             this.niveau = Niveau.PROFESSIONNEL;
-        }else if (niveau.equalsIgnoreCase("intermediaire")){
+        } else if (niveau.equalsIgnoreCase("intermediaire")) {
             this.niveau = Niveau.INTERMEDIAIRE;
-        }else{
+        } else {
             this.niveau = Niveau.DEBUTANT;
         }
     }
@@ -167,7 +184,5 @@ public class Membre {
     public String toString() {
         return "Membre{" + "id=" + id + ", pseudo=" + pseudo + ", mpd=" + mpd + ", sexe=" + sexe + ", nom=" + nom + ", prenom=" + prenom + ", anneeNaissance=" + anneeNaissance + ", courriel=" + courriel + ", dateInscription=" + dateInscription + ", equipe=" + equipe + ", sport=" + sport + ", niveau=" + niveau + ", photo=" + photo + '}';
     }
-
-    
 
 }
