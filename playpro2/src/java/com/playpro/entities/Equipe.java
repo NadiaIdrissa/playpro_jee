@@ -15,6 +15,7 @@ public class Equipe {
 
     protected String NomEquipe;
     protected Membre capitaine;
+    protected String id_capitaine;
     protected String sport;
     protected int nbPartiesJouees;
     protected int nbJoueurs;
@@ -33,9 +34,9 @@ public class Equipe {
         
     }
 
-    public Equipe(String NomEquipe, Membre capitaine, String sport, int nbPartiesJouees, int nbJoueurs, int nbMaxJoueurs) {
+    public Equipe(String NomEquipe, String id_du_capitaine, String sport, int nbPartiesJouees, int nbJoueurs, int nbMaxJoueurs) {
         this.NomEquipe = NomEquipe;
-        this.capitaine = capitaine;
+        this.id_capitaine = id_du_capitaine;
         this.sport = sport;
         this.nbPartiesJouees = nbPartiesJouees;
         this.nbJoueurs = nbJoueurs;
@@ -50,12 +51,13 @@ public class Equipe {
         this.NomEquipe = NomEquipe;
     }
 
-    public Membre getCapitaine() {
-        return capitaine;
+    public String id_capitaine() {
+        return id_capitaine;
     }
 
     public void setCapitaine(Membre capitaine) {
-        this.capitaine = capitaine;
+        this.capitaine=capitaine;
+        
     }
 
     public String getSport() {
@@ -95,17 +97,11 @@ public class Equipe {
     }
 
 
-    public Membre getKen() {
-        return ken;
-    }
 
-    public void setKen(Membre ken) {
-        this.ken = ken;
-    }
 
     @Override
     public String toString() {
-        return "Equipe{" + "NomEquipe=" + NomEquipe + ", capitaine=" + capitaine + ", sport=" + sport + ", nbPartiesJouees=" + nbPartiesJouees + ", nbJoueurs=" + nbJoueurs + ", nbMaxJoueurs=" + nbMaxJoueurs + ", dateCreation=" + dateCreation + ", ken=" + ken + '}';
+        return "Equipe{" + "NomEquipe=" + NomEquipe + ", capitaine=" + id_capitaine + ", sport=" + sport + ", nbPartiesJouees=" + nbPartiesJouees + ", nbJoueurs=" + nbJoueurs + ", nbMaxJoueurs=" + nbMaxJoueurs + ", dateCreation=" + dateCreation + ", ken=" + ken + '}';
     }
 
     

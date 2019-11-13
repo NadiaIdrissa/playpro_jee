@@ -60,14 +60,14 @@ public class SportDAO extends DAO<Sport>{
       
         try {
             stm = cnx.createStatement();
-            r = stm.executeQuery("SELECT * FROM sport WHERE nom = '"+nom+"'");
+            r = stm.executeQuery("SELECT * FROM sport WHERE id_sport = '"+nom+"'");
 
             if (r.next()) {
                 Sport c = new Sport();
                 System.out.println("------------------------");
                 System.out.println(r.getString("id_sport"));
                 System.out.println(r.getString("nom"));
-                System.out.println(r.getString("nb_joueur_max"));
+                System.out.println(r.getString("nb_max"));
                   
                 System.out.println(r.getString("image"));
                 
@@ -75,7 +75,7 @@ public class SportDAO extends DAO<Sport>{
                 
                 
                 c.setId_sport(r.getString("id_sport"));
-                c.setNom(r.getString("nom_sport"));
+                c.setNom(r.getString("nom"));
                 c.setNb_max(r.getInt("nb_max"));
                 
                 c.setImage(r.getString("image"));
@@ -84,6 +84,7 @@ public class SportDAO extends DAO<Sport>{
                 return c;
             }
         } catch (SQLException exp) {
+            exp.printStackTrace();
         } finally {
             if (stm != null) {
                 try {
@@ -132,7 +133,7 @@ public class SportDAO extends DAO<Sport>{
     }
     @Override
     public boolean delete(Sport x) {
-         Statement stm = null;
+        Statement stm = null;
         try {
             stm = cnx.createStatement();
             int n = stm.executeUpdate("DELETE FROM sport WHERE id_sport='" + x.getId_sport()+ "'");
@@ -156,8 +157,7 @@ public class SportDAO extends DAO<Sport>{
 
     @Override
     public List<Sport> findAll() {
-               List<Sport> liste = new LinkedList<>();
-
+        List<Sport> liste = new LinkedList<>();
         try {
             Statement stm = cnx.createStatement();
             ResultSet r = stm.executeQuery("SELECT * FROM sport");
@@ -180,6 +180,11 @@ public class SportDAO extends DAO<Sport>{
         } catch (SQLException exp) {
         }
         return liste;
+    }
+
+    @Override
+    public boolean UpdateStatus(Sport x) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
