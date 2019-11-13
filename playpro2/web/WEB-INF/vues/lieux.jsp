@@ -70,7 +70,7 @@
                             <input type="text" name="infos" placeholder="Info suplementaire"  />
                         </div>
                         <div class="form-group">
-                            <select class="form-control" id="exampleFormControlSelect1" name="sports" multiple> 
+                            <select class="form-control" id="exampleFormControlSelect1" name="sports" multiple required> 
                                 <c:forEach items="${requestScope.sports}" var="unSport"> 
                                     <option value="<c:out value="${unSport.id_sport}" />"><c:out value="${unSport.nom}" /></option> 
                                 </c:forEach>
