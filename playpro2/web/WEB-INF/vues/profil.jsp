@@ -25,7 +25,10 @@
         </div>
         <div class="modal-body">
             <div class="container">
-                <form  action="" method="post" name="action" value="profil" novalidate>
+<!--                <form  id="fprofil" action="" method="post" name="action" value="profil">-->
+                <form  id="fprofil" action="" method="">
+                    <input type="hidden" name="action" value="profil" method="post"/>
+
                     <div class="form-group">
                         <div class="row">
                             <div class="vl">
@@ -186,8 +189,8 @@
                     } else {
                         
                         change.style.backgroundColor = "blue";
-                 
-                        change.type="submit";
+                        document.getElementById("fprofil").submit();
+//                        change.type="submit";
                     }
                 }
             </script>
