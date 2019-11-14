@@ -121,10 +121,14 @@ public class ProfilAction extends AbstractAction {
 
             dao.update(membre);
             System.out.println("-----dao.membre-----------" + dao.update(membre));
+            
+            return "portail";
 
+        }else{
+          return "profil";  
         }
 
-        return "profil";
+        
     }
 
 }
