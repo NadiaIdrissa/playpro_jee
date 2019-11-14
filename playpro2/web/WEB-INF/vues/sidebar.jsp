@@ -22,7 +22,7 @@
         </li>
         
         <li>
-            <a href="?action=equipes">
+            <!--<a href="?action=equipes"></a>-->
             <a href="?action=portail&sousAction=loadEquipe">
                 <i class="fa fa-users"></i> <span class="sideLabel">Equipes</span>
             </a>
@@ -35,12 +35,12 @@
         </li>
         <li>
             <a href="?action=sports">
-                <i class="fa fa-paper-plane"></i> Les sports
+                <i class="fa fa-soccer-ball-o"></i> <span class="sideLabel">Sports</span>
             </a>
         </li>
          <li>
             <a href="?action=lieux">
-                <i class="fa fa-paper-plane"></i> Les lieux
+                <i class="fa fa-map-marker"></i> <span class="sideLabel">Lieux</span>
             </a>
         </li>
         

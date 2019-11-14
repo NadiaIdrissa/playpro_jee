@@ -121,10 +121,15 @@ public class ProfilAction extends AbstractAction {
 
             dao.update(membre);
             System.out.println("-----dao.membre-----------" + dao.update(membre));
+            
+//            return "portail";
 
+        }else{
+          return "profil";  
         }
-
-        return "profil";
+//        request.getSession().setAttribute("membre", membre);
+        request.getSession().setAttribute("viewConf","profilaccueil");
+        return "portail";
     }
 
 }

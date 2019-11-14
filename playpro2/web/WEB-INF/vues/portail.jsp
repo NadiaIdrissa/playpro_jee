@@ -53,8 +53,8 @@
                         <%@include file="calendrier.jsp"%>
                     <%}else if (viewConf.equals("suppCompte")){%>
                         <%@include file="suppressionCompte.jsp"%>
-                    <%}else if (viewConf.equals("equipe")){%>
-                        <%@include file="creerEquipe.jsp"%>
+                    <%--}else if (viewConf.equals("equipe")){--%>
+                        <%--<%@include file="creerEquipe.jsp"%>--%>
                     <%}else if (viewConf.equals("sports")){%>
                         <%@include file="sports.jsp"%>
                     <%}else if (viewConf.equals("lieux")){%>
