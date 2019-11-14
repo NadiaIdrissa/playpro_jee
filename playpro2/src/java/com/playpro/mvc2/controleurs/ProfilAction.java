@@ -35,8 +35,6 @@ public class ProfilAction extends AbstractAction {
         Niveau niveauN = mCourrant.getNiveau();
         int pAnnee = 2000;
 
-
-
         String pseudo = (String) request.getParameter("pseudoR");
         String nom = (String) request.getParameter("nomR");
         String prenom = (String) request.getParameter("prenomR");
@@ -68,7 +66,7 @@ public class ProfilAction extends AbstractAction {
             sexe = sex.toString();
         }
         if (mdpC == null || "".equals(mdpC.trim())) {
-            mdpC ="";
+            mdpC = "";
         }
         if (mdp == null || "".equals(mdp.trim())) {
             mdp = mCourrant.getMpd();
@@ -76,16 +74,16 @@ public class ProfilAction extends AbstractAction {
             if (mdp == mdpC) {
                 request.getSession().setAttribute("valid", "vrai");
 
-                m=new PasswordHash();
+                m = new PasswordHash();
                 try {
-                    mdp=m.createHash(mdp);
-                    
+                    mdp = m.createHash(mdp);
+
                 } catch (NoSuchAlgorithmException ex) {
                     Logger.getLogger(ProfilAction.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (InvalidKeySpecException ex) {
                     Logger.getLogger(ProfilAction.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
             }
         }
 
@@ -121,10 +119,12 @@ public class ProfilAction extends AbstractAction {
 
             dao.update(membre);
             System.out.println("-----dao.membre-----------" + dao.update(membre));
-
+            return "portail";
+        }else{
+           return "profil";  
         }
 
-        return "profil";
+       
     }
 
 }
