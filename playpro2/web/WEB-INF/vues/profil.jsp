@@ -16,120 +16,7 @@
 
     </div>
 <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>-->
-    <div class="modal-body">
-        <div class="container">
-            <div class="row">
-                <div class="vl">
-                    <span class="vl-innertext">ou</span>
-                </div>
 
-                <div class="col">
-                    <a href="#" class="fb btn">
-                        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                    </a>
-
-                    <a href="#" class="btn btn-info" role="button">Link Modifier</a>
-                    <a href="#" class="btn btn-success" role="button">confirmer</a>
-                </div>
-
-                <div class="col">
-                    <form  action="" method="post" name="action" value="profil" novalidate>
-                        <div class="form-group">
-                            <div class="form-row">
-                                <div class="col-md-12 mb-12">
-                                    <input type="text" name='pseudoR' class="form-control" id="validationCustom03" placeholder="${sessionScope.membre.pseudo}" required>
-                                    <div class="invalid-feedback">
-                                        Champ requis.
-                                    </div>
-                                </div>
-                                <div class="col-md-12 mb-12">
-                                    <input type="text" name='nomR' class="form-control" id="validationCustom03" placeholder="${sessionScope.membre.nom}" required>
-                                    <div class="invalid-feedback">
-                                         Champ requis.
-                                    </div>
-                                </div>
-                                <div class="col-md-12 mb-12">
-                                    <input type="text" name='prenomR' class="form-control" id="validationCustom04" placeholder="${sessionScope.membre.prenom}" required>
-                                    <div class="invalid-feedback">
-                                        Champ requis.
-                                    </div>
-                                </div>
-                                <div class="col-md-12 mb-12">
-                                    <input type="text" name='anneeR' class="form-control" id="validationCustom5" placeholder="Année de nassaince" required>
-                                    <div class="invalid-feedback">
-                                        Champ requis.
-                                    </div>
-                                </div>
-                                <div id='niveaug' class="col-md-12 mb-12">
-                                    <div  class="form-group">
-                                        <label for="inputLevel">Niveau</label>
-                                        <select class="form-control" name="niveauR" required>
-                                            <option value='' >${sessionScope.membre.niveau}</option>
-                                            <%for (Niveau n : Niveau.values()) {%>
-
-                                            <option value='<%=n.toString()%>'><%=n.toString()%></option>
-
-                                            <%}%>
-                                        </select>
-                                    </div>
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
-                                </div>
-                                <div id='prenom' class="col-md-12 mb-12">
-                                    <div  class="form-group">
-                                        <label for="inputLevel">Sexe</label>
-                                        <select class="form-control" name="sexeR" required>
-                                            <option value='' >${sessionScope.membre.sexe}</option>
-
-                                            <%for (Sexe s : Sexe.values()) {%>
-
-                                            <option value='<%=s.toString()%>'><%=s.toString()%></option>
-
-                                            <%}%>
-                                        </select>
-                                    </div>
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12 mb-12">
-                                    <input type="email" name='emailR' class="form-control" id="validationCustom05" placeholder="${sessionScope.membre.courriel}" required>
-                                    <div class="invalid-feedback">
-                                        Entrez un courriel valide.
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12 mb-12">
-                                    <input type="password" id='password' name='passwordR' class="form-control"  placeholder="Mot de passe" required>
-                                    <div class="invalid-feedback">
-                                        Mot de passe requis.
-                                    </div>
-                                </div>
-                            </div>
-                                    
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <label class="form-check-label" for="invalidCheck">
-                                        <input style="width: 5%" class="form-check-input checkbox-primary" type="checkbox" value="" id="invalidCheck" required>
-                                        Accepter les conditions générales
-                                    </label>
-                                    <div class="invalid-feedback">
-                                        Vous devez accepter les conditions générales d'utilisation.
-                                    </div>
-                                </div>
-                            </div>
-                                    
-                            <div class="footer">
-                                <button class="btn btn-primary btn-sm" id="commit" type="submit">Enregistrer</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>--%>
         <div class="modal-header">
             <div class="text-center">
@@ -148,7 +35,7 @@
                                 <div class="form-row">
                                     <div class="col-md-12 mb-12">
                                         <label for="pseudoR">Pseudo</label>
-                                        <input type="text" name='pseudoR' class="form-control" id="validationCustom03" value="${sessionScope.membre.pseudo}" required>
+                                        <input type="text" name='pseudoR' class="form-control" id="pse1" value="${sessionScope.membre.pseudo}" required>
                                         <div class="invalid-feedback">
                                             Champ requis.
                                         </div>
@@ -156,21 +43,21 @@
 
                                     <div class="col-md-12 mb-12">
                                         <label for="nomR">Nom</label>
-                                        <input type="text" name='nomR' class="form-control" id="validationCustom03" value="${sessionScope.membre.nom}" required>
+                                        <input type="text" name='nomR' class="form-control" id="nom2" value="${sessionScope.membre.nom}" required>
                                         <div class="invalid-feedback">
                                             Champ requis.
                                         </div>
                                     </div>
                                     <div class="col-md-12 mb-12">
                                         <label for="prenomR">Prénom</label>
-                                        <input type="text" name='prenomR' class="form-control" id="validationCustom04" value="${sessionScope.membre.prenom}" required>
+                                        <input type="text" name='prenomR' class="form-control" id="pre3" value="${sessionScope.membre.prenom}" required>
                                         <div class="invalid-feedback">
                                             Champ requis.
                                         </div>
                                     </div>
                                     <div class="col-md-12 mb-12">
                                         <label for="inputLevel">Année de naissance</label>
-                                        <input type="text" name='anneeR' class="form-control" id="validationCustom5" value=${sessionScope.membre.anneeNaissance} required>
+                                        <input type="text" name='anneeR' class="form-control" id="ann4" value=${sessionScope.membre.anneeNaissance} required>
                                         <div class="invalid-feedback">
                                             Champ requis.
                                         </div>
@@ -178,7 +65,7 @@
                                     <div id='prenom' class="col-md-12 mb-12">
                                         <div  class="form-group">
                                             <label for="inputLevel">Sexe</label>
-                                            <select class="form-control" name="sexeR" required>
+                                            <select class="form-control" name="sexeR" id="sex5" required>
                                                 <option value='' >${sessionScope.membre.sexe}</option>
 
                                                 <%for (Sexe s : Sexe.values()) {%>
@@ -194,7 +81,7 @@
                                     </div>
                                             
                                     <div class="col-md-12 mb-12">
-                                        <input type="email" name='emailR' class="form-control" id="validationCustom05" value="${sessionScope.membre.courriel}" required>
+                                        <input type="email" name='emailR' class="form-control" id="ema6" value="${sessionScope.membre.courriel}" required>
                                         <div class="invalid-feedback">
                                             Entrez un courriel valide.
                                         </div>
@@ -207,7 +94,7 @@
                                     <div id='niveaug' class="col-md-12 mb-12">
                                         <div  class="form-group">
                                             <label for="tMembreR">Type de membre</label>
-                                            <select class="form-control" name="tMembreR" required>
+                                            <select class="form-control" name="tMembreR" id="mem7"required>
 
                                                 <option selected="selected">${sessionScope.membre.typeMembre}</option>
 
@@ -218,7 +105,7 @@
 
                                     <div class="col-md-12 mb-12">
                                         <label for="pseudoR">Sport</label>
-                                        <input type="text" name='sportR' class="form-control" id="validationCustom03" value="${sessionScope.membre.sport}" required>
+                                        <input type="text" name='sportR' class="form-control" id="spo8" value="${sessionScope.membre.sport}" required>
                                         <div class="invalid-feedback">
                                             Champ requis.
                                         </div>
@@ -227,7 +114,7 @@
                                     <div id='niveaug' class="col-md-12 mb-12">
                                         <div  class="form-group">
                                             <label for="inputLevel">Niveau</label>
-                                            <select class="form-control" name="niveauR" required>
+                                            <select class="form-control" name="niveauR" id="niv9" required>
                                                 <option value='' >${sessionScope.membre.niveau}</option>
 
                                                 <%for (Niveau n : Niveau.values()) {%>
@@ -242,7 +129,7 @@
                                     <div class="col-md-12 mb-12">
 
                                         <label for="passwordR">Changement de mot de passe</label>
-                                        <input type="password" id='password' name='passwordR' class="form-control"  value="" required>
+                                        <input type="password"  name='passwordR' class="form-control"  id="pas10" value="" required>
                                         <%
                                             if (request.getSession().getAttribute("valid") == "vrai" && request.getSession().getAttribute("valid") != null) {
                                         %>
@@ -256,7 +143,7 @@
                                     </div>
                                     <div class="col-md-12 mb-12">
                                         <label for="CpasswordR">Confirmation mot de passe</label>
-                                        <input type="password" id='password' name='CpasswordR' class="form-control"  value="" required>
+                                        <input type="password"  name='CpasswordR' class="form-control"  id="cpas11"value="" required>
                                         <div class="invalid-feedback">
                                             Mot de passe requis.
                                         </div>
