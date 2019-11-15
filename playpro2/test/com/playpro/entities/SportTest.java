@@ -21,6 +21,10 @@ public class SportTest {
     
     @BeforeClass
     public static void setUpClass() {
+        Sport s = new Sport();
+        String nom = "Hockey";
+        s.setNom(nom);
+        
     }
     
     @AfterClass
@@ -128,7 +132,7 @@ public class SportTest {
     @Test
     public void testSetNom() {
         System.out.println("setNom");
-        String nomSport = "";
+        String nomSport = "Hockey";
         Sport instance = new Sport();
         instance.setNom(nomSport);
         // TODO review the generated test code and remove the default call to fail.
