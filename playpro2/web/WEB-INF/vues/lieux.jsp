@@ -13,7 +13,7 @@
             <c:forEach items="${requestScope.lieux}" var="unlieu"> 
 
                 <div class="card" >
-                    <div class="card-body text-center">
+                    <div class="cadre text-center">
                         <img src="static/images/lieux/<c:out value="${unlieu.image1}"/> " />
 
                         <p class='card-text'>Nom : <c:out value="${unlieu.nom}" /></p>

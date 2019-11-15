@@ -46,16 +46,11 @@ public class EquipesAction extends AbstractAction {
         listeequipes = dao.findAll();
         
 //        listeequipes.add(a);
-
-
-        
+       
         request.setAttribute("listeEquipe", listeequipes);
         
-        System.out.println("equipe 1 = "+listeequipes.get(0).getNomEquipe());
-        
-        
-        
-        
+        //System.out.println("equipe 1 = "+listeequipes.get(0).getNomEquipe());
+            
         request.getSession().setAttribute("viewConf","loadEquipe");
         return "portail";
     }

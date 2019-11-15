@@ -19,9 +19,9 @@
 
 
     <section>
-<!--        <div style="padding-bottom: 2px;">
-            <button class="btn btn-success text-uppercase float-right w-10 "data-toggle="modal" data-target="#modalProjet" type="submit" ><i class="fab fa-google mr-2"></i> Ajouter</button>
-        </div>-->
+        <!--        <div style="padding-bottom: 2px;">
+                    <button class="btn btn-success text-uppercase float-right w-10 "data-toggle="modal" data-target="#modalProjet" type="submit" ><i class="fab fa-google mr-2"></i> Ajouter</button>
+                </div>-->
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -44,11 +44,11 @@
                 <%
                     for (int i = 0; i < liste.size(); i++) {
 //                            if (liste.get(i).getCreateur().equals(identifiant)) {
-%>
+                %>
                 <form  action="" method="" name="" value="">
 
                     <td name="prjt"><%=liste.get(i).getNomEquipe()%></td>
-                    
+
                     <td><%=liste.get(i).id_capitaine()%></td>
                     <td><%=liste.get(i).getSport()%></td>
                     <td><%=liste.get(i).getNbJoueurs()%></td>
@@ -95,7 +95,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="form-signin needs-validation " action="?action=equipes" method="post" name="action" value="ajoutImage" enctype="multipart/form-data" novalidate>
+            <form class="form-signin needs-validation " action="?action=equipe" method="post" name="action" value="equipe" enctype="multipart/form-data" novalidate>
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" name="nomEquipe" placeholder="Nom de l'équipe" required />
