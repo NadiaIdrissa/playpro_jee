@@ -54,6 +54,10 @@ public class Equipe {
     public String id_capitaine() {
         return id_capitaine;
     }
+    
+    public void setid_capitaine(String id) {
+        this.id_capitaine=id;
+    }
 
     public void setCapitaine(Membre capitaine) {
         this.capitaine=capitaine;
@@ -72,24 +76,24 @@ public class Equipe {
         return nbPartiesJouees;
     }
 
-    public void setNbPartiesJouees(int nbPartiesJouees) {
-        this.nbPartiesJouees = nbPartiesJouees;
+    public void setNbPartiesJouees(String nbPartiesJouees) {
+        this.nbPartiesJouees = Integer.parseInt(nbPartiesJouees);
     }
 
     public int getNbJoueurs() {
         return nbJoueurs;
     }
 
-    public void setNbJoueurs(int nbJoueurs) {
-        this.nbJoueurs = nbJoueurs;
+    public void setNbJoueurs(String nbJoueurs) {
+        this.nbJoueurs = Integer.parseInt(nbJoueurs);
     }
 
     public int getNbMaxJoueurs() {
         return nbMaxJoueurs;
     }
 
-    public void setNbMaxJoueurs(int nbMaxJoueurs) {
-        this.nbMaxJoueurs = nbMaxJoueurs;
+    public void setNbMaxJoueurs(String nbMaxJoueurs) {
+        this.nbMaxJoueurs = Integer.parseInt(nbMaxJoueurs);
     }
 
     public LocalDate getDateCreation() {

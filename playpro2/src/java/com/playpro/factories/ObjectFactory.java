@@ -5,9 +5,10 @@
  */
 package com.playpro.factories;
 
+import com.playpro.entities.Equipe;
 import com.playpro.entities.Membre;
-import com.playpro.entities.Joueur;
-import com.playpro.entities.Entraineur;
+import com.playpro.entities.Sport;
+import com.playpro.entities.Lieux;
 import java.util.UUID;
 
 /**
@@ -22,10 +23,16 @@ public class ObjectFactory {
         objet.setId(UUID.randomUUID().toString());
         return objet;
     }
+ 
       
-//    public static Tache getNewTache() {
-//        Tache objet = new Tache();
-//        objet.setId(UUID.randomUUID().toString());
-//        return objet;
-//    }    
+    public static Sport getNewSport() {
+        Sport objet = new Sport();
+        objet.setId_sport(UUID.randomUUID().toString());
+        return objet;
+    }    
+    public static Lieux getNewLieu() {
+    Lieux objet = new Lieux();
+    objet.setId_lieu(UUID.randomUUID().toString());
+    return objet;
+    }    
 }

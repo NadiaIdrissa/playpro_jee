@@ -52,6 +52,7 @@ body {
   font-weight: bold;
   padding: 1rem;
   transition: all 0.2s;
+  color: #ffffff;
 }
 
 .form-label-group {
@@ -118,12 +119,12 @@ body {
 
 .btn-google {
   color: white;
-  background-color: #ea4335;
+  background-color: #ea4335 !important;
 }
 
 .btn-facebook {
   color: white;
-  background-color: #3b5998;
+  background-color: #3b5998 !important;
 }
 
 /* Fallback for Edge

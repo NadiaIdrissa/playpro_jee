@@ -6,8 +6,10 @@
 package com.playpro.daos;
 
 import com.playpro.entities.Equipe;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -76,7 +78,41 @@ public class EquipesDAO extends DAO<Equipe> {
 
     @Override
     public List<Equipe> findAll() {
+        
+         List<Equipe> liste = new LinkedList<>();
+         
+         System.out.println("je suis dans findAll de equipeDAO");
+        try {
+            Statement stm = cnx.createStatement();
+            ResultSet r = stm.executeQuery("SELECT * FROM equipe");
+            while (r.next()) {
+                System.out.println("Lecture equipe :" + r.toString());
+                Equipe team = new Equipe();
+                team.setNomEquipe(r.getString("nom_equipe"));
+                team.setid_capitaine(r.getString("id_capitaine"));
+                team.setSport(r.getString("nom_sport"));
+                team.setNbPartiesJouees(r.getString("nb_parties_jouees"));
+                team.setNbJoueurs(r.getString("nb_joueurs"));
+                team.setNbMaxJoueurs(r.getString("nb_max_joueurs"));
+                
+
+                liste.add(team);
+                System.out.println(liste.size());
+            }
+
+            r.close();
+            stm.close();
+        } catch (SQLException exp) {
+             exp.printStackTrace();
+        }
+        return liste;
+    }
+
+    @Override
+    public boolean UpdateStatus(Equipe x) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-       
+    
+    
+
 }

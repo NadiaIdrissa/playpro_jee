@@ -9,46 +9,66 @@
 
     <ul class="nav">
         <li>
-            <a href="?action=profil">
-                <!--<a data-toggle="modal" data-target="#id02">-->
-                <i class="fa fa-list-ul"></i> Mon profil
+</a>
+            <a href="?action=portail&sousAction=loadProfil">
+                <i class="fa fa-user"></i> <span class="sideLabel">Mon profil</span>
             </a>
         </li>
         
         <li>
-            <a href="?action=portail">
-                <i class="fa fa-paper-plane"></i> Calendrier
+            <a href="?action=portail&sousAction=loadCalendrier">
+                <i class="fa fa-calendar"></i> <span class="sideLabel">Calendrier</span>
             </a>
         </li>
+        
         <li>
-            <a href="?action=equipes">
-                <i class="fa fa-list-ul"></i> Equipes
+<!--            <a href="?action=equipes">-->
+            <a href="?action=equipe&sousAction=loadEquipe">
+                <i class="fa fa-users"></i> <span class="sideLabel">Equipes</span>
             </a>
         </li>
         
         <li>
             <a href="#">
-                <i class="fa fa-paper-plane"></i> Parties
+                <i class="fa fa-play-circle"></i> <span class="sideLabel">Parties</span>
             </a>
         </li>
+        <li>
+            <a href="?action=sports">
+                <i class="fa fa-paper-plane"></i> Les sports
+            </a>
+        </li>
+         <li>
+            <a href="?action=lieux">
+                <i class="fa fa-paper-plane"></i> Les lieux
+            </a>
+        </li>
+        
         <%
-//        Membre m = null;
-//        m = (Membre) request.getSession().getAttribute("membre");
-//        if (m.getTypeMembre() == "Entraineur")){  
+          if (!m.getTypeMembre().equals("Joueur")){  
         %>
             <li>
                 <a href="#">
-                    <i class="fa fa-list-ul"></i> Annonces
+                    <i class="fa fa-file"></i><span class="sideLabel"> Annonces</span>
                 </a>
             </li>
-        <% //}%>
+        <%}%>
+        
+        <%
+          if (m.getTypeMembre().equals("Admin")){  
+        %>
+        <li>
+            <a href="#">
+                <i class="fa fa-user-plus"></i><span class="sideLabel"> Membres</span>
+            </a>
+        </li>
+        <%}%>
         
         <li>
             <a href="#">
-                <i class="fa fa-paper-plane"></i> Membres
+                <i class="fa fa-paper-plane"></i><span class="sideLabel"> Invitations</span>
             </a>
         </li>
     </ul>
 </div>
 
-<%--<%@include file="modalProfil.jsp" %>--%>

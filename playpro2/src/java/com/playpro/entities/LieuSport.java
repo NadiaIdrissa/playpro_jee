@@ -9,7 +9,28 @@ package com.playpro.entities;
  *
  * @author toute
  */
-class LieuSport {
-    private Lieu lieu;
+public class LieuSport {
+    private Lieux lieu;
     private Sport sport;
+
+    public LieuSport() {
+    }
+
+    public Lieux getLieu() {
+        return lieu;
+    }
+
+    public void setLieu(Lieux lieu) {
+        this.lieu = lieu;
+    }
+
+    public Sport getSport() {
+        return sport;
+    }
+
+    public void setSport(Sport sport) {
+        this.sport = sport;
+    }
+    
+    
 }
