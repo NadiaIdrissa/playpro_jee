@@ -22,8 +22,8 @@
         </li>
         
         <li>
-            <!--<a href="?action=equipes"></a>-->
-            <a href="?action=portail&sousAction=loadEquipe">
+<!--            <a href="?action=equipes">-->
+            <a href="?action=equipe&sousAction=loadEquipe">
                 <i class="fa fa-users"></i> <span class="sideLabel">Equipes</span>
             </a>
         </li>

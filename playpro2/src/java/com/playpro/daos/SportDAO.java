@@ -157,6 +157,7 @@ public class SportDAO extends DAO<Sport>{
 
     @Override
     public List<Sport> findAll() {
+        System.out.println("je suis dans findAll de sportDAO");
         List<Sport> liste = new LinkedList<>();
         try {
             Statement stm = cnx.createStatement();

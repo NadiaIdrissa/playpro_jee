@@ -5,6 +5,7 @@
  */
 package com.playpro.services;
 
+import com.playpro.daos.SportLieuDAO;
 import com.playpro.entities.LieuSport;
 import com.playpro.daos.LieuSportDAO;
 
@@ -16,7 +17,7 @@ public class LieuSportService {
     private static LieuSportDAO dao;
     public static boolean creerLieuSport(LieuSport s){
         
-        dao = new LieuSportDAO();
+        dao = new SportLieuDAO();
         return  dao.create(s);
     }
 }
