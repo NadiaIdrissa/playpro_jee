@@ -182,7 +182,7 @@ header .headerV{
 
 .banner {
     position: relative;
-    background: url(https://www.bethard.com/static/media/bethard.a2b18dbe.png);
+    background: url("/playpro2/static/images/bethard.a2b18dbe2.png");
     min-height: 50vh;
     background-size: cover;
     background-position: center;
@@ -203,7 +203,7 @@ header .headerV{
     padding: 0;
     font-size: 1.2em;
     line-height: 1.5em;
-    color: gray;
+    color: #262626;
 }
 
 .btnD {
