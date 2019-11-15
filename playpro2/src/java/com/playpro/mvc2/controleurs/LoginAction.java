@@ -41,13 +41,19 @@ public class LoginAction extends AbstractAction {
                     request.setAttribute("authentification", "mot de passe invalide");
                     return "login";
                 } else {
+                    if (membre.getStatus().equals("NotActif")){
+                        dao.UpdateStatus(membre);
+                    }
                     request.getSession(true);
                     request.getSession().setAttribute("connected", true);
                     request.getSession().setAttribute("membre", membre);
+                    request.getSession().setAttribute("nomMembre", membre.getNom());
+                    
 
                 }
             }
         }
+        request.getSession().setAttribute("viewConf","");
         return "portail";
     }
 

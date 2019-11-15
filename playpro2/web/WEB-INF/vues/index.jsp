@@ -1,9 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<<<<<<< HEAD
-=======
 
->>>>>>> ebbca3b487af26aa1ce647e1ccaf3169ee2a6fa9
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -24,6 +21,12 @@
 
         <link href="static/css/cssFooter/styles.css" rel="stylesheet" type="text/css">
         <link href="static/css/cssNavBar/stylesyami.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="static/css/calendrier.css"/>
+        <script src="static/js/calendrier.js"></script>
+        <script src="static/js/modernizr.custom.25376.js"></script>
+
+
+
 
     </head>
     <body>
@@ -35,10 +38,7 @@
         <%@include file="headerMembre.jsp" %>
 
         <% }%>
-        
-        <c:if test="${sessionScope.connected == null }">
 
-<<<<<<< HEAD
         <c:if test="${sessionScope.connected == null }">
 
     <%--<jsp:forward page="login.jsp" />--%>
@@ -63,42 +63,14 @@
         </div>
     </section>
 
-</c:if>
+</c:if >
 
-        <br><br><br>
-=======
-            <%--<jsp:forward page="login.jsp" />--%>
-            <section class="banner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h2>
-                                Avec PlayPro, pratiquez votre sport préféré avec professionalisme.
+<h1 style="text-align: center; padding-top: 70px;">Une gestion d'événements hors du commun</h1>
 
-                            </h2>
-                            <p>
-                                Il s'agit d'une plateforme gratuite qui vous permettra d'organiser tous vos événements sportifs ainsi
-                                que vos propres équipes. En tant qu'un simple visiteur, vous pouvez consulter toutes les parties qui
-                                existent, mais pour y participer, il faut créer un compte. Ainsi, vous pouvez profiter de tous les
-                                avantages de PlayPro. 
-                            </p>
-                            <a href='?action=signup' class="btnD">Créer un compte</a>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </c:if>
-
-        <br>
->>>>>>> ebbca3b487af26aa1ce647e1ccaf3169ee2a6fa9
-        <h1>Une gestion d'événements hors du commun</h1>
-
-        <br><br><br>
+        <br><br>
 
 
-        <div class="row present">
+        <div class="row present" style="margin-left: auto;margin-right: auto;">
             <div class="col-md-4">
                 <h2>Agilité</h2>
                 <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
@@ -117,6 +89,7 @@
         </div>
 
         <br><br><br>
+        <%--<%@include file="calendrier.jsp" %>--%>
 
         <%@include file="calendrier2.jsp" %>
 

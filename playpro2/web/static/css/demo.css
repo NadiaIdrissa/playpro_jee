@@ -131,7 +131,7 @@ a:hover, a:focus {
 }
 
 .mainPortail{
-    margin-left: 250px;
+    margin-left: 20%;
 }
 
 .column {
@@ -248,7 +248,7 @@ button:active {
 
 .sidenav {
   height: 100%;
-  width: 250px;
+  width: 17%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -268,29 +268,90 @@ button:active {
 
 .sidenav a:hover {
   color: #f1f1f1;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1012px) {
+    .sidenav a {
+    font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 913px) {
+    .sidenav a {
+    font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 815px) {
+    .sidenav a {
+    font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .sidenav a {
+    font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .sideLabel {
+        display: none;
+    }
+    
+    .sidenav {
+        width: 14%;
+    }
+
+    .sidenav a {
+        font-size: 20px;
+    }
 }
 
 /* Nav Styles */
-
 .affichageNom{
-    justify-content: center;
-    display: inline-flex;
-    /* height: 100%; */
-    width: 90%;
     font-size: 3em;
     font-weight: bold;
     font-variant: all-petite-caps;
-    position: absolute;
+/*  justify-content: center;
+    display: inline-flex;
+    height: 100%; 
+    width: 90%;
+    position: absolute;*/
 }
 
-.affichageLogo{
+/*.affichageLogo{
     display: inline-block;
     width: 30px; 
     height: auto;
     margin: 12px;
-}
+}*/
 
-.affichageMenuBtn{
+/*.affichageMenuBtn{
     float: right; 
     display:inline-block;
+}*/
+
+/*Header4 Style*/
+.header4 {
+    text-decoration: none !important;
 }
+
+/*Profil Style*/
+.contentProfil{
+    text-align: center !important;
+    margin-top: 20px;
+}
+
+.contentSuppCompte{
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.contentSuppCompte .row{
+    align-items: center;
+    justify-content: center;
+}
+
+

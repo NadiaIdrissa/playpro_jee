@@ -1,4 +1,4 @@
-@font-face {
+/*@font-face {
 	font-family: 'typicons';
 	src:url('../fonts/typicons/typicons.eot');
 	src:url('../fonts/typicons/typicons.eot?#iefix') format('embedded-opentype'),
@@ -7,7 +7,7 @@
 		url('../fonts/typicons/typicons.svg#typicons') format('svg');
 	font-weight: normal;
 	font-style: normal;
-}
+}*/
 
 html, body, .perspective {
 	width: 100%;
@@ -148,7 +148,7 @@ html, body, .perspective {
 
 .outer-nav a::before {
 	display: inline-block;
-	font-family: 'typicons';
+	/*font-family: 'typicons';*/
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -642,12 +642,12 @@ html, body, .perspective {
 	}
 
 }
-
+ 
 @media screen and (max-width: 31em), screen and (max-height: 36.2em) {
 	.outer-nav.horizontal,
 	.outer-nav.vertical {
 		font-size: 1.2em;
-		width: 6.8em;
+		width: 9.5em;
 	}
 
 	.outer-nav.right {

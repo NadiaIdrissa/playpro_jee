@@ -37,8 +37,12 @@ body {
   font-size: 1.5rem;
 }
 
-.card-signin .card-body {
-  padding: 2rem;
+.card-signin {
+    
+}
+
+.cadre {
+  padding:auto !important;
 }
 
 .form-signin {
@@ -52,6 +56,7 @@ body {
   font-weight: bold;
   padding: 1rem;
   transition: all 0.2s;
+  color: #ffffff;
 }
 
 .form-label-group {
@@ -118,12 +123,12 @@ body {
 
 .btn-google {
   color: white;
-  background-color: #ea4335;
+  background-color: #ea4335 !important;
 }
 
 .btn-facebook {
   color: white;
-  background-color: #3b5998;
+  background-color: #3b5998 !important;
 }
 
 /* Fallback for Edge

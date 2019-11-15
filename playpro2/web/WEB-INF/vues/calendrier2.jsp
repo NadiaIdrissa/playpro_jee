@@ -17,7 +17,7 @@ crossorigin="anonymous"></script>
 <section>
 
     <div class="container theme-showcase" id="cal">
-        <h1>Les différents événements enregistrés jusqu'à présent : </h1>
+        <h1>Les événements enregistrés jusqu'à présent : </h1>
         <br><br>
         <div id="holder" class="row" ></div>
     </div>
