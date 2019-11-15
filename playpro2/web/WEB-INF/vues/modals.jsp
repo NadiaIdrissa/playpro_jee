@@ -29,13 +29,13 @@
                         </div>
 
                         <div class="col">
-                            <a href="#" class="fb btn">
+                            <a href="#" class="fb color-white btn">
                                 <i class="fa fa-facebook fa-fw"></i> Login with Facebook
                             </a>
-                            <a href="#" class="twitter btn">
+                            <a href="#" class="twitter color-white btn">
                                 <i class="fa fa-twitter fa-fw"></i> Login with Twitter
                             </a>
-                            <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+                            <a href="#" class="google color-white btn"><i class="fa fa-google fa-fw">
                                 </i> Login with Google+
                             </a>
                         </div>
