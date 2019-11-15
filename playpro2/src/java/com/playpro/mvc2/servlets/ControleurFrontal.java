@@ -105,9 +105,10 @@ public class ControleurFrontal extends HttpServlet {
                 action = new LieuxAction();
                 break;
 
-            case "equipes":
+            case "equipe":
                 action = new EquipesAction();
                 break;
+                
             case "ajoutImage":
                 action = new SportsAction();
                 break;

@@ -106,11 +106,13 @@ public class SportTest {
     public void testGetNom() {
         System.out.println("getNom");
         Sport instance = new Sport();
-        String expResult = "";
+        String expResult = "Hockey";
+        
+        instance.setNom(expResult);
         String result = instance.getNom();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -119,11 +121,14 @@ public class SportTest {
     @Test
     public void testSetId_sport() {
         System.out.println("setId_sport");
-        String idSport = "";
+        String idSport = "12345";
         Sport instance = new Sport();
         instance.setId_sport(idSport);
+        String expResult = idSport;
+        String result = instance.getId_sport();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -133,10 +138,14 @@ public class SportTest {
     public void testSetNom() {
         System.out.println("setNom");
         String nomSport = "Hockey";
+        
         Sport instance = new Sport();
         instance.setNom(nomSport);
+        String result = instance.getNom();
+        assertEquals(nomSport, result);
+        
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
