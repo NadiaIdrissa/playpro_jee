@@ -48,17 +48,6 @@ public class EquipesAction extends AbstractAction {
 //        listeequipes.add(a);
        
         request.setAttribute("listeEquipe", listeequipes);
-        
-<<<<<<< HEAD
-        //System.out.println("equipe 1 = "+listeequipes.get(0).getNomEquipe());
-            
-=======
-//        System.out.println("equipe 1 = "+listeequipes.get(0).getNomEquipe());
-        
-        
-        
-        
->>>>>>> 0f47bcf4b2227bd39b8f2d890b2061299f623e54
         request.getSession().setAttribute("viewConf","loadEquipe");
         return "portail";
     }
