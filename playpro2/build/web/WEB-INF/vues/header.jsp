@@ -97,7 +97,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Connexion
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" style="left: -60px;" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="?action=login">Se connecter</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="?action=signup">Créer un compte</a>
