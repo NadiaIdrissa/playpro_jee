@@ -65,12 +65,12 @@
 
 </c:if >
 
-        <h1>Une gestion d'événements hors du commun</h1>
+<h1 style="text-align: center; padding-top: 70px;">Une gestion d'événements hors du commun</h1>
 
         <br><br>
 
 
-        <div class="row present">
+        <div class="row present" style="margin-left: auto;margin-right: auto;">
             <div class="col-md-4">
                 <h2>Agilité</h2>
                 <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
@@ -89,7 +89,7 @@
         </div>
 
         <br><br><br>
-        <%@include file="calendrier.jsp" %>
+        <%--<%@include file="calendrier.jsp" %>--%>
 
         <%@include file="calendrier2.jsp" %>
 
