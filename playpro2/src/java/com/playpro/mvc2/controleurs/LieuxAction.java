@@ -30,6 +30,7 @@ import javax.servlet.http.Part;
 public class LieuxAction extends AbstractAction {
 
     private static final String UPLOAD_DIR = "static/images/lieux";
+    private UploadPhoto up = new UploadPhoto();
 
     @Override
     public String execute() {
@@ -47,6 +48,14 @@ public class LieuxAction extends AbstractAction {
         String infos = request.getParameter("infos");
         String image1 = request.getParameter("image1");
         String[] sports = request.getParameterValues("sports");
+        List<Part> part = null;
+        try {
+             part = (List<Part>) request.getParts();
+        } catch (IOException ex) {
+            Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ServletException ex) {
+            Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         System.out.println("Sports : " + sports);
 
@@ -61,35 +70,39 @@ public class LieuxAction extends AbstractAction {
                 int w = request.getParameter("sports").length();
                 System.out.println("Longueur" + w);
             }
+            
             String applicationPath = request.getServletContext().getRealPath("");
-            // constructs path of the directory to save uploaded file
-            String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
-
-            // creates the save directory if it does not exists
-            File fileSaveDir = new File(uploadFilePath);
-            if (!fileSaveDir.exists()) {
-                fileSaveDir.mkdirs();
-            }
-            System.out.println("Upload File Directory=" + fileSaveDir.getAbsolutePath());
-
-            try {
-                //Get all the parts from request and write it to the file on server
-                for (Part part : request.getParts()) {
-                    String fileName = getFileName(part);
-                    if (!fileName.equals("")) {
-                        part.write(uploadFilePath + File.separator + fileName);
-                        image1 = fileName;
-                        System.out.println("FILE NAME : " + fileName);
-                    }
-                }
-                request.setAttribute("message", "File uploaded successfully!");
-            } catch (IOException ex) {
-                Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
-                request.setAttribute("message", "File NOT uploaded successfully!");
-            } catch (ServletException ex) {
-                Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
-                request.setAttribute("message", "File NOT uploaded successfully!");
-            }
+            
+            image1 = up.uploader(part, UPLOAD_DIR,applicationPath, image1);
+//            String applicationPath = request.getServletContext().getRealPath("");
+//            // constructs path of the directory to save uploaded file
+//            String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
+//
+//            // creates the save directory if it does not exists
+//            File fileSaveDir = new File(uploadFilePath);
+//            if (!fileSaveDir.exists()) {
+//                fileSaveDir.mkdirs();
+//            }
+//            System.out.println("Upload File Directory=" + fileSaveDir.getAbsolutePath());
+//
+//            try {
+//                //Get all the parts from request and write it to the file on server
+//                for (Part part : request.getParts()) {
+//                    String fileName = getFileName(part);
+//                    if (!fileName.equals("")) {
+//                        part.write(uploadFilePath + File.separator + fileName);
+//                        image1 = fileName;
+//                        System.out.println("FILE NAME : " + fileName);
+//                    }
+//                }
+//                request.setAttribute("message", "File uploaded successfully!");
+//            } catch (IOException ex) {
+//                Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
+//                request.setAttribute("message", "File NOT uploaded successfully!");
+//            } catch (ServletException ex) {
+//                Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
+//                request.setAttribute("message", "File NOT uploaded successfully!");
+//            }
 
             s = ObjectFactory.getNewLieu();
             s.setNom(nom);

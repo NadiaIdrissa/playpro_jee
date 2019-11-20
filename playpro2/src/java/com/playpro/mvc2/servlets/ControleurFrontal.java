@@ -21,6 +21,7 @@ import com.playpro.mvc2.controleurs.LoginAction;
 import com.playpro.mvc2.controleurs.LogoutAction;
 import com.playpro.mvc2.controleurs.PortailAction;
 import com.playpro.mvc2.controleurs.ProfilAction;
+import com.playpro.mvc2.controleurs.RequirePRG;
 import com.playpro.mvc2.controleurs.SuppressionCompteAction;
 import com.playpro.mvc2.controleurs.SportsAction;
 import com.playpro.mvc2.controleurs.UploadAction;
@@ -39,9 +40,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author usager
  */
 @WebServlet("/FileUploadServlet")
-@MultipartConfig(fileSizeThreshold=1024*1024*10, 	// 10 MB 
-                 maxFileSize=1024*1024*50,      	// 50 MB
-                 maxRequestSize=1024*1024*100)
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, // 10 MB 
+        maxFileSize = 1024 * 1024 * 50, // 50 MB
+        maxRequestSize = 1024 * 1024 * 100)
 public class ControleurFrontal extends HttpServlet {
 
     /**
@@ -108,7 +109,7 @@ public class ControleurFrontal extends HttpServlet {
             case "equipe":
                 action = new EquipesAction();
                 break;
-                
+
             case "ajoutImage":
                 action = new SportsAction();
                 break;
@@ -123,7 +124,14 @@ public class ControleurFrontal extends HttpServlet {
         vue = action.execute();
         System.out.println("vue = " + vue);
         System.out.println("-------------");
-        request.getRequestDispatcher("/WEB-INF/vues/" + vue + ".jsp").forward(request, response);
+
+        if (action instanceof RequirePRG) {
+            //On redirige le client :
+            response.sendRedirect("show.html?v=" + vue);
+        } else {
+
+            request.getRequestDispatcher("/WEB-INF/vues/" + vue + ".jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -152,9 +160,9 @@ public class ControleurFrontal extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("POST: "+request.getParameter("action"));
+        System.out.println("POST: " + request.getParameter("action"));
         processRequest(request, response);
-        
+
     }
 
     /**
