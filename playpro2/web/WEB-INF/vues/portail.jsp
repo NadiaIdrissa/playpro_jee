@@ -39,6 +39,8 @@
     </head>
     <body>
 
+        
+        
         <%@include file="menu.jsp" %>
         <div id="perspective" class="perspective effect-movedown">
             <div class="container" style="max-width: unset">
@@ -53,12 +55,13 @@
                         <%@include file="calendrier.jsp"%>
                     <%}else if (viewConf.equals("suppCompte")){%>
                         <%@include file="suppressionCompte.jsp"%>
-                    <%}else if (viewConf.equals("equipe")){%>
-                        <%@include file="creerEquipe.jsp"%>
-                    <%}else if (viewConf.equals("sports")){%>
+                    <%}else if (viewConf.equals("loadEquipe")){%>
+                        <%@include file="equipes.jsp"%>
+                    <%}else if (viewConf.equals("sports")) {%>
                         <%@include file="sports.jsp"%>
                     <%}else if (viewConf.equals("lieux")){%>
                         <%@include file="lieux.jsp"%>
+                    
                     <%}else{%>
                         <%@include file="calendrier.jsp"%>
                     <%}%>

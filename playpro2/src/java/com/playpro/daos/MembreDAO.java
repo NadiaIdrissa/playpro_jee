@@ -22,10 +22,6 @@ public class MembreDAO extends DAO<Membre> {
     public boolean create(Membre x) {
         // TODO Auto-generated method stub
 
-//        String req = "INSERT INTO `membre`(`ID`, `PSEUDO` , `PRENOM` ,`NOM` , `COURRIEL` , `ANNEE_NAISSS`, `MDP` ) "
-//                + "VALUES ('" + x.getId() + "','" + x.getPseudo()+ "','" + x.getPrenom()+ "','" + x.getNom() 
-//                + "','" + x.getCourriel() + "','" + x.getAnneeNaissance()+ "','" + x.getMpd() + "')";
-        //System.out.println("REQUETE "+req);
         String type = "";
 
         System.out.println("e.getsport " + x.getSport());
@@ -52,6 +48,7 @@ public class MembreDAO extends DAO<Membre> {
                 return true;
             }
         } catch (SQLException exp) {
+            exp.printStackTrace();
         } finally {
             if (stm != null) {
                 try {

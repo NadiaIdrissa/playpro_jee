@@ -5,6 +5,7 @@
  */
 package com.playpro.factories;
 
+import com.playpro.entities.Equipe;
 import com.playpro.entities.Membre;
 import com.playpro.entities.Sport;
 import com.playpro.entities.Lieux;
@@ -22,6 +23,7 @@ public class ObjectFactory {
         objet.setId(UUID.randomUUID().toString());
         return objet;
     }
+ 
       
     public static Sport getNewSport() {
         Sport objet = new Sport();

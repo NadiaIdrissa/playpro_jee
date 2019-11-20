@@ -13,21 +13,13 @@ import com.playpro.entities.Equipe;
  * @author younes-dilali
  */
 public class EquipesServices {
-    
+
     private static EquipesDAO dao;
-    
-    
-    
-    
-    
-    
-    public static boolean creerEquipe(Equipe m){
+
+    public static boolean creerSport(Equipe e) {
+
         dao = new EquipesDAO();
-        
-       
-        boolean reussi = dao.create(m);
-        
-        return reussi;
+        return dao.create(e);
+
     }
-    
 }

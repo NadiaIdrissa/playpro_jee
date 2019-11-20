@@ -5,9 +5,13 @@
  */
 package com.playpro.mvc2.controleurs;
 
+import com.playpro.daos.EquipesDAO;
 import com.playpro.entities.Equipe;
 import com.playpro.entities.Membre;
+import com.playpro.entities.Equipe;
 import com.playpro.services.EquipesServices;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -18,26 +22,34 @@ public class EquipesAction extends AbstractAction {
     @Override
     public String execute() {
         
-        Membre membre = (Membre) request.getAttribute("membre");
+//        Membre mem = (Membre) request.getAttribute("membre");
         
-        Equipe team = new Equipe();
+//        Equipe team = new Equipe();
+//        
+//        team.setCapitaine(membre);
+//        team.setNomEquipe("Les lions");
+//        team.setSport("Soccer");
+//        team.setNbJoueurs(5);
+//        team.setNbMaxJoueurs(15);
+//        
+//        EquipesServices.creerEquipe(team);
+//        
+//        System.out.println("equipe name = "+ team.getNomEquipe());
         
-        team.setCapitaine(membre);
-        team.setNomEquipe("Les lions");
-        team.setSport("Soccer");
-        team.setNbJoueurs(5);
-        team.setNbMaxJoueurs(15);
+        EquipesDAO dao = new EquipesDAO();
         
-        EquipesServices.creerEquipe(team);
-        
-        System.out.println("equipe name = "+ team.getNomEquipe());
+        List<Equipe> listeequipes = new LinkedList<Equipe>();
         
         
+//        Equipe a = new Equipe();
         
+        listeequipes = dao.findAll();
         
-        
-        
-        return "equipes";
+//        listeequipes.add(a);
+       
+        request.setAttribute("listeEquipe", listeequipes);
+        request.getSession().setAttribute("viewConf","loadEquipe");
+        return "portail";
     }
     
     
