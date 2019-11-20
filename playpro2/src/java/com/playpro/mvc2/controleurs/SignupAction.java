@@ -41,24 +41,24 @@ public class SignupAction extends AbstractAction {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
 
-        
-
         for (Niveau n : Niveau.values()) {
 
             System.out.println(n);
         }
 
         if (nom == null || prenom == null || email == null || mdp == null) {
-            
+
             return "signup";
         } else {
             Membre membre = ObjectFactory.getNewMembre();
             System.out.println("REQUEST SPORT : " + request.getParameter("sport"));
+            membre.setTypeMembre("Joueur");
 
             if (!request.getParameter("sport").equals("")) {
-                
+
                 niv = "Professionnel";
                 membre.setSport(request.getParameter("sport"));
+                membre.setTypeMembre("Entraineur");
             }
 
             try {
@@ -83,7 +83,12 @@ public class SignupAction extends AbstractAction {
             System.out.println("Ecriture BD: " + reussi);
 
             if (reussi) {
-                request.setAttribute("membre", membre);
+                request.getSession(true);
+                request.getSession().setAttribute("connected", true);
+                request.getSession().setAttribute("membre", membre);
+                request.getSession().setAttribute("nomMembre", membre.getNom());
+
+                request.getSession().setAttribute("viewConf", "");
                 return "portail";
             } else {
                 return "index";

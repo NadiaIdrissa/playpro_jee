@@ -105,7 +105,7 @@
 
                                     <hr class="my-4">
                                     <button class="btn btn-google btn-block text-uppercase" type="submit"><i class="fa fa-google" aria-hidden="true"></i> Sign in with Google</button>
-                                    <button class="btn btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+                                    <button class="btn btn-facebook btn-block text-uppercase" type="submit"><i class="fa fa-facebook fa-fw"></i> Sign in with Facebook</button>
                                 </form>
                             </div>
                         </div>

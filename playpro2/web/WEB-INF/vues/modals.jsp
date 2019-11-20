@@ -29,13 +29,13 @@
                         </div>
 
                         <div class="col">
-                            <a href="#" class="fb btn">
+                            <a href="#" class="fb color-white btn">
                                 <i class="fa fa-facebook fa-fw"></i> Login with Facebook
                             </a>
-                            <a href="#" class="twitter btn">
+                            <a href="#" class="twitter color-white btn">
                                 <i class="fa fa-twitter fa-fw"></i> Login with Twitter
                             </a>
-                            <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+                            <a href="#" class="google color-white btn"><i class="fa fa-google fa-fw">
                                 </i> Login with Google+
                             </a>
                         </div>
@@ -70,7 +70,7 @@
                                         <div id='sport' class="col-md-12 mb-12">
                                             <input type="text" name='sport' class="form-control" id="validationCustom05" placeholder="Votre sport" required>
                                             <div class="invalid-feedback">
-                                                Champs recquis.
+                                                Champ requis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
@@ -95,20 +95,20 @@
                                                 </div>
 
                                                 <div class="invalid-feedback">
-                                                    Champs recquis.
+                                                    Champ requis.
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
                                             <input type="text" name='prenom' class="form-control" id="validationCustom03" placeholder="Prénom" required>
                                             <div class="invalid-feedback">
-                                                Champs recquis.
+                                                Champ requis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
                                             <input type="text" name='nom' class="form-control" id="validationCustom04" placeholder="Nom" required>
                                             <div class="invalid-feedback">
-                                                Champs recquis.
+                                                Champ requis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
@@ -120,13 +120,13 @@
                                         <div class="col-md-12 mb-12">
                                             <input type="password" id='password' name='password' class="form-control"  placeholder="Mot de passe" required>
                                             <div class="invalid-feedback">
-                                                Mot de passe recquis.
+                                                Mot de passe requis.
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
                                             <input type="password" id='confirm_password' name='confirm_password' class="form-control"  placeholder="Confirmez le mot de passe" required>
                                             <div class="invalid-feedback">
-                                                Mot de passe différent.
+                                                Mots de passe différents.
                                             </div>
                                         </div>
                                     </div>
@@ -134,10 +134,10 @@
                                         <div class="form-check">
                                             <label class="form-check-label" for="invalidCheck">
                                                 <input style="width: 5%" class="form-check-input checkbox-primary" type="checkbox" value="" id="invalidCheck" required>
-                                                Agree to terms and conditions
+                                                Accepter les termes et conditions d'utilisation
                                             </label>
                                             <div class="invalid-feedback">
-                                                Vous devez accepter les termes et conditions d'utilisations.
+                                                Vous devez accepter les termes et conditions d'utilisation.
                                             </div>
                                         </div>
                                     </div>

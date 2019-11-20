@@ -17,6 +17,7 @@ import java.util.logging.Logger;
  *
  * @author toute
  */
+
 public class MembreServices {
     private static MembreDAO dao;
     public static boolean creerMembre(Membre m){

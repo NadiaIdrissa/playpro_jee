@@ -123,8 +123,14 @@ public class ProfilAction extends AbstractAction {
         }else{
            return "profil";  
         }
+<<<<<<< HEAD
 
        
+=======
+        request.getSession().setAttribute("membre", membre);
+        request.getSession().setAttribute("viewConf","profilaccueil");
+        return "portail";
+>>>>>>> 82c38526770bc417ae376f4f3342b14678ed3686
     }
 
 }

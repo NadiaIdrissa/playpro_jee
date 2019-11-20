@@ -13,7 +13,7 @@
             <c:forEach items="${requestScope.sports}" var="unSport"> 
 
                 <div class="card" >
-                    <div class="card-body text-center">
+                    <div class="cadre text-center">
                         <img src="static/images/sports/<c:out value="${unSport.image}"/> " />
 
                         <p class='card-text'>Nom du sport: <c:out value="${unSport.nom}" /></p>
