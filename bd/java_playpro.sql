@@ -117,7 +117,7 @@ CREATE TABLE `membre` (
   `sport` varchar(30) DEFAULT NULL,
   `mdp` varchar(255) DEFAULT NULL,
   `equipe` varchar(100) DEFAULT NULL,
-  `photo` longblob,
+  `photo` varchar(55) DEFAULT NULL,
   `statut` varchar(10) DEFAULT 'Actif'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -126,7 +126,7 @@ CREATE TABLE `membre` (
 --
 
 INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `courriel`, `date_inscription`, `type_membre`, `niveau`, `sport`, `mdp`, `equipe`, `photo`, `statut`) VALUES
-('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'vivi', 'Femme', 'Vil', 'Vivianne', 1995, 'vivi@al.ca', '2019-10-24 02:16:43', 'Entraineur', 'PROFESSIONNEL', 'Basketball', '1000:a94d672c3840a1bbc37cde84d0a8b77bb181453ec7772a3f:e81e26e647b1d27127e19b843709d313900c9e8cd7d39d3c', NULL, NULL, 'Actif'),
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'vivi', 'Femme', 'Vil', 'Vivianne', 1995, 'vivi@al.ca', '2019-10-24 02:16:43', 'Admin', 'PROFESSIONNEL', 'Basketball', '1000:a94d672c3840a1bbc37cde84d0a8b77bb181453ec7772a3f:e81e26e647b1d27127e19b843709d313900c9e8cd7d39d3c', NULL, NULL, 'Actif'),
 ('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'jack', 'Femme', 'Ja', 'Jacky', 1995, 'jack@al.ca', '2019-10-24 02:10:20', 'Entraineur', 'DEBUTANT', 'KaratÃ©', '1000:2b26ce3cac8e6f8be3f2060ea85f00b91828b3110a52a197:3d180a72d4d9b41ce3bbfd08d960f4688561b53d065090e7', NULL, NULL, 'Actif'),
 ('940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'totor', 'Homme', 'Rogers', 'Toto', 1995, 'toto@al.ca', '2019-10-24 02:01:36', 'Joueur', 'INTERMEDIAIRE', '', '1000:891fbed7bcb15322b590f3942c1153880080f91f6cb3908c:a75aac427ef2483815461479f2418e517c5bb47393b914c9', NULL, NULL, 'Actif'),
 ('a407418a-7683-4abc-8193-f083d86ae9f6', 'sar', 'Femme', 'Sars', 'Sarah', 1995, 'sar@al.ca', '2019-10-24 02:03:55', 'Entraineur', 'DEBUTANT', 'Volley Ball', '1000:ea9f47d68e53c54912b4f275742419af166d24acef58182a:f1abe74a17599a97fab092f8352f97fb28e8d0d9a58eabac', NULL, NULL, 'Actif'),

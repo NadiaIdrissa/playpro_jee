@@ -26,7 +26,7 @@ public class Membre {
     protected Equipe equipe;
     protected String sport;
     protected Niveau niveau;
-    protected BufferedImage photo;
+    protected String photo;
     protected String typeMembre;
     protected String status;
 
@@ -172,11 +172,11 @@ public class Membre {
         }
     }
 
-    public BufferedImage getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(BufferedImage photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 

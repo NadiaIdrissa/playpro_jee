@@ -18,16 +18,18 @@
 <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
         </div>--%>
-        <div class="modal-header">
-            <div class="text-center">
-                <img id='imagejoueur' src="static/images/head01.png" class="rounded" alt="imgprofil">
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <form  id="fprofil" action="?action=profil" method="post" name="action" value="profil" enctype="multipart/form-data">
+            <div class="modal-header">
+                <div class="text-center">
+                    <img id='imagejoueur' src="static/images/profils/<c:out value="${membre.photo}"/> " class="rounded" alt="imgprofil">
+                    <input id="imageMembre" type="hidden" class="form-control" name="imageMembre" />
+                </div>
             </div>
-        </div>
-        <div class="modal-body">
-            <div class="container">
-<!--                <form  id="fprofil" action="" method="post" name="action" value="profil">-->
-                <form  id="fprofil" action="" method="">
-                    <input type="hidden" name="action" value="profil" method="post"/>
+            <div class="modal-body">
+                <div class="container">
+                    <!--                <form  id="fprofil" action="" method="post" name="action" value="profil">-->
+                    <!--<input type="hidden" name="action" value="profil" method="post"/>-->
 
                     <div class="form-group">
                         <div class="row">
@@ -160,40 +162,41 @@
                             </div>
                         </div>
                     </div>
-                </form>
-                <div>                       
-                    <a class="btn btn-danger btn-sm" href="?action=portail&sousAction=loadSupp" role="button">Suppression de compte</a>
-                </div>
-            </div>    
-            <script>
-                function enableSummit() {
-                    var change = document.getElementById("bb");
-// var typ = document.getElementById("bb").type;
-//document.getElementsByTagName('button').style.backgroundColor="green";
-                    if (change.innerHTML == "Modifier")
-                    {
-                        change.innerHTML = "Enregistrer";
-                        change.style.backgroundColor = "green";
-
-                        document.getElementById("pse1").disabled = false;
-                        document.getElementById("nom2").disabled = false;
-                        document.getElementById("pre3").disabled = false;
-                        document.getElementById("ann4").disabled = false;
-                        document.getElementById("sex5").disabled = false;
-                        document.getElementById("ema6").disabled = false;
-                        document.getElementById("mem7").disabled = false;
-                        document.getElementById("spo8").disabled = false;
-                        document.getElementById("niv9").disabled = false;
-                        document.getElementById("pas10").disabled = false;
-                        document.getElementById("cpas11").disabled = false;
-                    } else {
-                        
-                        change.style.backgroundColor = "blue";
-                        document.getElementById("fprofil").submit();
-//                        change.type="submit";
-                    }
-                }
-            </script>
-        </div>
+                    <div>                       
+                        <a class="btn btn-danger btn-sm" href="?action=portail&sousAction=loadSupp" role="button">Suppression de compte</a>
+                    </div>
+                </div>    
+            </div>
+        </form>
     </div>
+    <script>
+        function enableSummit() {
+            var change = document.getElementById("bb");
+            // var typ = document.getElementById("bb").type;
+            //document.getElementsByTagName('button').style.backgroundColor="green";
+            if (change.innerHTML == "Modifier")
+            {
+                change.innerHTML = "Enregistrer";
+                change.style.backgroundColor = "green";
+
+                document.getElementById("pse1").disabled = false;
+                document.getElementById("nom2").disabled = false;
+                document.getElementById("pre3").disabled = false;
+                document.getElementById("ann4").disabled = false;
+                document.getElementById("sex5").disabled = false;
+                document.getElementById("ema6").disabled = false;
+                document.getElementById("mem7").disabled = false;
+                document.getElementById("spo8").disabled = false;
+                document.getElementById("niv9").disabled = false;
+                document.getElementById("pas10").disabled = false;
+                document.getElementById("cpas11").disabled = false;
+                $('#imageMembre').attr('type', 'file');
+            } else {
+
+                change.style.backgroundColor = "blue";
+                document.getElementById("fprofil").submit();
+                //                        change.type="submit";
+            }
+        }
+    </script>
 </html>

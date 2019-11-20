@@ -132,6 +132,10 @@ public class MembreDAO extends DAO<Membre> {
                 c.setSexe(r.getString("sexe"));
                 c.setAnneeNaissance(r.getInt("annee_naiss"));
                 c.setSport(r.getString("sport"));
+                c.setPhoto(r.getString("photo"));
+                if(c.getPhoto() == null || c.getPhoto().equals("")){
+                    c.setPhoto("blueplay.png");
+                }
                 c.setTypeMembre(r.getString("type_membre"));
                 c.setStatus(r.getString("statut"));
                 r.close();
@@ -177,8 +181,10 @@ public class MembreDAO extends DAO<Membre> {
                     + "SPORT = '" + x.getSport() + "',"
                     + "TYPE_MEMBRE = '" + x.getTypeMembre() + "',"
                     + "PSEUDO = '" + x.getPseudo() + "'" //il y a un cle etragere dans pseudo
+                    + "PHOTO = '" + x.getPhoto() + "'" //il y a un cle etragere dans pseudo
+                    
                     + " WHERE id = '" + x.getId() + "'";
-
+            
             stm = cnx.createStatement();
             int n = stm.executeUpdate(req);
             if (n > 0) {

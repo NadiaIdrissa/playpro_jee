@@ -9,17 +9,25 @@ import com.playpro.daos.MembreDAO;
 import com.playpro.entities.Membre;
 import com.playpro.entities.Niveau;
 import com.playpro.entities.Sexe;
+import com.playpro.utils.CopyImage;
 import com.playpro.utils.PasswordHash;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.ServletException;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author toute
  */
 public class ProfilAction extends AbstractAction {
+
+    private static final String UPLOAD_DIR = "static/images/profils";
+    private UploadPhoto up = new UploadPhoto();
 
     @Override
     public String execute() {
@@ -35,8 +43,6 @@ public class ProfilAction extends AbstractAction {
         Niveau niveauN = mCourrant.getNiveau();
         int pAnnee = 2000;
 
-
-
         String pseudo = (String) request.getParameter("pseudoR");
         String nom = (String) request.getParameter("nomR");
         String prenom = (String) request.getParameter("prenomR");
@@ -48,6 +54,21 @@ public class ProfilAction extends AbstractAction {
         String mdpC = (String) request.getParameter("CpasswordR");
         String sport = (String) request.getParameter("sportR");
         String typeM = (String) request.getParameter("tMembreR");
+        String photo = (String) request.getParameter("imageMembre");
+
+        List<Part> part = null;
+        try {
+            part = (List<Part>) request.getParts();
+        } catch (IOException ex) {
+            Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ServletException ex) {
+            Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        String applicationPath = request.getServletContext().getRealPath("");
+
+        photo = up.uploader(part, UPLOAD_DIR, applicationPath, photo);
+        
 
         if ((annee != null) && (!"".equals(annee))) {
             try {
@@ -68,7 +89,7 @@ public class ProfilAction extends AbstractAction {
             sexe = sex.toString();
         }
         if (mdpC == null || "".equals(mdpC.trim())) {
-            mdpC ="";
+            mdpC = "";
         }
         if (mdp == null || "".equals(mdp.trim())) {
             mdp = mCourrant.getMpd();
@@ -76,16 +97,16 @@ public class ProfilAction extends AbstractAction {
             if (mdp == mdpC) {
                 request.getSession().setAttribute("valid", "vrai");
 
-                m=new PasswordHash();
+                m = new PasswordHash();
                 try {
-                    mdp=m.createHash(mdp);
-                    
+                    mdp = m.createHash(mdp);
+
                 } catch (NoSuchAlgorithmException ex) {
                     Logger.getLogger(ProfilAction.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (InvalidKeySpecException ex) {
                     Logger.getLogger(ProfilAction.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
             }
         }
 
@@ -116,6 +137,7 @@ public class ProfilAction extends AbstractAction {
             membre.setNiveau(niveau);
             membre.setSport(sport);
             membre.setTypeMembre(typeM);
+            membre.setPhoto(photo);
             System.out.println("----------affectation--------");
             System.out.println("----membre.getNaiss- " + membre.getAnneeNaissance());
 
@@ -124,7 +146,7 @@ public class ProfilAction extends AbstractAction {
 
         }
         request.getSession().setAttribute("membre", membre);
-        request.getSession().setAttribute("viewConf","profilaccueil");
+        request.getSession().setAttribute("viewConf", "profilaccueil");
         return "portail";
     }
 
