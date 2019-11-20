@@ -8,7 +8,11 @@
 
 <body>
     <h1>Liste des sport offerts</h1>
+    <%
+        if (m.getTypeMembre().equals("Admin")) {
+    %>
     <button id="myBtn" type="button" >Ajouter</button>
+    <%}%>
     <div >
         <div class="card-columns" style="">
             <c:forEach items="${requestScope.sports}" var="unSport"> 
