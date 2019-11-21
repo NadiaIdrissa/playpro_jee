@@ -92,8 +92,8 @@ public class InvitationDAO extends DAO<Invitation>{
                 Invitation invite = new Invitation();
                 invite.setIdExpediteur(resultat.getString("ID_EXPEDITEUR"));
                 invite.setIdDestinataire(resultat.getString("ID_DESTINATAIRE"));
-                invite.setDate(resultat.getTimestamp("DATE"));
-                invite.setIdEquipe(resultat.getString("ID_PROJET"));
+                invite.setDate(resultat.getTimestamp("DATE_ENVOI"));
+                invite.setIdEquipe(resultat.getString("ID_EQUIPE"));
                 
                 resultat.close();
                 paramStm.close();
@@ -128,7 +128,7 @@ public class InvitationDAO extends DAO<Invitation>{
 
     @Override
     public boolean delete(Invitation x) {
-        String req = "DELETE FROM invitation WHERE `ID_EXPEDITEUR` = ? AND `ID_DESTINATAIRE` = ? AND `ID_PROJET` = ? ";
+        String req = "DELETE FROM invitation WHERE `ID_EXPEDITEUR` = ? AND `ID_DESTINATAIRE` = ? AND `ID_EQUIPE` = ? ";
             PreparedStatement paramStm = null;
             try {
 
@@ -170,8 +170,8 @@ public class InvitationDAO extends DAO<Invitation>{
                 Invitation invite = new Invitation();
                 invite.setIdExpediteur(r.getString("ID_EXPEDITEUR"));
                 invite.setIdDestinataire(r.getString("ID_DESTINATAIRE"));
-                invite.setIdEquipe(r.getString("ID_PROJET"));
-                invite.setDate(r.getTimestamp("DATE"));
+                invite.setIdEquipe(r.getString("ID_EQUIPE"));
+                invite.setDate(r.getTimestamp("DATE_ENVOI"));
                 liste.add(invite);
             }
             Collections.reverse(liste);
@@ -196,8 +196,8 @@ public class InvitationDAO extends DAO<Invitation>{
                 Invitation invite = new Invitation();
                 invite.setIdExpediteur(r.getString("ID_EXPEDITEUR"));
                 invite.setIdDestinataire(r.getString("ID_DESTINATAIRE"));
-                invite.setIdEquipe(r.getString("ID_PROJET"));
-                invite.setDate(r.getTimestamp("DATE"));
+                invite.setIdEquipe(r.getString("ID_EQUIPE"));
+                invite.setDate(r.getTimestamp("DATE_ENVOI"));
                 liste.add(invite);
             }
            
@@ -222,8 +222,8 @@ public class InvitationDAO extends DAO<Invitation>{
                 Invitation invite = new Invitation();
                 invite.setIdExpediteur(r.getString("ID_EXPEDITEUR"));
                 invite.setIdDestinataire(r.getString("ID_DESTINATAIRE"));
-                invite.setIdEquipe(r.getString("ID_PROJET"));
-                invite.setDate(r.getTimestamp("DATE"));
+                invite.setIdEquipe(r.getString("ID_EQUIPE"));
+                invite.setDate(r.getTimestamp("DATE_EQUIPE"));
                 liste.add(invite);
             }
           
@@ -237,7 +237,7 @@ public class InvitationDAO extends DAO<Invitation>{
     }
     
     public Invitation findByIdProjet(String id) {
-        String req = "SELECT * FROM invitation WHERE `ID_PROJET` = ?";
+        String req = "SELECT * FROM invitation WHERE `ID_EQUIPE` = ?";
 
         PreparedStatement paramStm = null;
         try {
@@ -253,8 +253,8 @@ public class InvitationDAO extends DAO<Invitation>{
                 Invitation invite = new Invitation();
                 invite.setIdExpediteur(resultat.getString("ID_EXPEDITEUR"));
                 invite.setIdDestinataire(resultat.getString("ID_DESTINATAIRE"));
-                invite.setIdEquipe(resultat.getString("ID_PROJET"));
-                invite.setDate(resultat.getTimestamp("DATE"));
+                invite.setIdEquipe(resultat.getString("ID_EQUIPE"));
+                invite.setDate(resultat.getTimestamp("DATE_ENVOI"));
                 resultat.close();
                 paramStm.close();
                 return invite;
@@ -270,7 +270,7 @@ public class InvitationDAO extends DAO<Invitation>{
     }
     
     public Invitation findByDateEnvoi(Timestamp date) {
-        String req = "SELECT * FROM invitation WHERE `DATE` = ?";
+        String req = "SELECT * FROM invitation WHERE `DATE_ENVOI` = ?";
 
         PreparedStatement paramStm = null;
         try {
@@ -286,8 +286,8 @@ public class InvitationDAO extends DAO<Invitation>{
                 Invitation invite = new Invitation();
                 invite.setIdExpediteur(resultat.getString("ID_EXPEDITEUR"));
                 invite.setIdDestinataire(resultat.getString("ID_DESTINATAIRE"));
-                invite.setIdEquipe(resultat.getString("ID_PROJET"));
-                invite.setDate(resultat.getTimestamp("DATE"));
+                invite.setIdEquipe(resultat.getString("ID_EQUIPE"));
+                invite.setDate(resultat.getTimestamp("DATE_ENVOI"));
                 resultat.close();
                 paramStm.close();
                 return invite;
