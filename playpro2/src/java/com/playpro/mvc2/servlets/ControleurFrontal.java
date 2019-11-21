@@ -19,12 +19,12 @@ import com.playpro.mvc2.controleurs.LieuxAction;
 import com.playpro.mvc2.controleurs.SignupAction;
 import com.playpro.mvc2.controleurs.LoginAction;
 import com.playpro.mvc2.controleurs.LogoutAction;
+import com.playpro.mvc2.controleurs.MembresAction;
 import com.playpro.mvc2.controleurs.PortailAction;
 import com.playpro.mvc2.controleurs.ProfilAction;
 import com.playpro.mvc2.controleurs.RequirePRG;
 import com.playpro.mvc2.controleurs.SuppressionCompteAction;
 import com.playpro.mvc2.controleurs.SportsAction;
-import com.playpro.mvc2.controleurs.UploadAction;
 //import com.playpro.mvc2.controleurs.SoustractionAction;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -104,6 +104,9 @@ public class ControleurFrontal extends HttpServlet {
                 break;
             case "lieux":
                 action = new LieuxAction();
+                break;
+            case "membres":
+                action = new MembresAction();
                 break;
 
             case "equipe":
