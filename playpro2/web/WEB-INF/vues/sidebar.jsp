@@ -58,7 +58,7 @@
           if (m.getTypeMembre().equals("Admin")){  
         %>
         <li>
-            <a href="#">
+            <a href="?action=membres">
                 <i class="fa fa-user-plus"></i><span class="sideLabel"> Membres</span>
             </a>
         </li>

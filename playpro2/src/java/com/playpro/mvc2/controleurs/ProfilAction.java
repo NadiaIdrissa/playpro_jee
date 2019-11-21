@@ -9,7 +9,6 @@ import com.playpro.daos.MembreDAO;
 import com.playpro.entities.Membre;
 import com.playpro.entities.Niveau;
 import com.playpro.entities.Sexe;
-import com.playpro.utils.CopyImage;
 import com.playpro.utils.PasswordHash;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;

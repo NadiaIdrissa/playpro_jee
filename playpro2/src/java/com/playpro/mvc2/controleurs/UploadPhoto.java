@@ -6,7 +6,6 @@
 package com.playpro.mvc2.controleurs;
 
 import com.playpro.utils.*;
-import com.playpro.mvc2.controleurs.UploadAction;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -48,8 +47,7 @@ public class UploadPhoto extends AbstractAction {
             }
             return imageName;
         } catch (IOException ex) {
-            Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
-
+            Logger.getLogger(UploadPhoto.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "";
     }
