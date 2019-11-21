@@ -142,7 +142,7 @@ public class ProfilAction extends AbstractAction {
 
             dao.update(membre);
             System.out.println("-----dao.membre-----------" + dao.update(membre));
-<<<<<<< HEAD
+
             request.getSession().setAttribute("membre", membre);
         request.getSession().setAttribute("viewConf","profilaccueil");
             return "portail";
@@ -153,14 +153,6 @@ public class ProfilAction extends AbstractAction {
            return "profil";  
         }
 
-        
-=======
-
-        }
-        request.getSession().setAttribute("membre", membre);
-        request.getSession().setAttribute("viewConf", "profilaccueil");
-        return "portail";
->>>>>>> b80eb2a4036e4feb151af56554b02f77ef1c117a
     }
 
 }
