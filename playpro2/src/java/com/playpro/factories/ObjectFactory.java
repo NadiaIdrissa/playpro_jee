@@ -30,6 +30,9 @@ public class ObjectFactory {
         objet.setId_sport(UUID.randomUUID().toString());
         return objet;
     }    
+    
+   
+    
     public static Lieux getNewLieu() {
     Lieux objet = new Lieux();
     objet.setId_lieu(UUID.randomUUID().toString());

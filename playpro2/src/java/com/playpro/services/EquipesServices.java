@@ -16,7 +16,7 @@ public class EquipesServices {
 
     private static EquipesDAO dao;
 
-    public static boolean creerSport(Equipe e) {
+    public static boolean creerEquipe(Equipe e) {
 
         dao = new EquipesDAO();
         return dao.create(e);

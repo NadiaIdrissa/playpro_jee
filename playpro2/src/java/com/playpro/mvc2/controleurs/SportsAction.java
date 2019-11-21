@@ -102,6 +102,8 @@ public class SportsAction extends AbstractAction {
         System.out.println("Nom sport : " + nomSport);
         System.out.println("Image sport : " + imageSport);
         System.out.println("Nb max sport : " + nbMax);
+        
+        System.out.println("size de la liste sports =  "+ liste.size());
 
         request.getSession().setAttribute("viewConf","sports");
         return "portail";
