@@ -10,16 +10,23 @@ import com.playpro.entities.Membre;
 import com.playpro.entities.Niveau;
 import com.playpro.entities.Sexe;
 import com.playpro.utils.PasswordHash;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.ServletException;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author toute
  */
 public class ProfilAction extends AbstractAction {
+
+    private static final String UPLOAD_DIR = "static/images/profils";
+    private UploadPhoto up = new UploadPhoto();
 
     @Override
     public String execute() {
@@ -46,6 +53,21 @@ public class ProfilAction extends AbstractAction {
         String mdpC = (String) request.getParameter("CpasswordR");
         String sport = (String) request.getParameter("sportR");
         String typeM = (String) request.getParameter("tMembreR");
+        String photo = (String) request.getParameter("imageMembre");
+
+        List<Part> part = null;
+        try {
+            part = (List<Part>) request.getParts();
+        } catch (IOException ex) {
+            Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ServletException ex) {
+            Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        String applicationPath = request.getServletContext().getRealPath("");
+
+        photo = up.uploader(part, UPLOAD_DIR, applicationPath, photo);
+        
 
         if ((annee != null) && (!"".equals(annee))) {
             try {
@@ -114,11 +136,13 @@ public class ProfilAction extends AbstractAction {
             membre.setNiveau(niveau);
             membre.setSport(sport);
             membre.setTypeMembre(typeM);
+            membre.setPhoto(photo);
             System.out.println("----------affectation--------");
             System.out.println("----membre.getNaiss- " + membre.getAnneeNaissance());
 
             dao.update(membre);
             System.out.println("-----dao.membre-----------" + dao.update(membre));
+<<<<<<< HEAD
             request.getSession().setAttribute("membre", membre);
         request.getSession().setAttribute("viewConf","profilaccueil");
             return "portail";
@@ -130,6 +154,13 @@ public class ProfilAction extends AbstractAction {
         }
 
         
+=======
+
+        }
+        request.getSession().setAttribute("membre", membre);
+        request.getSession().setAttribute("viewConf", "profilaccueil");
+        return "portail";
+>>>>>>> b80eb2a4036e4feb151af56554b02f77ef1c117a
     }
 
 }

@@ -4,4 +4,19 @@
  * and open the template in the editor.
  */
 
+var btnAjoutMembre = $("#btnAjoutMembre");
+
+var modalAjoutMembre = $("#modalAjoutMembre");
+
+btnAjoutMembre.onclick = function () {
+    debugger;
+    modalAjoutMembre.style.display = "block";
+}
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modalAjoutMembre.style.display = "none";
+    }
+}
+
 

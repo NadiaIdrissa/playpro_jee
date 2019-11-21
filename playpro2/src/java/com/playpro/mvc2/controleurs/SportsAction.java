@@ -29,6 +29,7 @@ import javax.servlet.http.Part;
 public class SportsAction extends AbstractAction {
 
     private static final String UPLOAD_DIR = "static/images/sports";
+    private UploadPhoto up = new UploadPhoto();
 
     @Override
     public String execute() {
@@ -39,6 +40,14 @@ public class SportsAction extends AbstractAction {
         String imageSport = request.getParameter("imageSport");
         
         int nbMax = 0;
+        List<Part> part = null;
+        try {
+             part = (List<Part>) request.getParts();
+        } catch (IOException ex) {
+            Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ServletException ex) {
+            Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         if (nomSport == null) {
 
@@ -47,32 +56,33 @@ public class SportsAction extends AbstractAction {
             String applicationPath = request.getServletContext().getRealPath("");
             // constructs path of the directory to save uploaded file
             String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
-
+            
+            imageSport = up.uploader(part, UPLOAD_DIR, applicationPath, imageSport);
             // creates the save directory if it does not exists
-            File fileSaveDir = new File(uploadFilePath);
-            if (!fileSaveDir.exists()) {
-                fileSaveDir.mkdirs();
-            }
-            System.out.println("Upload File Directory=" + fileSaveDir.getAbsolutePath());
-
-            try {
-                //Get all the parts from request and write it to the file on server
-                for (Part part : request.getParts()) {
-                    String fileName = getFileName(part);
-                    if (!fileName.equals("")) {
-                        part.write(uploadFilePath + File.separator + fileName);
-                        imageSport = fileName;
-                        System.out.println("FILE NAME : "+fileName);
-                    }
-                }
-                request.setAttribute("message", "File uploaded successfully!");
-            } catch (IOException ex) {
-                Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
-                request.setAttribute("message", "File NOT uploaded successfully!");
-            } catch (ServletException ex) {
-                Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
-                request.setAttribute("message", "File NOT uploaded successfully!");
-            }
+//            File fileSaveDir = new File(uploadFilePath);
+//            if (!fileSaveDir.exists()) {
+//                fileSaveDir.mkdirs();
+//            }
+//            System.out.println("Upload File Directory=" + fileSaveDir.getAbsolutePath());
+//
+//            try {
+//                //Get all the parts from request and write it to the file on server
+//                for (Part part : request.getParts()) {
+//                    String fileName = getFileName(part);
+//                    if (!fileName.equals("")) {
+//                        part.write(uploadFilePath + File.separator + fileName);
+//                        imageSport = fileName;
+//                        System.out.println("FILE NAME : "+fileName);
+//                    }
+//                }
+//                request.setAttribute("message", "File uploaded successfully!");
+//            } catch (IOException ex) {
+//                Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
+//                request.setAttribute("message", "File NOT uploaded successfully!");
+//            } catch (ServletException ex) {
+//                Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
+//                request.setAttribute("message", "File NOT uploaded successfully!");
+//            }
 
 //        getServletContext().getRequestDispatcher("/response.jsp").forward(
 //                request, response);

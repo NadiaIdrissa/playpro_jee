@@ -28,15 +28,14 @@ public class MembreDAO extends DAO<Membre> {
         System.out.println(x);
         if (x.getSport().equals("")) {
             type = "Joueur";
-        } else {
-            type = "Entraineur";
+            x.setTypeMembre(type);
         }
 
         System.out.println("Type : " + type);
 
 //        String req = "INSERT INTO `membre`(`id`) VALUES ('OOOOOOOO')";
         String req = "INSERT INTO `membre` (`ID`,`NOM`,`PRENOM`,`COURRIEL`,`TYPE_MEMBRE`,`SPORT`,`SEXE`,`NIVEAU`,`MDP`,`PSEUDO`) "
-                + "VALUES('" + x.getId() + "','" + x.getNom() + "','" + x.getPrenom() + "','" + x.getCourriel() + "','" + type + "','"
+                + "VALUES('" + x.getId() + "','" + x.getNom() + "','" + x.getPrenom() + "','" + x.getCourriel() + "','" +x.getTypeMembre() + "','"
                 + x.getSport() + "','" + x.getSexe() + "','" + x.getNiveau() + "','" + x.getMpd() + "','" + x.getPseudo() + "')";
 
         Statement stm = null;
@@ -132,6 +131,10 @@ public class MembreDAO extends DAO<Membre> {
                 c.setSexe(r.getString("sexe"));
                 c.setAnneeNaissance(r.getInt("annee_naiss"));
                 c.setSport(r.getString("sport"));
+                c.setPhoto(r.getString("photo"));
+                if(c.getPhoto() == null || c.getPhoto().equals("")){
+                    c.setPhoto("blueplay.png");
+                }
                 c.setTypeMembre(r.getString("type_membre"));
                 c.setStatus(r.getString("statut"));
                 r.close();
@@ -177,8 +180,10 @@ public class MembreDAO extends DAO<Membre> {
                     + "SPORT = '" + x.getSport() + "',"
                     + "TYPE_MEMBRE = '" + x.getTypeMembre() + "',"
                     + "PSEUDO = '" + x.getPseudo() + "'" //il y a un cle etragere dans pseudo
+                    + "PHOTO = '" + x.getPhoto() + "'" //il y a un cle etragere dans pseudo
+                    
                     + " WHERE id = '" + x.getId() + "'";
-
+            
             stm = cnx.createStatement();
             int n = stm.executeUpdate(req);
             if (n > 0) {
@@ -207,7 +212,7 @@ public class MembreDAO extends DAO<Membre> {
             Statement stm = cnx.createStatement();
             ResultSet r = stm.executeQuery("SELECT * FROM membre");
             while (r.next()) {
-                Membre c = new Entraineur();
+                Membre c = new Membre();
                 Joueur j = new Joueur();
                 Entraineur e = new Entraineur();
                 System.out.println("Dennée: " + r.getString(2));
@@ -219,23 +224,30 @@ public class MembreDAO extends DAO<Membre> {
                 c.setCourriel(r.getString("courriel"));
                 c.setPseudo(r.getString("pseudo"));
                 c.setMpd(r.getString("mdp"));
+                c.setAnneeNaissance(r.getInt("Annee_naiss"));
+                c.setTypeMembre(r.getString("type_membre"));
+                c.setSexe(r.getString("sexe"));
+                c.setStatus(r.getString("statut"));
+                c.setSport(r.getString("sport"));
+                c.setDateInscription(r.getTimestamp("date_inscription"));
 
-                if (r.getString("type_membre").equals("Joueur")) {
-                    j = (Joueur) c;
-                    liste.add(j);
-                } else if (r.getString("type_membre").equals("Admin")) {
-                    //e = (Entraineur)c; 
-                    liste.add(c);
-                } else {
+//                if (r.getString("type_membre").equals("Joueur")) {
+//                    j = (Joueur) c;
+//                    liste.add(j);
+//                } else if (r.getString("type_membre").equals("Admin")) {
+//                    //e = (Entraineur)c; 
+//                    liste.add(c);
+//                } else {
+//
+//                }
 
-                }
-
-                //liste.add(c);
+                liste.add(c);
             }
 
             r.close();
             stm.close();
         } catch (SQLException exp) {
+            exp.printStackTrace();
         }
         return liste;
     }

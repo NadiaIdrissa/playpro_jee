@@ -6,6 +6,7 @@
 package com.playpro.entities;
 
 import java.awt.image.BufferedImage;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 
 /**
@@ -22,11 +23,11 @@ public class Membre {
     protected String prenom;
     protected int anneeNaissance;
     protected String courriel;
-    protected LocalDate dateInscription;
+    protected Timestamp dateInscription;
     protected Equipe equipe;
     protected String sport;
     protected Niveau niveau;
-    protected BufferedImage photo;
+    protected String photo;
     protected String typeMembre;
     protected String status;
 
@@ -124,11 +125,11 @@ public class Membre {
         this.courriel = courriel;
     }
 
-    public LocalDate getDateInscription() {
+    public Timestamp getDateInscription() {
         return dateInscription;
     }
 
-    public void setDateInscription(LocalDate dateInscription) {
+    public void setDateInscription(Timestamp dateInscription) {
         this.dateInscription = dateInscription;
     }
 
@@ -172,11 +173,11 @@ public class Membre {
         }
     }
 
-    public BufferedImage getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(BufferedImage photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 

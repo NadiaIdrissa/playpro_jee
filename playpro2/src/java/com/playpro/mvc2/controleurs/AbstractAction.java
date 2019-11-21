@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 public abstract class AbstractAction implements Action {
     protected HttpServletRequest request;
     protected HttpServletResponse response;
+    
+
 
     public void setRequest(HttpServletRequest request) {
         this.request = request;

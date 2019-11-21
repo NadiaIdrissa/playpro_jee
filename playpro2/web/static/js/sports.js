@@ -14,8 +14,10 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
+    debugger;
     modal.style.display = "block";
 }
 
@@ -34,7 +36,7 @@ window.onclick = function (event) {
 
 
 $('input[type=file]').change(function () {
-    debugger;
+    
     var sourceVal = document.getElementById("imageSport").files[0].path;
         $("#sourceDirPath").val(sourceVal);
     console.log(this.files[0].mozFullPath);
