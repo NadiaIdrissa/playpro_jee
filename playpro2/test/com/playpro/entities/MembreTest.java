@@ -19,7 +19,26 @@ import static org.junit.Assert.*;
  */
 public class MembreTest {
     
+   // final static String ID = "abcdfghijk";
+    final static String PSEUDO = "vivi";
+    final static String MPD = "abcdfhij";
+    final static Sexe SEXE = Sexe.Femme;
+    final static String NOM = "Vi";
+    final static String PRENOM = "Laplante";
+    final static String COURRIEL = "vivi@al.ca";
+    final static Niveau NIVEAU = Niveau.DEBUTANT;
+    final static int ANNEEN = 1998;
+    final static String TYPEMEMBRE = "Joueur";
+    final static String SPORT = "Hockey";
+    final static String PHOTO="c:/tomcat/playproEE/static/imgUsers/IdUser/profil/myphoto";
+    final static Equipe E=new Equipe();
+    final static String STATU="EN COURS";
+    int anneeN;
+    
+    Membre membre1;
+    
     public MembreTest() {
+        
     }
     
     @BeforeClass
@@ -28,55 +47,54 @@ public class MembreTest {
     
     @AfterClass
     public static void tearDownClass() {
+        
     }
     
     @Before
     public void setUp() {
+        membre1 = new Membre(PSEUDO, COURRIEL, MPD, NOM, PRENOM, SEXE, NIVEAU);
+        membre1.setAnneeNaissance(ANNEEN);
+        membre1.setTypeMembre(TYPEMEMBRE);
+        membre1.setSport(SPORT);
+        membre1.setEquipe(E);
+        membre1.setPhoto(PHOTO);
+        membre1.setStatus(STATU);
+        
     }
     
     @After
     public void tearDown() {
     }
+    
+    @Test
+    public void testCrationMembre() {
+       //assertEquals(membre1.getId(), ID);
+        assertEquals(membre1.getPseudo(), PSEUDO);
+        assertEquals(membre1.getCourriel(), COURRIEL);
+        assertEquals(membre1.getMpd(), MPD);
+        assertEquals(membre1.getNom(), NOM);
+        assertEquals(membre1.getNom(), NOM);
+        assertEquals(membre1.getSexe(), SEXE);
+        assertEquals(membre1.getNiveau(), NIVEAU);
+        
+    }
 
     /**
      * Test of getId method, of class Membre.
      */
-    @Test
-    public void testGetId() {
-        System.out.println("getId");
-        Membre instance = new Membre();
-        String expResult = "";
-        String result = instance.getId();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+  
 
     /**
      * Test of setId method, of class Membre.
      */
-    @Test
-    public void testSetId() {
-        System.out.println("setId");
-        String id = "";
-        Membre instance = new Membre();
-        instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+ 
 
     /**
      * Test of getStatus method, of class Membre.
      */
     @Test
     public void testGetStatus() {
-        System.out.println("getStatus");
-        Membre instance = new Membre();
-        String expResult = "";
-        String result = instance.getStatus();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -84,12 +102,7 @@ public class MembreTest {
      */
     @Test
     public void testSetStatus() {
-        System.out.println("setStatus");
-        String status = "";
-        Membre instance = new Membre();
-        instance.setStatus(status);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -97,13 +110,7 @@ public class MembreTest {
      */
     @Test
     public void testGetPseudo() {
-        System.out.println("getPseudo");
-        Membre instance = new Membre();
-        String expResult = "";
-        String result = instance.getPseudo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(membre1.getPseudo(), PSEUDO);
     }
 
     /**
@@ -111,12 +118,8 @@ public class MembreTest {
      */
     @Test
     public void testSetPseudo() {
-        System.out.println("setPseudo");
-        String pseudo = "";
-        Membre instance = new Membre();
-        instance.setPseudo(pseudo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvPseudo = "vivianne";
+        membre1.setPseudo(nvPseudo);
     }
 
     /**
@@ -124,13 +127,7 @@ public class MembreTest {
      */
     @Test
     public void testGetMpd() {
-        System.out.println("getMpd");
-        Membre instance = new Membre();
-        String expResult = "";
-        String result = instance.getMpd();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(membre1.getMpd(), MPD);
     }
 
     /**
@@ -138,12 +135,8 @@ public class MembreTest {
      */
     @Test
     public void testSetMpd() {
-        System.out.println("setMpd");
-        String mpd = "";
-        Membre instance = new Membre();
-        instance.setMpd(mpd);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvMpd = "jjjjjj";
+        membre1.setMpd(nvMpd);
     }
 
     /**
@@ -151,13 +144,7 @@ public class MembreTest {
      */
     @Test
     public void testGetSexe() {
-        System.out.println("getSexe");
-        Membre instance = new Membre();
-        Sexe expResult = null;
-        Sexe result = instance.getSexe();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(membre1.getSexe(), SEXE);
     }
 
     /**
@@ -165,26 +152,17 @@ public class MembreTest {
      */
     @Test
     public void testSetSexe() {
-        System.out.println("setSexe");
-        String sexe = "";
-        Membre instance = new Membre();
-        instance.setSexe(sexe);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvSexe = "Autre";
+        membre1.setSexe(nvSexe);
+        
     }
 
     /**
-     * Test of getNom method, of class Membre.
+     * * Test of getNom method, of class Membre.
      */
     @Test
     public void testGetNom() {
-        System.out.println("getNom");
-        Membre instance = new Membre();
-        String expResult = "";
-        String result = instance.getNom();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(membre1.getNom(), NOM);
     }
 
     /**
@@ -192,12 +170,8 @@ public class MembreTest {
      */
     @Test
     public void testSetNom() {
-        System.out.println("setNom");
-        String nom = "";
-        Membre instance = new Membre();
-        instance.setNom(nom);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvNom = "vivii";
+        membre1.setNom(nvNom);
     }
 
     /**
@@ -205,13 +179,7 @@ public class MembreTest {
      */
     @Test
     public void testGetPrenom() {
-        System.out.println("getPrenom");
-        Membre instance = new Membre();
-        String expResult = "";
-        String result = instance.getPrenom();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(membre1.getPrenom(), PRENOM);
     }
 
     /**
@@ -219,12 +187,8 @@ public class MembreTest {
      */
     @Test
     public void testSetPrenom() {
-        System.out.println("setPrenom");
-        String prenom = "";
-        Membre instance = new Membre();
-        instance.setPrenom(prenom);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvPrenom = "vivii";
+        membre1.setPrenom(nvPrenom);
     }
 
     /**
@@ -232,13 +196,7 @@ public class MembreTest {
      */
     @Test
     public void testGetAnneeNaissance() {
-        System.out.println("getAnneeNaissance");
-        Membre instance = new Membre();
-        int expResult = 0;
-        int result = instance.getAnneeNaissance();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(membre1.getAnneeNaissance(), 1998);
     }
 
     /**
@@ -246,12 +204,8 @@ public class MembreTest {
      */
     @Test
     public void testSetAnneeNaissance() {
-        System.out.println("setAnneeNaissance");
-        int anneeNaissance = 0;
-        Membre instance = new Membre();
-        instance.setAnneeNaissance(anneeNaissance);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final int nvAnneeN = 2000;
+        membre1.setAnneeNaissance(nvAnneeN);
     }
 
     /**
@@ -259,13 +213,7 @@ public class MembreTest {
      */
     @Test
     public void testGetCourriel() {
-        System.out.println("getCourriel");
-        Membre instance = new Membre();
-        String expResult = "";
-        String result = instance.getCourriel();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(membre1.getCourriel(), COURRIEL);
     }
 
     /**
@@ -273,12 +221,8 @@ public class MembreTest {
      */
     @Test
     public void testSetCourriel() {
-        System.out.println("setCourriel");
-        String courriel = "";
-        Membre instance = new Membre();
-        instance.setCourriel(courriel);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvCourriel = "viviiv@.al.ca";
+        membre1.setCourriel(nvCourriel);
     }
 
     /**
@@ -286,13 +230,7 @@ public class MembreTest {
      */
     @Test
     public void testGetDateInscription() {
-        System.out.println("getDateInscription");
-        Membre instance = new Membre();
-        Timestamp expResult = null;
-        Timestamp result = instance.getDateInscription();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(membre1.getStatus(),STATU);
     }
 
     /**
@@ -300,12 +238,9 @@ public class MembreTest {
      */
     @Test
     public void testSetDateInscription() {
-        System.out.println("setDateInscription");
-        Timestamp dateInscription = null;
-        Membre instance = new Membre();
-        instance.setDateInscription(dateInscription);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvStatus="STANDBY";
+        membre1.setStatus(nvStatus);
+        
     }
 
     /**
@@ -313,13 +248,7 @@ public class MembreTest {
      */
     @Test
     public void testGetEquipe() {
-        System.out.println("getEquipe");
-        Membre instance = new Membre();
-        Equipe expResult = null;
-        Equipe result = instance.getEquipe();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(membre1.getEquipe(),E);
     }
 
     /**
@@ -327,12 +256,8 @@ public class MembreTest {
      */
     @Test
     public void testSetEquipe() {
-        System.out.println("setEquipe");
-        Equipe equipe = null;
-        Membre instance = new Membre();
-        instance.setEquipe(equipe);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final Equipe nvE=new Equipe();
+        membre1.setEquipe(nvE);
     }
 
     /**
@@ -340,13 +265,7 @@ public class MembreTest {
      */
     @Test
     public void testGetSport() {
-        System.out.println("getSport");
-        Membre instance = new Membre();
-        String expResult = "";
-        String result = instance.getSport();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(membre1.getSport(), SPORT);
     }
 
     /**
@@ -354,12 +273,8 @@ public class MembreTest {
      */
     @Test
     public void testSetSport() {
-        System.out.println("setSport");
-        String sport = "";
-        Membre instance = new Membre();
-        instance.setSport(sport);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvSport = "Tennis";
+        membre1.setSport(nvSport);
     }
 
     /**
@@ -367,13 +282,7 @@ public class MembreTest {
      */
     @Test
     public void testGetTypeMembre() {
-        System.out.println("getTypeMembre");
-        Membre instance = new Membre();
-        String expResult = "";
-        String result = instance.getTypeMembre();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(membre1.getTypeMembre(), TYPEMEMBRE);
     }
 
     /**
@@ -381,12 +290,8 @@ public class MembreTest {
      */
     @Test
     public void testSetTypeMembre() {
-        System.out.println("setTypeMembre");
-        String typeM = "";
-        Membre instance = new Membre();
-        instance.setTypeMembre(typeM);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvTypeMembre = "Entraineur";
+        membre1.setTypeMembre(nvTypeMembre);
     }
 
     /**
@@ -394,13 +299,7 @@ public class MembreTest {
      */
     @Test
     public void testGetNiveau() {
-        System.out.println("getNiveau");
-        Membre instance = new Membre();
-        Niveau expResult = null;
-        Niveau result = instance.getNiveau();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(membre1.getNiveau(), NIVEAU);
     }
 
     /**
@@ -408,12 +307,9 @@ public class MembreTest {
      */
     @Test
     public void testSetNiveau() {
-        System.out.println("setNiveau");
-        String niveau = "";
-        Membre instance = new Membre();
-        instance.setNiveau(niveau);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvNiveau = "INTERMEDIAIRE";
+        membre1.setNiveau(nvNiveau);
+        
     }
 
     /**
@@ -421,13 +317,8 @@ public class MembreTest {
      */
     @Test
     public void testGetPhoto() {
-        System.out.println("getPhoto");
-        Membre instance = new Membre();
-        String expResult = "";
-        String result = instance.getPhoto();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(membre1.getPhoto(), PHOTO);
+        
     }
 
     /**
@@ -435,12 +326,9 @@ public class MembreTest {
      */
     @Test
     public void testSetPhoto() {
-        System.out.println("setPhoto");
-        String photo = "";
-        Membre instance = new Membre();
-        instance.setPhoto(photo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final  String nvPhoto="c:/tomcat/playproEE/static/imgUsers/IdUser/profil/";
+        membre1.setPhoto(nvPhoto);
+ 
     }
 
     /**
@@ -448,13 +336,7 @@ public class MembreTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
-        Membre instance = new Membre();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
     
 }
