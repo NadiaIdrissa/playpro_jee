@@ -143,10 +143,16 @@ public class ProfilAction extends AbstractAction {
             dao.update(membre);
             System.out.println("-----dao.membre-----------" + dao.update(membre));
 
+            request.getSession().setAttribute("membre", membre);
+        request.getSession().setAttribute("viewConf","profilaccueil");
+            return "portail";
+        }else{
+            
+            request.getSession().setAttribute("membre", membre);
+            request.getSession().setAttribute("viewConf","profilaccueil");
+           return "profil";  
         }
-        request.getSession().setAttribute("membre", membre);
-        request.getSession().setAttribute("viewConf", "profilaccueil");
-        return "portail";
+
     }
 
 }

@@ -55,9 +55,16 @@
                         <%@include file="calendrier.jsp"%>
                     <%}else if (viewConf.equals("suppCompte")){%>
                         <%@include file="suppressionCompte.jsp"%>
+<<<<<<< HEAD
+                        <%-- <%}else if (viewConf.equals("equipe")){%>
+                        <%@include file="creerEquipe.jsp"%>
+                    <%} --%>
+                        }else if (viewConf.equals("sports")){%>
+=======
                     <%}else if (viewConf.equals("loadEquipe")){%>
                         <%@include file="equipes.jsp"%>
                     <%}else if (viewConf.equals("sports")) {%>
+>>>>>>> 82c38526770bc417ae376f4f3342b14678ed3686
                         <%@include file="sports.jsp"%>
                     <%}else if (viewConf.equals("lieux")){%>
                         <%@include file="lieux.jsp"%>
