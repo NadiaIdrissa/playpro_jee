@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  * @author Piaf
  */
 public class LieuxTest {
-
+    
     final static String NOM = "Parc Jarry";
     final static String NUMERO = "123";
     final static String RUE = "Beaubien";
@@ -29,21 +29,21 @@ public class LieuxTest {
     final static String IMAGE2 = "c:/static/img2";
     final static String IMAGE3 = "c:/static/img3";
     Lieux l1;
-
+    
     public LieuxTest() {
     }
-
+    
     @BeforeClass
     public static void setUpClass() {
     }
-
+    
     @AfterClass
     public static void tearDownClass() {
     }
-
+    
     @Before
     public void setUp() {
-
+        
         l1 = new Lieux();
         l1.setId_lieu("abc");
         l1.setNom(NOM);
@@ -57,7 +57,7 @@ public class LieuxTest {
         l1.setImage2(IMAGE2);
         l1.setImage3(IMAGE3);
     }
-
+    
     @After
     public void tearDown() {
     }
@@ -91,7 +91,7 @@ public class LieuxTest {
      */
     @Test
     public void testGetRue() {
-        assertEquals(l1.getRue(),RUE);
+        assertEquals(l1.getRue(), RUE);
     }
 
     /**
@@ -115,13 +115,7 @@ public class LieuxTest {
      */
     @Test
     public void testGetPays() {
-        System.out.println("getPays");
-        Lieux instance = new Lieux();
-        String expResult = "";
-        String result = instance.getPays();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(l1.getPays(), PAYS);
     }
 
     /**
@@ -129,13 +123,7 @@ public class LieuxTest {
      */
     @Test
     public void testGetInfos() {
-        System.out.println("getInfos");
-        Lieux instance = new Lieux();
-        String expResult = "";
-        String result = instance.getInfos();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(l1.getInfos(), INFO);
     }
 
     /**
@@ -143,12 +131,8 @@ public class LieuxTest {
      */
     @Test
     public void testSetId_lieu() {
-        System.out.println("setId_lieu");
-        String id_lieu = "";
-        Lieux instance = new Lieux();
-        instance.setId_lieu(id_lieu);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvID = "aaaaa";        
+        l1.setId_lieu(nvID);
     }
 
     /**
@@ -156,12 +140,8 @@ public class LieuxTest {
      */
     @Test
     public void testSetNom() {
-        System.out.println("setNom");
-        String nom = "";
-        Lieux instance = new Lieux();
-        instance.setNom(nom);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvNom = "Parc Beaubien";
+        l1.setNom(nvNom);
     }
 
     /**
@@ -336,5 +316,5 @@ public class LieuxTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
+    
 }
