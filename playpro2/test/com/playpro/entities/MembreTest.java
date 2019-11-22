@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  */
 public class MembreTest {
     
-   // final static String ID = "abcdfghijk";
+   
     final static String PSEUDO = "vivi";
     final static String MPD = "abcdfhij";
     final static Sexe SEXE = Sexe.Femme;
