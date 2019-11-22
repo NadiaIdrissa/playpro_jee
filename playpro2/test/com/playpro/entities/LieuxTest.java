@@ -149,12 +149,8 @@ public class LieuxTest {
      */
     @Test
     public void testSetNumero() {
-        System.out.println("setNumero");
-        String numero = "";
-        Lieux instance = new Lieux();
-        instance.setNumero(numero);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvNumero = "456";
+        l1.setNumero(nvNumero);
     }
 
     /**
@@ -162,12 +158,8 @@ public class LieuxTest {
      */
     @Test
     public void testSetRue() {
-        System.out.println("setRue");
-        String rue = "";
-        Lieux instance = new Lieux();
-        instance.setRue(rue);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+final String nvRue="Boubonniere";
+l1.setRue(nvRue);
     }
 
     /**
@@ -175,12 +167,9 @@ public class LieuxTest {
      */
     @Test
     public void testSetCode_postal() {
-        System.out.println("setCode_postal");
-        String code_postal = "";
-        Lieux instance = new Lieux();
-        instance.setCode_postal(code_postal);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+final String nvCodeP="H8J9K0";
+l1.setCode_postal(nvCodeP);
+
     }
 
     /**
@@ -188,12 +177,8 @@ public class LieuxTest {
      */
     @Test
     public void testSetVille() {
-        System.out.println("setVille");
-        String ville = "";
-        Lieux instance = new Lieux();
-        instance.setVille(ville);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+final String nvVille="Laval";
+l1.setVille(nvVille);
     }
 
     /**
@@ -201,12 +186,8 @@ public class LieuxTest {
      */
     @Test
     public void testSetPays() {
-        System.out.println("setPays");
-        String pays = "";
-        Lieux instance = new Lieux();
-        instance.setPays(pays);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+final String nvPay="US";
+l1.setPays(nvPay);
     }
 
     /**
@@ -214,12 +195,8 @@ public class LieuxTest {
      */
     @Test
     public void testSetInfos() {
-        System.out.println("setInfos");
-        String infos = "";
-        Lieux instance = new Lieux();
-        instance.setInfos(infos);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+final String nvInfo="Terraine en Bois";
+l1.setInfos(nvInfo);
     }
 
     /**
@@ -227,13 +204,8 @@ public class LieuxTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
-        Lieux instance = new Lieux();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    
+
     }
 
     /**
@@ -241,13 +213,7 @@ public class LieuxTest {
      */
     @Test
     public void testGetImage1() {
-        System.out.println("getImage1");
-        Lieux instance = new Lieux();
-        String expResult = "";
-        String result = instance.getImage1();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+assertEquals(l1.getImage1(),IMAGE1);
     }
 
     /**
@@ -255,13 +221,7 @@ public class LieuxTest {
      */
     @Test
     public void testGetImage2() {
-        System.out.println("getImage2");
-        Lieux instance = new Lieux();
-        String expResult = "";
-        String result = instance.getImage2();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(l1.getImage2(),IMAGE2);
     }
 
     /**
@@ -269,13 +229,7 @@ public class LieuxTest {
      */
     @Test
     public void testGetImage3() {
-        System.out.println("getImage3");
-        Lieux instance = new Lieux();
-        String expResult = "";
-        String result = instance.getImage3();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+assertEquals(l1.getImage3(),IMAGE3);
     }
 
     /**
@@ -283,12 +237,8 @@ public class LieuxTest {
      */
     @Test
     public void testSetImage1() {
-        System.out.println("setImage1");
-        String image1 = "";
-        Lieux instance = new Lieux();
-        instance.setImage1(image1);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+final String nvImage="c://static/head01";
+l1.setImage1(nvImage);
     }
 
     /**
@@ -296,12 +246,8 @@ public class LieuxTest {
      */
     @Test
     public void testSetImage2() {
-        System.out.println("setImage2");
-        String image2 = "";
-        Lieux instance = new Lieux();
-        instance.setImage2(image2);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+final String nvImage="c://static/head01";
+l1.setImage1(nvImage); 
     }
 
     /**
@@ -309,12 +255,8 @@ public class LieuxTest {
      */
     @Test
     public void testSetImage3() {
-        System.out.println("setImage3");
-        String image3 = "";
-        Lieux instance = new Lieux();
-        instance.setImage3(image3);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+final String nvImage="c://static/head01";
+l1.setImage1(nvImage);
     }
     
 }
