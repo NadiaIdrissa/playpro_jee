@@ -6,8 +6,12 @@
 package com.playpro.mvc2.controleurs;
 
 import com.playpro.daos.MembreDAO;
+import com.playpro.daos.SportDAO;
 import com.playpro.entities.Membre;
+import com.playpro.entities.Sport;
 import com.playpro.services.MembreServices;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -44,6 +48,25 @@ public class LoginAction extends AbstractAction {
                     if (membre.getStatus().equals("NotActif")){
                         dao.UpdateStatus(membre);
                     }
+                    
+                    List<String> listeq = new LinkedList<String>();
+                    
+                    SportDAO sports = new SportDAO();
+                    List<Sport> s = new LinkedList<Sport>();
+                    s=sports.findAll();
+                    
+                    
+                    
+                    System.out.println("liste de sport existante");
+                    for(int j=0; j<s.size();j++){
+                        System.out.println(j+s.get(j).getNom());
+                        listeq.add(s.get(j).getNom());
+                    }
+                    
+                    request.getSession().setAttribute("sportString", listeq);
+                    
+                    
+                    
                     request.getSession(true);
                     request.getSession().setAttribute("connected", true);
                     request.getSession().setAttribute("membre", membre);

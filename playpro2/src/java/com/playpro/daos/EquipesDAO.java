@@ -6,6 +6,7 @@
 package com.playpro.daos;
 
 import com.playpro.entities.Equipe;
+import com.playpro.entities.Sport;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,32 +25,53 @@ public class EquipesDAO extends DAO<Equipe> {
 
     @Override
     public boolean create(Equipe x) {
+<<<<<<< HEAD
         String type = "";
 
         String req = "INSERT INTO `equipe` (`nom_equipe`,`id_capitaine`,`nom_sport`,`nb_parties_jouees`,`nb_joueurs`,`nb_max_joueurs`) "
                 + "VALUES('" + x.getNomEquipe() + "','" + x.id_capitaine() + "','" + x.getSport() + "','" + x.getNbPartiesJouees() + "','"
                 + x.getNbJoueurs() + "','" + x.getNbMaxJoueurs() + "','" + x.getNbMaxJoueurs() + "')";
+=======
+        
+        System.out.println("je suis dans equipdao");
+        
+        
+        System.out.println(" equipe a creer = "+ x.toString());
+        
+
+        String req = "INSERT INTO `equipe` (`nom_equipe`,`id_capitaine`,`nom_sport`,`nb_parties_jouees`,`nb_joueurs`,`nb_max_joueurs`) "
+                + "VALUES('" + x.getNomEquipe() + "','" + x.id_capitaine() + "','" + x.getSport().getNom() + "','" + x.getNbPartiesJouees() + "','" 
+                + x.getNbJoueurs() + "','" + x.getNbMaxJoueurs() + "')";
+>>>>>>> 89a3477efd1a7ec883d5f195bde248c156940a84
 
         Statement stm = null;
-        try {
-            stm = cnx.createStatement();
-            int n = stm.executeUpdate(req);
-            if (n > 0) {
-                stm.close();
-                return true;
-            }
-        } catch (SQLException exp) {
-        } finally {
-            if (stm != null) {
-                try {
-                    stm.close();
-                } catch (SQLException exp) {
-                    // TODO Auto-generated catch block
+		try 
+		{
+			stm = cnx.createStatement(); 
+			int n= stm.executeUpdate(req);
+			if (n>0)
+			{
+				stm.close();
+                                
+                                
+				return true;
+			}
+		}
+		catch (SQLException exp)
+		{
                     exp.printStackTrace();
-                }
-            }
-        }
-        return false;
+		}
+		finally
+		{
+			if (stm!=null)
+			try {
+				stm.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
+		}
+		return false;
     }
 
     @Override
@@ -84,11 +106,16 @@ public class EquipesDAO extends DAO<Equipe> {
             while (r.next()) {
                 System.out.println("Lecture equipe :" + r.toString());
                 Equipe team = new Equipe();
+                Sport sport = new Sport();
+                
+                
+                
                 team.setNomEquipe(r.getString("nom_equipe"));
                 team.setid_capitaine(r.getString("id_capitaine"));
-                team.setSport(r.getString("nom_sport"));
+                sport.setNom(r.getString("nom_sport"));
+                team.setSport(sport);
                 team.setNbPartiesJouees(r.getString("nb_parties_jouees"));
-                team.setNbJoueurs(r.getString("nb_joueurs"));
+                team.setNbJoueurs(r.getInt("nb_joueurs"));
                 team.setNbMaxJoueurs(r.getString("nb_max_joueurs"));
                 
 

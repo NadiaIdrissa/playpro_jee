@@ -47,7 +47,8 @@ CREATE TABLE `equipe` (
   `nb_parties_jouees` int(11) NOT NULL,
   `nb_joueurs` int(11) NOT NULL,
   `nb_max_joueurs` int(11) NOT NULL,
-  `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `image` char(67)  NULL DEFAULT "blueplay.png" 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
