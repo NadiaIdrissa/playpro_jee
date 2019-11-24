@@ -25,13 +25,7 @@ public class EquipesDAO extends DAO<Equipe> {
 
     @Override
     public boolean create(Equipe x) {
-<<<<<<< HEAD
-        String type = "";
 
-        String req = "INSERT INTO `equipe` (`nom_equipe`,`id_capitaine`,`nom_sport`,`nb_parties_jouees`,`nb_joueurs`,`nb_max_joueurs`) "
-                + "VALUES('" + x.getNomEquipe() + "','" + x.id_capitaine() + "','" + x.getSport() + "','" + x.getNbPartiesJouees() + "','"
-                + x.getNbJoueurs() + "','" + x.getNbMaxJoueurs() + "','" + x.getNbMaxJoueurs() + "')";
-=======
         
         System.out.println("je suis dans equipdao");
         
@@ -42,7 +36,7 @@ public class EquipesDAO extends DAO<Equipe> {
         String req = "INSERT INTO `equipe` (`nom_equipe`,`id_capitaine`,`nom_sport`,`nb_parties_jouees`,`nb_joueurs`,`nb_max_joueurs`) "
                 + "VALUES('" + x.getNomEquipe() + "','" + x.id_capitaine() + "','" + x.getSport().getNom() + "','" + x.getNbPartiesJouees() + "','" 
                 + x.getNbJoueurs() + "','" + x.getNbMaxJoueurs() + "')";
->>>>>>> 89a3477efd1a7ec883d5f195bde248c156940a84
+
 
         Statement stm = null;
 		try 

@@ -110,16 +110,7 @@ public class EquipeTest {
      */
     @Test
     public void testGetSport() {
-        System.out.println("getSport");
-        Equipe instance = new Equipe();
-        String expResult = "soccer";
-        String result = instance.getSport();
-        assertEquals(expResult, result);
-        if (expResult.equals(result)) {
-            System.out.println("<-  Réussi ->");
-        } else {
-            fail("The test case is a prototype.");
-        }
+  
     }
 
     /**
@@ -127,15 +118,7 @@ public class EquipeTest {
      */
     @Test
     public void testSetSport() {
-        System.out.println("setSport");
-        String sport = "Badminton";
-        Equipe instance = new Equipe();
-        instance.setSport(sport);
-        if (sport.equals(instance.getSport())) {
-            System.out.println("<-  Réussi ->");
-        } else {
-            fail("The test case is a prototype.");
-        }
+
     }
 
     /**
@@ -195,17 +178,7 @@ public class EquipeTest {
      */
     @Test
     public void testSetNbJoueurs() {
-        System.out.println("setNbJoueurs");
-        String nbJoueurs = "20";
-        Equipe instance = new Equipe();
-        int result = 20;
-        instance.setNbJoueurs(nbJoueurs);
-        int expResult = instance.getNbJoueurs();
-        if (expResult == result) {
-            System.out.println("<-  Réussi ->");
-        } else {
-            fail("The test case is a prototype.");
-        }
+    
     }
 
     /**

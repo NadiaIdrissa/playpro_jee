@@ -10,55 +10,6 @@
 <%@page import="com.playpro.entities.Equipe"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<<<<<<< HEAD
-<body>
-    <h1>Liste des équipes</h1><button id="myBtn" type="button" >Ajouter</button>
-
-
-    <%
-        List<Equipe> liste = (LinkedList<Equipe>) request.getAttribute("listeEquipe");
-        System.out.println(liste);%>
-
-
-    <section>
-        <!--        <div style="padding-bottom: 2px;">
-                    <button class="btn btn-success text-uppercase float-right w-10 "data-toggle="modal" data-target="#modalProjet" type="submit" ><i class="fab fa-google mr-2"></i> Ajouter</button>
-                </div>-->
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-
-                    <th scope="col">Nom de l'équipe</th>
-                    <th scope="col">Capitaine</th>
-                    <th scope="col">Sport</th>
-                    <th scope="col">Nombre de joueur</th>
-                    <th scope="col">Nombre de parties jouées</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-
-
-
-                <tr>
-
-            <form  action="" method="post" name="action" value="gestionProjet">
-                <%
-                    for (int i = 0; i < liste.size(); i++) {
-//                            if (liste.get(i).getCreateur().equals(identifiant)) {
-                %>
-                <form  action="" method="" name="" value="">
-
-                    <td name="prjt"><%=liste.get(i).getNomEquipe()%></td>
-
-                    <td><%=liste.get(i).id_capitaine()%></td>
-                    <td><%=liste.get(i).getSport()%></td>
-                    <td><%=liste.get(i).getNbJoueurs()%></td>
-                    <td><%=liste.get(i).getNbPartiesJouees()%></td>
-
-=======
->>>>>>> 89a3477efd1a7ec883d5f195bde248c156940a84
-
 
 
 <body>
@@ -105,11 +56,9 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-<<<<<<< HEAD
-            <form class="form-signin needs-validation " action="?action=equipe" method="post" name="action" value="equipe" enctype="multipart/form-data" novalidate>
-=======
+
             <form class="form-signin needs-validation " action="?action=equipe" method="post" name="action" value="ajoutImage" enctype="multipart/form-data" novalidate>
->>>>>>> 89a3477efd1a7ec883d5f195bde248c156940a84
+
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" name="nomEquipe" placeholder="Nom de l'équipe" required />

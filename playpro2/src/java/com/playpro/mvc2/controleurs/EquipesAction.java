@@ -74,10 +74,11 @@ public class EquipesAction extends AbstractAction {
                 }
                 request.setAttribute("message", "File uploaded successfully!");
             } catch (IOException ex) {
-                Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
+                
                 request.setAttribute("message", "File NOT uploaded successfully!");
+
             } catch (ServletException ex) {
-                Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(EquipesAction.class.getName()).log(Level.SEVERE, null, ex);
                 request.setAttribute("message", "File NOT uploaded successfully!");
             }
 
@@ -98,12 +99,7 @@ public class EquipesAction extends AbstractAction {
         
         
         
-<<<<<<< HEAD
-//        listeequipes.add(a);
-       
-        request.setAttribute("listeEquipe", listeequipes);
-        request.getSession().setAttribute("viewConf","loadEquipe");
-=======
+
         List<Equipe> listeequipes = new LinkedList<Equipe>();
 
 //        Equipe a = new Equipe();
@@ -114,7 +110,7 @@ public class EquipesAction extends AbstractAction {
 
 //        System.out.println("equipe 1 = "+listeequipes.get(0).getNomEquipe());
         request.getSession().setAttribute("viewConf", "loadEquipe");
->>>>>>> 89a3477efd1a7ec883d5f195bde248c156940a84
+
         return "portail";
     }
     
