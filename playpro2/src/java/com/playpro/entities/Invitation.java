@@ -13,9 +13,14 @@ import java.time.LocalDate;
  */
 public class Invitation {
     private String id;
-    private String nomEquipe;
-    private String idMembre;
+    private String id_capitain;
+    private String equipeExpediteur;
+    private String equipeDestinataire;
     private LocalDate dateEnvoi;
-    private String statut;
+    
+    
+    public Invitation(){
+        
+    }
     
 }

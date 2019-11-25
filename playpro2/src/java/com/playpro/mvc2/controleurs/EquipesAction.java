@@ -6,6 +6,7 @@
 package com.playpro.mvc2.controleurs;
 
 import com.playpro.daos.EquipesDAO;
+import com.playpro.daos.SportDAO;
 import com.playpro.entities.Equipe;
 import com.playpro.entities.Membre;
 import com.playpro.entities.Equipe;
@@ -40,10 +41,19 @@ public class EquipesAction extends AbstractAction {
         String nomEquipe = request.getParameter("nomEquipe");
         String nomSport = request.getParameter("nomSportEquipe");
         String imageEquipe = request.getParameter("imageEquipe");
-        Membre cap=(Membre) request.getSession().getAttribute("membre");
-        
-        System.out.println("id membre = "+cap.getId());
-        System.out.println("sport choisi formulaire = "+nomSport);
+        Membre cap = (Membre) request.getSession().getAttribute("membre");
+
+        List<Part> part = null;
+        try {
+            part = (List<Part>) request.getParts();
+        } catch (IOException ex) {
+            Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ServletException ex) {
+            Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        System.out.println("id membre = " + cap.getId());
+        System.out.println("sport choisi formulaire = " + nomSport);
 
         int nbMaxEquipe = 0;
 
@@ -55,33 +65,36 @@ public class EquipesAction extends AbstractAction {
             // constructs path of the directory to save uploaded file
             String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
 
+            UploadPhoto up = new UploadPhoto();
+
+            imageEquipe = up.uploader(part, UPLOAD_DIR, applicationPath, imageEquipe);
+
             // creates the save directory if it does not exists
-            File fileSaveDir = new File(uploadFilePath);
-            if (!fileSaveDir.exists()) {
-                fileSaveDir.mkdirs();
-            }
-            System.out.println("Upload File Directory=" + fileSaveDir.getAbsolutePath());
-
-            try {
-                //Get all the parts from request and write it to the file on server
-                for (Part part : request.getParts()) {
-                    String fileName = (String) getFileName(part);
-                    if (!fileName.equals("")) {
-                        part.write(uploadFilePath + File.separator + fileName);
-                        imageEquipe = fileName;
-                        System.out.println("FILE NAME : " + fileName);
-                    }
-                }
-                request.setAttribute("message", "File uploaded successfully!");
-            } catch (IOException ex) {
-                
-                request.setAttribute("message", "File NOT uploaded successfully!");
-
-            } catch (ServletException ex) {
-                Logger.getLogger(EquipesAction.class.getName()).log(Level.SEVERE, null, ex);
-                request.setAttribute("message", "File NOT uploaded successfully!");
-            }
-
+//            File fileSaveDir = new File(uploadFilePath);
+//            if (!fileSaveDir.exists()) {
+//                fileSaveDir.mkdirs();
+//            }
+//            System.out.println("Upload File Directory=" + fileSaveDir.getAbsolutePath());
+//
+//            try {
+//                //Get all the parts from request and write it to the file on server
+//                for (Part part : request.getParts()) {
+//                    String fileName = (String) getFileName(part);
+//                    if (!fileName.equals("")) {
+//                        part.write(uploadFilePath + File.separator + fileName);
+//                        imageEquipe = fileName;
+//                        System.out.println("FILE NAME : " + fileName);
+//                    }
+//                }
+//                request.setAttribute("message", "File uploaded successfully!");
+//            } catch (IOException ex) {
+//                
+//                request.setAttribute("message", "File NOT uploaded successfully!");
+//
+//            } catch (ServletException ex) {
+//                Logger.getLogger(EquipesAction.class.getName()).log(Level.SEVERE, null, ex);
+//                request.setAttribute("message", "File NOT uploaded successfully!");
+//            }
             Equipe e = new Equipe();
             e.setNomEquipe(nomEquipe);
             e.setNbJoueurs(nbMaxEquipe);
@@ -90,15 +103,22 @@ public class EquipesAction extends AbstractAction {
             e.setSport(s);
             e.setImage(imageEquipe);
             e.setId_capitaine(cap.getId());
-            
+            e.setCapitaine(cap);
 
             EquipesServices.creerEquipe(e);
         }
+        List<String> listeq = new LinkedList<String>();
+        SportDAO sports = new SportDAO();
+        List<Sport> s = new LinkedList<Sport>();
+        s = sports.findAll();
 
-        
-        
-        
-        
+        System.out.println("liste de sport existante");
+        for (int j = 0; j < s.size(); j++) {
+            System.out.println(j + s.get(j).getNom());
+            listeq.add(s.get(j).getNom());
+        }
+
+        request.getSession().setAttribute("sportString", listeq);
 
         List<Equipe> listeequipes = new LinkedList<Equipe>();
 
@@ -113,8 +133,7 @@ public class EquipesAction extends AbstractAction {
 
         return "portail";
     }
-    
-    
+
     private String getFileName(Part part) {
         String contentDisp = part.getHeader("content-disposition");
         System.out.println("content-disposition header= " + contentDisp);
