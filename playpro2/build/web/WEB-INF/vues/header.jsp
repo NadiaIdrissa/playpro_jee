@@ -88,7 +88,7 @@
                         <a class="nav-link" href="#cal">Calendrier <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="?action=aPropos">À propos <span class="sr-only"></span></a>
+                        <a class="nav-link" href="#apropos">À propos <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="?action=nousJoindre">Contact<span class="sr-only"></span></a>

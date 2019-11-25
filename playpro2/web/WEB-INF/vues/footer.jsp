@@ -164,7 +164,8 @@
                             </a>
 
                             <div class="collapse text-white " id="three" data-parent="#accordion">
-                                Rue Quelque part à Montréal XXXXXX QC Canada
+                                6400 16e Avenue, H1X 2S9<br>
+                                Montréal, QC Canada
                             </div>
                         </div>
 
@@ -180,7 +181,7 @@
 
                             <div class="collapse text-white d-lg-flex " id="one" data-parent="#accordion">
 
-                                <ul class="list-unstyled d-flex w-100 justify-content-between">
+                                <ul class="list-unstyled d-flex w-100 justify-content-around">
                                     <li>
                                         <a href="#" class="nav-link p-0">
                                             <i class="fa fa-twitter"></i>

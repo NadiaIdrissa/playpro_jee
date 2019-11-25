@@ -244,3 +244,20 @@ h1{
     height:450px;
     width:750px
 }
+
+/*Présentation membres index*/
+.present{
+    min-height: 205px;
+    position: relative;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.detailsStyle{
+    color: gray;
+}
+
+/*.presMembres{
+    position: absolute;
+    bottom : 0%;
+}*/

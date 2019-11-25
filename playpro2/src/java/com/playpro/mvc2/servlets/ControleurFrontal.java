@@ -68,7 +68,6 @@ public class ControleurFrontal extends HttpServlet {
             case "index":
                 action = new IndexAction();
                 break;
-
             case "signup":
                 action = new SignupAction();
                 break;
@@ -108,15 +107,12 @@ public class ControleurFrontal extends HttpServlet {
             case "membres":
                 action = new MembresAction();
                 break;
-
             case "equipe":
                 action = new EquipesAction();
                 break;
-
             case "ajoutImage":
                 action = new SportsAction();
                 break;
-
             default:
                 action = new DefaultAction();
         }

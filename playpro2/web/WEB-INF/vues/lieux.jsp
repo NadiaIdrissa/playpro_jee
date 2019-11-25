@@ -67,12 +67,12 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <input type="text" name="nom" placeholder="Nom du lieu"  />
-                            <input type="text" name="numero" placeholder="Numero civic"  />
+                            <input type="text" name="numero" placeholder="Numéro civique"  />
                             <input type="text" name="rue" placeholder="Nom de la rue"  />
                             <input type="text" name="ville" placeholder="Ville"  />
                             <input type="text" name="pays" placeholder="Pays"  />
                             <input type="text" name="code_postal" placeholder="Code postal"  />
-                            <input type="text" name="infos" placeholder="Info suplementaire"  />
+                            <input type="text" name="infos" placeholder="Info supplémentaire"  />
                         </div>
                         <div class="form-group">
                             <select class="form-control" id="exampleFormControlSelect1" name="sports" multiple required> 

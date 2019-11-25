@@ -24,10 +24,10 @@
     <body>
         
         <%@include file="header.jsp" %>
-        <c:if test="${sessionScope.connected == null }">
+        <%--<c:if test="${sessionScope.connected == null }">--%>
 
             <%--<jsp:forward page="login.jsp" />--%>
-            <section class="banner">
+            <!--<section class="banner">-->
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6">
@@ -46,13 +46,13 @@
                                 l'application gèrera les notifications afin de tenir l'utilisateur à jour, en tout temps,
                                 de tout changement relatif à ses activités.
                             </p>
-                            <a href='#' class="btnD">Créer un compte</a>
+                            <!--<a href='#' class="btnD">Créer un compte</a>-->
 
                         </div>
                     </div>
                 </div>
-            </section>
-        </c:if>
+            <!--</section>-->
+        <%--</c:if>--%>
 
         </div>
      <%@include file="footer.jsp" %>
