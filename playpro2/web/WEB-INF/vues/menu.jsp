@@ -1,22 +1,22 @@
+<%@page import="com.playpro.entities.Membre"%>
 <header>
-    
-    <img src="static/images/logo.png" class="rounded float-left" style='width: 5%; height: auto;' alt="Responsive image">
-    <button id="showMenu" style='float: right;'>Menu</button>
+    <div class="navbar" style="background-color: #e9ecef">
+        <a class="navbar-brand" href="#">
+            <img src="static/images/logo.png" alt="Logo" style="width:40px;">
+        </a>
+        <!--<img src="static/images/logo.png" class="rounded float-left affichageLogo" alt="Responsive image">-->
+        
+        <%if ((request.getSession().getAttribute("connected") != null) && 
+            ((boolean) request.getSession().getAttribute("connected") == true)){
+            Membre me = null;
+            me = (Membre) request.getSession().getAttribute("membre");
+        %>
+            <a class="affichageNom navbar-header">Bienvenue <%=me.getPrenom()%></a>
+            <button id="showMenu" class="float-right">Menu</button>
+            
+        <%}else{%>
+            <button id="showMenu" class="float-right">Menu</button>
+        <%}%>
+    </div>
 </header>
 
-
-
-<!--<div id="perspective" class="perspective effect-movedown">-->
-    
-    
-    
-    <nav class="outer-nav top horizontal">
-				<a href="#" class="icon-home">Home</a>
-				<a href="#" class="icon-news">News</a>
-				<a href="#" class="icon-image">Images</a>
-				<a href="#" class="icon-upload">Uploads</a>
-				<a href="#" class="icon-star">Favorites</a>
-				<a href="#" class="icon-mail">Messages</a>
-				<a href="#" class="icon-lock">Security</a>
-			</nav>
-<!--</div>-->

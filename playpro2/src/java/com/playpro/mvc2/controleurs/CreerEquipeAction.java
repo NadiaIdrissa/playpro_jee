@@ -5,6 +5,11 @@
  */
 package com.playpro.mvc2.controleurs;
 
+import com.playpro.daos.MembreDAO;
+import com.playpro.entities.Membre;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
  * @author salpy
@@ -12,7 +17,19 @@ package com.playpro.mvc2.controleurs;
 public class CreerEquipeAction extends AbstractAction  {
    @Override
     public String execute() {
-        return "creerequipe";
+//        MembreDAO dao = new MembreDAO();
+//        List<Membre> liste = new LinkedList<>();
+//        liste = dao.findAll();
+//        request.setAttribute("Membres", liste);
+//        for (Membre membre : liste) {
+//            System.out.println("Taaille: "+liste.size());
+//            System.out.println(membre.getNom());
+//       }
+//        boolean reussi = dao.create(new Membre());
+//        
+//        System.out.println("Ecriture : "+reussi);
+        
+        return "creerEquipe";
     }
     
 }

@@ -1,4 +1,6 @@
-<div class="container">
+
+
+<!--<div class="container">
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -10,31 +12,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="nav nav-tabs">        
         <li class="nav-item">
-            <a class="nav-link " href="?action=calendar"><span class="glyphicon glyphicon-calendar"></span> Calendrier</a>
+          <a class="nav-link " href="?action=aPropos">À propos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="?action=aPropos">À propos de nous</a>
+          <a class="nav-link " href="?action=nousJoindre">Contact</a>
         </li>
+                
         <li class="nav-item">
-          <a class="nav-link " href="?action=nousJoindre">Nous joindre</a>
-        </li>
-        
-
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="Recherche" placeholder="Recherche" aria-label="Recherche">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
-        </form>        
-        <li class="nav-item">
-            <a class="nav-link " href="?action=signup"><span class="glyphicon glyphicon-user"></span> S'incrire </a>      
+            <a class="nav-link " href="?action=signup"><span class="glyphicon glyphicon-user"></span> S'inscrire </a>      
         </li>
         <li class="nav-item">
             <a class="nav-link " href="?action=login"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link " href="?action=creerEquipe"><i class="fas fa-sign-in-alt"></i>Créer Équipe</a>
-        </li>
+
     </ul>
  
   </div>    
@@ -42,4 +32,90 @@
 </nav> 
 
 
-</div> 
+</div> -->
+
+
+<!--Ancien header de Younes-->
+<!--<header>
+    <nav class='navbar-right navbar-expand-sm'>
+        <div class="menu-icon">
+            <i class="fa fa-bars fa-2x"></i>
+        </div>
+        <div class="logo">
+            <a class="navbar-brand" href="#">
+                <img src="static/images/logo.png" width="100" height="100" class="d-inline-block align-top" alt="">
+                                PlayPro
+            </a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Calendrier</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="?action=signup">Connexion</a></li>
+                <li><a href="#">Nous joindre</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Connexion
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Se connecter</a>
+                        <a class="dropdown-item" href="#">Créer compte</a>
+                    </div>
+
+
+            </ul>
+        </div>
+    </nav>
+</header>-->
+
+    <div class="container headerV">
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary text-white fixed-top" role="navigation">
+            <a class="navbar-brand" href="?action=index">
+                <img src="static/images/logo.png" width="100" height="100" class="d-inline-block align-top" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="?action=index">Accueil <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#cal">Calendrier <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="?action=aPropos">À propos <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="?action=nousJoindre">Contact<span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Connexion
+                        </a>
+                        <div class="dropdown-menu" style="left: -60px;" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="?action=login">Se connecter</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="?action=signup">Créer un compte</a>
+                        </div>
+                    </li>
+
+
+
+                </ul>
+
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+
+
+
+
+

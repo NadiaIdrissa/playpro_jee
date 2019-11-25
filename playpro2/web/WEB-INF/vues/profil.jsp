@@ -1,232 +1,202 @@
 <%-- 
     Document   : profil
-    Created on : 2019-10-12, 18:30:53
-    Author     : Piaf
+    Created on : 2019-10-05, 15:53:52
+    Author     : dd
 --%>
 
+<%@page import="com.playpro.entities.Sexe"%>
+<%@page import="com.playpro.entities.Niveau"%>
 <%@page import="com.playpro.entities.Membre"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
-        <script src="static/bootstrap/jQuery/jquery-3.2.1.slim.min.js" ></script>
+    <div class="contentProfil">
+        <%--        <img id='imagejoueur' src="static/images/head01.png" class="rounded" alt="imgprofil">
 
-        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
-        <script src="static/bootstrap/js/bootstrap.min.js" ></script>            
-        <link href="static/css/styleMembre.css" rel="stylesheet" type="text/css">
-        <title>Profil</title>
-        <link rel="stylesheet" href="static/bootstrap/fontAwesome/css/font-awesome.min.css">
-        <!--<link href="static/bootstrap/fontAwesome/css/all.min.css" rel="stylesheet" type="text/css">-->
-    </head>            
-    <style>
+    </div>
+<!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
-    </style>
-    <%
-        Membre m=(Membre)request.getSession().getAttribute("membre");
-    %>
-<body>
-    <%@include file="header.jsp" %>
-    <div class="container">
-        <br>  <p class="text-center">Header</p>
-        <hr>
+        </div>--%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <form  id="fprofil" action="?action=profil" method="post" name="action" value="profil" enctype="multipart/form-data">
+            <div class="modal-header">
+                <div class="text-center">
+                    <img id='imagejoueur' src="static/images/profils/<c:out value="${membre.photo}"/> " class="rounded" alt="imgprofil">
+                    <input id="imageMembre" type="hidden" class="form-control" name="imageMembre" />
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <!--                <form  id="fprofil" action="" method="post" name="action" value="profil">-->
+                    <!--<input type="hidden" name="action" value="profil" method="post"/>-->
 
-        <div class="card bg-light">
-            <article>
-                <div class="container-fluid del ">
-                    
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-3">
-                            <div>
-                                <div class="card-body imgUp">
-                                    <div class="imagePreview"></div>
-                                    <label class="btn btn-primary">
-                                        Télécharger<input type="file"  class="uploadFile img"  value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
-                                    </label>
-                                </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="vl">
+                                <span class="vl-innertext">+</span>
                             </div>
-                        </div>
-                        
-                        <div class="col-sm-12 col-md-6 col-lg-6 my-1">
-                            <div>
-                                <div >
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button">
-                                                <i class="fa fa-search" aria-hidden="true"></i></button>
-                                        </span>
-                                        <input type="search" id="accordion_search_bar" class="form-control" placeholder="Tapez l'information à modifier.">
+                            <div class="col">
+                                <div class="form-row">
+                                    <div class="col-md-12 mb-12">
+                                        <label for="pseudoR">Pseudo</label>
+                                        <input type="text" name='pseudoR' class="form-control" id="pse1" value="${sessionScope.membre.pseudo}"  disabled required>
+                                        <div class="invalid-feedback">
+                                            Champ requis.
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 mb-12">
+                                        <label for="nomR">Nom</label>
+                                        <input type="text" name='nomR' class="form-control" id="nom2" value="${sessionScope.membre.nom}"  disabled required>
+                                        <div class="invalid-feedback">
+                                            Champ requis.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-12">
+                                        <label for="prenomR">Prénom</label>
+                                        <input type="text" name='prenomR' class="form-control" id="pre3" value="${sessionScope.membre.prenom}"  disabled required>
+                                        <div class="invalid-feedback">
+                                            Champ requis.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-12">
+                                        <label for="inputLevel">Année de naissance</label>
+                                        <input type="text" name='anneeR' class="form-control" id="ann4" value="${sessionScope.membre.anneeNaissance}"  disabled required>
+                                        <div class="invalid-feedback">
+                                            Champ requis.
+                                        </div>
+                                    </div>
+                                    <div id='prenom' class="col-md-12 mb-12">
+                                        <div  class="form-group">
+                                            <label for="inputLevel">Sexe</label>
+                                            <select class="form-control" name="sexeR" id="sex5"  disabled required>
+                                                <option value='' >${sessionScope.membre.sexe}</option>
+
+                                                <%for (Sexe s : Sexe.values()) {%>
+
+                                                <option value='<%=s.toString()%>'><%=s.toString()%></option>
+
+                                                <%}%>
+                                            </select>
+                                        </div>   
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 mb-12">
+                                        <input type="email" name='emailR' class="form-control" id="ema6" value="${sessionScope.membre.courriel}"  disabled  required>
+                                        <div class="invalid-feedback">
+                                            Entrez un courriel valide.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="titreCard text-center">
-                                <h1>Bienvenue</h1>
-                            </div>
-                        </div>
-                        
-                        <div class="col-sm-12 col-md-6 col-lg-3 my-1">
-                            <div class="card cardmargin">
-                                <a class="btn btn-info dropdown-toggle" href="#" id="notifications-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i id="notificationsIcon" class="fa fa-bell-o" aria-hidden="true"><span id="kk">amis</span></i>
-                                    <span id="notificationsBadge" class="badge badge-danger"><i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i></span>
-                                </a>
-                                <div class="card-body">Some contentbdbdbdfjkgfjfjfsgsgsgsgsgsgjjffhdfhdfhdhhdhhdhhdhdhdhdbdbbd</div>
-                            </div>
-                        </div>
-                    </div><!--End row-->
-                    
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-12"> 
-                            <div class="container">
-                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default" id="collapseOne_container">
-                                        <div class="panel-heading" role="tab" id="headingOne">
-                                            <h4 class="panel-title">
-                                                <a role="button" 
-                                                   data-toggle="collapse" 
-                                                   data-parent="#accordion" 
-                                                   href="#collapseOne" 
-                                                   aria-expanded="true" 
-                                                   aria-controls="collapseOne">
-                                                    <i class="fa fa-user fa-fw" aria-hidden="true"></i><span id="infPers">Informations personnelles</span>
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        
-                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                            <div class="panel-body">
-                                                <label for="pseudo">Pseudo:</label>
-                                                <input type="text" id="pseudo" placeholder="Miqui" disabled><br>
-                                                <label for="pwd">Mot de passe:</label>
-                                                <input type="password" id="pwd" value="Mickey" disabled> 
-                                                <label for="nom">Nom:</label>
-                                                <input type="text" value="Mickey" id="nom" disabled> 
-                                                <label for="pwd">Prénom:</label>
-                                                <input type="text" value="Mickey" id="prenom" disabled>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="panel-heading" role="tab" id="headingTwo">
-                                            <h4 class="panel-title">
-                                                <a role="button" 
-                                                   data-toggle="collapse" 
-                                                   data-parent="#accordion" 
-                                                   href="#collapseTwo" 
-                                                   aria-expanded="true" 
-                                                   aria-controls="collapseOne">
-                                                    <i class="fa fa-male fa-fw" aria-hidden="true"></i><span id="infPers">Mon profil</span>
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        
-                                        <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                            <div class="panel-body">
-                                                <label for="sex">Sexe:</label>
 
-                                                <select id="sex">
-                                                    <option>Homme</option>
-                                                    <option>Femme</option>
-                                                    <option>Autre</option>                         
-                                                </select><br>
-                                                <label for="tmemb">Type de membre:</label>
-                                                <input type="text" id="tmemb" disabled />
-                                                <label for="equi">Équipe:</label>
-                                                <input type="text" id="equi" disabled/>
-                                                <label for="dInsc">Date-Inscription:</label>
-                                                <input type="text" placeholder="jj/mm/aa" id="dInsc" disabled/>
-                                            </div>
+                            <div class="col">
+                                <div class="form-row">
+                                    <div id='niveaug' class="col-md-12 mb-12">
+                                        <div  class="form-group">
+                                            <label for="tMembreR">Type de membre</label>
+                                            <select class="form-control" name="tMembreR" id="mem7" disabled required>
+
+                                                <option selected="selected">${sessionScope.membre.typeMembre}</option>
+
+                                                <option value='Joueur'>Joueur</option>
+                                            </select>
                                         </div>
                                     </div>
-                                    
-                                    <div class="panel panel-default" id="collapseThree_Container">
-                                        <div class="panel-heading" role="tab" id="headingThree">
-                                            <h4 class="panel-title">
-                                                <a class="collapsed" 
-                                                   role="button" 
-                                                   data-toggle="collapse" 
-                                                   data-parent="#accordion" 
-                                                   href="#collapseThree" 
-                                                   aria-expanded="false" 
-                                                   aria-controls="collapseThree">
-                                                    <i class="fa fa-envelope fa-fw" aria-hidden="true"></i></i><span id="infPers">Mes contacts</span>
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
-                                            <div class="panel-body">
-                                                <label for="email">Courriel:</label>
-                                                <input type="text" placeholder="myemail@gmail.com" id="email" disabled/> 
-                                                <label for="dateN">Date de naissance:</label>
-                                                <input id="datepicker" width="276"   id="dateN" disabled/>
 
-                                            </div>
+                                    <div class="col-md-12 mb-12">
+                                        <label for="pseudoR">Sport</label>
+                                        <input type="text" name='sportR' class="form-control" id="spo8" value="${sessionScope.membre.sport}"   disabled required>
+                                        <div class="invalid-feedback">
+                                            Champ requis.
                                         </div>
-                                        <div class="btn-toolbar justify-content-between">
-                                            <button type="button" class="btn btn-outline-primary" onclick="myFunction2()" id="sauv" disabled>Annuler</button>
-                                            <button type="button" class="btn btn-outline-success" onclick="myFunction()">Modifier</button>
-                                        </div>
-                                        <p>Information entièrement confidentielle</p>
                                     </div>
-                                    
-                                </div>  <!--End row2-->         
-                            </div><!--End container fluid-->
-                        </div><!--End container fluid-->
-                    </div><!--End container fluid-->
-            </article>
-        </div> <!-- card.// -->  
-        <hr>      
-    </div> 
-    <!--container end.//-->
 
-    <br><br>
+                                    <div id='niveaug' class="col-md-12 mb-12">
+                                        <div  class="form-group">
+                                            <label for="inputLevel">Niveau</label>
+                                            <select class="form-control" name="niveauR" id="niv9"  disabled required>
+                                                <option value='' >${sessionScope.membre.niveau}</option>
 
-<!--    <article class="bg-secondary mb-3">  
-        <div class="card-body text-center">
-            <h3 class="text-white mt-3">footer</h3>
+                                                <%for (Niveau n : Niveau.values()) {%>
 
-        </div>
-        <br><br>
-    </article>-->
-<%@include file="footer.jsp" %>
+                                                <option value='<%=n.toString()%>'><%=n.toString()%></option>
 
+                                                <%}%>
+                                            </select>
+                                        </div>
+                                    </div>
 
+                                    <div class="col-md-12 mb-12">
 
+                                        <label for="passwordR">Changement de mot de passe</label>
+                                        <input type="password"  name='passwordR' class="form-control"  id="pas10" value=""  disabled required>
+                                        <%
+                                            if (request.getSession().getAttribute("valid") == "vrai" && request.getSession().getAttribute("valid") != null) {
+                                        %>
+                                        <label><span style="color: red;">Les mots de passe ne sont pas égaux</span></label>
+                                        <%
+                                            }
+                                        %>
+                                        <div class="invalid-feedback">
+                                            Mot de passe requis.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-12">
+                                        <label for="CpasswordR">Confirmation mot de passe</label>
+                                        <input type="password"  name='CpasswordR' class="form-control"  id="cpas11"value=""  disabled required>
+                                        <div class="invalid-feedback">
+                                            Mot de passe requis.
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <div class="modal-footer">
 
-    <!--a telecharger-->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
+                                    <button class="btn btn-primary btn-sm" id="bb" onclick="enableSummit()" type="button">Modifier</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>                       
+                        <a class="btn btn-danger btn-sm" href="?action=portail&sousAction=loadSupp" role="button">Suppression de compte</a>
+                    </div>
+                </div>    
+            </div>
+        </form>
+    </div>
     <script>
-        $(".imgAdd").click(function () {
-            $(this).closest(".row").find('.imgAdd').before('<div class="col-sm-2 imgUp"><div class="imagePreview"></div><label class="btn btn-primary">Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;"></label><i class="fa fa-times del"></i></div>');
-        });
-        $(document).on("click", "i.del", function () {
-            $(this).parent().remove();
-        });
-        $(function () {
-            $(document).on("change", ".uploadFile", function ()
+        function enableSummit() {
+            var change = document.getElementById("bb");
+            // var typ = document.getElementById("bb").type;
+            //document.getElementsByTagName('button').style.backgroundColor="green";
+            if (change.innerHTML == "Modifier")
             {
-                var uploadFile = $(this);
-                var files = !!this.files ? this.files : [];
-                if (!files.length || !window.FileReader)
-                    return; // no file selected, or no FileReader support
+                change.innerHTML = "Enregistrer";
+                change.style.backgroundColor = "green";
 
-                if (/^image/.test(files[0].type)) { // only image file
-                    var reader = new FileReader(); // instance of the FileReader
-                    reader.readAsDataURL(files[0]); // read the local file
+                document.getElementById("pse1").disabled = false;
+                document.getElementById("nom2").disabled = false;
+                document.getElementById("pre3").disabled = false;
+                document.getElementById("ann4").disabled = false;
+                document.getElementById("sex5").disabled = false;
+                document.getElementById("ema6").disabled = false;
+                document.getElementById("mem7").disabled = false;
+                document.getElementById("spo8").disabled = false;
+                document.getElementById("niv9").disabled = false;
+                document.getElementById("pas10").disabled = false;
+                document.getElementById("cpas11").disabled = false;
+                $('#imageMembre').attr('type', 'file');
+            } else {
 
-                    reader.onloadend = function () { // set image data as background of div
-                        //alert(uploadFile.closest(".upimage").find('.imagePreview').length);
-                        uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url(" + this.result + ")");
-                    };
-                };
-
-            });
-        });
+                change.style.backgroundColor = "blue";
+                document.getElementById("fprofil").submit();
+                //                        change.type="submit";
+            }
+        }
     </script>
-
-
-</body>
 </html>

@@ -1,4 +1,4 @@
-@font-face {
+/*@font-face {
 	font-family: 'typicons';
 	src:url('../fonts/typicons/typicons.eot');
 	src:url('../fonts/typicons/typicons.eot?#iefix') format('embedded-opentype'),
@@ -7,7 +7,7 @@
 		url('../fonts/typicons/typicons.svg#typicons') format('svg');
 	font-weight: normal;
 	font-style: normal;
-}
+}*/
 
 html, body, .perspective {
 	width: 100%;
@@ -143,12 +143,12 @@ html, body, .perspective {
 }
 
 .outer-nav.horizontal a {
-	margin: 15px 20px;
+	margin: 30px 20px;
 }
 
 .outer-nav a::before {
 	display: inline-block;
-	font-family: 'typicons';
+	/*font-family: 'typicons';*/
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -383,7 +383,7 @@ html, body, .perspective {
 
 /* Effect Move Down */
 .effect-movedown {
-	background: #34495e;
+	background: #003A5C;
 }
 
 .effect-movedown .container {
@@ -415,7 +415,7 @@ html, body, .perspective {
 }
 
 .effect-movedown .outer-nav a:hover {
-	color: #ed8151;
+	color: #FF1744;
 }
 
 .effect-movedown.animate .outer-nav a {
@@ -481,7 +481,7 @@ html, body, .perspective {
 
 .effect-rotatetop .outer-nav a {
 	opacity: 0;
-	color: #ed8151;
+	color: #FF1744;
 	-webkit-transform: translateY(200px) translateZ(-1000px);
 	transform: translateY(200px) translateZ(-1000px);
 	-webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
@@ -622,7 +622,7 @@ html, body, .perspective {
 	
 	.outer-nav.horizontal {
 		font-size: 1.7em;
-		width: 6.2em;
+		width: 8em;
 	}
 
 	.outer-nav.horizontal a {
@@ -642,12 +642,12 @@ html, body, .perspective {
 	}
 
 }
-
+ 
 @media screen and (max-width: 31em), screen and (max-height: 36.2em) {
 	.outer-nav.horizontal,
 	.outer-nav.vertical {
 		font-size: 1.2em;
-		width: 6.8em;
+		width: 9.5em;
 	}
 
 	.outer-nav.right {
