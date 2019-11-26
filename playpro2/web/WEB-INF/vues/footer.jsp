@@ -136,7 +136,7 @@
 
 
 
-<footer class="bg-dark py-5">
+<footer class="bg-secondary py-5">
 
     <div class="container">
 
@@ -146,7 +146,7 @@
                     <div class="accordion d-lg-flex w-100" id="accordion" >
 
                         <div class="col-lg-4 col-md-12">
-                            <a href="#two" class="h4 text-white" data-toggle="collapse" >
+                            <a href="#two" class="iconesReseaux" data-toggle="collapse" >
                                 Contact  
                             </a>
 
@@ -159,7 +159,7 @@
 
 
                         <div class="col-lg-4 col-md-12">
-                            <a href="#three" class="h4 text-white" data-toggle="collapse" >
+                            <a href="#three" class="iconesReseaux" data-toggle="collapse" >
                                 Adresse 
                             </a>
 
@@ -172,14 +172,14 @@
 
 
                         <div class="col-lg-4 col-md-12">
-                            <a href="#one" class="h4 text-white nav-link p-0 d-block d-lg-none d-xl-none" data-toggle="collapse" >
+                            <a href="#one" class="iconesReseaux nav-link p-0 d-block d-lg-none d-xl-none" data-toggle="collapse" >
                                 Suivez-nous !
                             </a>
-                            <div class="text-white h4 d-none d-lg-block d-xl-block">
+                            <div class="iconesReseaux d-none d-lg-block d-xl-block">
                                 Suivez-nous !
                             </div>
 
-                            <div class="collapse text-white d-lg-flex " id="one" data-parent="#accordion">
+                            <div class="iconesReseaux collapse text-white d-lg-flex " id="one" data-parent="#accordion">
 
                                 <ul class="list-unstyled d-flex w-100 justify-content-around">
                                     <li>

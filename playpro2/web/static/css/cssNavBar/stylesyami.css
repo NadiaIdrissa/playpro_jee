@@ -155,7 +155,6 @@ header .headerV{
     position: absolute;
     z-index: 10;
     width: 100%;
-    
 }
 
 .navbar{
@@ -176,7 +175,7 @@ header .headerV{
 }
 .navbar-light .navbar-nav .nav-item .nav-link:hover,
 .navbar-light .navbar-nav .nav-item .active .nav-link {
-    background: #262626;
+    /*background: #262626;*/
     color: #fff;
 }
 
@@ -211,7 +210,6 @@ header .headerV{
     margin: 1em 0 0;
     padding: 10px 20px;
     background: graytext;
-    
     color: #fff;
     text-transform: uppercase;
     border: none;
@@ -224,6 +222,15 @@ header .headerV{
     border: 2px solid #7f7f7f;
     border-radius: 0;
     outline: none;
+    margin-right: 15px;
+}
+
+.nav-item{
+    margin-left: 15px;
+}
+
+.navbar-nav .dropdown-menu {
+    width: fit-content;
 }
 
 h1{
@@ -246,6 +253,15 @@ h1{
 }
 
 /*Présentation membres index*/
+.subtitleInd{
+    padding-bottom: 10px;
+    color: #003A5C;
+    background: whitesmoke;
+    text-transform: uppercase; 
+    text-align: center; 
+    padding-top: 70px;
+}
+
 .present{
     min-height: 205px;
     position: relative;
@@ -257,7 +273,43 @@ h1{
     color: gray;
 }
 
-/*.presMembres{
+/*Footer*/
+.iconesReseaux{
+    text-transform: uppercase;
+    font-weight: 800;
+    text-decoration: none;
+    color: #262626;
+}
+
+.iconesReseaux a{
+    color: #262626;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.iconesReseaux:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.iconesReseaux a:hover{
+    color: #80cccc;
+}
+
+#one{
+    font-size: x-large;
+    padding-top: 5px;
+}
+
+/*JumpTo*/
+/*#cal{
+    top:1100px;
+    visibility: hidden;
     position: absolute;
-    bottom : 0%;
+}
+
+#apropos{
+    top:103%;
+    visibility: hidden;
+    position: absolute;
 }*/

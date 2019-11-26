@@ -38,16 +38,15 @@
                             existent, mais pour y participer, il faudra vous créer un compte. Ainsi, vous pourrez profiter de toutes les
                             fonctionnalités offertes par PlayPro. 
                         </p>
-                        <a href='#' class="btn btn-secondary btnD">Créer un compte</a>
+                        <a id="apropos" href='#' class="btn btn-secondary btnD">Créer un compte</a>
                     </div>
                 </div>
             </div>
         </section>
     <%--</c:if >--%>
+   
+    <h2 class="subtitleInd">Une gestion d'événements hors du commun</h2>
 
-    <h2 id="apropos" style="text-transform: uppercase; text-align: center; padding-top: 70px;">Une gestion d'événements hors du commun</h2>
-
-    
     <div class="row present">
         <div class="col-md-4 presMembres">
             <h2>Visiteurs</h2>
@@ -57,7 +56,7 @@
             </p>
             
             <p>
-                <a class="btn btn-secondary" aria-haspopup="true" data-toggle="collapse" href="#collapsePres1" role="button" aria-expanded="false" aria-controls="collapsePres1">Détails</a>
+                <a class="btn btn-secondary btnD" aria-haspopup="true" data-toggle="collapse" href="#collapsePres1" role="button" aria-expanded="false" aria-controls="collapsePres1">Détails</a>
             </p>
             <div class="collapse" id="collapsePres1">
                 <div class="detailsStyle">
@@ -75,7 +74,7 @@
                existantes, personnalisez vos parties et vos équipes!
             </p>
             <p>
-                <a class="btn btn-secondary" data-toggle="collapse" href="#collapsePres2" role="button" aria-expanded="false" aria-controls="collapsePres2">Détails</a>
+                <a class="btn btn-secondary btnD" data-toggle="collapse" href="#collapsePres2" role="button" aria-expanded="false" aria-controls="collapsePres2">Détails</a>
             </p>
             <div class="collapse" id="collapsePres2">
                 <div class="detailsStyle">
@@ -93,7 +92,7 @@
                des annonces pour l'organisation de vos cours.
             </p>
             <p>
-                <a class="btn btn-secondary" data-toggle="collapse" href="#collapsePres3" role="button" aria-expanded="false" aria-controls="collapsePres3">Détails</a>
+                <a class="btn btn-secondary btnD" data-toggle="collapse" href="#collapsePres3" role="button" aria-expanded="false" aria-controls="collapsePres3">Détails</a>
             </p>
             <div class="collapse" id="collapsePres3">
                 <div class="detailsStyle">
@@ -111,14 +110,11 @@
             </div>
         </div>
     </div>
-   
-    <%--<%@include file="calendrier2.jsp" %>--%>
-    <h2 id="cal" style="text-transform: uppercase; text-align: center; padding-top: 70px;">Les événements enregistrés jusqu'à présent</h2>
 
+    <h2 id="cal" class="subtitleInd">Les événements enregistrés jusqu'à présent</h2>
     <div class="row" style="margin-left: auto; margin-right: auto;">
         <%@include file="calendrier.jsp" %>
     </div>
-    
 
     <%@include file="footer.jsp" %>
     
