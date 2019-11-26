@@ -42,7 +42,7 @@
 
 
                         <p>
-                            <a class="btn btn-primary"  href="#" role="button" aria-expanded="false" >
+                            <a class="btn btn-primary"  href="#inviterMembre" role="button" aria-expanded="false" >
                                 Inviter un joueur
                             </a>
                             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -130,6 +130,43 @@
         </div>
     </div>
 </div>
+
+<div class="modal" id="inviterMembre" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">Inviter un membre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form class="form-signin needs-validation " action="?action=equipe" method="post" name="action" value="ajoutImage" enctype="multipart/form-data" novalidate>
+
+                <div class="modal-body">                                 
+
+                    <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1" name="nomSportEquipe">
+                            <% List<String> listMembre = (List<String>) request.getSession().getAttribute("sportString");
+
+                                for (int h = 0; h < listGet.size(); h++) {%>
+                            <option value="<%=listGet.get(h)%>" ><%=listGet.get(h)%></option>
+                            <%}
+
+                            %>
+
+                        </select>
+                    </div>
+                    
+                    <!--<button class="" id="boutton1" type="submit">Créer</button>-->
+                </div>
+                <button type="submit" class="btn btn-primary">Inviter</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 
 
