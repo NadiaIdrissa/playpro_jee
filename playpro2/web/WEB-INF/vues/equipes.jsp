@@ -18,52 +18,77 @@
         <div class="card-columns" style="">
             <c:forEach items="${requestScope.listeEquipe}" var="uneEquipe"> 
 
-                <!--                <div class="card" >
-                                    <div class="card-body text-center">
-                                        <img src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
-                
-                                        <p class='card-text'>Nom de l'équipe: <c:out value="${uneEquipe.nomEquipe}" /></p>
-                                        <p class='card-text'>Sport de l'équipe: <c:out value="${uneEquipe.sport.nom}" /></p>
-                                        <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneEquipe.nbJoueurs}" /></p>
-                
-                                    </div> 
-                                </div> -->
-
-                <div class="card" >
 
 
-                    <div class="card-body text-center">
-                        <img class="avatar rounded-circle" src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
+                <form class="form-signin needs-validation " action="?action=invitation" method="post" name="action" novalidate>
+                    <div class="card" >
 
-                        <p class='card-text'>Nom de l'équipe: <c:out value="${uneEquipe.nomEquipe}" /></p>
-                        <p class='card-text'>Sport de l'équipe: <c:out value="${uneEquipe.sport.nom}" /></p>
-                        <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneEquipe.nbJoueurs}" /></p>
+
+                        <div class="card-body text-center">
+                            <img class="avatar rounded-circle" src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
+                            
+                            <p class='card-text'>Nom de l'équipe: <c:out value="${uneEquipe.nomEquipe}" /></p>
+                            <input name="nomEquipeChoisi" type="hidden" value="<c:out value="${uneEquipe.nomEquipe}" />">
+                            
+                            <p class='card-text'>Sport de l'équipe: <c:out value="${uneEquipe.sport.nom}" /></p>
+                            <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneEquipe.nbJoueurs}" /></p>
 
 
 
-                        <p>
-                            <a class="btn btn-primary"  href="#inviterMembre" role="button" aria-expanded="false" >
-                                Inviter un joueur
-                            </a>
-                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <p>
+                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.sport.nom}" />" aria-expanded="false" aria-controls="collapseExample">
+                                    Inviter un joueur
+                                </button>
+
+                            <div class="collapse" id="<c:out value="${uneEquipe.sport.nom}" />">
+                                <div class="card card-body">
+
+
+                                    <!--                                <form class="form-signin needs-validation " action="?action=invitation" method="post" name="action" novalidate>-->
+
+
+                                    <select class="form-control" id="exampleFormControlSelect1" name="nomMembreChoisi">
+                                        <option value="" >Choisir un joueur</option>
+                                        <c:forEach items="${sessionScope.listeDesMembres}" var="unMembre"> 
+                                            <option value="<c:out value="${unMembre.id}" />" ><c:out value="${unMembre.nom}" /></option>
+                                        </c:forEach>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                                    <!--                                </form> -->
+
+
+
+
+
+                                </div>
+
+
+                            </div> 
+
+
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
                                 Afficher les membres
                             </button>
-                        </p>
 
-                        <div class="collapse" id="collapseExample">
-                            <div class="card card-body">
-                                La liste des membres :    
+
+                            </p>
+
+
+
+
+                            <div class="collapse" id="<c:out value="${uneEquipe.nomEquipe}" />">
+                                <div class="card card-body">
+                                    La liste des membres :    
+                                </div>
                             </div>
-                        </div>
 
 
-                        <!--                        <a href="#" class="btn btn-info">Afficher les membres</a>
-                                                <a href="#" class="btn btn-outline-info">Inviter un joueur</a>-->
+                        </div> 
                     </div> 
-                </div> 
-
-
+                </form> 
             </c:forEach>
+
+
         </div> 
     </div>
 
@@ -131,41 +156,6 @@
     </div>
 </div>
 
-<div class="modal" id="inviterMembre" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel1">Inviter un membre</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            <form class="form-signin needs-validation " action="?action=equipe" method="post" name="action" value="ajoutImage" enctype="multipart/form-data" novalidate>
-
-                <div class="modal-body">                                 
-
-                    <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect1" name="nomSportEquipe">
-                            <% List<String> listMembre = (List<String>) request.getSession().getAttribute("sportString");
-
-                                for (int h = 0; h < listGet.size(); h++) {%>
-                            <option value="<%=listGet.get(h)%>" ><%=listGet.get(h)%></option>
-                            <%}
-
-                            %>
-
-                        </select>
-                    </div>
-                    
-                    <!--<button class="" id="boutton1" type="submit">Créer</button>-->
-                </div>
-                <button type="submit" class="btn btn-primary">Inviter</button>
-            </form>
-        </div>
-    </div>
-</div>
 
 
 
