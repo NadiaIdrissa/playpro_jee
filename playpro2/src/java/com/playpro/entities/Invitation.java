@@ -12,8 +12,7 @@ import java.time.LocalDate;
  * @author dd
  */
 public class Invitation {
-    private String id;
-    private String id_capitain;
+    
     private String equipeExpediteur;
     private String equipeDestinataire;
     private LocalDate dateEnvoi;

@@ -18,21 +18,59 @@
         <div class="card-columns" style="">
             <c:forEach items="${requestScope.listeEquipe}" var="uneEquipe"> 
 
+                <!--                <div class="card" >
+                                    <div class="card-body text-center">
+                                        <img src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
+                
+                                        <p class='card-text'>Nom de l'équipe: <c:out value="${uneEquipe.nomEquipe}" /></p>
+                                        <p class='card-text'>Sport de l'équipe: <c:out value="${uneEquipe.sport.nom}" /></p>
+                                        <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneEquipe.nbJoueurs}" /></p>
+                
+                                    </div> 
+                                </div> -->
+
                 <div class="card" >
+
+
                     <div class="card-body text-center">
-                        <img src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
+                        <img class="avatar rounded-circle" src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
 
                         <p class='card-text'>Nom de l'équipe: <c:out value="${uneEquipe.nomEquipe}" /></p>
                         <p class='card-text'>Sport de l'équipe: <c:out value="${uneEquipe.sport.nom}" /></p>
                         <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneEquipe.nbJoueurs}" /></p>
 
+
+
+                        <p>
+                            <a class="btn btn-primary"  href="#" role="button" aria-expanded="false" >
+                                Inviter un joueur
+                            </a>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                Afficher les membres
+                            </button>
+                        </p>
+
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                                La liste des membres :    
+                            </div>
+                        </div>
+
+
+                        <!--                        <a href="#" class="btn btn-info">Afficher les membres</a>
+                                                <a href="#" class="btn btn-outline-info">Inviter un joueur</a>-->
                     </div> 
                 </div> 
+
 
             </c:forEach>
         </div> 
     </div>
-   
+
+
+
+
+
 </body>
 
 <!-- The Modal -->
@@ -92,6 +130,11 @@
         </div>
     </div>
 </div>
+
+
+
+
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
