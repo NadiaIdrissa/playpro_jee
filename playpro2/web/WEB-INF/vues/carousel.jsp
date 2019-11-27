@@ -1,4 +1,5 @@
 
+<br><br>
 <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
   <!-- Indicators -->
    <ol class="carousel-indicators">
@@ -49,7 +50,6 @@
       </div>
     </div>
     </div>
-
   <!-- Left and right controls -->
     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -59,4 +59,18 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
+ 
 </div>
+<div>
+ <h1>
+  PlayPro est une plateforme web qui permettra aux sportifs amateurs
+                                de sports collectifs de gérer leurs matchs.
+                                Notre application sera un outil de communication 
+                                entre amateurs qui offrira des services afin qu'ils puissent organiser 
+                                la pratique de leurs sports collectifs préférés.
+                                Il servira egalement pour les sportifs professionnels : des outils leur seront
+                                offerts afin qu'ils puissent agrandir leur clientèle ou s'en créer une. De plus,
+                                l'application gèrera les notifications afin de tenir l'utilisateur à jour, en tout temps,
+                                de tout changement relatif à ses activités.
+    </h1>
+    </div>
