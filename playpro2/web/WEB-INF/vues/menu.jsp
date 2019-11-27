@@ -2,7 +2,7 @@
 <header>
     <div class="navbar" style="background-color: #e9ecef">
         <a class="navbar-brand" href="#">
-            <img src="static/images/logo.png" alt="Logo" style="width:40px;">
+            <img src="static/images/logo2.svg" alt="Logo" style="width:40%;">
         </a>
         <!--<img src="static/images/logo.png" class="rounded float-left affichageLogo" alt="Responsive image">-->
         
