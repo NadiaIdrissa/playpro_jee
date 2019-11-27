@@ -94,11 +94,11 @@ public class EquipesDAO extends DAO<Equipe> {
                 s = sdao.findById("nomS");
                 e.setSport(s);
                 
-                e.setNomEquipe(r.getString("nb_parties_jouees"));
-                e.setNomEquipe(r.getString("nb_joueurs"));
-                e.setNomEquipe(r.getString("nb_max_joueurs"));
-                e.setNomEquipe(r.getString("date_creation"));
-                e.setNomEquipe(r.getString("image"));
+                e.setNbPartiesJouees(r.getString("nb_parties_jouees"));
+                e.setNbJoueurs(r.getInt("nb_joueurs"));
+                e.setNbMaxJoueurs(r.getString("nb_max_joueurs"));
+                
+                e.setImage(r.getString("image"));
                 
                
                 r.close();

@@ -13,7 +13,7 @@ import java.time.LocalDate;
  */
 public class Invitation {
     
-    private String id_invitation;
+    
     private String id_expediteur;
     private String id_destinataire;
     private String id_requete;
@@ -25,19 +25,13 @@ public class Invitation {
     }
     
     public Invitation(String a, String b, String c){
-        this.id_invitation=a+b;
+        
         this.id_expediteur=a;
         this.id_destinataire=b;
         this.id_requete=c;
     }
 
-    public String getId_invitation() {
-        return id_invitation;
-    }
-
-    public void setId_invitation(String id_invitation) {
-        this.id_invitation = id_invitation;
-    }
+  
 
     public String getId_expediteur() {
         return id_expediteur;
@@ -69,6 +63,11 @@ public class Invitation {
 
     public void setDateEnvoi(LocalDate dateEnvoi) {
         this.dateEnvoi = dateEnvoi;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString(); 
     }
     
     

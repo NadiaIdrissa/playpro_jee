@@ -54,13 +54,20 @@ import com.playpro.services.InvitationServices;
         
         Invitation uneInvitation = new Invitation(expediteur.getId(),destinataire.getId(),equipe.getNomEquipe());
         
+        
+        
+        System.out.println("uneInvitation expediteur = "+expediteur);
+        
+        System.out.println("uneInvitation destina = "+destinataire);
+        System.out.println("uneInvitation reuqte = "+equipe);
+        
 //        uneInvitation.setId_expediteur(expediteur.getId());
 //        uneInvitation.setId_destinataire(destinataire.getId());
 //        uneInvitation.setId_requete(equipe.getNomEquipe());
         
         InvitationServices.creerInvitation(uneInvitation);
         
-        System.out.println("resuktat cration = "+ InvitationServices.creerInvitation(uneInvitation));
+       
         
         
         

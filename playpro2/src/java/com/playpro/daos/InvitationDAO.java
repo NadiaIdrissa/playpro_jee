@@ -21,18 +21,26 @@ public class InvitationDAO extends DAO<Invitation> {
     public boolean create(Invitation x) {
         
         System.out.println("je suis dans dao invitation");
-        String req = "INSERT INTO invitation (`id_invitation` , `id_expediteur`, `id_destinataire`, `id_requete`) "
-                + "VALUES (?,?,?,?)";
+        String req = "INSERT INTO invitation (`id_expediteur`, `id_destinataire`, `id_requete`) "
+                + "VALUES (?,?,?)";
 
         PreparedStatement stm = null;
 
 
         try {
             stm = cnx.prepareStatement(req);
-            stm.setString(1, x.getId_invitation());
-            stm.setString(2, x.getId_expediteur());
-            stm.setString(3, x.getId_destinataire());
-            stm.setString(4, x.getId_requete());
+            
+            System.out.println("----------------------------------");
+            System.out.println(x.getId_expediteur());
+            System.out.println(x.getId_destinataire());
+            System.out.println(x.getId_requete());
+            System.out.println("----------------------------------");
+            
+            
+            
+            stm.setString(1, x.getId_expediteur());
+            stm.setString(2, x.getId_destinataire());
+            stm.setString(3, x.getId_requete());
 
             int n = stm.executeUpdate();
             System.out.println("========================================");
