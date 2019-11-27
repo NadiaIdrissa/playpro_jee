@@ -7,6 +7,9 @@ package com.playpro.services;
 
 import com.playpro.daos.InvitationDAO;
 import com.playpro.entities.Invitation;
+import com.playpro.entities.Membre;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -18,5 +21,13 @@ public class InvitationServices {
         
         dao = new InvitationDAO();
         return  dao.create(i);
+    }
+    
+    public static List<Invitation> lesinvitationspour(Membre u) {
+        dao = new InvitationDAO();
+        List<Invitation> liste = new LinkedList<Invitation>();
+        liste = dao.findAllById(u.getId());
+
+        return liste;
     }
 }

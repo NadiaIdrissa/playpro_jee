@@ -7,8 +7,10 @@ package com.playpro.mvc2.controleurs;
 
 import com.playpro.daos.MembreDAO;
 import com.playpro.daos.SportDAO;
+import com.playpro.entities.Invitation;
 import com.playpro.entities.Membre;
 import com.playpro.entities.Sport;
+import com.playpro.services.InvitationServices;
 import com.playpro.services.MembreServices;
 import java.util.LinkedList;
 import java.util.List;
@@ -72,6 +74,13 @@ public class LoginAction extends AbstractAction {
                     request.getSession().setAttribute("membre", membre);
                     request.getSession().setAttribute("nomMembre", membre.getNom());
                     
+                    
+                    List<Invitation> listeInvitations;
+                    listeInvitations = InvitationServices.lesinvitationspour(membre);
+                    
+                    System.out.println("nombre invitations = " + listeInvitations.size());
+                    
+                    request.getSession().setAttribute("NbInvitations", listeInvitations.size());
 
                 }
             }
