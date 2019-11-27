@@ -22,8 +22,8 @@
         <form  id="fprofil" action="?action=profil" method="post" name="action" value="profil" enctype="multipart/form-data">
             <div class="modal-header">
                 <div class="text-center">
-                    <img id='imagejoueur' src="static/images/profils/<c:out value="${membre.photo}"/> " class="rounded" alt="imgprofil">
-                    <input id="imageMembre" type="hidden" class="form-control" name="imageMembre" />
+                    <img id='imagejoueur' src="static/images/profils/<c:out value="${membre.photo}"/> " class="img-circle" alt="imgprofil">
+                    <input id="imageMembre" type="hidden" class="form-control" value="${membre.photo}" name="imageMembre" />
                 </div>
             </div>
             <div class="modal-body">

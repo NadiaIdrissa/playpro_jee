@@ -1,9 +1,9 @@
 <%
-    HttpSession httpSession = request.getSession(false); 
+    HttpSession httpSession = request.getSession(false);
     Membre m = null;
     String viewConf = "";
 
-    if(httpSession != null){
+    if (httpSession != null) {
         m = (Membre) httpSession.getAttribute("membre");
         viewConf = (String) httpSession.getAttribute("viewConf");
     }
@@ -15,8 +15,8 @@
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
-       
-        
+
+
         <title>Portail</title>
         <!--<link rel="stylesheet" type="text/css" href="static/css/normalize.css" />-->
         <link rel="stylesheet" type="text/css" href="static/css/demo.css" />
@@ -39,40 +39,34 @@
     </head>
     <body>
 
-        
-        
+
+
         <%@include file="menu.jsp" %>
         <div id="perspective" class="perspective effect-movedown">
             <div class="container" style="max-width: unset">
                 <div class="wrapper"><!-- wrapper needed for scroll -->
                     <%@include file="sidebar.jsp" %>
                 </div>
-                
+
                 <div class="main mainPortail clearfix">
-                    <%if (viewConf.equals("profilaccueil")){%>
-                        <%@include file="profil.jsp"%>
-                    <%}else if (viewConf.equals("calendrier")){%>
-                        <%@include file="calendrier.jsp"%>
-                    <%}else if (viewConf.equals("suppCompte")){%>
-                        <%@include file="suppressionCompte.jsp"%>
-<<<<<<< HEAD
-                        <%-- <%}else if (viewConf.equals("equipe")){%>
-                        <%@include file="creerEquipe.jsp"%>
-                    <%} --%>
-                        }else if (viewConf.equals("sports")){%>
-=======
-                    <%}else if (viewConf.equals("loadEquipe")){%>
-                        <%@include file="equipes.jsp"%>
-                    <%}else if (viewConf.equals("sports")) {%>
->>>>>>> 82c38526770bc417ae376f4f3342b14678ed3686
-                        <%@include file="sports.jsp"%>
-                    <%}else if (viewConf.equals("lieux")){%>
-                        <%@include file="lieux.jsp"%>
-                    <%}else if (viewConf.equals("membres")){%>
-                        <%@include file="membres.jsp"%>
-                    
-                    <%}else{%>
-                        <%@include file="calendrier.jsp"%>
+                    <%if (viewConf.equals("profilaccueil")) {%>
+                    <%@include file="profil.jsp"%>
+                    <%} else if (viewConf.equals("calendrier")) {%>
+                    <%@include file="calendrier.jsp"%>
+                    <%} else if (viewConf.equals("suppCompte")) {%>
+                    <%@include file="suppressionCompte.jsp"%>
+                    <%} else if (viewConf.equals("loadEquipe")) {%>
+                    <%@include file="equipes.jsp"%>
+                    <%} else if (viewConf.equals("sports")) {%>
+                    <%@include file="sports.jsp"%>
+                    <%} else if (viewConf.equals("lieux")) {%>
+                    <%@include file="lieux.jsp"%>
+                    <%} else if (viewConf.equals("membres")) {
+                        %>
+                    <%@include file="membres.jsp"%>
+
+                    <%} else {%>
+                    <%@include file="calendrier.jsp"%>
                     <%}%>
                 </div>
             </div>

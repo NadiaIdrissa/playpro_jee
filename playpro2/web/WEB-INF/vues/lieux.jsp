@@ -11,8 +11,8 @@
     <%
         if (m.getTypeMembre().equals("Admin")) {
     %>
-    <button id="myBtn" type="button" >Ajouter</button>
     <%}%>
+    <button id="myBtn" type="button" >Ajouter</button>
     <div >
         <div class="card-columns" style="">
             <c:forEach items="${requestScope.lieux}" var="unlieu"> 
@@ -37,7 +37,7 @@
                             </c:forEach>
                         </p>
 
-                        <a target="_blank" href="https://www.google.ca/maps/place/5409+Boul+Gouin+O,+Montr%C3%A9al,+QC+H4J+1C5/@45.5339919,-73.7183214,17z/data=!3m1!4b1!4m5!3m4!1s0x4cc9228bc76aab9b:0x7b319b40024fabcb!8m2!3d45.5339919!4d-73.7161327">
+                        <a target="_blank" href="https://www.google.ca/maps/place/Stade+IGA/@45.5329897,-73.6293616,17z/data=!3m1!4b1!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729">
                             Afficher sur la carte
                         </a>
 
