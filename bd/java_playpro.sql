@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  mer. 27 nov. 2019 à 02:34
+-- Généré le :  mer. 27 nov. 2019 à 04:26
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -149,6 +149,30 @@ INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `c
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `participationEquipe`
+--
+
+CREATE TABLE `participationEquipe` (
+  `id_joueur` char(36) NOT NULL,
+  `id_equipe` varchar(100) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `participationPartie`
+--
+
+CREATE TABLE `participationPartie` (
+  `id_equipe` varchar(100) NOT NULL,
+  `id_partie` varchar(100) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `partie`
 --
 
@@ -232,6 +256,18 @@ ALTER TABLE `membre`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `pseudo` (`pseudo`),
   ADD KEY `Membre_FK_nom_equipe` (`equipe`);
+
+--
+-- Index pour la table `participationEquipe`
+--
+ALTER TABLE `participationEquipe`
+  ADD PRIMARY KEY (`id_joueur`,`id_equipe`);
+
+--
+-- Index pour la table `participationPartie`
+--
+ALTER TABLE `participationPartie`
+  ADD PRIMARY KEY (`id_equipe`,`id_partie`);
 
 --
 -- Index pour la table `partie`

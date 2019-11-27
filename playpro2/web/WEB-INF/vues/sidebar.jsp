@@ -65,7 +65,7 @@
         <%}%>
         
         <li>
-            <a href="#">
+            <a href="?action=traitementInvitation">
                 <i class="fa fa-paper-plane"></i>
                 <span class="sideLabel"> Invitations</span>
             </a>
