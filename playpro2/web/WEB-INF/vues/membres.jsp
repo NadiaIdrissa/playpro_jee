@@ -21,7 +21,11 @@
 
     </c:if>
     <h1 class="text-center">Liste des membres</h1>
-    <button id="myBtn" class="btn btn-success text-uppercase float-right w-10 " type="button" >Ajouter</button>
+    <div class="text-center">
+        <div class="col-4">
+            <button id="myBtn" class="btn btn-success text-uppercase float-right w-10 " type="button" >Ajouter</button>
+        </div>
+    </div>
     <section>
         <div class="table-responsive text-nowrap">
             <table class="table table-striped">
@@ -73,7 +77,7 @@
                         </tr>
                     </c:forEach>
                 </tbody>
-                
+
             </table>
         </div>
     </section>

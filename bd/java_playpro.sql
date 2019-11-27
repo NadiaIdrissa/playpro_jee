@@ -30,7 +30,7 @@ CREATE TABLE `annonce` (
   `id_annonce` char(36) NOT NULL,
   `id_createur` varchar(255) CHARACTER SET utf8 NOT NULL,
   `nombreMax` int(11) NOT NULL,
-  `montant` int(11) NOT NULL DEFAULT 0,
+  `montant` float(6,2) NOT NULL DEFAULT 0,
   `gratuit`boolean NOT NULL DEFAULT TRUE,
   `titre_annonce` varchar(100) CHARACTER SET utf8 NOT NULL,
   `description` text CHARACTER SET utf8 NOT NULL,

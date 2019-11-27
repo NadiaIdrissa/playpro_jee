@@ -23,21 +23,20 @@ public class AnnonceDAO extends DAO<Annonce> {
 
     @Override
     public boolean create(Annonce x) {
-        String req = "INSERT INTO annonce (`id_annonce` , `id_createur` , `nombreMax`, `montant`, `titre_annonce`, `gratuit`, `desciption`, `date_creation`) "
+        String req = "INSERT INTO annonce (`id_annonce` , `id_createur` , `nombreMax`, `montant`, `titre_annonce`, `gratuit`, `description`, `date_creation`) "
                 + "VALUES (?,?,?,?,?,?,?,?)";
-        
+
         PreparedStatement stm = null;
         try {
             stm = cnx.prepareStatement(req);
             stm.setString(1, x.getIdAnnonce());
-            stm.setString(2, x.getIdCreateur());
+            stm.setString(2, x.getCreateur().getId());
             stm.setInt(3, x.getNombreMax());
-            stm.setInt(4, x.getMontant());
+            stm.setDouble(4, x.getMontant());
             stm.setString(5, x.getTitre());
             stm.setBoolean(6, x.getGratuit());
             stm.setString(7, x.getDescription());
             stm.setDate(8, (Date) x.getDateCreation());
-           
 
             int n = stm.executeUpdate();
             System.out.println("========================================");
@@ -76,15 +75,29 @@ public class AnnonceDAO extends DAO<Annonce> {
 
             if (r.next()) {
                 Annonce c = new Annonce();
+                Membre u = new Membre();
 
-                c.setIdAnnonce(r.getString("id_annonce"));
-                c.setIdCreateur(r.getString("id_createur"));
-                c.setNombreMax(r.getInt("nombreMax"));
-                c.setMontant(r.getInt("montant"));
-                c.setTitre(r.getString("titre_annonce"));
-                c.setGratuit(r.getBoolean("gratuit"));
-                c.setDescription(r.getString("description"));
-                c.setDateCreation(r.getDate("date_creation"));
+                c.setIdAnnonce(r.getString("annonce.id_annonce"));
+                c.setNombreMax(r.getInt("annonce.nombreMax"));
+                c.setMontant(r.getFloat("annonce.montant"));
+                c.setTitre(r.getString("annonce.titre_annonce"));
+                c.setGratuit(r.getBoolean("annonce.gratuit"));
+                c.setDescription(r.getString("annonce.description"));
+                c.setDateCreation(r.getDate("annonce.date_creation"));
+
+                u.setId(r.getString("membre.id"));
+                u.setPseudo(r.getString("membre.pseudo"));
+                u.setSexe(r.getString("membre.sexe"));
+                u.setNom(r.getString("membre.nom"));
+                u.setPrenom(r.getString("membre.prenom"));
+                u.setAnneeNaissance(r.getInt("membre.Annee_naiss"));
+                u.setCourriel(r.getString("membre.courriel"));
+                u.setTypeMembre(r.getString("membre.type_membre"));
+                u.setSport(r.getString("membre.sport"));
+                u.setMpd(r.getString("membre.mdp"));
+                u.setStatus(r.getString("membre.statut"));
+
+                c.setCreateur(u);
                 r.close();
                 stm.close();
                 return c;
@@ -110,14 +123,14 @@ public class AnnonceDAO extends DAO<Annonce> {
     public boolean update(Annonce x) {
         Statement stm = null;
         try {
-            String req = "UPDATE annonce SET id_createur = '" + x.getIdCreateur()+ "',"
-                    + "nombreMax = '" + x.getNombreMax()+ "',"
-                    + "montant = '" + x.getMontant()+ "',"
-                    + "titre_annonce = '" + x.getTitre()+ "',"
-                    + "gratuit = '" + x.getGratuit()+ "',"
-                    + "description = '" + x.getDescription()+ "',"
-                    + "date_creation = '" + x.getDateCreation()+ "',"
-                    + " WHERE id_annonce = '" + x.getIdAnnonce()+ "'";
+            String req = "UPDATE annonce SET id_createur = '" + x.getCreateur().getId() + "',"
+                    + "nombreMax = '" + x.getNombreMax() + "',"
+                    + "montant = '" + x.getMontant() + "',"
+                    + "titre_annonce = '" + x.getTitre() + "',"
+                    + "gratuit = '" + x.getGratuit() + "',"
+                    + "description = '" + x.getDescription() + "',"
+                    + "date_creation = '" + x.getDateCreation() + "',"
+                    + " WHERE id_annonce = '" + x.getIdAnnonce() + "'";
             //System.out.println("REQUETE "+req);
             stm = cnx.createStatement();
             int n = stm.executeUpdate(req);
@@ -126,6 +139,7 @@ public class AnnonceDAO extends DAO<Annonce> {
                 return true;
             }
         } catch (SQLException exp) {
+            exp.printStackTrace();
         } finally {
             if (stm != null) {
                 try {
@@ -144,12 +158,13 @@ public class AnnonceDAO extends DAO<Annonce> {
         Statement stm = null;
         try {
             stm = cnx.createStatement();
-            int n = stm.executeUpdate("DELETE FROM annonce WHERE id_annonce='" + x.getIdAnnonce()+ "'");
+            int n = stm.executeUpdate("DELETE FROM annonce WHERE id_annonce='" + x.getIdAnnonce() + "'");
             if (n > 0) {
                 stm.close();
                 return true;
             }
         } catch (SQLException exp) {
+            exp.printStackTrace();
         } finally {
             if (stm != null) {
                 try {
@@ -172,15 +187,14 @@ public class AnnonceDAO extends DAO<Annonce> {
             while (r.next()) {
                 Annonce c = new Annonce();
                 Membre u = new Membre();
-               
+
                 c.setIdAnnonce(r.getString("annonce.id_annonce"));
                 c.setNombreMax(r.getInt("annonce.nombreMax"));
-                c.setMontant(r.getInt("annonce.montant"));
+                c.setMontant(r.getFloat("annonce.montant"));
                 c.setTitre(r.getString("annonce.titre_annonce"));
                 c.setGratuit(r.getBoolean("annonce.gratuit"));
                 c.setDescription(r.getString("annonce.description"));
                 c.setDateCreation(r.getDate("annonce.date_creation"));
-                
 
                 u.setId(r.getString("membre.id"));
                 u.setPseudo(r.getString("membre.pseudo"));
@@ -193,8 +207,8 @@ public class AnnonceDAO extends DAO<Annonce> {
                 u.setSport(r.getString("membre.sport"));
                 u.setMpd(r.getString("membre.mdp"));
                 u.setStatus(r.getString("membre.statut"));
- 
-                c.setMembre(u);
+
+                c.setCreateur(u);
 
                 liste.add(c);
             }
@@ -210,5 +224,5 @@ public class AnnonceDAO extends DAO<Annonce> {
     public boolean UpdateStatus(Annonce x) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
