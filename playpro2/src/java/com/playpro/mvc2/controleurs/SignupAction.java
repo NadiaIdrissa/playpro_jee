@@ -83,6 +83,7 @@ public class SignupAction extends AbstractAction {
             System.out.println("Ecriture BD: " + reussi);
 
             if (reussi) {
+                membre= MembreServices.seConnecter(membre.getCourriel(), membre.getMpd());
                 request.getSession(true);
                 request.getSession().setAttribute("connected", true);
                 request.getSession().setAttribute("membre", membre);
