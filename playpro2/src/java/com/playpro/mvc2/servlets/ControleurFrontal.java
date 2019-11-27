@@ -138,7 +138,6 @@ public class ControleurFrontal extends HttpServlet {
             //On redirige le client :
             response.sendRedirect("show.html?v=" + vue);
         } else {
-
             request.getRequestDispatcher("/WEB-INF/vues/" + vue + ".jsp").forward(request, response);
         }
     }

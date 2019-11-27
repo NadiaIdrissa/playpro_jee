@@ -86,9 +86,12 @@ public class Membre {
         if (sexe.equalsIgnoreCase("homme")) {
 
             this.sexe = Sexe.Homme;
+            this.photo = "man.jpg";
         } else if (sexe.equalsIgnoreCase("femme")) {
             this.sexe = Sexe.Femme;
+            this.photo = "woman.jpg";
         } else {
+            this.photo = "woman.jpg";
             this.sexe = Sexe.Autre;
         }
     }

@@ -41,7 +41,14 @@ public class UploadPhoto extends AbstractAction {
                     part.write(uploadFilePath + File.separator + fileName);
                     imageName = fileName;
                     System.out.println("FILE NAME : " + fileName);
-                    String dest = applicationPath + "../../web/" + UPLOAD_DIR + "/" + imageName;
+                    String dest = applicationPath + "../../web/" + UPLOAD_DIR;
+
+                    File fileSaveDir1 = new File(dest);
+                    if (!fileSaveDir1.exists()) {
+                        fileSaveDir1.mkdirs();
+                    }
+                    
+                    dest +="/"+imageName;
                     copy(applicationPath + UPLOAD_DIR + "/" + imageName, dest);
                 }
             }
@@ -65,6 +72,7 @@ public class UploadPhoto extends AbstractAction {
     }
 
     public void copy(String source, String dest) {
+        
         try {
 
             BufferedImage originalImage = ImageIO.read(new File(
