@@ -71,73 +71,12 @@ public class ReponseInvitationAction extends AbstractAction{
             
             partDao.create(participe);
             idao.delete(encours);
-
-           
-
-            
+       
             
         }
         
         
-//        if (reponse.equals("accept")) {
-//
-//            ParticipationDAO partDao = new ParticipationDAO();
-//            Participation participe = new Participation();
-//
-//            EquipesDAO edao = new EquipesDAO();
-//            Equipe equipe = new Equipe();
-//
-//            equipe = edao.findById(idProjetcours);
-//
-//            participe.setParticipant(ux);
-//            participe.setProjet(prjt);
-//
-//            if(ParticipationService.creerParticipation(participe)){
-//                message = "Vous avez été ajouté à ce projet";
-//            }
-//
-//            System.out.println("participation créée personne = " + participe.getParticipant().getNom_prenom());
-//            System.out.println("participation créée projet = " + participe.getProjet().getNom());
-//            
-//            
-//            System.out.println("retour fonction chercher invitation encours = "+encours.toString());
-//            
-//            uneInvitation.delete(encours);
-//            
-//
-//            request.setAttribute("reponseInvit", "acceptée !");
-//
-//        }
-//else if (reponse.equals("refuser")) {
-//
-//
-//            for (int i = 0; i < invitList.size(); i++) {
-//                if (invitList.get(i).getIdProjet().getId().equals(idProjetcours)) {
-//
-//                    encours = invitList.get(i);
-//
-//                    uneInvitation.delete(encours);
-//
-//                    System.out.println(invitList.get(i).getIdProjet().getId());
-//
-//                    request.setAttribute("reponseInvit", "refusée !");
-//
-//                }
-//            }
-//
-//
-//        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+      
         request.getSession().setAttribute("message", "L'invitation est "+reponse);
         
         

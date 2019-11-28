@@ -11,7 +11,10 @@
 
 
 
-    <c:forEach items="${sessionScope.listeInvitations}" var="uneInvitation">
+    
+
+
+        <c:forEach items="${sessionScope.listeInvitations}" var="uneInvitation">
 
 
         <div class="container">
@@ -34,18 +37,10 @@
                 </br></br></br>
 
 
-
-
-              
-
-           
-
-
-
-            <div class="row d-flex justify-content-center">
-                <form action="?action=reponseInvitation" method="post" name="action" value="" >
-                    <div class="col-sm-4">
-                        <input type='hidden' name="nomEquipeChoisie" value="${uneInvitation.id_requete}">
+                <div class="row d-flex justify-content-center">
+                    <form action="?action=reponseInvitation" method="post" name="action" value="" >
+                        <div class="col-sm-4">
+                            <input type='hidden' name="nomEquipeChoisie" value="${uneInvitation.id_requete}">
                         <input type='hidden' name="reponseI" value="refus">
                         <input type='hidden' name="exped" value="${uneInvitation.id_expediteur}">
 
