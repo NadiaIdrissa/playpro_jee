@@ -74,7 +74,7 @@ public class ParticipationDAO extends DAO<Participation>{
 
     
     public Participation read(String id) {
-        String req = "SELECT * FROM participationequipe WHERE 'NOM_EQUIPE'= ?";
+        String req = "SELECT * FROM participationEquipe WHERE 'id_equipe'= ?";
         
         PreparedStatement paramStm = null;
         try {
@@ -88,14 +88,14 @@ public class ParticipationDAO extends DAO<Participation>{
             
             if(resultat.next()){
 
-                Participation membre = new Participation();
-                membre.setNomEquipe(resultat.getString("NOM_EQUIPE"));
-                membre.setIdMembre(resultat.getString("ID_MEMBRE"));
+                Participation participe = new Participation();
+                participe.setIdMembre(resultat.getString("id_joueur"));
+                participe.setNomEquipe(resultat.getString("id_equipe"));
                 
                 
                 resultat.close();
                 paramStm.close();
-                return membre;
+                return participe;
             }
 
             resultat.close();
@@ -126,7 +126,7 @@ public class ParticipationDAO extends DAO<Participation>{
 
     @Override
     public boolean delete(Participation x) {
-        String req = "DELETE FROM participationequipe WHERE `NOM_EQUIPE` = ? AND `ID_MEMBRE` = ?";
+        String req = "DELETE FROM participationequipe WHERE `id_equipe` = ? AND `id_joueur` = ?";
 
         PreparedStatement paramStm = null;
         try {
@@ -165,10 +165,10 @@ public class ParticipationDAO extends DAO<Participation>{
             Statement stm = cnx.createStatement();
             ResultSet r = stm.executeQuery("SELECT * FROM participationequipe");
             while (r.next()) {
-                Participation membre = new Participation();
-                membre.setNomEquipe(r.getString("NOM_EQUIPE"));
-                membre.setIdMembre(r.getString("ID_MEMBRE"));
-                liste.add(membre);
+                Participation participe = new Participation();
+                participe.setIdMembre(r.getString("id_joueur"));
+                participe.setNomEquipe(r.getString("id_equipe"));
+                liste.add(participe);
             }
             Collections.reverse(liste);
             r.close();
@@ -181,7 +181,7 @@ public class ParticipationDAO extends DAO<Participation>{
     }
     
     public Participation findByNomEquipe(String id) {
-        String req = "SELECT * FROM participationequipe WHERE `NOM_EQUIPE` = ?";
+        String req = "SELECT * FROM participationequipe WHERE `id_equipe` = ?";
 
         PreparedStatement paramStm = null;
         try {
@@ -194,13 +194,13 @@ public class ParticipationDAO extends DAO<Participation>{
             
             if(resultat.next()){
 
-                Participation membre = new Participation();
-                membre.setNomEquipe(resultat.getString("NOM_EQUIPE"));
-                membre.setIdMembre(resultat.getString("ID_MEMBRE"));
+                Participation participe = new Participation();
+                participe.setIdMembre(resultat.getString("id_joueur"));
+                participe.setNomEquipe(resultat.getString("id_equipe"));
                 
                 resultat.close();
                 paramStm.close();
-                return membre;
+                return participe;
             }
 
             resultat.close();
@@ -213,7 +213,7 @@ public class ParticipationDAO extends DAO<Participation>{
     }
     
     public Participation findByNomEquipeIdMembre(String nomEquipe, String idMembre) {
-        String req = "SELECT * FROM participationequipe WHERE `NOM_EQUIPE` = ? AND `ID_MEMBRE` = ?";
+        String req = "SELECT * FROM participationequipe WHERE `id_equipe` = ? AND `id_joueur` = ?";
 
         PreparedStatement paramStm = null;
         try {
@@ -227,12 +227,12 @@ public class ParticipationDAO extends DAO<Participation>{
             
             if(resultat.next()){
 
-                Participation membre = new Participation();
-                membre.setNomEquipe(resultat.getString("NOM_EQUIPE"));
-                membre.setIdMembre(resultat.getString("ID_MEMBRE"));
+                Participation participe = new Participation();
+                participe.setIdMembre(resultat.getString("id_joueur"));
+                participe.setNomEquipe(resultat.getString("id_equipe"));
                 resultat.close();
                 paramStm.close();
-                return membre;
+                return participe;
             }
 
             resultat.close();
@@ -245,7 +245,7 @@ public class ParticipationDAO extends DAO<Participation>{
     }
     
     public List<Participation> findByIdMembre(String id) {
-        String req = "SELECT * FROM participationequipe WHERE `ID_MEMBRE` = ?";
+        String req = "SELECT * FROM participationequipe WHERE `id_joueur` = ?";
         List<Participation> liste = new ArrayList<>();
         PreparedStatement paramStm = null;
         try {
@@ -258,12 +258,12 @@ public class ParticipationDAO extends DAO<Participation>{
             
             while (resultat.next()){
 
-                Participation membre = new Participation();
-                membre.setNomEquipe(resultat.getString("NOM_EQUIPE"));
-                membre.setIdMembre(resultat.getString("ID_MEMBRE"));
+                Participation participe = new Participation();
+                participe.setNomEquipe(resultat.getString("id_equipe"));
+                participe.setIdMembre(resultat.getString("id_joueur"));
                 
                 
-                liste.add(membre);
+                liste.add(participe);
             }
             Collections.reverse(liste);
             resultat.close();
