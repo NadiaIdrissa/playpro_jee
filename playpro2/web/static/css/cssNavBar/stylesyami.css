@@ -150,7 +150,6 @@ nav ul li a {
 
 
 */
-
 header .headerV{
     position: absolute;
     z-index: 10;
@@ -177,6 +176,10 @@ header .headerV{
 .navbar-light .navbar-nav .nav-item .active .nav-link {
     /*background: #262626;*/
     color: #fff;
+}
+
+.bg-secondary{
+    background-color: #07334ae6 !important;
 }
 
 .banner {
@@ -245,11 +248,46 @@ h1{
     height:500px;
     width:600px;
 }
+
+/*A Propos*/
+
 .gmap_canvas {
     overflow:hidden;
     background:none!important;
-    height:450px;
-    width:750px
+    height:550px;
+}
+
+.contactSect{
+    margin-top: 15%;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px; 
+    padding-right: 10px;
+    border-right-style: solid; 
+    border-right-width: 0px; 
+}
+
+.nsContacter{
+    margin-left: 3px; 
+    margin-right: 3px;
+}
+
+.descContact{
+    margin-left: 1px; 
+    margin-right: 1px;
+}
+
+.descContact label{
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.infoContact{
+    margin-top: 1rem;
+}
+
+.contactForm .btn-block{
+    width: auto;
 }
 
 /*Présentation membres index*/
@@ -302,14 +340,20 @@ h1{
 }
 
 /*JumpTo*/
-/*#cal{
-    top:1100px;
-    visibility: hidden;
-    position: absolute;
+
+@media (orientation: landscape) {
+  .jump{
+    margin-top: -20vh; padding-top: 20vh;
+    }
 }
 
-#apropos{
-    top:103%;
-    visibility: hidden;
-    position: absolute;
-}*/
+@media (orientation: portrait) {
+    #apropos.jump {
+    margin-top: -10vh; padding-top: 10vh;
+    }
+    
+    #cal.jump {
+    margin-top: -10vh; padding-top: 10vh;
+    margin-bottom : 20vh;
+    }
+}

@@ -85,10 +85,10 @@
                         <a class="nav-link" href="?action=index">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#cal">Calendrier <span class="sr-only"></span></a>
+                        <a id="redirCal" class="nav-link" href="?action=index#cal">Calendrier <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#apropos">À propos <span class="sr-only"></span></a>
+                        <a class="nav-link" href="?action=index#apropos">À propos <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="?action=nousJoindre">Contact<span class="sr-only"></span></a>
@@ -103,11 +103,7 @@
                             <a class="dropdown-item" href="?action=signup">Créer un compte</a>
                         </div>
                     </li>
-
-
-
                 </ul>
-
             </div>
         </nav>
     </div>

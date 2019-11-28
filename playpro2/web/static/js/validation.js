@@ -8,14 +8,14 @@
 
 
 function  cacherE() {
-    debugger
+//    debugger
     var niveau = document.getElementById("niveau");
     var sport = document.getElementById("sport");
 
     if (sport.style.display === "none") {
 
     } else {
-        debugger
+//        debugger
         sport.style.display = "none";
         ($("img")[2]).style.display = "none";
         sport.children[0].required = false
@@ -37,7 +37,7 @@ function  cacherJ() {
     if (niveau.style.display === "none") {
 
     } else {
-        debugger
+//        debugger
         niveau.style.display = "none";
         ($("img")[1]).style.display = "none";
         niveau.children[0].children[1].required = false;
