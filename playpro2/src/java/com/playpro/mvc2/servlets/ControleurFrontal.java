@@ -113,13 +113,11 @@ public class ControleurFrontal extends HttpServlet {
             case "equipe":
                 action = new EquipesAction();
                 break;
-<<<<<<< HEAD
+
             case "annonce":
                 action = new AnnoncesAction();
                 break;
 
-=======
->>>>>>> ea59bf10672cec13dd36120c7dcadb81eee38ac9
             case "ajoutImage":
                 action = new SportsAction();
                 break;
