@@ -35,8 +35,8 @@ public class ParticipationDAO extends DAO<Participation>{
        PreparedStatement paramStm = null;
        try {
             paramStm = cnx.prepareStatement(req);
-            paramStm.setString(2, x.getIdMembre());
-            paramStm.setString(1, x.getNomEquipe());
+            paramStm.setString(1, x.getIdMembre());
+            paramStm.setString(2, x.getNomEquipe());
             
             
             int nbLignesAffectees= paramStm.executeUpdate();
@@ -160,17 +160,17 @@ public class ParticipationDAO extends DAO<Participation>{
 
     @Override
     public List<Participation> findAll() {
-        List<Participation> liste = new LinkedList<>();
+        List<Participation> liste = new LinkedList<Participation>();
         try {
             Statement stm = cnx.createStatement();
-            ResultSet r = stm.executeQuery("SELECT * FROM participationequipe");
+            ResultSet r = stm.executeQuery("SELECT * FROM participationEquipe");
             while (r.next()) {
                 Participation participe = new Participation();
                 participe.setIdMembre(r.getString("id_joueur"));
                 participe.setNomEquipe(r.getString("id_equipe"));
                 liste.add(participe);
             }
-            Collections.reverse(liste);
+//            Collections.reverse(liste);
             r.close();
             stm.close();
         }

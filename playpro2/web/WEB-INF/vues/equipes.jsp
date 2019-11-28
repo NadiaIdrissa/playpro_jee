@@ -33,7 +33,7 @@
                             <p class='card-text'>Sport de l'équipe: <c:out value="${uneEquipe.sport.nom}" /></p>
                             <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneEquipe.nbJoueurs}" /></p>
 
-                            
+
 
 
 
@@ -83,7 +83,16 @@
 
                             <div class="collapse" id="<c:out value="${uneEquipe.nomEquipe}" />">
                                 <div class="card card-body">
-                                    La liste des membres :    
+                                    <ul>
+                                        <c:forEach items="${sessionScope.listeDeParticipations}" var="joueur"> 
+                                            <c:if test = "${uneEquipe.nomEquipe == joueur.nomEquipe}">
+
+                                                <li> ${joueur.idMembre}</li>
+                                                </c:if>
+                                            </c:forEach>
+                                    </ul>
+                                    La liste des membres :  
+
                                 </div>
                             </div>
 
