@@ -73,7 +73,61 @@ public class EquipesDAO extends DAO<Equipe> {
 
     @Override
     public Equipe findById(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                // TODO Auto-generated method stub
+        Statement stm = null;
+        ResultSet r = null;
+      
+
+        try {
+            stm = cnx.createStatement();
+            r = stm.executeQuery("SELECT * FROM equipe WHERE nom_equipe = '" + id + "'");
+            if (r.next()) {
+                Equipe e = new Equipe();
+                
+
+                e.setNomEquipe(r.getString("nom_equipe"));
+                e.setId_capitaine(r.getString("id_capitaine"));
+                
+                String nomS =r.getString("nom_sport");
+                Sport s = new Sport();
+                SportDAO sdao = new SportDAO();
+                s = sdao.findById("nomS");
+                e.setSport(s);
+                
+                e.setNbPartiesJouees(r.getString("nb_parties_jouees"));
+                e.setNbJoueurs(r.getInt("nb_joueurs"));
+                e.setNbMaxJoueurs(r.getString("nb_max_joueurs"));
+                
+                e.setImage(r.getString("image"));
+                
+               
+                r.close();
+                stm.close();
+                return e;
+            }
+        } catch (SQLException exp) {
+        } finally {
+            if (r != null) {
+                try {
+                    r.close();
+                    
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            if (stm != null) {
+                try {
+                    
+                    stm.close();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return null;
     }
 
     @Override

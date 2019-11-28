@@ -16,6 +16,7 @@ import com.playpro.mvc2.controleurs.AnnoncesAction;
 import com.playpro.mvc2.controleurs.DefaultAction;
 import com.playpro.mvc2.controleurs.CreerEquipeAction;
 import com.playpro.mvc2.controleurs.EquipesAction;
+import com.playpro.mvc2.controleurs.InvitationAction;
 import com.playpro.mvc2.controleurs.LieuxAction;
 import com.playpro.mvc2.controleurs.SignupAction;
 import com.playpro.mvc2.controleurs.LoginAction;
@@ -26,6 +27,7 @@ import com.playpro.mvc2.controleurs.ProfilAction;
 import com.playpro.mvc2.controleurs.RequirePRG;
 import com.playpro.mvc2.controleurs.SuppressionCompteAction;
 import com.playpro.mvc2.controleurs.SportsAction;
+import com.playpro.mvc2.controleurs.TraitementInvitationAction;
 //import com.playpro.mvc2.controleurs.SoustractionAction;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -69,7 +71,6 @@ public class ControleurFrontal extends HttpServlet {
             case "index":
                 action = new IndexAction();
                 break;
-
             case "signup":
                 action = new SignupAction();
                 break;
@@ -109,18 +110,27 @@ public class ControleurFrontal extends HttpServlet {
             case "membres":
                 action = new MembresAction();
                 break;
-
             case "equipe":
                 action = new EquipesAction();
                 break;
+<<<<<<< HEAD
             case "annonce":
                 action = new AnnoncesAction();
                 break;
 
+=======
+>>>>>>> ea59bf10672cec13dd36120c7dcadb81eee38ac9
             case "ajoutImage":
                 action = new SportsAction();
                 break;
-
+                
+            case "invitation":
+                action = new InvitationAction();
+                break;
+            case "traitementInvitation":
+                action = new TraitementInvitationAction();
+                break;
+                
             default:
                 action = new DefaultAction();
         }

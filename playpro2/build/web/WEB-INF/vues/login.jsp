@@ -93,7 +93,7 @@
                                     <div class="col-md-12 mb-12">
                                         <input type="password" id='password' name='mdp' class="form-control"  placeholder="Mot de passe" required>
                                         <div class="invalid-feedback">
-                                            Mot de passe recquis.
+                                            Mot de passe requis.
                                         </div>
                                     </div>
 

@@ -22,7 +22,7 @@
                         <img src="static/images/sports/<c:out value="${unSport.image}"/> " />
 
                         <p class='card-text'>Nom du sport: <c:out value="${unSport.nom}" /></p>
-                        <p class="card-text">Nombre de joueurs par équipe: <c:out value="${unSport.nb_max}" /></p>
+                        <p class="card-text">Joueurs par équipe: <c:out value="${unSport.nb_max}" /></p>
 
                     </div> 
                 </div> 
@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group">
                         <select class="form-control" id="exampleFormControlSelect1" name="nbMax">
-                            <option value="" >Nombre max de joueurs par équipe</option>
+                            <option value="" >Joueurs par équipe</option>
                             <% for (int i = 0; i < 30; i++) {%>
                             <option value="<%=i%>"><%=i%></option>
 

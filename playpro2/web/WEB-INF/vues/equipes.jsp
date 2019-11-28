@@ -18,21 +18,84 @@
         <div class="card-columns" style="">
             <c:forEach items="${requestScope.listeEquipe}" var="uneEquipe"> 
 
-                <div class="card" >
-                    <div class="card-body text-center">
-                        <img src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
 
-                        <p class='card-text'>Nom de l'équipe: <c:out value="${uneEquipe.nomEquipe}" /></p>
-                        <p class='card-text'>Sport de l'équipe: <c:out value="${uneEquipe.sport.nom}" /></p>
-                        <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneEquipe.nbJoueurs}" /></p>
 
+                <form class="form-signin needs-validation " action="?action=invitation" method="post" name="action" novalidate>
+                    <div class="card" >
+
+
+                        <div class="card-body text-center">
+                            <img class="avatar rounded-circle" src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
+                            
+                            <p class='card-text'>Nom de l'équipe: <c:out value="${uneEquipe.nomEquipe}" /></p>
+                            <input name="nomEquipeChoisi" type="hidden" value="<c:out value="${uneEquipe.nomEquipe}" />">
+                            
+                            <p class='card-text'>Sport de l'équipe: <c:out value="${uneEquipe.sport.nom}" /></p>
+                            <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneEquipe.nbJoueurs}" /></p>
+
+
+
+                            <p>
+                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.sport.nom}" />" aria-expanded="false" aria-controls="collapseExample">
+                                    Inviter un joueur
+                                </button>
+
+                            <div class="collapse" id="<c:out value="${uneEquipe.sport.nom}" />">
+                                <div class="card card-body">
+
+
+                                    <!--                                <form class="form-signin needs-validation " action="?action=invitation" method="post" name="action" novalidate>-->
+
+
+                                    <select class="form-control" id="exampleFormControlSelect1" name="nomMembreChoisi">
+                                        <option value="" >Choisir un joueur</option>
+                                        <c:forEach items="${sessionScope.listeDesMembres}" var="unMembre"> 
+                                            <option value="<c:out value="${unMembre.id}" />" ><c:out value="${unMembre.nom}" /></option>
+                                        </c:forEach>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                                    <!--                                </form> -->
+
+
+
+
+
+                                </div>
+
+
+                            </div> 
+
+
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
+                                Afficher les membres
+                            </button>
+
+
+                            </p>
+
+
+
+
+                            <div class="collapse" id="<c:out value="${uneEquipe.nomEquipe}" />">
+                                <div class="card card-body">
+                                    La liste des membres :    
+                                </div>
+                            </div>
+
+
+                        </div> 
                     </div> 
-                </div> 
-
+                </form> 
             </c:forEach>
+
+
         </div> 
     </div>
-   
+
+
+
+
+
 </body>
 
 <!-- The Modal -->
@@ -92,6 +155,13 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

@@ -6,6 +6,7 @@
 package com.playpro.mvc2.controleurs;
 
 import com.playpro.daos.EquipesDAO;
+import com.playpro.daos.MembreDAO;
 import com.playpro.daos.SportDAO;
 import com.playpro.entities.Equipe;
 import com.playpro.entities.Membre;
@@ -130,6 +131,27 @@ public class EquipesAction extends AbstractAction {
 
 //        System.out.println("equipe 1 = "+listeequipes.get(0).getNomEquipe());
         request.getSession().setAttribute("viewConf", "loadEquipe");
+        
+        
+        List<Membre> listeDesMembres = new LinkedList<Membre>();
+        
+        MembreDAO mDao = new MembreDAO();
+        
+        listeDesMembres = mDao.findAll();
+        
+        for (int j=0;j<listeDesMembres.size();j++){
+            System.out.println(listeDesMembres.get(j).getNom());
+        }
+        
+        request.getSession().setAttribute("listeDesMembres", listeDesMembres);
+        
+        
+        
+        
+        
+        
+        
+        
 
         return "portail";
     }
