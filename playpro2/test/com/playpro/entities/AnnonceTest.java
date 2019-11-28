@@ -18,12 +18,13 @@ import static org.junit.Assert.*;
  * @author Piaf
  */
 public class AnnonceTest {
-    final static String IDCREATEUR="abc";
-    final static String TITRE="Participer";
-    final static String DESCRIPTION="MESSAGE";
-    final static boolean GRATUIT=false;
-    final static int MONTANT=25;
-    final static int NB_MAX=20;
+    
+    final static String IDCREATEUR = "abc";
+    final static String TITRE = "Participer";
+    final static String DESCRIPTION = "MESSAGE";
+    final static boolean GRATUIT = false;
+    final static int MONTANT = 25;
+    final static int NB_MAX = 20;
     //final static Date  DATECREATION="2004-03-27";
     Membre m;
     Annonce a;
@@ -42,6 +43,8 @@ public class AnnonceTest {
     
     @Before
     public void setUp() {
+        a = new Annonce();
+        a.setIdAnnonce("abc");
         a.setIdCreateur(IDCREATEUR);
         a.setDescription(DESCRIPTION);
         a.setGratuit(GRATUIT);
@@ -49,14 +52,14 @@ public class AnnonceTest {
         a.setNombreMax(NB_MAX);
         a.setMontant(MONTANT);
         a.setTitre(TITRE);
-        Date d=a.getDateCreation();
-        
+        // Date d=a.getDateCreation();
+
     }
     
     @After
     public void tearDown() {
     }
-
+    
     @Test
     public void testCreationAnnonce() {
         assertEquals(a.getDescription(), DESCRIPTION);
@@ -67,8 +70,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetIdAnnonce() {
-       
-     
+        assertEquals(a.getIdAnnonce(),"abc");
     }
 
     /**
@@ -76,7 +78,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetIdCreateur() {
-        assertEquals(IDCREATEUR,a.getIdCreateur());
+        assertEquals(IDCREATEUR, a.getIdCreateur());
     }
 
     /**
@@ -84,7 +86,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetTitre() {
-        assertEquals(a.getTitre(),TITRE);
+        assertEquals(a.getTitre(), TITRE);
     }
 
     /**
@@ -108,13 +110,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetMontant() {
-        System.out.println("getMontant");
-        Annonce instance = new Annonce();
-        int expResult = 0;
-        int result = instance.getMontant();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(a.getMontant(), MONTANT);
     }
 
     /**
@@ -122,13 +118,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetNombreMax() {
-        System.out.println("getNombreMax");
-        Annonce instance = new Annonce();
-        int expResult = 0;
-        int result = instance.getNombreMax();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(a.getNombreMax(), NB_MAX);
     }
 
     /**
@@ -136,13 +126,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetDateCreation() {
-        System.out.println("getDateCreation");
-        Annonce instance = new Annonce();
-        Date expResult = null;
-        Date result = instance.getDateCreation();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -150,13 +134,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetMembre() {
-        System.out.println("getMembre");
-        Annonce instance = new Annonce();
-        Membre expResult = null;
-        Membre result = instance.getMembre();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(a.getMembre(), m);
     }
 
     /**
@@ -164,12 +142,8 @@ public class AnnonceTest {
      */
     @Test
     public void testSetIdAnnonce() {
-        System.out.println("setIdAnnonce");
-        String idAnnonce = "";
-        Annonce instance = new Annonce();
-        instance.setIdAnnonce(idAnnonce);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String idA = "jbc";
+        a.setIdAnnonce(idA);
     }
 
     /**
@@ -177,12 +151,8 @@ public class AnnonceTest {
      */
     @Test
     public void testSetIdCreateur() {
-        System.out.println("setIdCreateur");
-        String createur = "";
-        Annonce instance = new Annonce();
-        instance.setIdCreateur(createur);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String idA = "jbc2";
+        a.setIdCreateur(idA);
     }
 
     /**
@@ -190,12 +160,9 @@ public class AnnonceTest {
      */
     @Test
     public void testSetTitre() {
-        System.out.println("setTitre");
-        String titre = "";
-        Annonce instance = new Annonce();
-        instance.setTitre(titre);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String ti = "message2";
+        a.setTitre(ti);
+        
     }
 
     /**
@@ -203,12 +170,8 @@ public class AnnonceTest {
      */
     @Test
     public void testSetDescription() {
-        System.out.println("setDescription");
-        String description = "";
-        Annonce instance = new Annonce();
-        instance.setDescription(description);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String desc = "message34";
+        a.setDescription(desc);
     }
 
     /**
@@ -216,12 +179,8 @@ public class AnnonceTest {
      */
     @Test
     public void testSetGratuit() {
-        System.out.println("setGratuit");
-        Boolean gratuit = null;
-        Annonce instance = new Annonce();
-        instance.setGratuit(gratuit);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final boolean grat = false;
+        a.setGratuit(grat);
     }
 
     /**
@@ -229,12 +188,9 @@ public class AnnonceTest {
      */
     @Test
     public void testSetMontant() {
-        System.out.println("setMontant");
-        int montant = 0;
-        Annonce instance = new Annonce();
-        instance.setMontant(montant);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final int mont = 30;
+        a.setMontant(mont);
+        
     }
 
     /**
@@ -242,38 +198,20 @@ public class AnnonceTest {
      */
     @Test
     public void testSetNombreMax() {
-        System.out.println("setNombreMax");
-        int nombreMax = 0;
-        Annonce instance = new Annonce();
-        instance.setNombreMax(nombreMax);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final int nbm = 6;
+        a.setNombreMax(nbm);
     }
 
     /**
      * Test of setDateCreation method, of class Annonce.
      */
-    @Test
-    public void testSetDateCreation() {
-        System.out.println("setDateCreation");
-        Date dateCreation = null;
-        Annonce instance = new Annonce();
-        instance.setDateCreation(dateCreation);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
     /**
      * Test of setMembre method, of class Annonce.
      */
     @Test
     public void testSetMembre() {
-        System.out.println("setMembre");
-        Membre membre = null;
-        Annonce instance = new Annonce();
-        instance.setMembre(membre);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final Membre m2 = new Membre();
+        a.setMembre(m2);
     }
 
     /**
@@ -281,7 +219,7 @@ public class AnnonceTest {
      */
     @Test
     public void testToString() {
-      
+        
     }
     
 }
