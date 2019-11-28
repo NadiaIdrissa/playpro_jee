@@ -12,6 +12,7 @@ import com.playpro.mvc2.controleurs.aProposAction;
 import com.playpro.mvc2.servlets.*;
 import com.playpro.mvc2.controleurs.AbstractAction;
 import com.playpro.mvc2.controleurs.Action;
+import com.playpro.mvc2.controleurs.AnnoncesAction;
 import com.playpro.mvc2.controleurs.DefaultAction;
 import com.playpro.mvc2.controleurs.CreerEquipeAction;
 import com.playpro.mvc2.controleurs.EquipesAction;
@@ -112,6 +113,11 @@ public class ControleurFrontal extends HttpServlet {
             case "equipe":
                 action = new EquipesAction();
                 break;
+
+            case "annonce":
+                action = new AnnoncesAction();
+                break;
+
             case "ajoutImage":
                 action = new SportsAction();
                 break;
@@ -138,7 +144,6 @@ public class ControleurFrontal extends HttpServlet {
             //On redirige le client :
             response.sendRedirect("show.html?v=" + vue);
         } else {
-
             request.getRequestDispatcher("/WEB-INF/vues/" + vue + ".jsp").forward(request, response);
         }
     }

@@ -11,8 +11,8 @@
     <%
         if (m.getTypeMembre().equals("Admin")) {
     %>
-    <button id="myBtn" type="button" >Ajouter</button>
     <%}%>
+    <button id="myBtn" type="button" >Ajouter</button>
     <div >
         <div class="card-columns" style="">
             <c:forEach items="${requestScope.sports}" var="unSport"> 
@@ -30,16 +30,7 @@
             </c:forEach>
         </div> 
     </div>
-    <script>
-        $('input[type=file]').change(function () {
-            debugger;
-            console.log(this.files[0].mozFullPath);
-
-        });
-
-
-
-    </script>
+   
 </body>
 
 <!-- The Modal -->

@@ -5,17 +5,99 @@
  */
 package com.playpro.entities;
 
-import java.time.LocalDate;
+
+import java.util.Date;
 
 /**
  *
  * @author toute
  */
 public class Annonce {
-
-    private int idAnnonce;
-    private Entraineur createur;
+    private String idAnnonce;
+    private Membre createur;
     private String titre;
-    private String message;
-    private LocalDate dateCreation;
+    private String description;
+    private Boolean gratuit;
+    private double montant;
+    private int nombreMax;
+    private Date dateCreation;
+
+    public Annonce() {
+    }
+
+    public String getIdAnnonce() {
+        return idAnnonce;
+    }
+
+    public Membre getCreateur() {
+        return createur;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Boolean getGratuit() {
+        return gratuit;
+    }
+
+    public double getMontant() {
+        return montant;
+    }
+
+    public int getNombreMax() {
+        return nombreMax;
+    }
+
+    public Date getDateCreation() {
+        return dateCreation;
+    }
+
+    
+    public void setIdAnnonce(String idAnnonce) {
+        this.idAnnonce = idAnnonce;
+    }
+
+    public void setCreateur(Membre createur) {
+        this.createur = createur;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setGratuit(Boolean gratuit) {
+        this.gratuit = gratuit;
+    }
+
+    public void setMontant(double montant) {
+        this.montant = montant;
+    }
+
+    public void setNombreMax(int nombreMax) {
+        this.nombreMax = nombreMax;
+    }
+
+    public void setDateCreation(Date dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    
+    
+    
+
+    @Override
+    public String toString() {
+        return "Annonce{" + "idAnnonce=" + idAnnonce + ", createur=" + createur.prenom + ", titre=" + titre + ", description=" + description + ", gratuit=" + gratuit + ", montant=" + montant + ", nombreMax=" + nombreMax + ", dateCreation=" + dateCreation + '}';
+    }
+    
+    
 }

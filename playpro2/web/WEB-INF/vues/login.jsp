@@ -60,7 +60,7 @@
             courriel = membre.getCourriel();
         %>
        
-        <%@include file="headerMembre.jsp" %>
+        <%@include file="header.jsp" %>
 
         <% } %>
         <br><br>

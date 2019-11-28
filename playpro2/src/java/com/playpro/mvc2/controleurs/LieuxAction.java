@@ -14,7 +14,6 @@ import com.playpro.entities.LieuSport;
 import com.playpro.factories.ObjectFactory;
 import com.playpro.services.LieuSportService;
 import com.playpro.services.LieuxServices;
-import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,7 +29,7 @@ import javax.servlet.http.Part;
 public class LieuxAction extends AbstractAction {
 
     private static final String UPLOAD_DIR = "static/images/lieux";
-    private UploadPhoto up = new UploadPhoto();
+    private final UploadPhoto up = new UploadPhoto();
 
     @Override
     public String execute() {
@@ -51,9 +50,7 @@ public class LieuxAction extends AbstractAction {
         List<Part> part = null;
         try {
              part = (List<Part>) request.getParts();
-        } catch (IOException ex) {
-            Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ServletException ex) {
+        } catch (IOException | ServletException ex) {
             Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -74,35 +71,7 @@ public class LieuxAction extends AbstractAction {
             String applicationPath = request.getServletContext().getRealPath("");
             
             image1 = up.uploader(part, UPLOAD_DIR,applicationPath, image1);
-//            String applicationPath = request.getServletContext().getRealPath("");
-//            // constructs path of the directory to save uploaded file
-//            String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
-//
-//            // creates the save directory if it does not exists
-//            File fileSaveDir = new File(uploadFilePath);
-//            if (!fileSaveDir.exists()) {
-//                fileSaveDir.mkdirs();
-//            }
-//            System.out.println("Upload File Directory=" + fileSaveDir.getAbsolutePath());
-//
-//            try {
-//                //Get all the parts from request and write it to the file on server
-//                for (Part part : request.getParts()) {
-//                    String fileName = getFileName(part);
-//                    if (!fileName.equals("")) {
-//                        part.write(uploadFilePath + File.separator + fileName);
-//                        image1 = fileName;
-//                        System.out.println("FILE NAME : " + fileName);
-//                    }
-//                }
-//                request.setAttribute("message", "File uploaded successfully!");
-//            } catch (IOException ex) {
-//                Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
-//                request.setAttribute("message", "File NOT uploaded successfully!");
-//            } catch (ServletException ex) {
-//                Logger.getLogger(UploadAction.class.getName()).log(Level.SEVERE, null, ex);
-//                request.setAttribute("message", "File NOT uploaded successfully!");
-//            }
+
 
             s = ObjectFactory.getNewLieu();
             s.setNom(nom);
@@ -155,18 +124,6 @@ public class LieuxAction extends AbstractAction {
 
         request.getSession().setAttribute("viewConf", "lieux");
         return "portail";
-    }
-
-    private String getFileName(Part part) {
-        String contentDisp = part.getHeader("content-disposition");
-        System.out.println("content-disposition header= " + contentDisp);
-        String[] tokens = contentDisp.split(";");
-        for (String token : tokens) {
-            if (token.trim().startsWith("filename")) {
-                return token.substring(token.indexOf("=") + 2, token.length() - 1);
-            }
-        }
-        return "";
     }
 
 }

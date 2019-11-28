@@ -18,12 +18,15 @@ public class PortailAction extends AbstractAction {
     public String execute() {
         
         String viewConf = "";
+        String rep =((Membre)request.getSession().getAttribute("membre")).getId()+"/";
         String sousAction = (String) request.getParameter("sousAction");
         if(sousAction == null)sousAction="";
         
         switch(sousAction){
             case "loadProfil" :
+                
                 viewConf = "profilaccueil";
+                
                 break;
             case "loadCalendrier" :
                 viewConf = "calendrier";
