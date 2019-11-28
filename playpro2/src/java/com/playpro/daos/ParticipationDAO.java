@@ -30,13 +30,13 @@ public class ParticipationDAO extends DAO<Participation>{
 
     @Override
     public boolean create(Participation x) {
-       String req = "INSERT INTO participationequipe (`NOM_EQUIPE`, `ID_MEMBRE`) VALUES (?,?)";
+       String req = "INSERT INTO participationequipe (`id_joueur`, `id_equipe`) VALUES (?,?)";
        
        PreparedStatement paramStm = null;
        try {
             paramStm = cnx.prepareStatement(req);
-            paramStm.setString(1, x.getNomEquipe());
             paramStm.setString(2, x.getIdMembre());
+            paramStm.setString(1, x.getNomEquipe());
             
             
             int nbLignesAffectees= paramStm.executeUpdate();

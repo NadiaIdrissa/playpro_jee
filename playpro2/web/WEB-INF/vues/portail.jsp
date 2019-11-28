@@ -75,6 +75,10 @@
                         %>
                     <%@include file="traitementInvitation.jsp"%>
 
+                    <%} else if (viewConf.equals("reponseInvitation")) {
+                        %>
+                    <%@include file="reponseInvitation.jsp"%>
+
                     <%} else {%>
                     <%@include file="calendrier.jsp"%>
                     <%}%>
