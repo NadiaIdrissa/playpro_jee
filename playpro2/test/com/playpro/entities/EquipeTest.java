@@ -18,6 +18,9 @@ import static org.junit.Assert.*;
  * @author younes-dilali
  */
 public class EquipeTest {
+    final static int NB_MAX_JOUEURS=30;
+    Sport s;
+    Equipe e;
 
     public EquipeTest() {
     }
@@ -32,6 +35,8 @@ public class EquipeTest {
 
     @Before
     public void setUp() {
+        s=new Sport();
+        e=new Equipe();
     }
 
     @After
@@ -110,7 +115,7 @@ public class EquipeTest {
      */
     @Test
     public void testGetSport() {
-  
+       
     }
 
     /**
@@ -118,7 +123,7 @@ public class EquipeTest {
      */
     @Test
     public void testSetSport() {
-
+e.setSport(s);
     }
 
     /**
@@ -178,7 +183,8 @@ public class EquipeTest {
      */
     @Test
     public void testSetNbJoueurs() {
-    
+        final int maxj=15;
+    e.setNbJoueurs(maxj);
     }
 
     /**
