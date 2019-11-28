@@ -18,8 +18,18 @@ import static org.junit.Assert.*;
  * @author Piaf
  */
 public class AnnonceTest {
+    final static String IDCREATEUR="abc";
+    final static String TITRE="Participer";
+    final static String DESCRIPTION="MESSAGE";
+    final static boolean GRATUIT=false;
+    final static int MONTANT=25;
+    final static int NB_MAX=20;
+    //final static Date  DATECREATION="2004-03-27";
+    Membre m;
+    Annonce a;
     
     public AnnonceTest() {
+        
     }
     
     @BeforeClass
@@ -32,6 +42,15 @@ public class AnnonceTest {
     
     @Before
     public void setUp() {
+        a.setIdCreateur(IDCREATEUR);
+        a.setDescription(DESCRIPTION);
+        a.setGratuit(GRATUIT);
+        a.setMembre(m);
+        a.setNombreMax(NB_MAX);
+        a.setMontant(MONTANT);
+        a.setTitre(TITRE);
+        Date d=a.getDateCreation();
+        
     }
     
     @After
@@ -39,9 +58,8 @@ public class AnnonceTest {
     }
 
     @Test
-    public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testCreationAnnonce() {
+        assertEquals(a.getDescription(), DESCRIPTION);
     }
 
     /**
@@ -49,6 +67,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetIdAnnonce() {
+       
      
     }
 
@@ -57,7 +76,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetIdCreateur() {
-        
+        assertEquals(IDCREATEUR,a.getIdCreateur());
     }
 
     /**
@@ -65,13 +84,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetTitre() {
-        System.out.println("getTitre");
-        Annonce instance = new Annonce();
-        String expResult = "";
-        String result = instance.getTitre();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(a.getTitre(),TITRE);
     }
 
     /**
@@ -79,13 +92,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetDescription() {
-        System.out.println("getDescription");
-        Annonce instance = new Annonce();
-        String expResult = "";
-        String result = instance.getDescription();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(a.getDescription(), DESCRIPTION);
     }
 
     /**
@@ -93,13 +100,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetGratuit() {
-        System.out.println("getGratuit");
-        Annonce instance = new Annonce();
-        Boolean expResult = null;
-        Boolean result = instance.getGratuit();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(a.getGratuit(), GRATUIT);
     }
 
     /**
@@ -280,13 +281,7 @@ public class AnnonceTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
-        Annonce instance = new Annonce();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
     
 }
