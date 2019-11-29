@@ -22,25 +22,31 @@
     <%}%>
     <button id="myBtn" type="button" >Ajouter</button>
     <div >
-        <div class="container " style="">
+        <div class=" " style="">
             <c:forEach items="${requestScope.annonces}" var="uneAnnonce"> 
 
-                <div class=" annonce" >
-                    <div class="cadre text-center">
+                <div class=" annonce " >
+                    <h2 class='card-text font-weight-bold bg-primary text-uppercase' ><c:out value="${uneAnnonce.titre}" /><br></h2>
+                    <div class="  row" >
+                        <div class="cadre text-center col-4  border">
 
-                        <h2 class='card-text font-weight-bold bg-primary text-uppercase' ><c:out value="${uneAnnonce.titre}" /><br></h2>
-                        <p class='card-text'>Annonceur: <c:out value="${uneAnnonce.createur.prenom}" /></p>
-                        <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneAnnonce.nombreMax}" /></p>
+                            <p class='card-text'>Annonceur: <c:out value="${uneAnnonce.createur.prenom}" /></p>
+                            <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneAnnonce.nombreMax}" /></p>
 
-                        <c:if test="${uneAnnonce.gratuit}"> 
-                            <p class="card-text">Ce cours est gratuit</p>
-                        </c:if>
-                        <c:if test="${!uneAnnonce.gratuit}"> 
-                            <p class="card-text">Montant: <c:out value="${uneAnnonce.montant}" /> $</p>
-                        </c:if>
+                            <c:if test="${uneAnnonce.gratuit}"> 
+                                <p class="card-text">Ce cours est gratuit</p>
+                            </c:if>
+                            <c:if test="${!uneAnnonce.gratuit}"> 
+                                <p class="card-text">Montant: <c:out value="${uneAnnonce.montant}" /> $</p>
+                            </c:if>
+                            <p class="card-text">Lieu: <c:out value="${uneAnnonce.lieu.nom}" /></p>
+                            <p class="card-text">Date et heure: <c:out value="${uneAnnonce.date_event}" /></p>
 
-                        <p class="card-text"> <c:out value="${uneAnnonce.description}" /></p>
-
+                        </div>
+                        <div class='col-8'>
+                            <h3>Message de l'entrainneur :</h3>
+                            <p class="card-text"> <c:out value="${uneAnnonce.description}" /></p>
+                        </div> 
                     </div> 
                 </div> 
 
@@ -86,6 +92,18 @@
                     <div class="form-group " id="divMontant" style="display:none">
                         <input type="number" step="0.10" min="0" class="form-control" id="montant" name="montant" placeholder="Montant" required />
 
+                    </div>
+                    <div class="form-group">
+                        Date et heure de l'événement :
+                        <input type="datetime-local" name="dateheure" required>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1" name="lieux"  required> 
+                            <option value="" >Lieu de l'événement</option>
+                            <c:forEach items="${requestScope.lieux}" var="unLieu"> 
+                                <option value="<c:out value="${unLieu.id_lieu}" />"><c:out value="${unLieu.nom}" /></option> 
+                            </c:forEach>
+                        </select>
                     </div>
 
                     <div class="form-group">

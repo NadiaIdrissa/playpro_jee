@@ -17,9 +17,10 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
-   
     modal.style.display = "block";
+// Data Picker Initialization
 }
+
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
@@ -36,16 +37,16 @@ window.onclick = function (event) {
 
 
 $('input[type=file]').change(function () {
-    
+
     var sourceVal = document.getElementById("imageSport").files[0].path;
-        $("#sourceDirPath").val(sourceVal);
+    $("#sourceDirPath").val(sourceVal);
     console.log(this.files[0].mozFullPath);
-    
+
 });
 
 // Material Select Initialization
-$(document).ready(function() {
-$('.mdb-select').materialSelect();
+$(document).ready(function () {
+    $('.mdb-select').materialSelect();
 
 });
 
@@ -57,18 +58,16 @@ var text = document.getElementById("divMontant");
 var montant = document.getElementById("montant");
 var textGratuit = document.getElementById("textGatuit")
 
-$(':checkbox').change(function() {
+$(':checkbox').change(function () {
 
-        // do stuff here. It will fire on any checkbox change
-  if (checkBox.checked === true){
-     text.style.display = "none";
-     textGratuit.innerHTML = "Gratuit";
-     montant.innerHTML = "0";
-  } else {
-    text.style.display = "block";
-     textGratuit.innerHTML = "Payant";
-  }
+    // do stuff here. It will fire on any checkbox change
+    if (checkBox.checked === true) {
+        text.style.display = "none";
+        textGratuit.innerHTML = "Gratuit";
+        montant.innerHTML = "0";
+    } else {
+        text.style.display = "block";
+        textGratuit.innerHTML = "Payant";
+    }
 
-}); 
-
-
+});
