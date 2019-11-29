@@ -7,16 +7,11 @@ package com.playpro.entities;
 
 import java.time.LocalDate;
 
-<<<<<<< HEAD
-/**
- *
- * @author Piaf
-=======
 
 /**
  *
- * @author Salpy
->>>>>>> ed08e30eb39c51d0e9b2067aa0156a05488cf341
+ * @author Piaf
+
  */
 public class Participation {
     private String nomEquipe;
@@ -64,7 +59,4 @@ public class Participation {
     }
     
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> ed08e30eb39c51d0e9b2067aa0156a05488cf341

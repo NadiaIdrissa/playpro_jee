@@ -13,17 +13,13 @@
                         <a class="nav-link" href="?action=index">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-<<<<<<< HEAD
+
                         <a id="redirCal" class="nav-link" href="?action=index#cal">Calendrier <span class="sr-only"></span></a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="?action=index#apropos">À propos <span class="sr-only"></span></a>
-=======
-                        <a class="nav-link" href="?action=index#cal">Calendrier <span class="sr-only"></span></a>
-                    </li>
+
                     <li class="nav-item active">
                         <a class="nav-link" href="?action=aPropos">À propos <span class="sr-only"></span></a>
->>>>>>> ed08e30eb39c51d0e9b2067aa0156a05488cf341
+
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="?action=nousJoindre">Contact<span class="sr-only"></span></a>
