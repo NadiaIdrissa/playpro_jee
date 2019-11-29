@@ -21,12 +21,22 @@ public class Annonce {
     private double montant;
     private int nombreMax;
     private Date dateCreation;
+    private Date date_event;
+    private Lieux id_lieu;
 
     public Annonce() {
     }
 
     public String getIdAnnonce() {
         return idAnnonce;
+    }
+
+    public Date getDate_event() {
+        return date_event;
+    }
+
+    public Lieux getId_lieu() {
+        return id_lieu;
     }
 
     public Membre getCreateur() {
@@ -57,7 +67,14 @@ public class Annonce {
         return dateCreation;
     }
 
-    
+    public void setDate_event(Date date_event) {
+        this.date_event = date_event;
+    }
+
+    public void setId_lieu(Lieux id_lieu) {
+        this.id_lieu = id_lieu;
+    }
+
     public void setIdAnnonce(String idAnnonce) {
         this.idAnnonce = idAnnonce;
     }
@@ -90,14 +107,9 @@ public class Annonce {
         this.dateCreation = dateCreation;
     }
 
-    
-    
-    
-
     @Override
     public String toString() {
-        return "Annonce{" + "idAnnonce=" + idAnnonce + ", createur=" + createur.prenom + ", titre=" + titre + ", description=" + description + ", gratuit=" + gratuit + ", montant=" + montant + ", nombreMax=" + nombreMax + ", dateCreation=" + dateCreation + '}';
+        return "Annonce{" + "idAnnonce=" + idAnnonce + ", createur=" + createur + ", titre=" + titre + ", description=" + description + ", gratuit=" + gratuit + ", montant=" + montant + ", nombreMax=" + nombreMax + ", dateCreation=" + dateCreation + ", date_event=" + date_event + ", id_lieu=" + id_lieu + '}';
     }
-    
     
 }

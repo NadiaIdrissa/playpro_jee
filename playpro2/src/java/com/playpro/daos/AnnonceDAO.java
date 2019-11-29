@@ -6,6 +6,7 @@
 package com.playpro.daos;
 
 import com.playpro.entities.Annonce;
+import com.playpro.entities.Lieux;
 import com.playpro.entities.Membre;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -23,8 +24,8 @@ public class AnnonceDAO extends DAO<Annonce> {
 
     @Override
     public boolean create(Annonce x) {
-        String req = "INSERT INTO annonce (`id_annonce` , `id_createur` , `nombreMax`, `montant`, `titre_annonce`, `gratuit`, `description`, `date_creation`) "
-                + "VALUES (?,?,?,?,?,?,?,?)";
+        String req = "INSERT INTO annonce (`id_annonce` , `id_createur` , `nombreMax`,`id_lieu`,`date_events` ,`montant`, `titre_annonce`, `gratuit`, `description`, `date_creation`) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?)";
 
         PreparedStatement stm = null;
         try {
@@ -32,11 +33,13 @@ public class AnnonceDAO extends DAO<Annonce> {
             stm.setString(1, x.getIdAnnonce());
             stm.setString(2, x.getCreateur().getId());
             stm.setInt(3, x.getNombreMax());
-            stm.setDouble(4, x.getMontant());
-            stm.setString(5, x.getTitre());
-            stm.setBoolean(6, x.getGratuit());
-            stm.setString(7, x.getDescription());
-            stm.setDate(8, (Date) x.getDateCreation());
+            stm.setString(4, x.getId_lieu().getId_lieu());
+            stm.setDate(5, (Date) x.getDate_event());
+            stm.setDouble(6, x.getMontant());
+            stm.setString(7, x.getTitre());
+            stm.setBoolean(8, x.getGratuit());
+            stm.setString(9, x.getDescription());
+            stm.setDate(10, (Date) x.getDateCreation());
 
             int n = stm.executeUpdate();
             System.out.println("========================================");
@@ -76,9 +79,11 @@ public class AnnonceDAO extends DAO<Annonce> {
             if (r.next()) {
                 Annonce c = new Annonce();
                 Membre u = new Membre();
+                Lieux l = new Lieux();
 
                 c.setIdAnnonce(r.getString("annonce.id_annonce"));
                 c.setNombreMax(r.getInt("annonce.nombreMax"));
+                c.setDate_event(r.getDate("annonce.date_event"));
                 c.setMontant(r.getFloat("annonce.montant"));
                 c.setTitre(r.getString("annonce.titre_annonce"));
                 c.setGratuit(r.getBoolean("annonce.gratuit"));
@@ -96,7 +101,20 @@ public class AnnonceDAO extends DAO<Annonce> {
                 u.setSport(r.getString("membre.sport"));
                 u.setMpd(r.getString("membre.mdp"));
                 u.setStatus(r.getString("membre.statut"));
-
+                
+                l.setId_lieu(r.getString("lieu.id_lieu"));
+                l.setNom(r.getString("lieu.nom"));
+                l.setNumero(r.getString("lieu.numero"));
+                l.setRue(r.getString("lieu.rue"));
+                l.setCode_postal(r.getString("lieu.code_postal"));
+                l.setVille(r.getString("lieu.ville"));
+                l.setPays(r.getString("lieu.pays"));
+                l.setInfos(r.getString("lieu.infos"));
+                l.setImage1(r.getString("lieu.image1"));
+                l.setImage2(r.getString("lieu.image2"));
+                l.setImage3(r.getString("lieu.image3"));
+                
+                c.setId_lieu(l);
                 c.setCreateur(u);
                 r.close();
                 stm.close();
@@ -125,6 +143,8 @@ public class AnnonceDAO extends DAO<Annonce> {
         try {
             String req = "UPDATE annonce SET id_createur = '" + x.getCreateur().getId() + "',"
                     + "nombreMax = '" + x.getNombreMax() + "',"
+                    + "id_lieu = '" + x.getId_lieu()+ "',"
+                    + "date_event = '" + x.getDate_event()+ "',"
                     + "montant = '" + x.getMontant() + "',"
                     + "titre_annonce = '" + x.getTitre() + "',"
                     + "gratuit = '" + x.getGratuit() + "',"
@@ -183,10 +203,13 @@ public class AnnonceDAO extends DAO<Annonce> {
         List<Annonce> liste = new LinkedList<>();
         try {
             Statement stm = cnx.createStatement();
-            ResultSet r = stm.executeQuery("SELECT * FROM `annonce` INNER JOIN `membre`on annonce.id_createur = MEMBRE.ID");
+            ResultSet r = stm.executeQuery("SELECT * FROM `annonce` INNER JOIN `membre`on annonce.id_createur = MEMBRE.ID"
+                    + " INNER JOIN lieu ON annonce.id_lieu = lieu.id_lieu");
+                                
             while (r.next()) {
                 Annonce c = new Annonce();
                 Membre u = new Membre();
+                Lieux l = new Lieux();
 
                 c.setIdAnnonce(r.getString("annonce.id_annonce"));
                 c.setNombreMax(r.getInt("annonce.nombreMax"));
@@ -207,6 +230,20 @@ public class AnnonceDAO extends DAO<Annonce> {
                 u.setSport(r.getString("membre.sport"));
                 u.setMpd(r.getString("membre.mdp"));
                 u.setStatus(r.getString("membre.statut"));
+                
+                l.setId_lieu(r.getString("lieu.id_lieu"));
+                l.setNom(r.getString("lieu.nom"));
+                l.setNumero(r.getString("lieu.numero"));
+                l.setRue(r.getString("lieu.rue"));
+                l.setCode_postal(r.getString("lieu.code_postal"));
+                l.setVille(r.getString("lieu.ville"));
+                l.setPays(r.getString("lieu.pays"));
+                l.setInfos(r.getString("lieu.infos"));
+                l.setImage1(r.getString("lieu.image1"));
+                l.setImage2(r.getString("lieu.image2"));
+                l.setImage3(r.getString("lieu.image3"));
+                
+                c.setId_lieu(l);
 
                 c.setCreateur(u);
 

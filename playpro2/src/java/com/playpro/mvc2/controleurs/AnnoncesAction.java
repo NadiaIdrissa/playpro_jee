@@ -53,7 +53,7 @@ public class AnnoncesAction extends AbstractAction {
         System.out.println("montant" + montant);
 
         request.getSession().setAttribute("viewConf", "annonces");
-        request.setAttribute("listeAnnonces", liste);
+        request.setAttribute("annonces", liste);
         return "portail";
     }
     
