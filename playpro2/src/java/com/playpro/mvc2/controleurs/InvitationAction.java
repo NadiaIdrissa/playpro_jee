@@ -22,6 +22,10 @@ import com.playpro.services.InvitationServices;
     @Override
     public String execute() {
         
+        
+        
+        
+        
         String nomMembre = (String) request.getParameter("nomMembreChoisi");
         MembreDAO mdao = new MembreDAO();
         Membre destinataire = new Membre();
@@ -36,6 +40,9 @@ import com.playpro.services.InvitationServices;
         EquipesDAO edao = new EquipesDAO();
         Equipe equipe = new Equipe();
         equipe=edao.findById(nomEquipe);
+        
+        
+        
         
         
         

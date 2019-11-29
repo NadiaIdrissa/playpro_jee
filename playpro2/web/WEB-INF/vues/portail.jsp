@@ -61,6 +61,8 @@
                     <%@include file="sports.jsp"%>
                     <%} else if (viewConf.equals("lieux")) {%>
                     <%@include file="lieux.jsp"%>
+                    <%} else if (viewConf.equals("annonces")) {%>
+                    <%@include file="annonce.jsp"%>
                     <%} else if (viewConf.equals("membres")) {
                         %>
                     <%@include file="membres.jsp"%>
@@ -72,6 +74,10 @@
                     <%} else if (viewConf.equals("traitementInvitation")) {
                         %>
                     <%@include file="traitementInvitation.jsp"%>
+
+                    <%} else if (viewConf.equals("reponseInvitation")) {
+                        %>
+                    <%@include file="reponseInvitation.jsp"%>
 
                     <%} else {%>
                     <%@include file="calendrier.jsp"%>

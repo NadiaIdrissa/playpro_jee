@@ -14,14 +14,13 @@ import java.util.Date;
  */
 public class Annonce {
     private String idAnnonce;
-    private String idCreateur;
+    private Membre createur;
     private String titre;
     private String description;
     private Boolean gratuit;
-    private int montant;
+    private double montant;
     private int nombreMax;
     private Date dateCreation;
-    private Membre membre;
 
     public Annonce() {
     }
@@ -30,8 +29,8 @@ public class Annonce {
         return idAnnonce;
     }
 
-    public String getIdCreateur() {
-        return idCreateur;
+    public Membre getCreateur() {
+        return createur;
     }
 
     public String getTitre() {
@@ -46,7 +45,7 @@ public class Annonce {
         return gratuit;
     }
 
-    public int getMontant() {
+    public double getMontant() {
         return montant;
     }
 
@@ -58,17 +57,13 @@ public class Annonce {
         return dateCreation;
     }
 
-    public Membre getMembre() {
-        return membre;
-    }
     
-
     public void setIdAnnonce(String idAnnonce) {
         this.idAnnonce = idAnnonce;
     }
 
-    public void setIdCreateur(String createur) {
-        this.idCreateur = createur;
+    public void setCreateur(Membre createur) {
+        this.createur = createur;
     }
 
     public void setTitre(String titre) {
@@ -83,7 +78,7 @@ public class Annonce {
         this.gratuit = gratuit;
     }
 
-    public void setMontant(int montant) {
+    public void setMontant(double montant) {
         this.montant = montant;
     }
 
@@ -95,15 +90,13 @@ public class Annonce {
         this.dateCreation = dateCreation;
     }
 
-    public void setMembre(Membre membre) {
-        this.membre = membre;
-    }
+    
     
     
 
     @Override
     public String toString() {
-        return "Annonce{" + "idAnnonce=" + idAnnonce + ", createur=" + idCreateur + ", titre=" + titre + ", description=" + description + ", gratuit=" + gratuit + ", montant=" + montant + ", nombreMax=" + nombreMax + ", dateCreation=" + dateCreation + '}';
+        return "Annonce{" + "idAnnonce=" + idAnnonce + ", createur=" + createur.prenom + ", titre=" + titre + ", description=" + description + ", gratuit=" + gratuit + ", montant=" + montant + ", nombreMax=" + nombreMax + ", dateCreation=" + dateCreation + '}';
     }
     
     

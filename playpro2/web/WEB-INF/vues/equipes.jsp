@@ -26,47 +26,58 @@
 
                         <div class="card-body text-center">
                             <img class="avatar rounded-circle" src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
-                            
+
                             <p class='card-text'>Nom de l'équipe: <c:out value="${uneEquipe.nomEquipe}" /></p>
                             <input name="nomEquipeChoisi" type="hidden" value="<c:out value="${uneEquipe.nomEquipe}" />">
-                            
+
                             <p class='card-text'>Sport de l'équipe: <c:out value="${uneEquipe.sport.nom}" /></p>
                             <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneEquipe.nbJoueurs}" /></p>
 
 
 
-                            <p>
-                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.sport.nom}" />" aria-expanded="false" aria-controls="collapseExample">
-                                    Inviter un joueur
-                                </button>
-
-                            <div class="collapse" id="<c:out value="${uneEquipe.sport.nom}" />">
-                                <div class="card card-body">
 
 
-                                    <!--                                <form class="form-signin needs-validation " action="?action=invitation" method="post" name="action" novalidate>-->
+                            <p
+                                <c:set var="nb" value="${uneEquipe.nbJoueurs}"/>
+                                <c:set var="nbOqp" value="${sessionScope.placeOqp}"/>
+                                
+                                <c:set var="a" value="${sessionScope.membre.id}"/>
+                                <c:set var="b" value="${uneEquipe.capitaine.id}"/>
+                                
+                                
+                                <c:if test = "${a == b}">
+                                    <button class="btn btn-primary blue text-danger" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.sport.nom}" />" aria-expanded="false" aria-controls="collapseExample">
+                                        Inviter un joueur
+                                    </button>
+
+                                <div class="collapse" id="<c:out value="${uneEquipe.sport.nom}" />">
+                                    <div class="card card-body">
 
 
-                                    <select class="form-control" id="exampleFormControlSelect1" name="nomMembreChoisi">
-                                        <option value="" >Choisir un joueur</option>
-                                        <c:forEach items="${sessionScope.listeDesMembres}" var="unMembre"> 
-                                            <option value="<c:out value="${unMembre.id}" />" ><c:out value="${unMembre.nom}" /></option>
-                                        </c:forEach>
-                                    </select>
-                                    <button type="submit" class="btn btn-primary">Envoyer</button>
-                                    <!--                                </form> -->
+                                        <!--                                <form class="form-signin needs-validation " action="?action=invitation" method="post" name="action" novalidate>-->
+
+
+                                        <select class="form-control" id="exampleFormControlSelect1" name="nomMembreChoisi">
+                                            <option value="" >Choisir un joueur</option>
+                                            <c:forEach items="${sessionScope.listeDesMembres}" var="unMembre"> 
+                                                <option value="<c:out value="${unMembre.id}" />" ><c:out value="${unMembre.nom}" /></option>
+                                            </c:forEach>
+                                        </select>
+                                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                                        <!--                                </form> -->
 
 
 
 
 
-                                </div>
+                                    </div>
 
 
-                            </div> 
+                                </div> 
 
 
-                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
+                            </c:if>
+                            <button class="btn btn-primary blue" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
                                 Afficher les membres
                             </button>
 
@@ -75,10 +86,21 @@
 
 
 
-
                             <div class="collapse" id="<c:out value="${uneEquipe.nomEquipe}" />">
                                 <div class="card card-body">
-                                    La liste des membres :    
+                                    <ul>
+                                        <c:forEach items="${sessionScope.listeDeParticipations}" var="joueur"> 
+                                            <c:if test = "${uneEquipe.nomEquipe == joueur.nomEquipe}">
+
+                                                <li> ${joueur.idMembre}</li>
+                                                <input type="hidden" ${nb=nb-1}>
+                                                
+                                                </c:if>
+                                            </c:forEach>
+                                    </ul>
+                                    <!--La liste des membres :--> 
+                                    Il reste encore ${nb } places de libre
+
                                 </div>
                             </div>
 

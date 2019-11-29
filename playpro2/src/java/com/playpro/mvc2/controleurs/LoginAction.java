@@ -81,6 +81,7 @@ public class LoginAction extends AbstractAction {
                     System.out.println("nombre invitations = " + listeInvitations.size());
                     
                     request.getSession().setAttribute("NbInvitations", listeInvitations.size());
+                    request.getSession().setAttribute("listeInvitations", listeInvitations);
 
                 }
             }

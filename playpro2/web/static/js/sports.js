@@ -17,7 +17,7 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
-    debugger;
+   
     modal.style.display = "block";
 }
 
@@ -46,7 +46,29 @@ $('input[type=file]').change(function () {
 // Material Select Initialization
 $(document).ready(function() {
 $('.mdb-select').materialSelect();
+
 });
 
+
+var checkBox = document.getElementById("switch1");
+
+checkBox.checked = true;
+var text = document.getElementById("divMontant");
+var montant = document.getElementById("montant");
+var textGratuit = document.getElementById("textGatuit")
+
+$(':checkbox').change(function() {
+
+        // do stuff here. It will fire on any checkbox change
+  if (checkBox.checked === true){
+     text.style.display = "none";
+     textGratuit.innerHTML = "Gratuit";
+     montant.innerHTML = "0";
+  } else {
+    text.style.display = "block";
+     textGratuit.innerHTML = "Payant";
+  }
+
+}); 
 
 

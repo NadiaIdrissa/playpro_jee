@@ -81,7 +81,29 @@ public class InvitationDAO extends DAO<Invitation> {
 
     @Override
     public boolean delete(Invitation x) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Statement stm = null;
+
+        String request = "DELETE FROM invitation WHERE id_requete='" + x.getId_requete() + "'";
+        try {
+            stm = cnx.createStatement();
+
+            int n = stm.executeUpdate(request);
+
+            if (n > 0) {
+                stm.close();
+                return true;
+            }
+        } catch (SQLException e) {
+        } finally {
+            if (stm != null) {
+                try {
+                    stm.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
     }
 
     @Override

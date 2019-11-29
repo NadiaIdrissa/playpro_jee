@@ -48,7 +48,7 @@
           if (!m.getTypeMembre().equals("Joueur")){  
         %>
             <li>
-                <a href="#">
+                <a href="?action=annonce">
                     <i class="fa fa-file"></i><span class="sideLabel"> Annonces</span>
                 </a>
             </li>

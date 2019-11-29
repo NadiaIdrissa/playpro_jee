@@ -7,10 +7,12 @@ package com.playpro.mvc2.controleurs;
 
 import com.playpro.daos.EquipesDAO;
 import com.playpro.daos.MembreDAO;
+import com.playpro.daos.ParticipationDAO;
 import com.playpro.daos.SportDAO;
 import com.playpro.entities.Equipe;
 import com.playpro.entities.Membre;
 import com.playpro.entities.Equipe;
+import com.playpro.entities.Participation;
 import com.playpro.entities.Sport;
 import com.playpro.factories.ObjectFactory;
 import com.playpro.services.EquipesServices;
@@ -107,6 +109,17 @@ public class EquipesAction extends AbstractAction {
             e.setCapitaine(cap);
 
             EquipesServices.creerEquipe(e);
+            
+            
+            Participation participe = new Participation();
+            ParticipationDAO pdao = new ParticipationDAO();
+            participe.setIdMembre(cap.getNom());
+            participe.setNomEquipe(nomEquipe);
+            
+            System.out.println("participant = "+participe.getIdMembre());
+            System.out.println("nom equipe = "+participe.getNomEquipe());
+            
+            pdao.create(participe);
         }
         List<String> listeq = new LinkedList<String>();
         SportDAO sports = new SportDAO();
@@ -146,8 +159,19 @@ public class EquipesAction extends AbstractAction {
         request.getSession().setAttribute("listeDesMembres", listeDesMembres);
         
         
+        List<Participation> partic = new LinkedList<Participation>();
+        ParticipationDAO pdao = new ParticipationDAO();
+        partic = pdao.findAll();
+        
+        for(int k=0;k<partic.size();k++){
+            System.out.println(partic.get(k).getIdMembre());
+        }
+        
+       
         
         
+        request.getSession().setAttribute("listeDeParticipations", partic);
+        request.getSession().setAttribute("placeOqp", partic.size());
         
         
         

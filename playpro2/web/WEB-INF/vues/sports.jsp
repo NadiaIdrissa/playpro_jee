@@ -30,16 +30,7 @@
             </c:forEach>
         </div> 
     </div>
-    <script>
-        $('input[type=file]').change(function () {
-            debugger;
-            console.log(this.files[0].mozFullPath);
-
-        });
-
-
-
-    </script>
+   
 </body>
 
 <!-- The Modal -->
