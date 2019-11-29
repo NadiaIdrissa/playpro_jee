@@ -9,6 +9,7 @@ import com.playpro.entities.Annonce;
 import com.playpro.entities.Membre;
 import com.playpro.factories.ObjectFactory;
 import com.playpro.services.AnnoncesServices;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -24,9 +25,11 @@ public class AnnoncesAction extends AbstractAction {
         String gratuit[] = request.getParameterValues("gratuit");
         String montant = (String) request.getParameter("montant");
         Membre createur = (Membre) request.getSession().getAttribute("membre");
+        String dateheure = (String) request.getParameter("dateheure");
         
 
         if(titre != null && message !=null ){
+            System.out.println("Date time: "+dateheure);
             int nbMax = Integer.parseInt(request.getParameter("nbMax"));
             Annonce annonce = ObjectFactory.getNewAnnonce();
             annonce.setCreateur(createur);

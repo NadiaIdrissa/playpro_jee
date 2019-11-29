@@ -22,7 +22,7 @@
     <%}%>
     <button id="myBtn" type="button" >Ajouter</button>
     <div >
-        <div class="container " style="">
+        <div class=" " style="">
             <c:forEach items="${requestScope.annonces}" var="uneAnnonce"> 
 
                 <div class=" annonce" >
@@ -86,6 +86,10 @@
                     <div class="form-group " id="divMontant" style="display:none">
                         <input type="number" step="0.10" min="0" class="form-control" id="montant" name="montant" placeholder="Montant" required />
 
+                    </div>
+                    <div class="form-group">
+                        Date et heure de l'événement :
+                        <input type="datetime-local" name="dateheure" required>
                     </div>
 
                     <div class="form-group">

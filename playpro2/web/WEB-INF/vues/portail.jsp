@@ -36,58 +36,65 @@
         <link href="static/css/styles.css" rel="stylesheet">
         <link href="static/css/sportsstyles.css" rel="stylesheet">
         <link href="static/css/stylesyoun.css" rel="stylesheet" type="text/css">
-    </head>
-    <body>
+
+        <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+</head>
+<body>
 
 
 
-        <%@include file="menu.jsp" %>
-        <div id="perspective" class="perspective effect-movedown">
-            <div class="container" style="max-width: unset">
-                <div class="wrapper"><!-- wrapper needed for scroll -->
-                    <%@include file="sidebar.jsp" %>
-                </div>
-
-                <div class="main mainPortail clearfix">
-                    <%if (viewConf.equals("profilaccueil")) {%>
-                    <%@include file="profil.jsp"%>
-                    <%} else if (viewConf.equals("calendrier")) {%>
-                    <%@include file="calendrier.jsp"%>
-                    <%} else if (viewConf.equals("suppCompte")) {%>
-                    <%@include file="suppressionCompte.jsp"%>
-                    <%} else if (viewConf.equals("loadEquipe")) {%>
-                    <%@include file="equipes.jsp"%>
-                    <%} else if (viewConf.equals("sports")) {%>
-                    <%@include file="sports.jsp"%>
-                    <%} else if (viewConf.equals("lieux")) {%>
-                    <%@include file="lieux.jsp"%>
-                    <%} else if (viewConf.equals("annonces")) {%>
-                    <%@include file="annonce.jsp"%>
-                    <%} else if (viewConf.equals("membres")) {
-                        %>
-                    <%@include file="membres.jsp"%>
-
-                    <%}else if (viewConf.equals("invitation")) {
-                        %>
-                    <%@include file="invitation.jsp"%>
-
-                    <%} else if (viewConf.equals("traitementInvitation")) {
-                        %>
-                    <%@include file="traitementInvitation.jsp"%>
-
-                    <%} else if (viewConf.equals("reponseInvitation")) {
-                        %>
-                    <%@include file="reponseInvitation.jsp"%>
-
-                    <%} else {%>
-                    <%@include file="calendrier.jsp"%>
-                    <%}%>
-                </div>
+    <%@include file="menu.jsp" %>
+    <div id="perspective" class="perspective effect-movedown">
+        <div class="container" style="max-width: unset">
+            <div class="wrapper"><!-- wrapper needed for scroll -->
+                <%@include file="sidebar.jsp" %>
             </div>
-            <%@include file="header4.jsp" %>
-        </div>        
-        <script src="static/js/classie.js"></script>
-        <script src="static/js/menu.js"></script>
-        <script src="static/js/sports.js"></script>
-    </body>
+
+            <div class="main mainPortail clearfix">
+                <%if (viewConf.equals("profilaccueil")) {%>
+                <%@include file="profil.jsp"%>
+                <%} else if (viewConf.equals("calendrier")) {%>
+                <%@include file="calendrier.jsp"%>
+                <%} else if (viewConf.equals("suppCompte")) {%>
+                <%@include file="suppressionCompte.jsp"%>
+                <%} else if (viewConf.equals("loadEquipe")) {%>
+                <%@include file="equipes.jsp"%>
+                <%} else if (viewConf.equals("sports")) {%>
+                <%@include file="sports.jsp"%>
+                <%} else if (viewConf.equals("lieux")) {%>
+                <%@include file="lieux.jsp"%>
+                <%} else if (viewConf.equals("annonces")) {%>
+                <%@include file="annonce.jsp"%>
+                <%} else if (viewConf.equals("membres")) {
+                %>
+                <%@include file="membres.jsp"%>
+
+                <%}else if (viewConf.equals("invitation")) {
+                %>
+                <%@include file="invitation.jsp"%>
+
+                <%} else if (viewConf.equals("traitementInvitation")) {
+                %>
+                <%@include file="traitementInvitation.jsp"%>
+
+                <%} else if (viewConf.equals("reponseInvitation")) {
+                %>
+                <%@include file="reponseInvitation.jsp"%>
+
+                <%} else {%>
+                <%@include file="calendrier.jsp"%>
+                <%}%>
+            </div>
+        </div>
+        <%@include file="header4.jsp" %>
+    </div>        
+    <script src="static/js/classie.js"></script>
+    <script src="static/js/menu.js"></script>
+    <script src="static/js/sports.js"></script>
+</body>
 </html>
