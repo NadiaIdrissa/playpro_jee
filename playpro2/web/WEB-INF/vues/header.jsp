@@ -1,8 +1,8 @@
 <header>
     <div class="container headerV">
         <nav class="navbar navbar-expand-lg navbar-light bg-secondary text-white fixed-top" role="navigation">
-            <a class="navbar-brand" href="?action=index">
-                <img src="static/images/logo.png" width="80" height="80" class="d-inline-block align-top" alt="">
+            <a class="navbar-brand" style="margin-left: 15px;" href="?action=index">
+                <img src="static/images/logo2.svg" width="80" height="80" class="d-inline-block align-top" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -13,10 +13,12 @@
                         <a class="nav-link" href="?action=index">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="?action=index#cal">Calendrier <span class="sr-only"></span></a>
+
+                        <a id="redirCal" class="nav-link" href="?action=index#cal">Calendrier <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="?action=aPropos">À propos <span class="sr-only"></span></a>
+                        <a class="nav-link" href="?action=index#apropos">À propos <span class="sr-only"></span></a>
+
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="?action=nousJoindre">Contact<span class="sr-only"></span></a>

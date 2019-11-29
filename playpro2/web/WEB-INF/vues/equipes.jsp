@@ -10,11 +10,22 @@
 <%@page import="com.playpro.entities.Equipe"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<div class="equipeStyle row">
+    <div class="col-sm-10 col-md-10 col-lg-10">
+        <h1>Liste des équipes existantes</h1>
+        
+    </div>
+    <div class="colBtn col-sm-2 col-md-2 col-lg-2">
+        <button id="myBtn" type="button" >Ajouter</button>
+    </div>
+</div>
 
+<div class="equipeStyle">
+    <!--<div class="card-columns">-->
+        <%--<c:forEach items="${requestScope.listeEquipe}" var="uneEquipe">--%> 
 
-<body>
-    <h1>Liste des équipes existantes</h1><button id="myBtn" type="button" >Ajouter</button>
-    <div >
+<!--    <h1>Liste des équipes existantes</h1><button id="myBtn" type="button" >Ajouter</button>
+    <div >-->
         <div class="card-columns" style="">
             <c:forEach items="${requestScope.listeEquipe}" var="uneEquipe"> 
 
@@ -101,26 +112,17 @@
                     </div> 
                 </form> 
             </c:forEach>
-
-
         </div> 
     </div>
-
-
-
-
-
-</body>
-
 <!-- The Modal -->
 <!-- Modal -->
-<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal equipeStyle" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Informations sur la nouvelle équipe</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" style="color:gray" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -156,26 +158,20 @@
                         </select>
                     </div>
                     <div class="file-field">
-                        <div class="btn btn-primary btn-sm float-left">
+                        <div class="btn btn-primary btn-sm float-left photo">
                             <span>Glissez une photo</span>
                             <input class="form-control" id="imageEquipe" name="imageEquipe" type="file"/>
                         </div>
 
                     </div>
                     <!--<button class="" id="boutton1" type="submit">Créer</button>-->
-                </div>
+                
                 <button type="submit" class="btn btn-primary">Créer</button>
+                </div>
             </form>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

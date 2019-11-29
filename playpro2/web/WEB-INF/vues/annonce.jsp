@@ -14,7 +14,6 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<body>
     <h1>Liste des annonces</h1>
     <%
         if (m.getTypeMembre().equals("Admin")) {

@@ -16,11 +16,11 @@
    viewBox="0 0 227.7 227.8"
    style="enable-background:new 0 0 227.7 227.8;"
    xml:space="preserve"
-   sodipodi:docname="logo2.svg"
+   sodipodi:docname="logo3.svg"
    inkscape:version="0.92.4 (f8dce91, 2019-08-02)"><metadata
    id="metadata839"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
    id="defs837" /><sodipodi:namedview
    pagecolor="#ffffff"
    bordercolor="#666666"
@@ -49,17 +49,17 @@
 </style>
 <g
    id="g830"
-   style="fill:none">
+   style="fill:none;stroke:#ffffff;stroke-opacity:1">
 	<polyline
    class="st0"
    points="76.4,181.5 76.4,46.5 171.4,106.5 104.4,106.5  "
    id="polyline826"
-   style="fill:none" />
+   style="fill:none;stroke:#ffffff;stroke-opacity:1" />
 	<polyline
    class="st0"
    points="89.9,67.5 89.9,169.5 171.4,121.5 89.9,121  "
    id="polyline828"
-   style="fill:none" />
+   style="fill:none;stroke:#ffffff;stroke-opacity:1" />
 </g>
 <circle
    class="st1"
@@ -67,5 +67,5 @@
    cy="114"
    r="110"
    id="circle832"
-   style="fill:none" />
+   style="fill:none;stroke:#ffffff;stroke-opacity:1" />
 </svg>

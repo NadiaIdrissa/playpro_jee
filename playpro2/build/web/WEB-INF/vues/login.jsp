@@ -81,7 +81,7 @@
                     <div class="wrapper fadeInDown">
                         <div class="card  card-signin my-5">
                             <div class="  card-body">
-                                <h5 class="card-title text-center ">Connexion</h5>
+                                <h2 class="card-title text-center ">Connexion</h2>
                                 <form class="form-signin needs-validation" action="" method="post" name="action" value="login" novalidate>
                                     <div class="col-md-12 mb-12">
                                         <input type="email" name='email' class="form-control" id="validationCustom05" placeholder="exemple@playpro.ca" required>
@@ -99,7 +99,7 @@
 
                                     <div class="custom-control custom-checkbox mb-3">
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1">Se souvenir de mon courriel</label>
+                                        <label class="custom-control-label" for="customCheck1">Se souvenir moi</label>
                                     </div>
                                     <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Connexion</button>
 

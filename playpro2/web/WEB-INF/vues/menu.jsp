@@ -1,22 +1,22 @@
 <%@page import="com.playpro.entities.Membre"%>
+<head>
+    <link href="static/css/cssNavBar/stylesyami.css" rel="stylesheet" type="text/css">
+</head>
+
 <header>
-    <div class="navbar" style="background-color: #e9ecef">
-        <a class="navbar-brand" href="#">
-            <img src="static/images/logo.png" alt="Logo" style="width:40px;">
-        </a>
+    <div class="navbar navbar-nav bg-secondary" style="flex-direction: unset;">
+
+        <img class="affichageLogo" src="static/images/logo3.svg" alt="Logo">
+        
         <!--<img src="static/images/logo.png" class="rounded float-left affichageLogo" alt="Responsive image">-->
         
-        <%if ((request.getSession().getAttribute("connected") != null) && 
+        <%--if ((request.getSession().getAttribute("connected") != null) && 
             ((boolean) request.getSession().getAttribute("connected") == true)){
             Membre me = null;
             me = (Membre) request.getSession().getAttribute("membre");
-        %>
-            <a class="affichageNom navbar-header">Bienvenue <%=me.getPrenom()%></a>
+        --%>
+            <a class="affichageNom navbar-header" style="text-transform: uppercase;">Portail PlayPro</a>
             <button id="showMenu" class="float-right">Menu</button>
-            
-        <%}else{%>
-            <button id="showMenu" class="float-right">Menu</button>
-        <%}%>
     </div>
 </header>
 
