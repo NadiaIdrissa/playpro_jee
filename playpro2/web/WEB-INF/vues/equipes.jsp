@@ -10,40 +10,44 @@
 <%@page import="com.playpro.entities.Equipe"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-
-<body>
-    <h1>Liste des équipes existantes</h1><button id="myBtn" type="button" >Ajouter</button>
-    <div >
-        <div class="card-columns" style="">
-            <c:forEach items="${requestScope.listeEquipe}" var="uneEquipe"> 
-
-                <div class="card" >
-                    <div class="card-body text-center">
-                        <img src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
-
-                        <p class='card-text'>Nom de l'équipe: <c:out value="${uneEquipe.nomEquipe}" /></p>
-                        <p class='card-text'>Sport de l'équipe: <c:out value="${uneEquipe.sport.nom}" /></p>
-                        <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneEquipe.nbJoueurs}" /></p>
-
-                    </div> 
-                </div> 
-
-            </c:forEach>
-        </div> 
+<div class="equipeStyle row">
+    <div class="col-sm-10 col-md-10 col-lg-10">
+        <h1>Liste des équipes existantes</h1>
+        
     </div>
-   
-</body>
+    <div class="colBtn col-sm-2 col-md-2 col-lg-2">
+        <button id="myBtn" type="button" >Ajouter</button>
+    </div>
+</div>
 
+<div class="equipeStyle">
+    <div class="card-columns">
+        <c:forEach items="${requestScope.listeEquipe}" var="uneEquipe"> 
+
+            <div class="card" >
+                <div class="card-body text-center">
+                    <img src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
+
+                    <p class='card-text'>Nom de l'équipe: <c:out value="${uneEquipe.nomEquipe}" /></p>
+                    <p class='card-text'>Sport de l'équipe: <c:out value="${uneEquipe.sport.nom}" /></p>
+                    <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneEquipe.nbJoueurs}" /></p>
+
+                </div> 
+            </div> 
+
+        </c:forEach>
+    </div> 
+</div>
+   
 <!-- The Modal -->
 <!-- Modal -->
-<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal equipeStyle" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Informations sur la nouvelle équipe</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" style="color:gray" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -79,15 +83,16 @@
                         </select>
                     </div>
                     <div class="file-field">
-                        <div class="btn btn-primary btn-sm float-left">
+                        <div class="btn btn-primary btn-sm float-left photo">
                             <span>Glissez une photo</span>
                             <input class="form-control" id="imageEquipe" name="imageEquipe" type="file"/>
                         </div>
 
                     </div>
                     <!--<button class="" id="boutton1" type="submit">Créer</button>-->
-                </div>
+                
                 <button type="submit" class="btn btn-primary">Créer</button>
+                </div>
             </form>
         </div>
     </div>

@@ -21,9 +21,12 @@
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <form  id="fprofil" action="?action=profil" method="post" name="action" value="profil" enctype="multipart/form-data">
             <div class="modal-header">
-                <div class="text-center">
+                <div class="text-center col-sm-6 col-md-6 col-lg-6">
                     <img id='imagejoueur' src="static/images/profils/<c:out value="${membre.photo}"/> " class="rounded" alt="imgprofil">
                     <input id="imageMembre" type="hidden" class="form-control" name="imageMembre" />
+                </div>
+                <div class="text-center col-sm-6 col-md-6 col-lg-6 nomProfil">
+                    <a class="affichageNom navbar-header">Profil de <%=m.getPrenom()%></a>
                 </div>
             </div>
             <div class="modal-body">
@@ -31,7 +34,7 @@
                     <!--                <form  id="fprofil" action="" method="post" name="action" value="profil">-->
                     <!--<input type="hidden" name="action" value="profil" method="post"/>-->
 
-                    <div class="form-group">
+                    <div class="form-group formProfil">
                         <div class="row">
                             <div class="vl">
                                 <span class="vl-innertext">+</span>
@@ -68,7 +71,7 @@
                                         </div>
                                     </div>
                                     <div id='prenom' class="col-md-12 mb-12">
-                                        <div  class="form-group">
+                                        <!--<div  class="form-group">-->
                                             <label for="inputLevel">Sexe</label>
                                             <select class="form-control" name="sexeR" id="sex5"  disabled required>
                                                 <option value='' >${sessionScope.membre.sexe}</option>
@@ -79,13 +82,14 @@
 
                                                 <%}%>
                                             </select>
-                                        </div>   
+                                        <!--</div>-->   
                                         <div class="valid-feedback">
                                             Looks good!
                                         </div>
                                     </div>
 
                                     <div class="col-md-12 mb-12">
+                                        <label for="inputLevel">Courriel</label>
                                         <input type="email" name='emailR' class="form-control" id="ema6" value="${sessionScope.membre.courriel}"  disabled  required>
                                         <div class="invalid-feedback">
                                             Entrez un courriel valide.
@@ -97,7 +101,7 @@
                             <div class="col">
                                 <div class="form-row">
                                     <div id='niveaug' class="col-md-12 mb-12">
-                                        <div  class="form-group">
+                                        <!--<div  class="form-group">-->
                                             <label for="tMembreR">Type de membre</label>
                                             <select class="form-control" name="tMembreR" id="mem7" disabled required>
 
@@ -105,7 +109,7 @@
 
                                                 <option value='Joueur'>Joueur</option>
                                             </select>
-                                        </div>
+                                        <!--</div>-->
                                     </div>
 
                                     <div class="col-md-12 mb-12">
@@ -117,7 +121,7 @@
                                     </div>
 
                                     <div id='niveaug' class="col-md-12 mb-12">
-                                        <div  class="form-group">
+                                        <!--<div  class="form-group">-->
                                             <label for="inputLevel">Niveau</label>
                                             <select class="form-control" name="niveauR" id="niv9"  disabled required>
                                                 <option value='' >${sessionScope.membre.niveau}</option>
@@ -128,7 +132,7 @@
 
                                                 <%}%>
                                             </select>
-                                        </div>
+                                        <!--</div>-->
                                     </div>
 
                                     <div class="col-md-12 mb-12">
@@ -156,14 +160,13 @@
                                 </div>
 
                                 <div class="modal-footer">
-
                                     <button class="btn btn-primary btn-sm" id="bb" onclick="enableSummit()" type="button">Modifier</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>                       
-                        <a class="btn btn-danger btn-sm" href="?action=portail&sousAction=loadSupp" role="button">Suppression de compte</a>
+                    <div class="divbtnSuppr">                       
+                        <a class="btn btn-danger btnSuppr" href="?action=portail&sousAction=loadSupp" role="button">Fermer le compte</a>
                     </div>
                 </div>    
             </div>

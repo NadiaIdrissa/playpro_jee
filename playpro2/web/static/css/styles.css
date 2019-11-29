@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 h1{
-    color:#dd7127;
+    color:black;
 }
 h4{
     color:#DD2727;
@@ -61,7 +61,7 @@ h4{
 .form-control{
     height: 40px;
     box-shadow: none;
-    color: #969fa4;
+    color: #343a40;
 }
 
 .form-control:focus{
@@ -284,6 +284,11 @@ div.col.mod{
     margin-top: 5px;
 }
 
+.modal-footer>:not(:last-child) {
+    margin-right: .25rem;
+    width: auto;
+}
+
 .modal-footer .btn-primary{
     text-transform: uppercase;
     outline: none !important;
@@ -306,4 +311,63 @@ div.col.mod{
 
 .body2{
     padding: 1rem 1rem 0px 1rem !important;
+}
+/*Equipes*/
+.equipeStyle h1{
+    color: black;
+    text-transform: unset;
+    font-size: 2em;
+    text-align: right;
+}
+
+.equipeStyle.col{
+    justify-content: end;
+    display: flex;
+    align-items: end;
+    position: relative;
+    padding-top: 10px;
+}
+
+.equipeStyle .colBtn{
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    padding: unset;
+}
+.equipeStyle .modal-header{
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #80cccc;
+}
+.equipeStyle .modal-title{
+    color: black;
+}
+
+.equipeStyle .modal-header .close{
+    margin: -1rem auto -1rem auto !important;
+}
+
+.equipeStyle .modal-content{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+}
+
+.equipeStyle .photo{
+    background-color: #80cccc;
+}
+
+.equipeStyle.modal-footer .btn-primary{
+    margin: unset !important;
+    width: 100%;
+}
+
+.equipeStyle.modal-footer .btn-danger{
+    margin: unset !important;
+    width: 100%;
+}
+
+.equipeStyle.modal-footer .col-md-12, .col-sm-12, .col-lg-12{
+    margin: unset !important;
 }
