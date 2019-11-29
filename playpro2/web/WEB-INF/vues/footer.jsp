@@ -138,7 +138,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </header>
 
-<footer class="bg-secondary py-5">
+<footer class="bg-secondary py-1">
 
     <div class="container">
 

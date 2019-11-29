@@ -14,7 +14,7 @@ header .headerV{
 }
 
 .navbar{
-    padding: 20px 0;
+    padding: 0;
 }
 
 .navbar-brand{
@@ -36,7 +36,9 @@ header .headerV{
 }
 
 .bg-secondary{
-    background-color: #07334ae6 !important;
+    /*background-color: #07334ae6 !important;*/
+    /*background-color: #80cca6d9 !important;*/
+    background-color: #80a6cce6 !important
 }
 
 .banner {
