@@ -113,7 +113,7 @@ public class EquipesAction extends AbstractAction {
             
             Participation participe = new Participation();
             ParticipationDAO pdao = new ParticipationDAO();
-            participe.setIdMembre(cap.getId());
+            participe.setIdMembre(cap.getNom());
             participe.setNomEquipe(nomEquipe);
             
             System.out.println("participant = "+participe.getIdMembre());
@@ -167,8 +167,11 @@ public class EquipesAction extends AbstractAction {
             System.out.println(partic.get(k).getIdMembre());
         }
         
+       
+        
         
         request.getSession().setAttribute("listeDeParticipations", partic);
+        request.getSession().setAttribute("placeOqp", partic.size());
         
         
         
