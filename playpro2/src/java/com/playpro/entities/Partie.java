@@ -31,7 +31,7 @@ public class Partie {
         return idPartie;
     }
 
-    public void setId_capitaine(String idPartie) {
+    public void setId_Partie(String idPartie) {
         this.idPartie = idPartie;
     }
 
@@ -90,4 +90,10 @@ public class Partie {
     public void setLieuSportPartie(LieuSport lieu) {
         this.lieuSportPartie =lieu;
     }
+
+    @Override
+    public String toString() {
+        return "Partie{" + "idPartie=" + idPartie + ", datePartie=" + datePartie + ", heurePArtie=" + heurePArtie + ", equipe1=" + equipe1 + ", equipe2=" + equipe2 + ", lieuSportPartie=" + lieuSportPartie + ", sport=" + sport + ", score=" + score + ", eq=" + eq + '}';
+    }
+    
 }
