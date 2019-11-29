@@ -38,8 +38,13 @@
 
 
                             <p
+                                <c:set var="nb" value="${uneEquipe.nbJoueurs}"/>
+                                <c:set var="nbOqp" value="${sessionScope.placeOqp}"/>
+                                
                                 <c:set var="a" value="${sessionScope.membre.id}"/>
                                 <c:set var="b" value="${uneEquipe.capitaine.id}"/>
+                                
+                                
                                 <c:if test = "${a == b}">
                                     <button class="btn btn-primary blue text-danger" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.sport.nom}" />" aria-expanded="false" aria-controls="collapseExample">
                                         Inviter un joueur
@@ -88,10 +93,13 @@
                                             <c:if test = "${uneEquipe.nomEquipe == joueur.nomEquipe}">
 
                                                 <li> ${joueur.idMembre}</li>
+                                                <input type="hidden" ${nb=nb-1}>
+                                                
                                                 </c:if>
                                             </c:forEach>
                                     </ul>
-                                    La liste des membres :  
+                                    <!--La liste des membres :--> 
+                                    Il reste encore ${nb } places de libre
 
                                 </div>
                             </div>
