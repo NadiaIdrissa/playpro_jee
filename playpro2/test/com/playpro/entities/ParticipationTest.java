@@ -18,22 +18,30 @@ import static org.junit.Assert.*;
  * @author Piaf
  */
 public class ParticipationTest {
-    
+
+    final static String NOM_EQUIPE = "TIGRE";
+    final static String ID_MEMBRE = "ABCG";
+    Participation p;
+
     public ParticipationTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
+        p = new Participation();
+        p.setDateEnvoi(LocalDate.MIN);
+        p.setIdMembre(ID_MEMBRE);
+        p.setNomEquipe(NOM_EQUIPE);
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -43,13 +51,7 @@ public class ParticipationTest {
      */
     @Test
     public void testGetIdMembre() {
-        System.out.println("getIdMembre");
-        Participation instance = new Participation();
-        String expResult = "";
-        String result = instance.getIdMembre();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(p.getIdMembre(), ID_MEMBRE);
     }
 
     /**
@@ -57,12 +59,8 @@ public class ParticipationTest {
      */
     @Test
     public void testSetIdMembre() {
-        System.out.println("setIdMembre");
-        String idMembre = "";
-        Participation instance = new Participation();
-        instance.setIdMembre(idMembre);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvid_membre = "ccccccc";
+        p.setIdMembre(nvid_membre);
     }
 
     /**
@@ -70,13 +68,7 @@ public class ParticipationTest {
      */
     @Test
     public void testGetNomEquipe() {
-        System.out.println("getNomEquipe");
-        Participation instance = new Participation();
-        String expResult = "";
-        String result = instance.getNomEquipe();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(p.getNomEquipe(), NOM_EQUIPE);
     }
 
     /**
@@ -84,12 +76,8 @@ public class ParticipationTest {
      */
     @Test
     public void testSetNomEquipe() {
-        System.out.println("setNomEquipe");
-        String nomEquipe = "";
-        Participation instance = new Participation();
-        instance.setNomEquipe(nomEquipe);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String nvNom_e = "wolf";
+        p.setNomEquipe(nvNom_e);
     }
 
     /**
@@ -97,13 +85,7 @@ public class ParticipationTest {
      */
     @Test
     public void testGetDateEnvoi() {
-        System.out.println("getDateEnvoi");
-        Participation instance = new Participation();
-        LocalDate expResult = null;
-        LocalDate result = instance.getDateEnvoi();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(p.getDateEnvoi(), LocalDate.MIN);
     }
 
     /**
@@ -111,12 +93,7 @@ public class ParticipationTest {
      */
     @Test
     public void testSetDateEnvoi() {
-        System.out.println("setDateEnvoi");
-        LocalDate dateEnvoi = null;
-        Participation instance = new Participation();
-        instance.setDateEnvoi(dateEnvoi);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+p.setDateEnvoi(LocalDate.MIN);
     }
 
     /**
@@ -124,13 +101,7 @@ public class ParticipationTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
-        Participation instance = new Participation();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   
     }
-    
+
 }
