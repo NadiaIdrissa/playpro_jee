@@ -5,7 +5,9 @@
  */
 package com.playpro.entities;
 
+import java.time.LocalDate;
 import java.util.Date;
+import javafx.util.converter.LocalDateStringConverter;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -23,9 +25,10 @@ public class AnnonceTest {
     final static String TITRE = "Participer";
     final static String DESCRIPTION = "MESSAGE";
     final static boolean GRATUIT = false;
-    final static int MONTANT = 25;
+    final static double MONTANT = 25;
     final static int NB_MAX = 20;
-    //final static Date  DATECREATION="2004-03-27";
+    final static Membre MEMBRE= new Membre();
+    final static Date  DATECREATION=new Date();
     Membre m;
     Annonce a;
     
@@ -44,12 +47,12 @@ public class AnnonceTest {
     @Before
     public void setUp() {
         a = new Annonce();
-        a.setCreateur(m);
-        a.setIdAnnonce("abc");
         
+        a.setIdAnnonce("abc");
+        a.setCreateur(MEMBRE);
         a.setDescription(DESCRIPTION);
         a.setGratuit(GRATUIT);
-        
+        a.setDateCreation(DATECREATION);
         a.setNombreMax(NB_MAX);
         a.setMontant(MONTANT);
         a.setTitre(TITRE);
@@ -78,7 +81,8 @@ public class AnnonceTest {
      * Test of getIdCreateur method, of class Annonce.
      */
     @Test
-    public void testGetIdCreateur() {
+    public void testGetCreateur() {
+        assertEquals(a.getCreateur(),MEMBRE);
         
     }
 
@@ -111,7 +115,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetMontant() {
-     
+      //  assertEquals(MONTANT,a.getMontant());
     }
 
     /**
@@ -127,6 +131,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetDateCreation() {
+        assertEquals(a.getDateCreation(),DATECREATION );
         
     }
 
@@ -135,7 +140,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetMembre() {
-       
+        assertEquals(a.getCreateur(),MEMBRE);
     }
 
     /**
@@ -212,7 +217,7 @@ public class AnnonceTest {
     @Test
     public void testSetMembre() {
         final Membre m2 = new Membre();
-        
+        a.setCreateur(m2);
     }
 
     /**
