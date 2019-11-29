@@ -22,14 +22,24 @@
     <%}%>
     <button id="myBtn" type="button" >Ajouter</button>
     <div >
-        <div class="card-columns" style="">
+        <div class="container " style="">
             <c:forEach items="${requestScope.annonces}" var="uneAnnonce"> 
 
-                <div class="card" >
+                <div class=" annonce" >
                     <div class="cadre text-center">
 
-                        <p class='card-text'>Nom du sport: <c:out value="${uneAnnonce.nom}" /></p>
-                        <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneAnnonce.nb_max}" /></p>
+                        <h2 class='card-text font-weight-bold bg-primary text-uppercase' ><c:out value="${uneAnnonce.titre}" /><br></h2>
+                        <p class='card-text'>Annonceur: <c:out value="${uneAnnonce.createur.prenom}" /></p>
+                        <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneAnnonce.nombreMax}" /></p>
+
+                        <c:if test="${uneAnnonce.gratuit}"> 
+                            <p class="card-text">Ce cours est gratuit</p>
+                        </c:if>
+                        <c:if test="${!uneAnnonce.gratuit}"> 
+                            <p class="card-text">Montant: <c:out value="${uneAnnonce.montant}" /> $</p>
+                        </c:if>
+
+                        <p class="card-text"> <c:out value="${uneAnnonce.description}" /></p>
 
                     </div> 
                 </div> 

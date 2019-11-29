@@ -19,7 +19,35 @@
 
                 <div class="card" >
                     <div class="cadre text-center">
-                        <img src="static/images/lieux/<c:out value="${unlieu.image1}"/> " />
+                        <div>
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item carousel-item-lieu active">
+                                        <img src="static/images/lieux/<c:out value="${unlieu.image1}"/> " class="d-block w-100" alt="Responsive image" />
+                                        <!--<img src="static/images/img1.jpg" >-->
+                                    </div>
+                                    <div class="carousel-item carousel-item-lieu">
+                                        <img src="static/images/park2.jpg" class="d-block w-100" alt="Responsive image">
+                                    </div>
+                                    <div class="carousel-item carousel-item-lieu">
+                                        <img src="static/images/park3.jpg" class="d-block w-100" alt="Responsive image">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
 
                         <p class='card-text'>Nom : <c:out value="${unlieu.nom}" /></p>
                         <p class='card-text'>Adresse: <c:out value="${unlieu.numero}" /> 
