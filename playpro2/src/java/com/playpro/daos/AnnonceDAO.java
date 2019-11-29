@@ -102,17 +102,17 @@ public class AnnonceDAO extends DAO<Annonce> {
                 u.setMpd(r.getString("membre.mdp"));
                 u.setStatus(r.getString("membre.statut"));
                 
-                l.setId_lieu(r.getString("lieux.id_lieu"));
-                l.setNom(r.getString("lieux.nom"));
-                l.setNumero(r.getString("lieux.numero"));
-                l.setRue(r.getString("lieux.rue"));
-                l.setCode_postal(r.getString("lieux.code_postal"));
-                l.setVille(r.getString("lieux.ville"));
-                l.setPays(r.getString("lieux.pays"));
-                l.setInfos(r.getString("lieux.infos"));
-                l.setImage1(r.getString("lieux.image1"));
-                l.setImage2(r.getString("lieux.image2"));
-                l.setImage3(r.getString("lieux.image3"));
+                l.setId_lieu(r.getString("lieu.id_lieu"));
+                l.setNom(r.getString("lieu.nom"));
+                l.setNumero(r.getString("lieu.numero"));
+                l.setRue(r.getString("lieu.rue"));
+                l.setCode_postal(r.getString("lieu.code_postal"));
+                l.setVille(r.getString("lieu.ville"));
+                l.setPays(r.getString("lieu.pays"));
+                l.setInfos(r.getString("lieu.infos"));
+                l.setImage1(r.getString("lieu.image1"));
+                l.setImage2(r.getString("lieu.image2"));
+                l.setImage3(r.getString("lieu.image3"));
                 
                 c.setId_lieu(l);
                 c.setCreateur(u);
@@ -204,7 +204,7 @@ public class AnnonceDAO extends DAO<Annonce> {
         try {
             Statement stm = cnx.createStatement();
             ResultSet r = stm.executeQuery("SELECT * FROM `annonce` INNER JOIN `membre`on annonce.id_createur = MEMBRE.ID"
-                    + " INNER JOIN lieu ON annonce.id_lieu = id_lieu");
+                    + " INNER JOIN lieu ON annonce.id_lieu = lieu.id_lieu");
                                 
             while (r.next()) {
                 Annonce c = new Annonce();
@@ -231,17 +231,17 @@ public class AnnonceDAO extends DAO<Annonce> {
                 u.setMpd(r.getString("membre.mdp"));
                 u.setStatus(r.getString("membre.statut"));
                 
-                l.setId_lieu(r.getString("lieux.id_lieu"));
-                l.setNom(r.getString("lieux.nom"));
-                l.setNumero(r.getString("lieux.numero"));
-                l.setRue(r.getString("lieux.rue"));
-                l.setCode_postal(r.getString("lieux.code_postal"));
-                l.setVille(r.getString("lieux.ville"));
-                l.setPays(r.getString("lieux.pays"));
-                l.setInfos(r.getString("lieux.infos"));
-                l.setImage1(r.getString("lieux.image1"));
-                l.setImage2(r.getString("lieux.image2"));
-                l.setImage3(r.getString("lieux.image3"));
+                l.setId_lieu(r.getString("lieu.id_lieu"));
+                l.setNom(r.getString("lieu.nom"));
+                l.setNumero(r.getString("lieu.numero"));
+                l.setRue(r.getString("lieu.rue"));
+                l.setCode_postal(r.getString("lieu.code_postal"));
+                l.setVille(r.getString("lieu.ville"));
+                l.setPays(r.getString("lieu.pays"));
+                l.setInfos(r.getString("lieu.infos"));
+                l.setImage1(r.getString("lieu.image1"));
+                l.setImage2(r.getString("lieu.image2"));
+                l.setImage3(r.getString("lieu.image3"));
                 
                 c.setId_lieu(l);
 

@@ -31,7 +31,7 @@ CREATE TABLE `annonce` (
   `id_createur` varchar(255) CHARACTER SET utf8 NOT NULL,
   `nombreMax` int(11) NOT NULL,
   `id_lieu` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `date_event` date NOT NULL,
+  `date_event` timestamp NULL,
   `montant` float(6,2) NOT NULL DEFAULT '0.00',
   `gratuit` tinyint(1) NOT NULL DEFAULT '1',
   `titre_annonce` varchar(100) CHARACTER SET utf8 NOT NULL,
@@ -43,17 +43,17 @@ CREATE TABLE `annonce` (
 -- Contenu de la table `annonce`
 --
 
-INSERT INTO `annonce` (`id_annonce`, `id_createur`, `nombreMax`, `montant`, `gratuit`, `titre_annonce`, `description`, `date_creation`) VALUES
-('1bd83e10-28c2-4033-ada1-5f64c5989e58', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 6, 0.00, 1, 'Pratique de soccer', 'Je vous propose un cours de soccer. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:41:00'),
-('241ee6bd-ff8a-4b22-9bb1-d1710bfc8ed8', '8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 13, 100.00, 0, 'Match de Baseball', 'Venez jouer au baseball you will learn how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:50:08'),
-('3df681e1-f8aa-4b4a-8209-ba0e5bef50f5', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 6, 0.00, 1, 'Volley ball gratuit', 'Voici une occasion.com you will learn how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:36:40'),
-('4ba68093-54a7-4f03-8ba8-fb87ffcfef9c', 'a407418a-7683-4abc-8193-f083d86ae9f6', 6, 0.00, 1, 'Match de Tennis', 'Je vous attends nombreux. how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:37:44'),
-('4eab0a9c-2319-47fb-a6e4-be8d01f78016', 'fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 13, 50.00, 0, 'Cours de Baseball', 'Apprennez a jouer au baseball a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:48:42'),
-('7c06c278-8936-48af-9ec5-0737cb613fd3', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 13, 100.00, 0, 'Match de Baseball', 'Cours de baseball pour les nulls make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:41:50'),
-('8c750e5f-4b0a-468f-b425-a66a85dc8c90', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 6, 0.00, 1, 'Pratique de Tennis', 'Les rudiments du tennis to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:39:35'),
-('a2dba22b-417a-4c5a-8a79-ae9ee29cc9cd', 'fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 13, 80.00, 0, 'Cours de ballet', 'Danse classique pour tous how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:44:12'),
-('ca777a31-5348-478a-b639-2f9775744956', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 13, 300.00, 0, 'Pratique de Baseball', 'Devenez danseur professionnel. will learn how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:44:51'),
-('fc87369e-1da1-4fd3-afb6-57e1c8422bae', 'a407418a-7683-4abc-8193-f083d86ae9f6', 6, 0.00, 1, 'Cours de Tennis', 'Venez nombreux. learn how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:35:48');
+INSERT INTO `annonce` (`id_annonce`, `id_createur`, `nombreMax`,  `id_lieu`, `date_event`,`montant`, `gratuit`, `titre_annonce`, `description`, `date_creation`) VALUES
+('1bd83e10-28c2-4033-ada1-5f64c5989e58', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 6, 'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08',0.00, 1, 'Pratique de soccer', 'Je vous propose un cours de soccer. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:41:00'),
+('241ee6bd-ff8a-4b22-9bb1-d1710bfc8ed8', '8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 13,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 100.00, 0, 'Match de Baseball', 'Venez jouer au baseball you will learn how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:50:08'),
+('3df681e1-f8aa-4b4a-8209-ba0e5bef50f5', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 6,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 0.00, 1, 'Volley ball gratuit', 'Voici une occasion.com you will learn how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:36:40'),
+('4ba68093-54a7-4f03-8ba8-fb87ffcfef9c', 'a407418a-7683-4abc-8193-f083d86ae9f6', 6,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 0.00, 1, 'Match de Tennis', 'Je vous attends nombreux. how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:37:44'),
+('4eab0a9c-2319-47fb-a6e4-be8d01f78016', 'fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 13,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 50.00, 0, 'Cours de Baseball', 'Apprennez a jouer au baseball a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:48:42'),
+('7c06c278-8936-48af-9ec5-0737cb613fd3', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 13,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 100.00, 0, 'Match de Baseball', 'Cours de baseball pour les nulls make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:41:50'),
+('8c750e5f-4b0a-468f-b425-a66a85dc8c90', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 6,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 0.00, 1, 'Pratique de Tennis', 'Les rudiments du tennis to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:39:35'),
+('a2dba22b-417a-4c5a-8a79-ae9ee29cc9cd', 'fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 13,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 80.00, 0, 'Cours de ballet', 'Danse classique pour tous how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:44:12'),
+('ca777a31-5348-478a-b639-2f9775744956', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 13,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 300.00, 0, 'Pratique de Baseball', 'Devenez danseur professionnel. will learn how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:44:51'),
+('fc87369e-1da1-4fd3-afb6-57e1c8422bae', 'a407418a-7683-4abc-8193-f083d86ae9f6', 6,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 0.00, 1, 'Cours de Tennis', 'Venez nombreux. learn how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:35:48');
 
 -- --------------------------------------------------------
 
@@ -343,8 +343,11 @@ ALTER TABLE `sport`
 ALTER TABLE `annonce`
   ADD CONSTRAINT `Annonce_FK_pseudo` FOREIGN KEY (`id_createur`) REFERENCES `membre` (`id`);
   
-ALTER TABLE `annonce`
-  ADD CONSTRAINT `AnnonceLieu_FK_lieu` FOREIGN KEY (`id_lieu`) REFERENCES `lieu` (`id_lieu`);
+-- ADD CONSTRAINT `AnnonceLieu_FK_lieu` FOREIGN KEY (`id_lieu`) REFERENCES `lieu` (`id_lieu`);
+ 
+ 
+
+  
 
 --
 -- Contraintes pour la table `lieusport`
