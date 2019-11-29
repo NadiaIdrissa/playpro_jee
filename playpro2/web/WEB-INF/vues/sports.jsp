@@ -72,8 +72,8 @@
                             %>
                         </select>
                     </div>
-                    <div class="file-field">
-                        <div class="btn btn-primary btn-sm float-left">
+                    <div class="file-field equipeStyle">
+                        <div class="btn btn-primary btn-sm float-left photo">
                             <span>Glissez une photo</span>
                             <input class="form-control" id="imageSport" name="imageSport" type="file"/>
                         </div>

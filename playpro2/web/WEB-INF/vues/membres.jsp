@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Liste des membres</title>
+        <title>Membres</title>
     </head>
 
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -20,13 +20,15 @@
             </div>
 
     </c:if>
-    <h1 class="text-center">Liste des membres</h1>
-    <div class="text-center">
-        <div class="col-4">
-            <button id="myBtn" class="btn btn-success text-uppercase float-right w-10 " type="button" >Ajouter</button>
+    <div class="equipeStyle row">
+        <div class="col-sm-10 col-md-10 col-lg-10">
+            <h1 class="text-center">Liste des membres</h1>
         </div>
-    </div>
-    <section>
+        <div class="colBtn col-sm-2 col-md-2 col-lg-2">
+            <button id="myBtn" type="button" >Ajouter</button>
+        </div>
+        
+        <section style="overflow: scroll;">
         <div class="table-responsive text-nowrap">
             <table class="table table-striped">
                 <thead class="thead-dark">
@@ -77,7 +79,6 @@
                         </tr>
                     </c:forEach>
                 </tbody>
-
             </table>
         </div>
     </section>

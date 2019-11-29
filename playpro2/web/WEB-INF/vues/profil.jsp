@@ -178,11 +178,11 @@
         function enableSummit() {
             var change = document.getElementById("bb");
             // var typ = document.getElementById("bb").type;
-            //document.getElementsByTagName('button').style.backgroundColor="green";
+            //document.getElementsByTagName('button').style.backgroundColor="#80cccc";
             if (change.innerHTML == "Modifier")
             {
                 change.innerHTML = "Enregistrer";
-                change.style.backgroundColor = "green";
+                change.style.backgroundColor = "#80cccc";
 
                 document.getElementById("pse1").disabled = false;
                 document.getElementById("nom2").disabled = false;

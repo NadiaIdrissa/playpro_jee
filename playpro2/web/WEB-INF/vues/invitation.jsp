@@ -12,6 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Invitation envoyé</h1>
+        <h1 style="color: black;
+    text-transform: unset;
+    font-size: 2em;
+    text-align: right;">Invitation envoyée</h1>
     </body>
 </html>

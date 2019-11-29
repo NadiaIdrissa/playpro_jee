@@ -13,14 +13,18 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-    <h1>Liste des annonces</h1>
+<div class="equipeStyle row">
+    <div class="col-sm-10 col-md-10 col-lg-10">
+        <h1>Liste des annonces</h1>
+    </div>
     <%
         if (m.getTypeMembre().equals("Admin")) {
     %>
     <%}%>
-    <button id="myBtn" type="button" >Ajouter</button>
-    <div >
+    <div class="colBtn col-sm-2 col-md-2 col-lg-2">
+        <button id="myBtn" type="button" >Ajouter</button>
+    </div
+</div>
         <div class="card-columns" style="">
             <c:forEach items="${requestScope.annonces}" var="uneAnnonce"> 
 
@@ -35,7 +39,7 @@
 
             </c:forEach>
         </div> 
-    </div>
+    
 
 </body>
 
