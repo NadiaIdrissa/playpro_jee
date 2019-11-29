@@ -16,9 +16,9 @@
     </head>
     <body>
         <%@include file="header.jsp" %>
-        <div class="text-center">
-            <%@include file="carousel.jsp" %>
-        </div>
+<!--        <div class="text-center">
+            <--%@include file="carousel.jsp" %>
+        </div>-->
         <section class="banner">
             <div class="container">
                 <div class="row">
