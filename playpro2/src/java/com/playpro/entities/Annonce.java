@@ -6,6 +6,7 @@
 package com.playpro.entities;
 
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -20,9 +21,9 @@ public class Annonce {
     private Boolean gratuit;
     private double montant;
     private int nombreMax;
-    private Date dateCreation;
-    private Date date_event;
-    private Lieux id_lieu;
+    private Timestamp dateCreation;
+    private Timestamp date_event;
+    private Lieux lieu;
 
     public Annonce() {
     }
@@ -31,12 +32,12 @@ public class Annonce {
         return idAnnonce;
     }
 
-    public Date getDate_event() {
+    public Timestamp getDate_event() {
         return date_event;
     }
 
-    public Lieux getId_lieu() {
-        return id_lieu;
+    public Lieux getLieu() {
+        return lieu;
     }
 
     public Membre getCreateur() {
@@ -63,16 +64,16 @@ public class Annonce {
         return nombreMax;
     }
 
-    public Date getDateCreation() {
+    public Timestamp getDateCreation() {
         return dateCreation;
     }
 
-    public void setDate_event(Date date_event) {
+    public void setDate_event(Timestamp date_event) {
         this.date_event = date_event;
     }
 
-    public void setId_lieu(Lieux id_lieu) {
-        this.id_lieu = id_lieu;
+    public void setLieu(Lieux id_lieu) {
+        this.lieu = id_lieu;
     }
 
     public void setIdAnnonce(String idAnnonce) {
@@ -103,13 +104,13 @@ public class Annonce {
         this.nombreMax = nombreMax;
     }
 
-    public void setDateCreation(Date dateCreation) {
+    public void setDateCreation(Timestamp dateCreation) {
         this.dateCreation = dateCreation;
     }
 
     @Override
     public String toString() {
-        return "Annonce{" + "idAnnonce=" + idAnnonce + ", createur=" + createur + ", titre=" + titre + ", description=" + description + ", gratuit=" + gratuit + ", montant=" + montant + ", nombreMax=" + nombreMax + ", dateCreation=" + dateCreation + ", date_event=" + date_event + ", id_lieu=" + id_lieu + '}';
+        return "Annonce{" + "idAnnonce=" + idAnnonce + ", createur=" + createur + ", titre=" + titre + ", description=" + description + ", gratuit=" + gratuit + ", montant=" + montant + ", nombreMax=" + nombreMax + ", dateCreation=" + dateCreation + ", date_event=" + date_event + ", id_lieu=" + lieu + '}';
     }
     
 }
