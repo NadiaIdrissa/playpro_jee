@@ -30,6 +30,8 @@ CREATE TABLE `annonce` (
   `id_annonce` char(36) NOT NULL,
   `id_createur` varchar(255) CHARACTER SET utf8 NOT NULL,
   `nombreMax` int(11) NOT NULL,
+  `id_lieu` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `date_event` date NOT NULL,
   `montant` float(6,2) NOT NULL DEFAULT '0.00',
   `gratuit` tinyint(1) NOT NULL DEFAULT '1',
   `titre_annonce` varchar(100) CHARACTER SET utf8 NOT NULL,
@@ -264,7 +266,8 @@ INSERT INTO `sport` (`id_sport`, `nom`, `nb_max`, `nb_min`, `image`) VALUES
 --
 ALTER TABLE `annonce`
   ADD PRIMARY KEY (`id_annonce`),
-  ADD KEY `Annonce_FK_pseudo` (`id_createur`) USING BTREE;
+  ADD KEY `Annonce_FK_pseudo` (`id_createur`) USING BTREE,
+  ADD KEY `AnnonceLieu_FK_lieu` (`id_lieu`) USING BTREE;
 
 --
 -- Index pour la table `equipe`
@@ -339,6 +342,9 @@ ALTER TABLE `sport`
 --
 ALTER TABLE `annonce`
   ADD CONSTRAINT `Annonce_FK_pseudo` FOREIGN KEY (`id_createur`) REFERENCES `membre` (`id`);
+  
+ALTER TABLE `annonce`
+  ADD CONSTRAINT `AnnonceLieu_FK_lieu` FOREIGN KEY (`id_lieu`) REFERENCES `lieu` (`id_lieu`);
 
 --
 -- Contraintes pour la table `lieusport`
