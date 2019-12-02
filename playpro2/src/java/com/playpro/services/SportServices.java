@@ -13,11 +13,18 @@ import com.playpro.entities.Sport;
  * @author toute
  */
 public class SportServices {
-    private static SportDAO dao;
+    private static SportDAO dao = new SportDAO();
     public static boolean creerSport(Sport s){
-        
-        dao = new SportDAO();
+       
         return  dao.create(s);
+    }
+    
+    public static Sport trouverUnSport(String s){
+        return dao.findById(s);
+    }
+    
+    public static boolean supprimer(Sport s){
+        return dao.delete(s);
     }
     
 }

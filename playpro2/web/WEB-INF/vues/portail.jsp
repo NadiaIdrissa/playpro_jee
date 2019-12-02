@@ -2,10 +2,14 @@
     HttpSession httpSession = request.getSession(false);
     Membre m = null;
     String viewConf = "";
+    String message = "";
+    String laClasse = "";
 
     if (httpSession != null) {
         m = (Membre) httpSession.getAttribute("membre");
         viewConf = (String) httpSession.getAttribute("viewConf");
+        message = (String) request.getAttribute("message");
+        laClasse = (String) request.getAttribute("laClasse");
     }
 %>
 <!DOCTYPE html>
@@ -38,63 +42,74 @@
         <link href="static/css/stylesyoun.css" rel="stylesheet" type="text/css">
 
         <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
-    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
-</head>
-<body>
+        <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+        <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    </head>
+    <body>
 
 
 
-    <%@include file="menu.jsp" %>
-    <div id="perspective" class="perspective effect-movedown">
-        <div class="container" style="max-width: unset">
-            <div class="wrapper"><!-- wrapper needed for scroll -->
-                <%@include file="sidebar.jsp" %>
+        <%@include file="menu.jsp" %>
+        <div id="perspective" class="perspective effect-movedown">
+            <div class="container" style="max-width: unset">
+                <div class="wrapper"><!-- wrapper needed for scroll -->
+                    <%@include file="sidebar.jsp" %>
+                </div>
+
+                <div class="main mainPortail clearfix">
+                    <%if (message != null && !message.equals("")) {
+                    %>
+                    <div class="alert alert-<%=laClasse%> alert-dismissible fade show" role="alert">
+                        <strong>Important!</strong> <%=message%>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <%}
+                    %>
+                    <%if (viewConf.equals("profilaccueil")) {%>
+                    <%@include file="profil.jsp"%>
+                    <%} else if (viewConf.equals("calendrier")) {%>
+                    <%@include file="calendrier.jsp"%>
+                    <%} else if (viewConf.equals("suppCompte")) {%>
+                    <%@include file="suppressionCompte.jsp"%>
+                    <%} else if (viewConf.equals("loadEquipe")) {%>
+                    <%@include file="equipes.jsp"%>
+                    <%} else if (viewConf.equals("sports")) {%>
+                    <%@include file="sports.jsp"%>
+                    <%} else if (viewConf.equals("lieux")) {%>
+                    <%@include file="lieux.jsp"%>
+                    <%} else if (viewConf.equals("annonces")) {%>
+                    <%@include file="annonce.jsp"%>
+                    <%} else if (viewConf.equals("membres")) {
+                        %>
+                    <%@include file="membres.jsp"%>
+
+                    <%} else if (viewConf.equals("invitation")) {
+                    %>
+                    <%@include file="invitation.jsp"%>
+
+                    <%} else if (viewConf.equals("traitementInvitation")) {
+                    %>
+                    <%@include file="traitementInvitation.jsp"%>
+
+                    <%} else if (viewConf.equals("reponseInvitation")) {
+                    %>
+                    <%@include file="reponseInvitation.jsp"%>
+
+                    <%} else {%>
+                    <%@include file="calendrier.jsp"%>
+                    <%}%>
+                </div>
             </div>
-
-            <div class="main mainPortail clearfix">
-                <%if (viewConf.equals("profilaccueil")) {%>
-                <%@include file="profil.jsp"%>
-                <%} else if (viewConf.equals("calendrier")) {%>
-                <%@include file="calendrier.jsp"%>
-                <%} else if (viewConf.equals("suppCompte")) {%>
-                <%@include file="suppressionCompte.jsp"%>
-                <%} else if (viewConf.equals("loadEquipe")) {%>
-                <%@include file="equipes.jsp"%>
-                <%} else if (viewConf.equals("sports")) {%>
-                <%@include file="sports.jsp"%>
-                <%} else if (viewConf.equals("lieux")) {%>
-                <%@include file="lieux.jsp"%>
-                <%} else if (viewConf.equals("annonces")) {%>
-                <%@include file="annonce.jsp"%>
-                <%} else if (viewConf.equals("membres")) {
-                %>
-                <%@include file="membres.jsp"%>
-
-                <%}else if (viewConf.equals("invitation")) {
-                %>
-                <%@include file="invitation.jsp"%>
-
-                <%} else if (viewConf.equals("traitementInvitation")) {
-                %>
-                <%@include file="traitementInvitation.jsp"%>
-
-                <%} else if (viewConf.equals("reponseInvitation")) {
-                %>
-                <%@include file="reponseInvitation.jsp"%>
-
-                <%} else {%>
-                <%@include file="calendrier.jsp"%>
-                <%}%>
-            </div>
-        </div>
-        <%@include file="header4.jsp" %>
-    </div>        
-    <script src="static/js/classie.js"></script>
-    <script src="static/js/menu.js"></script>
-    <script src="static/js/sports.js"></script>
-</body>
+            <%@include file="header4.jsp" %>
+        </div>        
+        <script src="static/js/classie.js"></script>
+        <script src="static/js/menu.js"></script>
+        <script src="static/js/sports.js"></script>
+        <script src="static/js/lieux.js"></script>
+    </body>
 </html>

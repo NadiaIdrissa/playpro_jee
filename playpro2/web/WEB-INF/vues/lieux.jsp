@@ -13,7 +13,7 @@
     %>
     <%}%>
     <button id="myBtn" type="button" >Ajouter</button>
-    <div >
+    <div>
         <div class="card-columns" style="">
             <c:forEach items="${requestScope.lieux}" var="unlieu"> 
 
@@ -70,17 +70,43 @@
                         </a>
 
                         <p class='card-text'>Infos : <c:out value="${unlieu.infos}" /></p>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Modifier</button>
-                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        <div class="col-12">
+                            <input name ='idLieuSup' id='idLieuSup' type='hidden' value='' />
+                            <button class="btn btn-primary btnModLieu col-4" data-index='<c:out value="${unlieu.id_lieu}" />' data-status='<c:out value="${unlieu.nom}" />'>Modifier</button>
+                            <button class="btn btn-danger btnSupLieu col-4" data-index='<c:out value="${unlieu.id_lieu}" />' data-status='<c:out value="${unlieu.nom}" />'>Supprimer</button>
                         </div>
-
                     </div> 
                 </div> 
 
             </c:forEach>
         </div> 
     </div>
+
+    <div class="modal" id="modalLieuSupprimer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <div class="modal-header text-center">
+                        <h4 id='titreSup' class="modal-title w-100 font-weight-bold">Voulez-vous vraiment supprimer le lieu? </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                <form class="needs-validation" action="?action=lieux" method="post" name="action" value="lieux" novalidate>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <input name ='idLieuSupprimer' id='idLieuSupprimer' type='hidden' value='' />
+                        <button class="btn btn-light float-left " data-dismiss="modal">Annuler</button>
+                        <button class="btn btn-primary float-right " type='submit'>Supprimer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
     <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -137,41 +163,3 @@
     </script>
 </body>
 
-<!-- The Modal -->
-<!-- The Modal 
-<div id="myModal" class="modal">
-
-     Modal content 
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close">&times;</span> 
-            <h2>Ajouter un lieu</h2>
-        </div>
-        <div class="modal-body">
-            <form class="form-signin needs-validation" action="?action=lieux" method="post" name="action" value="ajoutImage" enctype="multipart/form-data" novalidate>
-
-                <input type="text" name="nom" placeholder="Nom du lieu"  />
-                <input type="text" name="numero" placeholder="Numero civic"  />
-                <input type="text" name="rue" placeholder="Nom de la rue"  />
-                <input type="text" name="ville" placeholder="Ville"  />
-                <input type="text" name="pays" placeholder="Pays"  />
-                <input type="text" name="code_postal" placeholder="Code postal"  />
-                <input type="text" name="infos" placeholder="Info suplementaire"  />
-
-                <input id="imageSport" name="image1" type="file"/>
-                <select multiple >
-                    <option value="">Choisissez les sports offerts dans ce lieu</option>
-<c:forEach items="${requestScope.sports}" var="unSport"> 
-    <option value="<c:out value="${unSport.id_sport}" />"><c:out value="${unSport.nom}" /></option> 
-</c:forEach>
-
-</select>
-<button class="" id="boutton1" type="submit">Créer</button>
-</form>
-</div>
-<div class="modal-footer">
-<h3>Modal Footer</h3>
-</div>
-</div>-->
-
-</div>

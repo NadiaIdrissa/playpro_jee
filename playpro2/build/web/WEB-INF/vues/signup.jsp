@@ -64,8 +64,6 @@
                 <p class="hint-text">Devenez membre de PlayPro !</p>
                 <div class="container d-flex btn-floating">
 
-                    <button onclick="document.getElementById('id02').style.display = 'block'" class="btn btn-primary float-right" style="width:auto;">Entraineur</button>-->
-
                     <button id='btnJ' onclick="cacherE()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#id02">
                         Joueur
                     </button>

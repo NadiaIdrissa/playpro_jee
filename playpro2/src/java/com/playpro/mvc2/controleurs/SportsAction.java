@@ -34,6 +34,9 @@ public class SportsAction extends AbstractAction {
         SportDAO dao = new SportDAO();
         String nomSport = request.getParameter("nomSport");
         String imageSport = request.getParameter("imageSport");
+        String message = "";
+        String laClasse="";
+        String idSportSupprimer = request.getParameter("idSportSupprimer");
         
         int nbMax = 0;
         List<Part> part = null;
@@ -41,6 +44,23 @@ public class SportsAction extends AbstractAction {
              part = (List<Part>) request.getParts();
         } catch (IOException | ServletException ex) {
             Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(idSportSupprimer !=null){
+            System.out.println("Je suis nul");
+            Sport s = SportServices.trouverUnSport(idSportSupprimer);
+            boolean reussi  = SportServices.supprimer(s);
+            
+            if(reussi){
+                message = "Le sport "+s.getNom()+" a été supprimé avec succès";
+                laClasse = "success";
+            }else{
+                message = "Une erreur est survenue lors de la suppression";
+                laClasse = "danger";
+            }
+            
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
         }
 
         if (nomSport == null) {

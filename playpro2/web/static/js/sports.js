@@ -14,6 +14,23 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+var btnSup = $(".btnSup");
+var btnMod = $(".btnMod");
+
+
+
+$(document).ready(function () {
+    btnSup.click(function () {
+        var index = $(this).data('index');
+        var status = $(this).data('status');
+        var i = $(this).parent().last().val();
+
+        $("#idSportSupprimer").val(index);
+        $("#titreSup").text("Voulez-vous vraiment supprimer \"" + status + "\"?");
+        document.getElementById("modalSupprimerSport").style.display = "block";
+    });
+});
+
 
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
@@ -25,12 +42,16 @@ btn.onclick = function () {
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
     modal.style.display = "none";
+    document.getElementById("modalSupprimerSport").style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
+    }
+    if (event.target == document.getElementById("modalSupprimerSport")) {
+        document.getElementById("modalSupprimerSport").style.display = "none";
     }
 }
 
@@ -45,10 +66,10 @@ $('input[type=file]').change(function () {
 });
 
 // Material Select Initialization
-$(document).ready(function () {
-    $('.mdb-select').materialSelect();
-
-});
+//$(document).ready(function () {
+//    $('.mdb-select').materialSelect();
+//
+//});
 
 
 var checkBox = document.getElementById("switch1");
@@ -71,3 +92,5 @@ $(':checkbox').change(function () {
     }
 
 });
+
+
