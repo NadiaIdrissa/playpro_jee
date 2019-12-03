@@ -3,6 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 
 // Get the modal
@@ -65,6 +70,36 @@ $('input[type=file]').change(function () {
     console.log(this.files[0].mozFullPath);
 
 });
+
+// Material Select Initialization
+//$(document).ready(function () {
+//    $('.mdb-select').materialSelect();
+//
+//});
+
+
+var checkBox = document.getElementById("switch1");
+
+checkBox.checked = true;
+var text = document.getElementById("divMontant");
+var montant = document.getElementById("montant");
+var textGratuit = document.getElementById("textGatuit")
+
+$(':checkbox').change(function () {
+
+    // do stuff here. It will fire on any checkbox change
+    if (checkBox.checked === true) {
+        text.style.display = "none";
+        textGratuit.innerHTML = "Gratuit";
+        montant.innerHTML = "0";
+    } else {
+        text.style.display = "block";
+        textGratuit.innerHTML = "Payant";
+    }
+
+});
+
+
 
 
 

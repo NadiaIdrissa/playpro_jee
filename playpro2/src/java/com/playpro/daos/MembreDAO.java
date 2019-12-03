@@ -34,10 +34,6 @@ public class MembreDAO extends DAO<Membre> {
 
         System.out.println("Type : " + type);
 
-        String req1 = "INSERT INTO `membre` (`ID`,`NOM`,`PRENOM`,`COURRIEL`,`TYPE_MEMBRE`,`SPORT`,`SEXE`,`NIVEAU`,`MDP`,`PSEUDO`) "
-                + "VALUES('" + x.getId() + "','" + x.getNom() + "','" + x.getPrenom() + "','" + x.getCourriel() + "','" + x.getTypeMembre() + "','"
-                + x.getSport() + "','" + x.getSexe() + "','" + x.getNiveau() + "','" + x.getMpd() + "','" + x.getPseudo() + "')";
-
         String req = "INSERT INTO `membre` (`ID`,`NOM`,`PRENOM`,`COURRIEL`,`TYPE_MEMBRE`,`SPORT`,`SEXE`,`NIVEAU`,`MDP`,`PSEUDO`, `PHOTO`) "
                 + " VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stm = null;
@@ -197,7 +193,6 @@ public class MembreDAO extends DAO<Membre> {
                     + "TYPE_MEMBRE = '" + x.getTypeMembre() + "',"
                     + "PSEUDO = '" + x.getPseudo() + "'," //il y a un cle etragere dans pseudo
                     + "PHOTO = '" + x.getPhoto() + "'" //il y a un cle etragere dans pseudo
-
                     + " WHERE id = '" + x.getId() + "'";
 
             stm = cnx.createStatement();
@@ -232,8 +227,7 @@ public class MembreDAO extends DAO<Membre> {
                 Membre c = new Membre();
                 Joueur j = new Joueur();
                 Entraineur e = new Entraineur();
-                System.out.println("Dennée: " + r.getString(2));
-                //System.out.println("Donnée: "+r.getString("type_membre"));
+                System.out.println("Donnée: " + r.getString(2));
 
                 c.setId(r.getString("id"));
                 c.setPrenom(r.getString("prenom"));
@@ -249,18 +243,8 @@ public class MembreDAO extends DAO<Membre> {
                 c.setDateInscription(r.getTimestamp("date_inscription"));
                 c.setPhoto(r.getString("photo"));
 
-//                if (r.getString("type_membre").equals("Joueur")) {
-//                    j = (Joueur) c;
-//                    liste.add(j);
-//                } else if (r.getString("type_membre").equals("Admin")) {
-//                    //e = (Entraineur)c; 
-//                    liste.add(c);
-//                } else {
-//
-//                }
                 liste.add(c);
             }
-
             r.close();
             stm.close();
         } catch (SQLException exp) {
@@ -292,6 +276,7 @@ public class MembreDAO extends DAO<Membre> {
                 return true;
             }
         } catch (SQLException exp) {
+            exp.printStackTrace();
         } finally {
             if (stm != null) {
                 try {
@@ -304,5 +289,4 @@ public class MembreDAO extends DAO<Membre> {
         }
         return false;
     }
-
 }

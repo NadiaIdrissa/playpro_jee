@@ -34,9 +34,10 @@
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous">
         </script>
+        <script src="./static/js/jquery-3.4.1.min.js"></script>
         <script src="static/js/calendrier.js"></script>
         <script src="static/js/modernizr.custom.25376.js"></script>
-        <script src="static/js/gestion.js" ></script>
+        <!--<script src="static/js/gestion.js" ></script>-->
         <link href="static/css/styles.css" rel="stylesheet">
         <link href="static/css/sportsstyles.css" rel="stylesheet">
         <link href="static/css/stylesyoun.css" rel="stylesheet" type="text/css">
@@ -49,9 +50,6 @@
         <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
     </head>
     <body>
-
-
-
         <%@include file="menu.jsp" %>
         <div id="perspective" class="perspective effect-movedown">
             <div class="container" style="max-width: unset">
@@ -68,48 +66,103 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <%}
-                    %>
-                    <%if (viewConf.equals("profilaccueil")) {%>
-                    <%@include file="profil.jsp"%>
-                    <%} else if (viewConf.equals("calendrier")) {%>
-                    <%@include file="calendrier.jsp"%>
-                    <%} else if (viewConf.equals("suppCompte")) {%>
-                    <%@include file="suppressionCompte.jsp"%>
-                    <%} else if (viewConf.equals("loadEquipe")) {%>
-                    <%@include file="equipes.jsp"%>
-                    <%} else if (viewConf.equals("sports")) {%>
-                    <%@include file="sports.jsp"%>
-                    <%} else if (viewConf.equals("lieux")) {%>
-                    <%@include file="lieux.jsp"%>
-                    <%} else if (viewConf.equals("annonces")) {%>
-                    <%@include file="annonce.jsp"%>
-                    <%} else if (viewConf.equals("membres")) {
+
+                    <div id="contenu">
+                        <%}
                         %>
-                    <%@include file="membres.jsp"%>
+                        <%if (viewConf.equals("profilaccueil")) {%>
+                        <%@include file="profil.jsp"%>
+                        <%} else if (viewConf.equals("calendrier")) {%>
+                        <%@include file="calendrier.jsp"%>
+                        <%} else if (viewConf.equals("suppCompte")) {%>
+                        <%@include file="suppressionCompte.jsp"%>
+                        <%} else if (viewConf.equals("loadEquipe")) {%>
+                        <%@include file="equipes.jsp"%>
+                        <%} else if (viewConf.equals("sports")) {%>
+                        <%@include file="sports.jsp"%>
+                        <%} else if (viewConf.equals("lieux")) {%>
+                        <%@include file="lieux.jsp"%>
+                        <%} else if (viewConf.equals("annonces")) {%>
+                        <%@include file="annonce.jsp"%>
+                        <%} else if (viewConf.equals("membres")) {
+                            %>
+                        <%@include file="membres.jsp"%>
 
-                    <%} else if (viewConf.equals("invitation")) {
-                    %>
-                    <%@include file="invitation.jsp"%>
+                        <%} else if (viewConf.equals("invitation")) {
+                        %>
+                        <%@include file="invitation.jsp"%>
 
-                    <%} else if (viewConf.equals("traitementInvitation")) {
-                    %>
-                    <%@include file="traitementInvitation.jsp"%>
+                        <%} else if (viewConf.equals("traitementInvitation")) {
+                        %>
+                        <%@include file="traitementInvitation.jsp"%>
 
-                    <%} else if (viewConf.equals("reponseInvitation")) {
-                    %>
-                    <%@include file="reponseInvitation.jsp"%>
+                        <%} else if (viewConf.equals("reponseInvitation")) {
+                        %>
+                        <%@include file="reponseInvitation.jsp"%>
 
-                    <%} else {%>
-                    <%@include file="calendrier.jsp"%>
-                    <%}%>
+                        <%} else {%>
+                        <%@include file="calendrier.jsp"%>
+                        <%}%>
+                    </div>
+                    <input type="button" id="btnAnnonce"  value="OK" />
                 </div>
             </div>
             <%@include file="header4.jsp" %>
-        </div>        
+        </div>   
+        <script>
+                $('#btnAnnonce').click(function (e) {
+                    var contenu = document.getElementById("contenu");
+
+                    contenu.innerHTML = "";
+//        e.preventDefault();
+                    console.log("allo");
+                    console.log("allo");
+                    debugger;
+                    $.ajax({
+                        url: 'playpro2/?action=annonce',
+                        type: 'POST',
+                        dataType: "json",
+                        success: function (response, statut) {
+                            console.log("reussi");
+                            console.log(response);
+
+                            //var rep = JSON.parse(response);
+                            contenu.innerHTML = response;
+                            console.log(response);
+
+
+                        },
+                        error: function (response, statut, message) {
+                            console.log("echec");
+                            console.log(response);
+                        }
+                    })
+                });
+                //data: $('#convertForm').serialize() // {param1:valeu1, param2:valeur2}
+//            }).done(function (reponseObtenue) {
+//                $('#contenu').html('');
+//                //$('#message').html('');
+//                var rep = JSON.parse(reponseObtenue);
+//                $('#contenu').html(rep);
+////                if (rep.RESULTAT) {
+////                    $('#contenu').html(rep);
+////                } else {
+////                    $('#message').html(rep.MESSAGE);
+////                }
+//            });
+
+                /*
+                 var xhr = new XMLHttpRequest();
+                 var url="?action=convertir";
+                 xhr.open('post',url,function(){
+                 
+                 });
+                 xhr.send(document.forms[0].serialize);
+                 */
+        </script>
         <script src="static/js/classie.js"></script>
         <script src="static/js/menu.js"></script>
-        <script src="static/js/sports.js"></script>
-        <script src="static/js/lieux.js"></script>
+<!--        <script src="static/js/sports.js"></script>
+        <script src="static/js/lieux.js"></script>-->
     </body>
 </html>

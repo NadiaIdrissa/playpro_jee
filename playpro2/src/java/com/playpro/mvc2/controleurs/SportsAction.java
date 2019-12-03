@@ -6,10 +6,14 @@
 package com.playpro.mvc2.controleurs;
 
 import com.playpro.daos.SportDAO;
+import com.playpro.entities.LieuSport;
+import com.playpro.entities.Lieux;
 import java.util.LinkedList;
 import java.util.List;
 import com.playpro.entities.Sport;
 import com.playpro.factories.ObjectFactory;
+import com.playpro.services.LieuSportService;
+import com.playpro.services.LieuxServices;
 import com.playpro.services.SportServices;
 import java.io.File;
 import java.io.IOException;
@@ -49,7 +53,16 @@ public class SportsAction extends AbstractAction {
         if(idSportSupprimer !=null){
             System.out.println("Je suis nul");
             Sport s = SportServices.trouverUnSport(idSportSupprimer);
-            boolean reussi  = SportServices.supprimer(s);
+            
+            LieuSport ls = new LieuSport();
+            Lieux l = new Lieux();
+            l.setId_lieu("");
+            ls.setSport(s);
+            ls.setLieu(l);
+            
+            boolean reussi  = LieuSportService.supprimer(ls);
+                    
+            reussi = SportServices.supprimer(s);
             
             if(reussi){
                 message = "Le sport "+s.getNom()+" a été supprimé avec succès";

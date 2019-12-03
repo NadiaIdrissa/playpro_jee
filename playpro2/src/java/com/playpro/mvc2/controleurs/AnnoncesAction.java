@@ -13,12 +13,15 @@ import com.playpro.services.AnnoncesServices;
 import com.playpro.services.LieuxServices;
 import java.sql.Timestamp;
 import java.util.List;
-
+import com.google.gson.Gson;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author toute
  */
-public class AnnoncesAction extends AbstractAction {
+public class AnnoncesAction extends AbstractAction implements AjaxAction{
 
     @Override
     public String execute() {
@@ -58,10 +61,19 @@ public class AnnoncesAction extends AbstractAction {
         List<Lieux> listeLieux = LieuxServices.tousLesLieux();
         List<Annonce> liste = AnnoncesServices.toutesLesAnnonces();
         System.out.println("montant" + montant);
-
-        request.getSession().setAttribute("viewConf", "annonces");
-        request.setAttribute("lieux", listeLieux);
-        request.setAttribute("annonces", liste);
+        Gson gson = new Gson();
+        String lst = gson.toJson(liste);
+        try {
+            response.getWriter().print(lst);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+//        return "n'importe quoi"
+//        System.out.println(lst);
+//
+//        request.getSession().setAttribute("viewConf", "annonces");
+//        request.setAttribute("lieux", listeLieux);
+//        request.setAttribute("annonces", liste);
         return "portail";
     }
 

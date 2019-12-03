@@ -26,7 +26,7 @@
             <button id="myBtn" class="btn btn-success text-uppercase float-right w-10 " type="button" >Ajouter</button>
         </div>
     </div>
-    <section>
+    <section id="contenu">
         <div class="table-responsive text-nowrap">
             <table class="table table-striped">
                 <thead class="thead-dark">
