@@ -29,12 +29,12 @@
         <link rel="stylesheet" href="static/bootstrap/fontAwesome/css/font-awesome.min.css"/>
         <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous">
-        </script>
-        <script src="./static/js/jquery-3.4.1.min.js"></script>
+        <!--        <script
+                    src="https://code.jquery.com/jquery-3.2.1.min.js"
+                    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+                    crossorigin="anonymous">
+                </script>-->
+        <script src="static/js/jquery-3.4.1.min.js"></script>
         <script src="static/js/calendrier.js"></script>
         <script src="static/js/modernizr.custom.25376.js"></script>
         <!--<script src="static/js/gestion.js" ></script>-->
@@ -42,12 +42,12 @@
         <link href="static/css/sportsstyles.css" rel="stylesheet">
         <link href="static/css/stylesyoun.css" rel="stylesheet" type="text/css">
 
-        <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
-        <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+        <!--        <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script>
+                <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+                <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+                <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+                <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+                <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />-->
     </head>
     <body>
         <%@include file="menu.jsp" %>
@@ -66,10 +66,9 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-
+                    <%}
+                    %>
                     <div id="contenu">
-                        <%}
-                        %>
                         <%if (viewConf.equals("profilaccueil")) {%>
                         <%@include file="profil.jsp"%>
                         <%} else if (viewConf.equals("calendrier")) {%>
@@ -85,7 +84,7 @@
                         <%} else if (viewConf.equals("annonces")) {%>
                         <%@include file="annonce.jsp"%>
                         <%} else if (viewConf.equals("membres")) {
-                            %>
+                        %>
                         <%@include file="membres.jsp"%>
 
                         <%} else if (viewConf.equals("invitation")) {
@@ -110,59 +109,43 @@
             <%@include file="header4.jsp" %>
         </div>   
         <script>
-                $('#btnAnnonce').click(function (e) {
-                    var contenu = document.getElementById("contenu");
+            $('#btnAnnonce').click(function (e) {
+                var contenu = document.getElementById("contenu");
 
-                    contenu.innerHTML = "";
+                contenu.innerHTML = "";
 //        e.preventDefault();
-                    console.log("allo");
-                    console.log("allo");
-                    debugger;
-                    $.ajax({
-                        url: 'playpro2/?action=annonce',
-                        type: 'POST',
-                        dataType: "json",
-                        success: function (response, statut) {
-                            console.log("reussi");
-                            console.log(response);
+                console.log("allo");
+                console.log("allo");
+                
+                $.ajax({
+                    url: 'playpro2/?action=annonce',
+                    type: 'POST',
+                    dataType: "json",
+                    success: function (response, statut) {
+                        console.log("reussi");
+                        console.log(response);
 
-                            //var rep = JSON.parse(response);
-                            contenu.innerHTML = response;
-                            console.log(response);
+                        //var rep = JSON.parse(response);
+                        contenu.innerHTML = response;
+                        console.log(response);
+                        $.each(response, function (index, value) {
+                            console.log(value.titre)
+                            contenu.innerHTML += value.titre;
+                        });
 
 
-                        },
-                        error: function (response, statut, message) {
-                            console.log("echec");
-                            console.log(response);
-                        }
-                    })
-                });
-                //data: $('#convertForm').serialize() // {param1:valeu1, param2:valeur2}
-//            }).done(function (reponseObtenue) {
-//                $('#contenu').html('');
-//                //$('#message').html('');
-//                var rep = JSON.parse(reponseObtenue);
-//                $('#contenu').html(rep);
-////                if (rep.RESULTAT) {
-////                    $('#contenu').html(rep);
-////                } else {
-////                    $('#message').html(rep.MESSAGE);
-////                }
-//            });
+                    },
+                    error: function (response, statut, message) {
+                        console.log("echec");
+                        console.log(response);
+                    }
+                })
+            });
 
-                /*
-                 var xhr = new XMLHttpRequest();
-                 var url="?action=convertir";
-                 xhr.open('post',url,function(){
-                 
-                 });
-                 xhr.send(document.forms[0].serialize);
-                 */
         </script>
         <script src="static/js/classie.js"></script>
         <script src="static/js/menu.js"></script>
-<!--        <script src="static/js/sports.js"></script>
-        <script src="static/js/lieux.js"></script>-->
+        <!--        <script src="static/js/sports.js"></script>
+                <script src="static/js/lieux.js"></script>-->
     </body>
 </html>

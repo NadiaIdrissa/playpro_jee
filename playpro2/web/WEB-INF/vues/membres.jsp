@@ -26,7 +26,7 @@
             <button id="myBtn" class="btn btn-success text-uppercase float-right w-10 " type="button" >Ajouter</button>
         </div>
     </div>
-    <section id="contenu">
+    <section >
         <div class="table-responsive text-nowrap">
             <table class="table table-striped">
                 <thead class="thead-dark">
@@ -93,13 +93,9 @@
                             <label for="inputLevel">Type de membre</label>
                             <select class="form-control" name="typeMembre" required>
                                 <option value='' >Choisissez...</option>
-
-
                                 <option value='Admin'>ADMINISTRATEUR</option>
                                 <option value='Entraineur'>ENTRAINEUR</option>
                                 <option value='Joueur'>JOUEUR</option>
-
-
                             </select>
 
                         </div>
@@ -127,9 +123,7 @@
                                                         <option value='<%=n.toString()%>'><%=n.toString()%></option>
 
                                                         <%}%>
-
                                                     </select>
-
                                                 </div>
                                                 <div class="valid-feedback">
                                                     Looks good!
@@ -142,7 +136,6 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 mb-12">
-
                                                 <div class="input-group" >
                                                     <div class="input-group-prepend" style='padding-top: 5px' >
                                                         <span class="input-group-text" id="inputGroupPrepend">@</span>
@@ -158,10 +151,8 @@
                                                             <option value='<%=s.toString()%>'><%=s.toString()%></option>
 
                                                             <%}%>
-
                                                         </select>
                                                     </div>
-
                                                     <div class="invalid-feedback">
                                                         Champ requis.
                                                     </div>
@@ -214,20 +205,13 @@
                                             <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                                             <button class="btn btn-primary btn-sm" id="commit" type="submit">Inscrire le membre</button>
                                         </div>
-
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </form>
         </div>
     </div>
-
-
 </html>
