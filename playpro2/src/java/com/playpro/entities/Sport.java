@@ -17,20 +17,20 @@ public class Sport {
     private String image;
 
     
-    public Sport() {
+    public Sport()throws IllegalArgumentException{
     }
 
-    public Sport(String idSport) {
+    public Sport(String idSport)throws IllegalArgumentException{
         this.id_sport = idSport;
     }
     
 
-    public Sport(String idSport, String nomSport) {
+    public Sport(String idSport, String nomSport)throws IllegalArgumentException{
         this.id_sport = idSport;
         this.nom = nomSport;
     }
 
-    public Sport(String id_sport, String nomSport, int nb_joueurs_max, int nb_joueurs_min) {
+    public Sport(String id_sport, String nomSport, int nb_joueurs_max, int nb_joueurs_min)throws IllegalArgumentException{
         this.id_sport = id_sport;
         this.nom = nomSport;
         this.nb_max = nb_joueurs_max;
@@ -46,10 +46,16 @@ public class Sport {
     }
 
     public void setNb_max(int nb_joueurs_max) {
+        if(nb_joueurs_max<0){
+            throw new IllegalArgumentException("Nb_Max inferior à 0");
+        }
         this.nb_max = nb_joueurs_max;
     }
 
     public void setNb_min(int nb_joueurs_min) {
+        if (nb_joueurs_min<0){
+            throw new IllegalArgumentException("Nb_Min inferior à 0");
+        }
         this.nb_min = nb_joueurs_min;
     }
     

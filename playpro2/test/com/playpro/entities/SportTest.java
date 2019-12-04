@@ -16,42 +16,55 @@ import org.junit.Before;
  * @author toute
  */
 public class SportTest {
-     final static String NOM="Tennis";
-     final static String IMGAGE="://stattic/img1";
-     final static int NB_MAX=2;
-     final static int NB_MIN=8;
-     String id="ABC";
-     String sportc="Hockey";
-     Sport S;
+
+    final static String NOM = "Tennis";
+    final static String IMGAGE = "://stattic/img1";
+    final static int NB_MAX = 2;
+    final static int NB_MIN = 8;
+    String id = "ABC";
+    String sportc = "Hockey";
+    Sport S;
+
     public SportTest() {
-        
-    
+
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
-   
-        
+
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-   
+
     @Before
     public void setUp() {
-   S=new Sport(id,NOM);
-   S.setId_sport(id);
-   S.setNom(NOM);
-   S.setImage(IMGAGE);
-   S.setNb_max(NB_MAX);
-   S.setNb_min(NB_MIN);
-   
-        
+        S = new Sport(id, NOM);
+        S.setId_sport(id);
+        S.setNom(NOM);
+        S.setImage(IMGAGE);
+        S.setNb_max(NB_MAX);
+        S.setNb_min(NB_MIN);
+
     }
+
     /**
      * Test of getNb_max method, of class Sport.
      */
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testNB_MaxNegatif() {
+
+        final int nvMax = -1;
+        S.setNb_max(nvMax);
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void testNB_MinNegatif() {
+
+        final int nvMin = -1;
+        S.setNb_max(nvMin);
+    }
     @Test
     public void testGetNb_max() {
         assertEquals(S.getNb_max(), NB_MAX);
@@ -63,9 +76,9 @@ public class SportTest {
     @Test
     public void testGetNb_min() {
         System.out.println("getNb_min");
-        assertEquals(S.getNb_min(),NB_MIN);
+        assertEquals(S.getNb_min(), NB_MIN);
         // TODO review the generated test code and remove the default call to fail.
-       
+
     }
 
     /**
@@ -73,8 +86,8 @@ public class SportTest {
      */
     @Test
     public void testSetNb_max() {
-final int nvmax=8;
-S.setNb_max(nvmax);
+        final int nvmax = 8;
+        S.setNb_max(nvmax);
     }
 
     /**
@@ -82,8 +95,8 @@ S.setNb_max(nvmax);
      */
     @Test
     public void testSetNb_min() {
-final int nvmin=3;
-S.setNb_min(nvmin);
+        final int nvmin = 3;
+        S.setNb_min(nvmin);
     }
 
     /**
@@ -91,8 +104,8 @@ S.setNb_min(nvmin);
      */
     @Test
     public void testGetId_sport() {
-       final String nvId="abc";
-       S.setId_sport(nvId);
+        final String nvId = "abc";
+        S.setId_sport(nvId);
     }
 
     /**
@@ -103,7 +116,7 @@ S.setNb_min(nvmin);
         System.out.println("getNom");
         Sport instance = new Sport();
         String expResult = "Hockey";
-        
+
         instance.setNom(expResult);
         String result = instance.getNom();
         assertEquals(expResult, result);
@@ -134,12 +147,12 @@ S.setNb_min(nvmin);
     public void testSetNom() {
         System.out.println("setNom");
         String nomSport = "Hockey";
-        
+
         Sport instance = new Sport();
         instance.setNom(nomSport);
         String result = instance.getNom();
         assertEquals(nomSport, result);
-        
+
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -150,9 +163,9 @@ S.setNb_min(nvmin);
     @Test
     public void testGetImage() {
         System.out.println("getImage");
-        assertEquals(S.getImage(),IMGAGE);
+        assertEquals(S.getImage(), IMGAGE);
         // TODO review the generated test code and remove the default call to fail.
-      
+
     }
 
     /**
@@ -160,8 +173,8 @@ S.setNb_min(nvmin);
      */
     @Test
     public void testSetImage() {
-  final String nvImg="c://static/im2";
-  S.setImage(nvImg);
+        final String nvImg = "c://static/im2";
+        S.setImage(nvImg);
     }
 
     /**
@@ -169,9 +182,8 @@ S.setNb_min(nvmin);
      */
     @Test
     public void testToString() {
-     
-        // TODO review the generated test code and remove the default call to fail.
 
+        // TODO review the generated test code and remove the default call to fail.
     }
-    
+
 }
