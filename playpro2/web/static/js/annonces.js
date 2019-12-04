@@ -98,8 +98,3 @@ $(':checkbox').change(function () {
     }
 
 });
-
-
-
-
-

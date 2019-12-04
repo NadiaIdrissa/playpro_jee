@@ -89,7 +89,7 @@
             <div class="modal-header">
                 <div class="modal-header text-center">
                     <h4 id='titreSup' class="modal-title w-100 font-weight-bold">Voulez-vous vraiment supprimer le lieu? </h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" >
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>

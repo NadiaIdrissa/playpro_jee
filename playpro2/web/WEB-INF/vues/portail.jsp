@@ -29,11 +29,7 @@
         <link rel="stylesheet" href="static/bootstrap/fontAwesome/css/font-awesome.min.css"/>
         <link href="static/bootstrap/css/bootstrap.min.css"  rel="stylesheet"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <!--        <script
-                    src="https://code.jquery.com/jquery-3.2.1.min.js"
-                    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-                    crossorigin="anonymous">
-                </script>-->
+
         <script src="static/js/jquery-3.4.1.min.js"></script>
         <script src="static/js/calendrier.js"></script>
         <script src="static/js/modernizr.custom.25376.js"></script>
@@ -62,6 +58,7 @@
                     </div>
                     <%}
                     %>
+                    <input type="button" id="btnAnnonce"  value="AFFICHER LES ANNONCES" />
                     <div id="contenu">
                         <%if (viewConf.equals("profilaccueil")) {%>
                         <%@include file="profil.jsp"%>
@@ -78,7 +75,7 @@
                         <%} else if (viewConf.equals("annonces")) {%>
                         <%@include file="annonce.jsp"%>
                         <%} else if (viewConf.equals("membres")) {
-                        %>
+                            %>
                         <%@include file="membres.jsp"%>
 
                         <%} else if (viewConf.equals("invitation")) {
@@ -97,7 +94,7 @@
                         <%@include file="calendrier.jsp"%>
                         <%}%>
                     </div>
-                    <input type="button" id="btnAnnonce"  value="OK" />
+
                 </div>
             </div>
             <%@include file="header4.jsp" %>
@@ -110,7 +107,7 @@
 //        e.preventDefault();
                 console.log("allo");
                 console.log("allo");
-                
+
                 $.ajax({
                     url: 'playpro2/?action=annonce',
                     type: 'POST',
@@ -125,6 +122,7 @@
                         $.each(response, function (index, value) {
                             console.log(value.titre)
                             contenu.innerHTML += value.titre;
+                            afficherAnnonces(value);
                         });
 
 
@@ -139,6 +137,9 @@
         </script>
         <script src="static/js/classie.js"></script>
         <script src="static/js/menu.js"></script>
+        <script src="static/js/validation.js" ></script>
+        <script src="static/js/gestion.js" ></script>
+        
         <!--        <script src="static/js/sports.js"></script>
                 <script src="static/js/lieux.js"></script>-->
     </body>

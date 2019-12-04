@@ -25,13 +25,13 @@
         <div class=" " style="">
             <c:forEach items="${requestScope.annonces}" var="uneAnnonce"> 
 
-                <div class=" annonce " >
+                <div class="annonce" >
                     <h2 class='card-text font-weight-bold bg-primary text-uppercase' ><c:out value="${uneAnnonce.titre}" /><br></h2>
-                    <div class="  row" >
-                        <div class="cadre text-center col-4  border">
+                    <div class="row" >
+                        <div class="cadre text-center col-4 border">
 
                             <p class='card-text'>Annonceur: <c:out value="${uneAnnonce.createur.prenom}" /></p>
-                            <p class="card-text">Nombre de joueurs par équipe: <c:out value="${uneAnnonce.nombreMax}" /></p>
+                            <p class="card-text">Nombre de places: <c:out value="${uneAnnonce.nombreMax}" /></p>
 
                             <c:if test="${uneAnnonce.gratuit}"> 
                                 <p class="card-text">Ce cours est gratuit</p>
@@ -41,7 +41,6 @@
                             </c:if>
                             <p class="card-text">Lieu: <c:out value="${uneAnnonce.lieu.nom}" /></p>
                             <p class="card-text">Date et heure: <c:out value="${uneAnnonce.date_event}" /></p>
-
                         </div>
                         <div class='col-8'>
                             <h3>Message de l'entrainneur :</h3>
