@@ -30,20 +30,24 @@ public class Equipe {
         this.nomEquipe = "Loups";
         this.capitaine = ken;
         this.id_capitaine = "1234";
-//        this.sport = "soccer";
-        this.nbPartiesJouees = 0;
-        this.nbJoueurs = 15;
-        this.nbMaxJoueurs = 30;
+        this.setNbMaxJoueurs(15);
+       
+        this.setNbPartiesJouees(0);
+        this.setNbJoueurs(15);
+   
+       
 
     }
 
     public Equipe(String NomEquipe, String id_du_capitaine, String sport, int nbPartiesJouees, int nbJoueurs, int nbMaxJoueurs) {
         this.nomEquipe = NomEquipe;
         this.id_capitaine = id_du_capitaine;
-//        this.sport = sport;
-        this.nbPartiesJouees = nbPartiesJouees;
-        this.nbJoueurs = nbJoueurs;
-        this.nbMaxJoueurs = nbMaxJoueurs;
+
+        this.setNbPartiesJouees(nbPartiesJouees);
+        this.setNbJoueurs(nbJoueurs);
+        this.setNbMaxJoueurs(nbMaxJoueurs);
+       
+        
     }
 
     public String getId_capitaine() {
