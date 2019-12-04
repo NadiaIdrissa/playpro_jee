@@ -68,7 +68,16 @@ public class AnnonceTest {
     public void testCreationAnnonce() {
         assertEquals(a.getDescription(), DESCRIPTION);
     }
-
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetValeurMontantNegatif() {
+        double nvMontant=-1;
+        a.setMontant(nvMontant);
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetNbMaxtNegatif() {
+        int nvMax=-1;
+        a.setNombreMax(nvMax);
+    }
     /**
      * Test of getIdAnnonce method, of class Annonce.
      */
@@ -115,7 +124,7 @@ public class AnnonceTest {
      */
     @Test
     public void testGetMontant() {
-      //  assertEquals(MONTANT,a.getMontant());
+       assertEquals(MONTANT,a.getMontant(),0.0001);
     }
 
     /**

@@ -22,7 +22,7 @@ public class Annonce {
     private int nombreMax;
     private Date dateCreation;
 
-    public Annonce() {
+    public Annonce()throws IllegalArgumentException{
     }
 
     public String getIdAnnonce() {
@@ -79,10 +79,16 @@ public class Annonce {
     }
 
     public void setMontant(double montant) {
+        if(montant<0){
+            throw new IllegalArgumentException("Le montant est inferior a 0");
+        }
         this.montant = montant;
     }
 
     public void setNombreMax(int nombreMax) {
+        if(nombreMax<=0){
+            throw new IllegalArgumentException("Le nombre max de participants et inferior ou egal a 0");
+        }
         this.nombreMax = nombreMax;
     }
 
