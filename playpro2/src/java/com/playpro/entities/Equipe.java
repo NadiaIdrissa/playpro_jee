@@ -30,9 +30,9 @@ public class Equipe {
         this.nomEquipe = "Loups";
         this.capitaine = ken;
         this.id_capitaine = "1234";
-        this.setNbMaxJoueurs(15);
+        this.setNbMaxJoueurs("15");
        
-        this.setNbPartiesJouees(0);
+        this.setNbPartiesJouees("0");
         this.setNbJoueurs(15);
    
        
@@ -43,9 +43,9 @@ public class Equipe {
         this.nomEquipe = NomEquipe;
         this.id_capitaine = id_du_capitaine;
 
-        this.setNbPartiesJouees(nbPartiesJouees);
+        this.setNbPartiesJouees("2");
         this.setNbJoueurs(nbJoueurs);
-        this.setNbMaxJoueurs(nbMaxJoueurs);
+        this.setNbMaxJoueurs("12");
        
         
     }
@@ -105,11 +105,12 @@ public class Equipe {
         return nbPartiesJouees;
     }
 
-    public void setNbPartiesJouees(int nbPartiesJouees) {
-        if(nbPartiesJouees<0){
+    public void setNbPartiesJouees(String nbPartiesJouees) {
+        int nv=Integer.parseInt(nbPartiesJouees);
+        if(nv<0){
             throw new IllegalArgumentException("Nombre parties jouees inferior à 0");
         }
-        this.nbPartiesJouees = nbPartiesJouees;
+        this.nbPartiesJouees = nv;
     }
 
     public int getNbJoueurs() {
@@ -127,11 +128,12 @@ public class Equipe {
         return nbMaxJoueurs;
     }
 
-    public void setNbMaxJoueurs(int nbMaxJoueurs) {
-        if(nbMaxJoueurs<0){
+    public void setNbMaxJoueurs(String nbMaxJoueurs) {
+        int nv=Integer.parseInt(nbMaxJoueurs);
+        if(nv<0){
             throw new IllegalArgumentException("Nombre Max_Joueurs inferior à 0");
         }
-        this.nbMaxJoueurs = nbMaxJoueurs;
+        this.nbMaxJoueurs = nv;
     }
 
     public LocalDate getDateCreation() {
