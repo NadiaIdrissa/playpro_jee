@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  jeu. 05 déc. 2019 à 16:48
+-- Généré le :  jeu. 05 déc. 2019 à 16:50
 -- Version du serveur :  5.7.27-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.1
 

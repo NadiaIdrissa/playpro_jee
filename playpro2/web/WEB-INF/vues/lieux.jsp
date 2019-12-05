@@ -6,16 +6,22 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<h1>Liste des lieux offerts</h1>
-<%
-    if (m.getTypeMembre().equals("Admin")) {
-%>
-<%}%>
-<button id="myBtn" type="button" >Ajouter</button>
+<div class="equipeStyle row">
+    <div class="col-sm-10 col-md-10 col-lg-10">
+        <h1>Liste des lieux offerts</h1>
+    </div>
+    <%
+        if (m.getTypeMembre().equals("Admin")) {
+    %>
+    <div class="colBtn col-sm-2 col-md-2 col-lg-2">
+        <button id="myBtn" type="button" >Ajouter</button>
+    </div>
+    <%}%>     
+</div>
+
 <div>
     <div class="card-columns" style="">
         <c:forEach items="${requestScope.lieux}" var="unlieu"> 
-
             <div class="card" >
                 <div class="cadre text-center">
                     <div>
@@ -56,6 +62,7 @@
                         <c:out value="${unlieu.code_postal}" />
 
                     </p>
+
                     <p class="card-text">Sports offerts :
                         <c:forEach items="${requestScope.lieuxSports}" var="ls"> 
                             <c:if test="${ls.lieu.id_lieu == unlieu.id_lieu}"> 
@@ -69,7 +76,7 @@
                     </a>
 
                     <p class='card-text'>Infos : <c:out value="${unlieu.infos}" /></p>
-                    <div class="col-12">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
                         <input name ='idLieuSup' id='idLieuSup' type='hidden' value='' />
                         <button class="btn btn-primary btnModLieu col-4" data-index='<c:out value="${unlieu.id_lieu}" />' data-status='<c:out value="${unlieu.nom}" />'>Modifier</button>
                         <button class="btn btn-danger btnSupLieu col-4" data-index='<c:out value="${unlieu.id_lieu}" />' data-status='<c:out value="${unlieu.nom}" />'>Supprimer</button>
@@ -81,7 +88,8 @@
     </div> 
 </div>
 
-<div class="modal" id="modalLieuSupprimer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+
+<div class="modal equipeStyle" id="modalLieuSupprimer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -104,7 +112,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
@@ -148,6 +155,7 @@
         </div>
     </div>
 </div>
+
 <script src="static/js/lieux.js"></script>
 <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -160,4 +168,3 @@
         console.log(this.files[0].mozFullPath);
     });
 </script>
-

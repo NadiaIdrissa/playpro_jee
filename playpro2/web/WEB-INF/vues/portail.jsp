@@ -42,7 +42,7 @@
     <body>
         <%@include file="menu.jsp" %>
         <div id="perspective" class="perspective effect-movedown">
-            <div class="container" style="max-width: unset">
+            <div class="container" style="max-width: unset;">
                 <div class="wrapper"><!-- wrapper needed for scroll -->
                     <%@include file="sidebar.jsp" %>
                 </div>
