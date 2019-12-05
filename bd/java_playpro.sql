@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  mer. 04 déc. 2019 à 22:35
+-- Généré le :  jeu. 05 déc. 2019 à 16:48
 -- Version du serveur :  5.7.27-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.1
 
@@ -79,12 +79,12 @@ CREATE TABLE `equipe` (
 --
 
 INSERT INTO `equipe` (`nom_equipe`, `id_capitaine`, `nom_sport`, `nb_parties_jouees`, `nb_joueurs`, `nb_max_joueurs`, `date_creation`, `image`) VALUES
-('Eagles', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Soccer', 0, 5, 30, '2019-11-25 15:28:22', 'Capture d’écran, le 2019-11-24 à 00.38.45.png'),
-('Killers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Soccer', 0, 4, 30, '2019-11-26 01:16:04', '6329392-l lawliet.png'),
-('Sirens', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Water polo', 0, 3, 30, '2019-11-26 14:17:07', '6329392-l lawliet.png'),
-('Spirits', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Football', 0, 6, 30, '2019-11-26 14:53:42', '6329392-l lawliet.png'),
-('Tigers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Football', 0, 3, 30, '2019-11-26 01:26:55', '6329392-l lawliet.png'),
-('Wizards', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Basketball', 0, 4, 30, '2019-11-26 01:25:40', '6329392-l lawliet.png');
+('Eagles', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Soccer', 0, 5, 30, '2019-11-25 15:28:22', 'eagles.jpg'),
+('Killers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Soccer', 0, 4, 30, '2019-11-26 01:16:04', 'killers.jpg'),
+('Sirens', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Water polo', 0, 3, 30, '2019-11-26 14:17:07', 'sirens.jpg'),
+('Spirits', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Football', 0, 6, 30, '2019-11-26 14:53:42', 'spirit.jpg'),
+('Tigers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Football', 0, 3, 30, '2019-11-26 01:26:55', 'tigers.jpg'),
+('Wizards', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Basketball', 0, 4, 30, '2019-11-26 01:25:40', 'wizards2.jpg');
 
 -- --------------------------------------------------------
 
@@ -133,8 +133,9 @@ CREATE TABLE `lieu` (
 --
 
 INSERT INTO `lieu` (`id_lieu`, `nom`, `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`, `image1`, `image2`, `image3`) VALUES
-('942bf489-d040-4115-9c2a-1909fd7e11de', 'Parc Jarry', '285', 'Rue Gary-Carter', 'H2R 2W1', 'Montreal', 'Canada', 'Parking gratuit sur place', 'park1.jpg', NULL, NULL),
-('aedf248d-a10a-4a5a-a55f-3a800c428db5', 'Parc Lafontaine', '3819', 'Avenue Calixa-Lavallée', 'H2L 3A7', 'Montreal', 'Canada', 'Cours de tennis gratuit sur réservation', 'park4.jpg', NULL, NULL);
+('685c7074-42e0-4169-b4e9-706b8161e1e3', 'Complexe sportif C.Robillard', '1000', 'Avenue Emile-Journault', 'H2M 2E7', 'Montreal', 'Canada', 'Acces par l\'avenue Christophe Colomb', 'CRobillard3.jpg', 'CRobillard2.jpg', 'CRobillard1.jpg'),
+('942bf489-d040-4115-9c2a-1909fd7e11de', 'Parc Jarry', '285', 'Rue Gary-Carter', 'H2R 2W1', 'Montreal', 'Canada', 'Parking gratuit sur place', 'Jarry1.jpg', 'Jarry2.jpg', 'Jarry3.jpg'),
+('aedf248d-a10a-4a5a-a55f-3a800c428db5', 'Parc Lafontaine', '3819', 'Avenue Calixa-Lavallée', 'H2L 3A7', 'Montreal', 'Canada', 'Cours de tennis gratuit sur réservation', 'Lafontaine1.jpg', 'Lafontaine2.jpg', 'Lafontaine3.jpg');
 
 -- --------------------------------------------------------
 
@@ -186,13 +187,13 @@ CREATE TABLE `membre` (
 --
 
 INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `courriel`, `date_inscription`, `type_membre`, `niveau`, `sport`, `mdp`, `equipe`, `photo`, `statut`) VALUES
-('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'vivi', 'Femme', 'Champagne', 'Vivianne', 1975, 'vivi@al.ca', '2019-10-24 02:16:43', 'Admin', 'PROFESSIONNEL', 'Basketball', '1000:a94d672c3840a1bbc37cde84d0a8b77bb181453ec7772a3f:e81e26e647b1d27127e19b843709d313900c9e8cd7d39d3c', NULL, 'woman.jpg', 'Actif'),
-('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'jack', 'Homme', 'Henri', 'Jacques', 1968, 'jack@al.ca', '2019-10-24 02:10:20', 'Entraineur', 'PROFESSIONNEL', 'Soccer', '1000:2b26ce3cac8e6f8be3f2060ea85f00b91828b3110a52a197:3d180a72d4d9b41ce3bbfd08d960f4688561b53d065090e7', NULL, 'man.jpg', 'Actif'),
-('940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'Tom', 'Homme', 'Rogers', 'Thomas', 1995, 'tom@al.ca', '2019-10-24 02:01:36', 'Joueur', 'INTERMEDIAIRE', '', '1000:891fbed7bcb15322b590f3942c1153880080f91f6cb3908c:a75aac427ef2483815461479f2418e517c5bb47393b914c9', NULL, 'man.jpg', 'Actif'),
-('a407418a-7683-4abc-8193-f083d86ae9f6', 'sar', 'Femme', 'Manning', 'Sarah', 1990, 'sar@al.ca', '2019-10-24 02:03:55', 'Entraineur', 'PROFESSIONNEL', 'Volley Ball', '1000:ea9f47d68e53c54912b4f275742419af166d24acef58182a:f1abe74a17599a97fab092f8352f97fb28e8d0d9a58eabac', NULL, 'woman.jpg', 'Actif'),
-('adbbc2a0-3ec9-4baa-97e7-6b3b0b301aee', 'bob', 'Homme', 'Malik', 'Robert', 1983, 'rob@al.ca', '2019-10-24 02:07:13', 'Joueur', 'DEBUTANT', 'Rugby', '1000:062bd4d1165b7222de29caec7ef631a78faaa5ffb4910a93:3f01bff75c12ef30ed2cd771813907b48cb230448862b54c', NULL, 'man.jpg', 'Actif'),
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'vivi', 'Femme', 'Champagne', 'Vivianne', 1975, 'vivi@al.ca', '2019-10-24 02:16:43', 'Admin', 'PROFESSIONNEL', 'Basketball', '1000:a94d672c3840a1bbc37cde84d0a8b77bb181453ec7772a3f:e81e26e647b1d27127e19b843709d313900c9e8cd7d39d3c', NULL, 'vivi.png', 'Actif'),
+('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'jack', 'Homme', 'Henri', 'Jacques', 1968, 'jack@al.ca', '2019-10-24 02:10:20', 'Entraineur', 'PROFESSIONNEL', 'Soccer', '1000:2b26ce3cac8e6f8be3f2060ea85f00b91828b3110a52a197:3d180a72d4d9b41ce3bbfd08d960f4688561b53d065090e7', NULL, 'jack.png', 'Actif'),
+('940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'Tom', 'Homme', 'Rogers', 'Thomas', 1995, 'tom@al.ca', '2019-10-24 02:01:36', 'Joueur', 'INTERMEDIAIRE', '', '1000:891fbed7bcb15322b590f3942c1153880080f91f6cb3908c:a75aac427ef2483815461479f2418e517c5bb47393b914c9', NULL, 'tom.png', 'Actif'),
+('a407418a-7683-4abc-8193-f083d86ae9f6', 'sar', 'Femme', 'Manning', 'Sarah', 1990, 'sar@al.ca', '2019-10-24 02:03:55', 'Entraineur', 'PROFESSIONNEL', 'Volley Ball', '1000:ea9f47d68e53c54912b4f275742419af166d24acef58182a:f1abe74a17599a97fab092f8352f97fb28e8d0d9a58eabac', NULL, 'sar.png', 'Actif'),
+('adbbc2a0-3ec9-4baa-97e7-6b3b0b301aee', 'bob', 'Homme', 'Malik', 'Robert', 1983, 'rob@al.ca', '2019-10-24 02:07:13', 'Joueur', 'DEBUTANT', 'Rugby', '1000:062bd4d1165b7222de29caec7ef631a78faaa5ffb4910a93:3f01bff75c12ef30ed2cd771813907b48cb230448862b54c', NULL, 'bob.png', 'Actif'),
 ('ebe2e2ec-0b79-4108-be69-f54b6654be50', 'bill', 'Homme', 'Billion', 'James', 1984, 'bill@al.ca', '2019-10-24 02:02:45', 'Entraineur', 'PROFESSIONNEL', 'Hockey', '1000:af18c2facefef686d732c45d562a8f050a19971bf6a06260:475b8017d892615e4b990a9ad0b3fc719a7b6935fb588d5d', NULL, 'man.jpg', 'Actif'),
-('fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 'lili', 'Femme', 'Graham', 'Lilianne', 1975, 'lili@al.ca', '2019-10-24 02:04:33', 'Joueur', 'PROFESSIONNEL', '', '1000:c8a26d54c05a9b9bba9fa14f3e5ff283dfd37f02bd2bc267:d604d30fda2f510ba1f0cce7e4291f1a9bd036fe2c72b29d', NULL, 'woman.jpg', 'Actif');
+('fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 'lili', 'Femme', 'Graham', 'Lilianne', 1975, 'lili@al.ca', '2019-10-24 02:04:33', 'Joueur', 'PROFESSIONNEL', '', '1000:c8a26d54c05a9b9bba9fa14f3e5ff283dfd37f02bd2bc267:d604d30fda2f510ba1f0cce7e4291f1a9bd036fe2c72b29d', NULL, 'lili.png', 'Actif');
 
 -- --------------------------------------------------------
 
@@ -254,9 +255,9 @@ CREATE TABLE `sport` (
 
 INSERT INTO `sport` (`id_sport`, `nom`, `nb_max`, `nb_min`, `image`) VALUES
 ('0df302b1-ae4d-497e-8a43-4bc188f8a83a', 'Soccer', 22, 2, 'soccer.jpg'),
-('48b957f8-1a7c-47a4-b8d3-770c91b32f21', 'Tennis', 4, 2, 'tennis1.jpg'),
-('64f50de6-759f-48dc-83db-299ebd8b0aab', 'Football', 18, 2, 'football.png'),
-('db031a56-2a4f-485a-b463-7165df255302', 'Basketball', 22, 2, 'baskeball.jpg'),
+('48b957f8-1a7c-47a4-b8d3-770c91b32f21', 'Tennis', 4, 2, 'tennis.jpg'),
+('64f50de6-759f-48dc-83db-299ebd8b0aab', 'Football', 18, 2, 'football.jpg'),
+('db031a56-2a4f-485a-b463-7165df255302', 'Basketball', 22, 2, 'basket.jpg'),
 ('eade52d3-1ccc-49ef-8d86-34023d9f35a2', 'Water polo', 21, 2, 'waterpolo.jpg');
 
 --
@@ -289,8 +290,9 @@ ALTER TABLE `invitation`
 -- Index pour la table `lieu`
 --
 ALTER TABLE `lieu`
-  ADD KEY `Lieu_FK_id_lieu` (`id_lieu`),
-  ADD KEY `Lieu_FK_codepost` (`code_postal`) USING BTREE;
+  ADD PRIMARY KEY (`id_lieu`),
+  ADD KEY `Lieu_FK_codepost` (`code_postal`) USING BTREE,
+  ADD KEY `Lieu_FK_id_lieu` (`id_lieu`) USING BTREE;
 
 --
 -- Index pour la table `lieusport`
