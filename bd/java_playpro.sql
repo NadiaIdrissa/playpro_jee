@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1
--- http://www.phpmyadmin.net
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
 --
--- Client :  localhost
--- Généré le :  Ven 29 Novembre 2019 à 00:53
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.18
+-- Hôte : localhost
+-- Généré le :  mer. 04 déc. 2019 à 22:35
+-- Version du serveur :  5.7.27-0ubuntu0.18.04.1
+-- Version de PHP :  7.2.24-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -30,7 +32,7 @@ CREATE TABLE `annonce` (
   `id_annonce` char(36) NOT NULL,
   `id_createur` varchar(255) CHARACTER SET utf8 NOT NULL,
   `nombreMax` int(11) NOT NULL,
-  `id_lieu` varchar(255) CHARACTER SET utf8 NULL,
+  `id_lieu` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `date_event` timestamp NULL DEFAULT '2020-03-29 15:50:00',
   `montant` float(6,2) NOT NULL DEFAULT '0.00',
   `gratuit` tinyint(1) NOT NULL DEFAULT '1',
@@ -40,20 +42,20 @@ CREATE TABLE `annonce` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `annonce`
+-- Déchargement des données de la table `annonce`
 --
 
-INSERT INTO `annonce` (`id_annonce`, `id_createur`, `nombreMax`,  `id_lieu`, `date_event`,`montant`, `gratuit`, `titre_annonce`, `description`, `date_creation`) VALUES
-('1bd83e10-28c2-4033-ada1-5f64c5989e58', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 6, 'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08',0.00, 1, 'Pratique de soccer', 'Je vous propose un cours de soccer. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:41:00'),
-('241ee6bd-ff8a-4b22-9bb1-d1710bfc8ed8', '8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 13,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 100.00, 0, 'Match de Baseball', 'Venez jouer au baseball you will learn how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:50:08'),
-('3df681e1-f8aa-4b4a-8209-ba0e5bef50f5', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 6,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 0.00, 1, 'Volley ball gratuit', 'Voici une occasion.com you will learn how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:36:40'),
-('4ba68093-54a7-4f03-8ba8-fb87ffcfef9c', 'a407418a-7683-4abc-8193-f083d86ae9f6', 6,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 0.00, 1, 'Match de Tennis', 'Je vous attends nombreux. how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:37:44'),
-('4eab0a9c-2319-47fb-a6e4-be8d01f78016', 'fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 13,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 50.00, 0, 'Cours de Baseball', 'Apprennez a jouer au baseball a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:48:42'),
-('7c06c278-8936-48af-9ec5-0737cb613fd3', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 13,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 100.00, 0, 'Match de Baseball', 'Cours de baseball pour les nulls make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:41:50'),
-('8c750e5f-4b0a-468f-b425-a66a85dc8c90', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 6,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 0.00, 1, 'Pratique de Tennis', 'Les rudiments du tennis to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:39:35'),
-('a2dba22b-417a-4c5a-8a79-ae9ee29cc9cd', 'fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 13,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 80.00, 0, 'Cours de ballet', 'Danse classique pour tous how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:44:12'),
-('ca777a31-5348-478a-b639-2f9775744956', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 13,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 300.00, 0, 'Pratique de Baseball', 'Devenez danseur professionnel. will learn how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:44:51'),
-('fc87369e-1da1-4fd3-afb6-57e1c8422bae', 'a407418a-7683-4abc-8193-f083d86ae9f6', 6,'aedf248d-a10a-4a5a-a55f-3a800c428db5','2019-12-29 15:50:08', 0.00, 1, 'Cours de Tennis', 'Venez nombreux. learn how to make a website. We offer free tutorials in all web development technologies.\r\n', '2019-11-29 00:35:48');
+INSERT INTO `annonce` (`id_annonce`, `id_createur`, `nombreMax`, `id_lieu`, `date_event`, `montant`, `gratuit`, `titre_annonce`, `description`, `date_creation`) VALUES
+('1bd83e10-28c2-4033-ada1-5f64c5989e58', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 6, 'aedf248d-a10a-4a5a-a55f-3a800c428db5', '2019-12-29 15:50:08', 0.00, 1, 'Pratique de soccer', 'Je vous propose un cours de soccer. Pour tous niveaux de joueurs.\r\n', '2019-11-29 00:41:00'),
+('241ee6bd-ff8a-4b22-9bb1-d1710bfc8ed8', '8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 13, 'aedf248d-a10a-4a5a-a55f-3a800c428db5', '2019-12-29 15:50:08', 100.00, 0, 'Match de Baseball', 'Venez jouer au baseball dans notre league semi-professionnelle et participez à des tournois officiels!\r\nNiveau intermédiaire à avancé.\r\n', '2019-11-29 00:50:08'),
+('3df681e1-f8aa-4b4a-8209-ba0e5bef50f5', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 6, 'aedf248d-a10a-4a5a-a55f-3a800c428db5', '2019-12-29 15:50:08', 0.00, 1, 'Volley-ball gratuit', 'Pratique de volley-ball tous les mercredis. Je suis un jeune entraîneur et souhaite me pratiquer.\r\n', '2019-11-29 00:36:40'),
+('4ba68093-54a7-4f03-8ba8-fb87ffcfef9c', 'a407418a-7683-4abc-8193-f083d86ae9f6', 6, 'aedf248d-a10a-4a5a-a55f-3a800c428db5', '2019-12-29 15:50:08', 0.00, 1, 'Match de Tennis', 'Je vous attends nombreux.', '2019-11-29 00:37:44'),
+('4eab0a9c-2319-47fb-a6e4-be8d01f78016', 'fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 13, 'aedf248d-a10a-4a5a-a55f-3a800c428db5', '2019-12-29 15:50:08', 50.00, 0, 'Cours de Baseball', 'Apprennez a jouer au baseball comme un pro !', '2019-11-29 00:48:42'),
+('7c06c278-8936-48af-9ec5-0737cb613fd3', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 13, 'aedf248d-a10a-4a5a-a55f-3a800c428db5', '2019-12-29 15:50:08', 100.00, 0, 'Match de Baseball', 'Cours de baseball pour les débutants. Efficacité garantie. Durant ma carrière j\'ai entraîné des joueurs en league professionnelle.', '2019-11-29 00:41:50'),
+('8c750e5f-4b0a-468f-b425-a66a85dc8c90', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 6, 'aedf248d-a10a-4a5a-a55f-3a800c428db5', '2019-12-29 15:50:08', 0.00, 1, 'Pratique de Tennis', 'Les rudiments du tennis offerts gratuitement pour tous niveaux de joueurs.', '2019-11-29 00:39:35'),
+('a2dba22b-417a-4c5a-8a79-ae9ee29cc9cd', 'fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 13, 'aedf248d-a10a-4a5a-a55f-3a800c428db5', '2019-12-29 15:50:08', 80.00, 0, 'Cours de ballet', 'Danse classique pour tous dans un studio aménagé. Ballet prévu en fin d\'année.\r\n', '2019-11-29 00:44:12'),
+('ca777a31-5348-478a-b639-2f9775744956', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 13, 'aedf248d-a10a-4a5a-a55f-3a800c428db5', '2019-12-29 15:50:08', 300.00, 0, 'Pratique salsa', 'Devenez danseur professionnel. Pour danseurs aguéris seulement. Répétitions avant show.', '2019-11-29 00:44:51'),
+('fc87369e-1da1-4fd3-afb6-57e1c8422bae', 'a407418a-7683-4abc-8193-f083d86ae9f6', 6, 'aedf248d-a10a-4a5a-a55f-3a800c428db5', '2019-12-29 15:50:08', 0.00, 1, 'Cours de Tennis', 'Venez nombreux! Cours participatif.', '2019-11-29 00:35:48');
 
 -- --------------------------------------------------------
 
@@ -73,16 +75,16 @@ CREATE TABLE `equipe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `equipe`
+-- Déchargement des données de la table `equipe`
 --
 
 INSERT INTO `equipe` (`nom_equipe`, `id_capitaine`, `nom_sport`, `nb_parties_jouees`, `nb_joueurs`, `nb_max_joueurs`, `date_creation`, `image`) VALUES
-('bravo', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Basketball', 0, 4, 30, '2019-11-26 01:25:40', '6329392-l lawliet.png'),
+('Eagles', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Soccer', 0, 5, 30, '2019-11-25 15:28:22', 'Capture d’écran, le 2019-11-24 à 00.38.45.png'),
 ('Killers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Soccer', 0, 4, 30, '2019-11-26 01:16:04', '6329392-l lawliet.png'),
-('lkasjd', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Football', 0, 3, 30, '2019-11-26 01:26:55', '6329392-l lawliet.png'),
-('testa', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Water polo', 0, 3, 30, '2019-11-26 14:17:07', '6329392-l lawliet.png'),
-('Testali', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Football', 0, 6, 30, '2019-11-26 14:53:42', '6329392-l lawliet.png'),
-('Tueurs', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Soccer', 0, 5, 30, '2019-11-25 15:28:22', 'Capture d’écran, le 2019-11-24 à 00.38.45.png');
+('Sirens', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Water polo', 0, 3, 30, '2019-11-26 14:17:07', '6329392-l lawliet.png'),
+('Spirits', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Football', 0, 6, 30, '2019-11-26 14:53:42', '6329392-l lawliet.png'),
+('Tigers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Football', 0, 3, 30, '2019-11-26 01:26:55', '6329392-l lawliet.png'),
+('Wizards', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Basketball', 0, 4, 30, '2019-11-26 01:25:40', '6329392-l lawliet.png');
 
 -- --------------------------------------------------------
 
@@ -98,7 +100,7 @@ CREATE TABLE `invitation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `invitation`
+-- Déchargement des données de la table `invitation`
 --
 
 INSERT INTO `invitation` (`id_expediteur`, `id_destinataire`, `id_requete`, `date_creation`) VALUES
@@ -127,12 +129,12 @@ CREATE TABLE `lieu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `lieu`
+-- Déchargement des données de la table `lieu`
 --
 
 INSERT INTO `lieu` (`id_lieu`, `nom`, `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`, `image1`, `image2`, `image3`) VALUES
-('aedf248d-a10a-4a5a-a55f-3a800c428db5', 'Park Jarry', '1212', 'Jarry', 'H1H 3H3', 'Montreal', 'Canada', 'Parking', 'park4.jpg', NULL, NULL),
-('942bf489-d040-4115-9c2a-1909fd7e11de', 'Park Jarry', '1212', 'Jarry', 'H1H 3H3', 'Montreal', 'Canada', 'Parking', 'park1.jpg', NULL, NULL);
+('942bf489-d040-4115-9c2a-1909fd7e11de', 'Parc Jarry', '285', 'Rue Gary-Carter', 'H2R 2W1', 'Montreal', 'Canada', 'Parking gratuit sur place', 'park1.jpg', NULL, NULL),
+('aedf248d-a10a-4a5a-a55f-3a800c428db5', 'Parc Lafontaine', '3819', 'Avenue Calixa-Lavallée', 'H2L 3A7', 'Montreal', 'Canada', 'Cours de tennis gratuit sur réservation', 'park4.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -146,7 +148,7 @@ CREATE TABLE `lieusport` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `lieusport`
+-- Déchargement des données de la table `lieusport`
 --
 
 INSERT INTO `lieusport` (`id_lieu`, `id_sport`) VALUES
@@ -180,17 +182,17 @@ CREATE TABLE `membre` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `membre`
+-- Déchargement des données de la table `membre`
 --
 
 INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `courriel`, `date_inscription`, `type_membre`, `niveau`, `sport`, `mdp`, `equipe`, `photo`, `statut`) VALUES
-('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'vivi', 'Femme', 'Vil', 'Vivianne', 1995, 'vivi@al.ca', '2019-10-24 02:16:43', 'Admin', 'PROFESSIONNEL', 'Basketball', '1000:a94d672c3840a1bbc37cde84d0a8b77bb181453ec7772a3f:e81e26e647b1d27127e19b843709d313900c9e8cd7d39d3c', NULL, 'woman.jpg', 'Actif'),
-('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'jack', 'Femme', 'Ja', 'Jacky', 1995, 'jack@al.ca', '2019-10-24 02:10:20', 'Entraineur', 'DEBUTANT', 'KaratÃ©', '1000:2b26ce3cac8e6f8be3f2060ea85f00b91828b3110a52a197:3d180a72d4d9b41ce3bbfd08d960f4688561b53d065090e7', NULL, 'woman.jpg', 'Actif'),
-('940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'totor', 'Homme', 'Rogers', 'Toto', 1995, 'toto@al.ca', '2019-10-24 02:01:36', 'Joueur', 'INTERMEDIAIRE', '', '1000:891fbed7bcb15322b590f3942c1153880080f91f6cb3908c:a75aac427ef2483815461479f2418e517c5bb47393b914c9', NULL, 'man.jpg', 'Actif'),
-('a407418a-7683-4abc-8193-f083d86ae9f6', 'sar', 'Femme', 'Sars', 'Sarah', 1995, 'sar@al.ca', '2019-10-24 02:03:55', 'Entraineur', 'DEBUTANT', 'Volley Ball', '1000:ea9f47d68e53c54912b4f275742419af166d24acef58182a:f1abe74a17599a97fab092f8352f97fb28e8d0d9a58eabac', NULL, 'woman.jpg', 'Actif'),
-('adbbc2a0-3ec9-4baa-97e7-6b3b0b301aee', 'rob', 'Homme', 'Bob', 'Robert', 1995, 'rob@al.ca', '2019-10-24 02:07:13', 'Entraineur', 'DEBUTANT', 'Rugby', '1000:062bd4d1165b7222de29caec7ef631a78faaa5ffb4910a93:3f01bff75c12ef30ed2cd771813907b48cb230448862b54c', NULL, 'man.jpg', 'Actif'),
-('ebe2e2ec-0b79-4108-be69-f54b6654be50', 'bill', 'Homme', 'James', 'Billy', 1995, 'bill@al.ca', '2019-10-24 02:02:45', 'Entraineur', 'DEBUTANT', 'Hockey', '1000:af18c2facefef686d732c45d562a8f050a19971bf6a06260:475b8017d892615e4b990a9ad0b3fc719a7b6935fb588d5d', NULL, 'man.jpg', 'Actif'),
-('fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 'lili', 'Femme', 'Lilas', 'Lilianne', 1995, 'lili@al.ca', '2019-10-24 02:04:33', 'Joueur', 'PROFESSIONNEL', '', '1000:c8a26d54c05a9b9bba9fa14f3e5ff283dfd37f02bd2bc267:d604d30fda2f510ba1f0cce7e4291f1a9bd036fe2c72b29d', NULL, 'woman.jpg', 'Actif');
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'vivi', 'Femme', 'Champagne', 'Vivianne', 1975, 'vivi@al.ca', '2019-10-24 02:16:43', 'Admin', 'PROFESSIONNEL', 'Basketball', '1000:a94d672c3840a1bbc37cde84d0a8b77bb181453ec7772a3f:e81e26e647b1d27127e19b843709d313900c9e8cd7d39d3c', NULL, 'woman.jpg', 'Actif'),
+('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'jack', 'Homme', 'Henri', 'Jacques', 1968, 'jack@al.ca', '2019-10-24 02:10:20', 'Entraineur', 'PROFESSIONNEL', 'Soccer', '1000:2b26ce3cac8e6f8be3f2060ea85f00b91828b3110a52a197:3d180a72d4d9b41ce3bbfd08d960f4688561b53d065090e7', NULL, 'man.jpg', 'Actif'),
+('940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'Tom', 'Homme', 'Rogers', 'Thomas', 1995, 'tom@al.ca', '2019-10-24 02:01:36', 'Joueur', 'INTERMEDIAIRE', '', '1000:891fbed7bcb15322b590f3942c1153880080f91f6cb3908c:a75aac427ef2483815461479f2418e517c5bb47393b914c9', NULL, 'man.jpg', 'Actif'),
+('a407418a-7683-4abc-8193-f083d86ae9f6', 'sar', 'Femme', 'Manning', 'Sarah', 1990, 'sar@al.ca', '2019-10-24 02:03:55', 'Entraineur', 'PROFESSIONNEL', 'Volley Ball', '1000:ea9f47d68e53c54912b4f275742419af166d24acef58182a:f1abe74a17599a97fab092f8352f97fb28e8d0d9a58eabac', NULL, 'woman.jpg', 'Actif'),
+('adbbc2a0-3ec9-4baa-97e7-6b3b0b301aee', 'bob', 'Homme', 'Malik', 'Robert', 1983, 'rob@al.ca', '2019-10-24 02:07:13', 'Joueur', 'DEBUTANT', 'Rugby', '1000:062bd4d1165b7222de29caec7ef631a78faaa5ffb4910a93:3f01bff75c12ef30ed2cd771813907b48cb230448862b54c', NULL, 'man.jpg', 'Actif'),
+('ebe2e2ec-0b79-4108-be69-f54b6654be50', 'bill', 'Homme', 'Billion', 'James', 1984, 'bill@al.ca', '2019-10-24 02:02:45', 'Entraineur', 'PROFESSIONNEL', 'Hockey', '1000:af18c2facefef686d732c45d562a8f050a19971bf6a06260:475b8017d892615e4b990a9ad0b3fc719a7b6935fb588d5d', NULL, 'man.jpg', 'Actif'),
+('fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 'lili', 'Femme', 'Graham', 'Lilianne', 1975, 'lili@al.ca', '2019-10-24 02:04:33', 'Joueur', 'PROFESSIONNEL', '', '1000:c8a26d54c05a9b9bba9fa14f3e5ff283dfd37f02bd2bc267:d604d30fda2f510ba1f0cce7e4291f1a9bd036fe2c72b29d', NULL, 'woman.jpg', 'Actif');
 
 -- --------------------------------------------------------
 
@@ -247,18 +249,18 @@ CREATE TABLE `sport` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `sport`
+-- Déchargement des données de la table `sport`
 --
 
 INSERT INTO `sport` (`id_sport`, `nom`, `nb_max`, `nb_min`, `image`) VALUES
-('0df302b1-ae4d-497e-8a43-4bc188f8a83a', 'Soccer', 3, 2, 'soccer.jpg'),
+('0df302b1-ae4d-497e-8a43-4bc188f8a83a', 'Soccer', 22, 2, 'soccer.jpg'),
 ('48b957f8-1a7c-47a4-b8d3-770c91b32f21', 'Tennis', 4, 2, 'tennis1.jpg'),
 ('64f50de6-759f-48dc-83db-299ebd8b0aab', 'Football', 18, 2, 'football.png'),
-('db031a56-2a4f-485a-b463-7165df255302', 'Basketball', 6, 2, 'baskeball.jpg'),
+('db031a56-2a4f-485a-b463-7165df255302', 'Basketball', 22, 2, 'baskeball.jpg'),
 ('eade52d3-1ccc-49ef-8d86-34023d9f35a2', 'Water polo', 21, 2, 'waterpolo.jpg');
 
 --
--- Index pour les tables exportées
+-- Index pour les tables déchargées
 --
 
 --
@@ -334,7 +336,7 @@ ALTER TABLE `sport`
   ADD UNIQUE KEY `nom_sport` (`nom`);
 
 --
--- Contraintes pour les tables exportées
+-- Contraintes pour les tables déchargées
 --
 
 --
@@ -342,12 +344,6 @@ ALTER TABLE `sport`
 --
 ALTER TABLE `annonce`
   ADD CONSTRAINT `Annonce_FK_pseudo` FOREIGN KEY (`id_createur`) REFERENCES `membre` (`id`);
-  
--- ADD CONSTRAINT `AnnonceLieu_FK_lieu` FOREIGN KEY (`id_lieu`) REFERENCES `lieu` (`id_lieu`);
- 
- 
-
-  
 
 --
 -- Contraintes pour la table `lieusport`
@@ -368,6 +364,7 @@ ALTER TABLE `membre`
 ALTER TABLE `partie`
   ADD CONSTRAINT `Partie_FK_nom_equipe1` FOREIGN KEY (`equipe_1`) REFERENCES `equipe` (`nom_equipe`),
   ADD CONSTRAINT `Partie_FK_nom_equipe2` FOREIGN KEY (`equipe_2`) REFERENCES `equipe` (`nom_equipe`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

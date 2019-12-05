@@ -203,7 +203,7 @@ public class AnnonceDAO extends DAO<Annonce> {
         List<Annonce> liste = new LinkedList<>();
         try {
             Statement stm = cnx.createStatement();
-            ResultSet r = stm.executeQuery("SELECT * FROM `annonce` INNER JOIN `membre`on annonce.id_createur = MEMBRE.ID"
+            ResultSet r = stm.executeQuery("SELECT * FROM `annonce` INNER JOIN `membre`on annonce.id_createur = id"
                     + " INNER JOIN lieu ON annonce.id_lieu = lieu.id_lieu");
                                 
             while (r.next()) {
