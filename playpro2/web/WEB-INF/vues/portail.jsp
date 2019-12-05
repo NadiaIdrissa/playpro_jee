@@ -115,17 +115,11 @@
                     success: function (response, statut) {
                         console.log("reussi");
                         console.log(response);
-
-                        //var rep = JSON.parse(response);
-                        contenu.innerHTML = response;
-                        console.log(response);
+                        console.log(statut);
+                        
                         $.each(response, function (index, value) {
-                            console.log(value.titre)
-                            contenu.innerHTML += value.titre;
                             afficherAnnonces(value);
                         });
-
-
                     },
                     error: function (response, statut, message) {
                         console.log("echec");

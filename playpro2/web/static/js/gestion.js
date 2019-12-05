@@ -42,9 +42,9 @@ afficherAnnonces= function(annonce) {
     var p4 = FabriqueNoeud("p", {className:"infos", textContent:"Nombre de places: "+annonce.nombreMax});
     var p5 = FabriqueNoeud("p", {className:"infos", textContent:"Annonceur: "+annonce.createur.prenom});
     
-    var div1 = FabriqueNoeud("div", {className:"cadre text-left col-3 fondAnnonce annonceInfos border"},{p1,p2, p3, p4, p5} );
+    var div1 = FabriqueNoeud("div", {className:"cadre col-3 titreAnnonce fondAnnonce annonceInfos border"},{p1,p2, p3, p4, p5} );
     
-    var p6 = FabriqueNoeud("p", {className:"", textContent: annonce.description});
+    var p6 = FabriqueNoeud("p", {className:"infos", textContent: annonce.description});
     var h3 = FabriqueNoeud("h3", {className:"border-bottom", textContent:"Message de l'annonceur "});
     
     var div2 = FabriqueNoeud("div", {className:"col-8"},{h3,p6} );
