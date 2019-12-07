@@ -38,6 +38,10 @@ public class LieuxAction extends AbstractAction {
         SportDAO daoSport = new SportDAO();
         LieuSportDAO lsDao = new LieuSportDAO();
         
+        String message = "";
+        String laClasse="";
+        String idLieuSupprimer = request.getParameter("idLieuSupprimer");
+        
         String nom = request.getParameter("nom");
         String rue = request.getParameter("rue");
         String ville = request.getParameter("ville");
@@ -52,6 +56,34 @@ public class LieuxAction extends AbstractAction {
              part = (List<Part>) request.getParts();
         } catch (IOException | ServletException ex) {
             Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(idLieuSupprimer !=null){
+            System.out.println("Je suis nul");
+            Lieux l = LieuxServices.trouverUnLieu(idLieuSupprimer);
+            
+            LieuSport ls = new LieuSport();
+            Sport s = new Sport();
+            s.setId_sport("");
+            
+            ls.setLieu(l);
+            
+            ls.setSport(s);
+            
+            boolean reussi  = LieuSportService.supprimer(ls);
+                    
+            reussi = LieuxServices.supprimer(l);
+            
+            if(reussi){
+                message = "Le lieu "+l.getNom()+" a été supprimé avec succès";
+                laClasse = "success";
+            }else{
+                message = "Une erreur est survenue lors de la suppression du lieu";
+                laClasse = "danger";
+            }
+            
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
         }
 
         System.out.println("Sports : " + sports);

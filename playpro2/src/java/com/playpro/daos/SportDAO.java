@@ -142,6 +142,7 @@ public class SportDAO extends DAO<Sport>{
                 return true;
             }
         } catch (SQLException exp) {
+            exp.printStackTrace();
         } finally {
             if (stm != null) {
                 try {

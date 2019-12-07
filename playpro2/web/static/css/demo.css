@@ -159,18 +159,18 @@ a:hover, a:focus {
 .codrops-demos a,
 button {
 	border: none;
-	padding: 0.6em 1.2em;
-	background: #a9a9a9;
+	padding: 10px 20px;
+	background: #ff1744;
 	color: #fff;
-	font-family: 'Lato', Calibri, Arial, sans-serif;
+	/*font-family: 'Lato', Calibri, Arial, sans-serif;*/
 	font-size: 1em;
 	letter-spacing: 1px;
-	text-transform: uppercase;
+	text-transform: uppercase !important;
 	cursor: pointer;
 	display: inline-block;
-	margin: 10px;
-	border-radius: 2px;
-	font-weight: 400;
+	margin-right: 20px !important;
+	border-radius: .25rem !important;
+	font-weight: 800;
 	outline: none;
 }
 
@@ -178,11 +178,6 @@ button {
 .codrops-demos a:active,
 .codrops-demos a.current-demo {
 	background: #777;
-}
-
-button {
-/*	font-size: 75%;*/
-	background: #ff1744;
 }
 
 button:hover,
@@ -311,9 +306,9 @@ button:active {
 
 /* Nav Styles */
 .affichageNom{
-    font-size: 3em;
-    font-weight: bold;
-    font-variant: all-petite-caps;
+    font-size: 2em;
+    color: black !important;
+    padding: 5px;
 /*  justify-content: center;
     display: inline-flex;
     height: 100%; 
@@ -321,17 +316,39 @@ button:active {
     position: absolute;*/
 }
 
-/*.affichageLogo{
-    display: inline-block;
-    width: 30px; 
-    height: auto;
-    margin: 12px;
-}*/
+.modal-header .affichageNom{
+    color: black !important;
+}
 
-/*.affichageMenuBtn{
-    float: right; 
-    display:inline-block;
-}*/
+.affichageLogo{
+    width: 7%;
+    height: auto;
+    margin-left: 5%;
+    max-width: unset;
+    min-width: 7%;
+    min-height: unset;
+    padding-bottom: 5px;
+    padding-top: 5px; 
+}
+
+@media screen and (max-width: 600px){
+    .affichageLogo{
+    /*    width: 11%;
+        min-width: 11%;*/
+        visibility: hidden;  
+    }
+    .codrops-demos a, button {
+        border: none;
+        padding: 5px 10px;
+        font-size: 0.5em;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px !important;
+    }
+    .navbar.bg-secondary{
+        flex-direction: column !important;
+    }
+    
+}
 
 /*Header4 Style*/
 .header4 {

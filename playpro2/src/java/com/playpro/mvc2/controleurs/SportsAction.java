@@ -6,10 +6,14 @@
 package com.playpro.mvc2.controleurs;
 
 import com.playpro.daos.SportDAO;
+import com.playpro.entities.LieuSport;
+import com.playpro.entities.Lieux;
 import java.util.LinkedList;
 import java.util.List;
 import com.playpro.entities.Sport;
 import com.playpro.factories.ObjectFactory;
+import com.playpro.services.LieuSportService;
+import com.playpro.services.LieuxServices;
 import com.playpro.services.SportServices;
 import java.io.File;
 import java.io.IOException;
@@ -34,6 +38,9 @@ public class SportsAction extends AbstractAction {
         SportDAO dao = new SportDAO();
         String nomSport = request.getParameter("nomSport");
         String imageSport = request.getParameter("imageSport");
+        String message = "";
+        String laClasse="";
+        String idSportSupprimer = request.getParameter("idSportSupprimer");
         
         int nbMax = 0;
         List<Part> part = null;
@@ -41,6 +48,32 @@ public class SportsAction extends AbstractAction {
              part = (List<Part>) request.getParts();
         } catch (IOException | ServletException ex) {
             Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(idSportSupprimer !=null){
+            System.out.println("Je suis nul");
+            Sport s = SportServices.trouverUnSport(idSportSupprimer);
+            
+            LieuSport ls = new LieuSport();
+            Lieux l = new Lieux();
+            l.setId_lieu("");
+            ls.setSport(s);
+            ls.setLieu(l);
+            
+            boolean reussi  = LieuSportService.supprimer(ls);
+                    
+            reussi = SportServices.supprimer(s);
+            
+            if(reussi){
+                message = "Le sport "+s.getNom()+" a été supprimé avec succès";
+                laClasse = "success";
+            }else{
+                message = "Une erreur est survenue lors de la suppression";
+                laClasse = "danger";
+            }
+            
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
         }
 
         if (nomSport == null) {

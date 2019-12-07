@@ -7,6 +7,6 @@
 
 
     <body>
-        <h1>${sessionScope.message}ée</h1>
+        <h1>${sessionScope.message}</h1>
     </body>
 

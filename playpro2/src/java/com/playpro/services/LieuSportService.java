@@ -8,16 +8,27 @@ package com.playpro.services;
 import com.playpro.daos.LieuSportDAO;
 import com.playpro.entities.LieuSport;
 import com.playpro.daos.LieuSportDAO;
+import java.util.List;
 
 /**
  *
  * @author toute
  */
 public class LieuSportService {
-    private static LieuSportDAO dao;
+    private static LieuSportDAO dao = new LieuSportDAO();
     public static boolean creerLieuSport(LieuSport s){
         
-        dao = new LieuSportDAO();
+        
         return  dao.create(s);
     }
+    
+    public static boolean supprimer(LieuSport x){
+        return dao.delete(x);
+    }
+    
+    public static List<LieuSport> lesLieuxSports(LieuSport nom){
+        return dao.findAllById(nom);
+        
+    }
+           
 }

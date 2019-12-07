@@ -20,8 +20,10 @@ import java.util.List;
  * @author toute
  */
 public class LieuSportDAO extends DAO<LieuSport> {
+
     private SportDAO sportdao = new SportDAO();
     private LieuxDAO lieudao = new LieuxDAO();
+
     @Override
     public boolean create(LieuSport x) {
         String req = "INSERT INTO lieuSport (`id_lieu` , `id_sport`) "
@@ -72,7 +74,28 @@ public class LieuSportDAO extends DAO<LieuSport> {
 
     @Override
     public boolean delete(LieuSport x) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Statement stm = null;
+        try {
+            stm = cnx.createStatement();
+            int n = stm.executeUpdate("DELETE FROM lieusport WHERE id_sport='" + x.getSport().getId_sport() + "' OR"
+                    + " id_lieu ='" + x.getLieu().getId_lieu() + "' ");
+            if (n > 0) {
+                stm.close();
+                return true;
+            }
+        } catch (SQLException exp) {
+            exp.printStackTrace();
+        } finally {
+            if (stm != null) {
+                try {
+                    stm.close();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
     }
 
     @Override
@@ -87,10 +110,10 @@ public class LieuSportDAO extends DAO<LieuSport> {
                 Sport s = new Sport();
 
                 LieuSport ls = new LieuSport();
-                
+
                 s = sportdao.findById(r.getString("id_sport"));
                 l = lieudao.findById(r.getString("id_lieu"));
-                
+
                 ls.setLieu(l);
                 ls.setSport(s);
 
@@ -112,4 +135,40 @@ public class LieuSportDAO extends DAO<LieuSport> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public List<LieuSport> findAllById(LieuSport nom) {
+        List<LieuSport> liste = new LinkedList<>();
+
+        String req = "SELECT * FROM lieusport WHERE id_sport = ? Or id_lieu = ? ";
+
+        PreparedStatement stm = null;
+
+        try {
+            stm = cnx.prepareStatement(req);
+            stm.setString(1, nom.getSport().getId_sport());
+            stm.setString(2, nom.getLieu().getId_lieu());
+
+            ResultSet r = stm.executeQuery();
+            while (r.next()) {
+
+                Lieux l = new Lieux();
+                Sport s = new Sport();
+
+                LieuSport ls = new LieuSport();
+
+                s = sportdao.findById(r.getString("id_sport"));
+                l = lieudao.findById(r.getString("id_lieu"));
+
+                ls.setLieu(l);
+                ls.setSport(s);
+
+                liste.add(ls);
+
+            }
+            r.close();
+            stm.close();
+        } catch (SQLException exp) {
+            exp.printStackTrace();
+        }
+        return liste;
+    }
 }
