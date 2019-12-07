@@ -16,6 +16,15 @@ public class SuppressionCompteAction extends AbstractAction{
 
     @Override
     public String execute() {
+        
+        Membre mSession =  (Membre)request.getSession().getAttribute("membre");
+        if ((mSession == null)) {
+            String message = "Votre session a expiré, veuillez vous réauthentifier";
+            String laClasse = "danger";
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
+            return "login";
+        }
        
         MembreDAO dao = new MembreDAO();
         Membre mCourrant = new Membre();

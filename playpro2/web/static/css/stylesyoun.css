@@ -277,7 +277,15 @@ p.infos {
     font-family: monospace;
 }
 h2.fondAnnonce{
-    font-family: monospace;
     text-align: center;
+    background-color: #80a6cce6;
     
+}
+#btnAnnonce{
+    color: #818181 ;
+    
+}
+#btnAnnonce:hover{
+    color: white;
+    cursor: pointer;
 }

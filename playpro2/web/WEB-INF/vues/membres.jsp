@@ -58,17 +58,10 @@
                         <td><c:out value="${unMembre.sport}" /></td>
                         <td><c:out value="${unMembre.status}" /></td>
                         <td>
-                            <c:if test="${unProjet.createur == sessionScope.utilisateur.id}"> 
-                                <form action="?action=gestionProjet" method="post" name="action" value="gestionProjet" >
-                                    <input type="hidden" name="idProjet" value="<c:out value="${unProjet.id}" />"     />
-                                    <button class="btn btn-success float-right" type="submit" >Gérer</button>
-                                </form>
-                            </c:if>
-                            <c:if test="${unProjet.createur != sessionScope.utilisateur.id}">
-                                <form action="?action=invitation" method="post" name="action" value="gestionProjet" >
-                                    <input type="type" name="idProjet" value="<c:out value="${unProjet.id}" />"     />
-                                    <input type="type" name="idCreateur" value="<c:out value="${unProjet.createur}" />"     />
-                                    <button class="btn btn-success float-right" type="submit" >Demande d'intégration</button>
+                            <c:if test="${true}"> 
+                                <form action="?action=profil" method="post" name="action" value="profil" >
+                                    <input type="hidden" name="idMembreAfficher" value="<c:out value="${unMembre.id}" />"     />
+                                    <button class="btn btn-success float-right" type="submit" >Voir</button>
                                 </form>
                             </c:if>
                         </td>

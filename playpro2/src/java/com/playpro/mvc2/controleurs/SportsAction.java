@@ -8,6 +8,7 @@ package com.playpro.mvc2.controleurs;
 import com.playpro.daos.SportDAO;
 import com.playpro.entities.LieuSport;
 import com.playpro.entities.Lieux;
+import com.playpro.entities.Membre;
 import java.util.LinkedList;
 import java.util.List;
 import com.playpro.entities.Sport;
@@ -33,9 +34,16 @@ public class SportsAction extends AbstractAction {
 
     @Override
     public String execute() {
-        response.setContentType("text/html");
+        
+        Membre mSession =  (Membre)request.getSession().getAttribute("membre");
+        if ((mSession == null)) {
+            String message = "Votre session a expiré, veuillez vous réauthentifier";
+            String laClasse = "danger";
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
+            return "login";
+        }
 
-        SportDAO dao = new SportDAO();
         String nomSport = request.getParameter("nomSport");
         String imageSport = request.getParameter("imageSport");
         String message = "";
@@ -100,13 +108,11 @@ public class SportsAction extends AbstractAction {
         //System.out.println("Chemin : " + fileName);
 
         List<Sport> liste = new LinkedList<>();
-        liste.add(new Sport());
-        liste.add(new Sport());
-        liste = dao.findAll();
+        
+        liste = SportServices.tousLesSports();
         System.out.println("Liste" + liste);
 
         request.setAttribute("sports", liste);
-        request.setAttribute("AfficherSports", true);
         
         System.out.println("Nom sport : " + nomSport);
         System.out.println("Image sport : " + imageSport);

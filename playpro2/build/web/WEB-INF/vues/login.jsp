@@ -46,7 +46,8 @@
 
             String courriel;
             String password;
-            String message = (String) request.getAttribute("authentification");
+            String message = (String) request.getAttribute("message");
+            String laClasse = (String) request.getAttribute("laClasse");
 
             if ((request.getSession().getAttribute("connected") == null) || ((boolean) request.getSession().getAttribute("connected") == false)) {%>
         
@@ -67,12 +68,16 @@
 
         <div class="container" id="FormulaireConnexion" style="margin-top: 100px;">
 
-            <%    if (request.getAttribute("authentification") != null) {%>
-
-
-            <div class="visible" id ="message"><%=message%></div>
-            <%
-                }%>
+            <%if (message != null && !message.equals("")) {
+                    %>
+                    <div class="alert alert-<%=laClasse%> alert-dismissible fade show" role="alert">
+                        <strong>Important!</strong> <%=message%>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <%}
+                    %>
 
         </div> <!-- /container -->
         <div class="container">
