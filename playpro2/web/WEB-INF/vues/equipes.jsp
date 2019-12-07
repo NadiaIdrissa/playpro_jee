@@ -53,7 +53,7 @@
                                         <c:forEach items="${sessionScope.listeDesMembres}" var="unMembre"> 
                                             <c:if test = "${uneEquipe.capitaine.id != unMembre.id}">
 
-                                                <option value="<c:out value="${unMembre.id}" />" ><c:out value="${unMembre.pseudo}" /></option>
+                                                <option value="<c:out value="${unMembre.id}" />" ><c:out value="${unMembre.pseudo}" /></option> 
                                             </c:if>
                                         </c:forEach>
                                     </select>
@@ -70,7 +70,7 @@
                             <div class="card card-body">
 
                                 <c:forEach items="${uneEquipe.membresEquipe}" var="joueur"> 
-                                    <a href="?action=profil&idMembreAfficher=${joueur.id}" title="Voir le profil de ${joueur.pseudo}"> ${joueur.pseudo}</a>
+                                    <a href="?action=profil&idMembreAfficher=${joueur.id}" title="Voir le profil de ${joueur.pseudo}"> ${joueur.pseudo}<c:if test = "${uneEquipe.capitaine.id == joueur.id}"> <c:out value=": Capitaine" /> </c:if></a>
                                     <br>
                                     <input type="hidden" ${nb=nb-1}>
                                 </c:forEach>
