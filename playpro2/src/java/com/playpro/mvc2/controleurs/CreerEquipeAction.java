@@ -14,25 +14,20 @@ import java.util.List;
  *
  * @author salpy
  */
-public class CreerEquipeAction extends AbstractAction  {
-   @Override
+public class CreerEquipeAction extends AbstractAction {
+
+    @Override
     public String execute() {
-//        MembreDAO dao = new MembreDAO();
-//        List<Membre> liste = new LinkedList<>();
-//        liste = dao.findAll();
-//        request.setAttribute("Membres", liste);
-//        for (Membre membre : liste) {
-//            System.out.println("Taaille: "+liste.size());
-//            System.out.println(membre.getNom());
-//       }
-//        boolean reussi = dao.create(new Membre());
-//        
-//        System.out.println("Ecriture : "+reussi);
-        
+        Membre mSession =  (Membre)request.getSession().getAttribute("membre");
+        if ((mSession == null)) {
+            String message = "Votre session a expiré, veuillez vous réauthentifier";
+            String laClasse = "danger";
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
+            return "login";
+        }
+
         return "creerEquipe";
     }
-    
+
 }
-
-    
-

@@ -11,6 +11,7 @@ import com.playpro.daos.SportDAO;
 import com.playpro.entities.Lieux;
 import com.playpro.entities.Sport;
 import com.playpro.entities.LieuSport;
+import com.playpro.entities.Membre;
 import com.playpro.factories.ObjectFactory;
 import com.playpro.services.LieuSportService;
 import com.playpro.services.LieuxServices;
@@ -26,13 +27,22 @@ import javax.servlet.http.Part;
  *
  * @author nadym
  */
-public class LieuxAction extends AbstractAction {
+public class LieuxAction extends AbstractAction  {
 
     private static final String UPLOAD_DIR = "static/images/lieux";
     private final UploadPhoto up = new UploadPhoto();
 
     @Override
     public String execute() {
+        Membre mSession =  (Membre)request.getSession().getAttribute("membre");
+        if ((mSession == null)) {
+            String message = "Votre session a expiré, veuillez vous réauthentifier";
+            String laClasse = "danger";
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
+            return "login";
+        }
+        
         response.setContentType("text/html");
         LieuxDAO dao = new LieuxDAO();
         SportDAO daoSport = new SportDAO();

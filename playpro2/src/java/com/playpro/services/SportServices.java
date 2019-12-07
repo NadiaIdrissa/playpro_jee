@@ -10,6 +10,7 @@ import com.playpro.daos.SportDAO;
 import com.playpro.entities.LieuSport;
 import com.playpro.entities.Lieux;
 import com.playpro.entities.Sport;
+import java.util.List;
 
 /**
  *
@@ -44,6 +45,9 @@ public class SportServices {
         }else{
             return false;
         }
+    }
+    public static List<Sport> tousLesSports(){
+        return dao.findAll();
     }
 
 }

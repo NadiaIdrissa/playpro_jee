@@ -10,6 +10,7 @@ import com.playpro.daos.InvitationDAO;
 import com.playpro.daos.ParticipationDAO;
 import com.playpro.entities.Equipe;
 import com.playpro.entities.Invitation;
+import com.playpro.entities.Membre;
 import com.playpro.entities.Participation;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,6 +23,14 @@ public class ReponseInvitationAction extends AbstractAction{
 
     @Override
     public String execute() {
+        Membre mSession =  (Membre)request.getSession().getAttribute("membre");
+        if ((mSession == null)) {
+            String message = "Votre session a expiré, veuillez vous réauthentifier";
+            String laClasse = "danger";
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
+            return "login";
+        }
         
         //traitement de la réponse
         
@@ -31,7 +40,7 @@ public class ReponseInvitationAction extends AbstractAction{
         
         
         //nom de la personne connectée
-        String moi = (String)request.getSession().getAttribute("nomMembre");
+        Membre moi = (Membre)request.getSession().getAttribute("membre");
         
         System.out.println("reponse = "+reponse);
         System.out.println("equipe choisie = "+equipeChoisi);
@@ -60,30 +69,21 @@ public class ReponseInvitationAction extends AbstractAction{
             
             ParticipationDAO partDao = new ParticipationDAO();
             Participation participe = new Participation();
+            
+            Equipe e = new Equipe();
+            EquipesDAO edao = new EquipesDAO();
+            
+            e= edao.findById(encours.getId_requete());
 
-            participe.setIdMembre(moi);
-            participe.setNomEquipe(equipeChoisi);
-            
-            
-            
-            System.out.println("particpant "+participe.getIdMembre());
-            System.out.println("participant dans "+participe.getNomEquipe());
-            
+            participe.setMembre(moi);
+            participe.setEquipe(e);
+                        
             partDao.create(participe);
             idao.delete(encours);
        
             
         }
-        
-        
-      
         request.getSession().setAttribute("message", "L'invitation est "+reponse);
-        
-        
-        
-        
-        
-        
         
         request.getSession().setAttribute("viewConf","reponseInvitation");
         
