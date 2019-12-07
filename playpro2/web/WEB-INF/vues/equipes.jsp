@@ -39,7 +39,8 @@
                             <c:set var="capitaine" value="${uneEquipe.capitaine.id}"/>
                         </p>
 
-                        <c:if test = "${idmembreConnecte == capitaine}">
+
+                        <c:if test = "${uneEquipe.capitaine.id == sessionScope.membre.id}">
                             <button class="btn btn-primary blue text-danger" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.sport.nom}" />" aria-expanded="false" aria-controls="collapseExample">
                                 Inviter un joueur
                             </button>
@@ -50,7 +51,10 @@
                                     <select class="form-control" id="exampleFormControlSelect1" name="nomMembreChoisi">
                                         <option value="" >Choisir un joueur</option>
                                         <c:forEach items="${sessionScope.listeDesMembres}" var="unMembre"> 
-                                            <option value="<c:out value="${unMembre.id}" />" ><c:out value="${unMembre.pseudo}" /></option>
+                                            <c:if test = "${uneEquipe.capitaine.id != unMembre.id}">
+
+                                                <option value="<c:out value="${unMembre.id}" />" ><c:out value="${unMembre.pseudo}" /></option>
+                                            </c:if>
                                         </c:forEach>
                                     </select>
                                     <button type="submit" class="btn btn-primary">Envoyer</button>

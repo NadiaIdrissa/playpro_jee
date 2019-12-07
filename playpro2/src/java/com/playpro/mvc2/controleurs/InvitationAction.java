@@ -34,6 +34,8 @@ import com.playpro.services.InvitationServices;
         MembreDAO mdao = new MembreDAO();
         Membre destinataire = new Membre();
         destinataire=mdao.findById(nomMembre);
+        String message = "";
+        String laClasse = "";
         
         String nomEquipe = (String) request.getParameter("nomEquipeChoisi");
         EquipesDAO edao = new EquipesDAO();
@@ -42,22 +44,35 @@ import com.playpro.services.InvitationServices;
         
         Membre expediteur = (Membre) request.getSession().getAttribute("membre");
         
-        System.out.println("nom invité "+destinataire.getNom());       
-        System.out.println("nom expediteur = "+expediteur.getNom());
+//        System.out.println("nom invité "+destinataire.getNom());       
+//        System.out.println("nom expediteur = "+expediteur.getNom());
         
         Invitation uneInvitation = new Invitation(expediteur.getId(),destinataire.getId(),equipe.getNomEquipe());
         
-        System.out.println("uneInvitation expediteur = "+expediteur);
-        System.out.println("uneInvitation destina = "+destinataire);
-        System.out.println("uneInvitation reuqte = "+equipe);
+//        System.out.println("uneInvitation expediteur = "+expediteur);
+//        System.out.println("uneInvitation destina = "+destinataire);
+//        System.out.println("uneInvitation reuqte = "+equipe);
         
 //        uneInvitation.setId_expediteur(expediteur.getId());
 //        uneInvitation.setId_destinataire(destinataire.getId());
 //        uneInvitation.setId_requete(equipe.getNomEquipe());
+
+        boolean succes = InvitationServices.creerInvitation(uneInvitation); 
+
+            if (succes) {
+                message = "Une invitation a été envoyée à " + destinataire.getNom();
+                laClasse = "success";
+            } else {
+                message = "Votre invitation n'est pas envoyée";
+                laClasse = "danger";
+            }
+
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
         
-        InvitationServices.creerInvitation(uneInvitation);
+//        InvitationServices.creerInvitation(uneInvitation);
         
-        request.getSession().setAttribute("viewConf","invitation");
+        request.getSession().setAttribute("viewConf","");
         return "portail";
     }
     

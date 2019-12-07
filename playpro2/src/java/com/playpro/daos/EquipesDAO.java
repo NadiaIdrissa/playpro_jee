@@ -95,9 +95,9 @@ public class EquipesDAO extends DAO<Equipe> {
                 
                 e.setSport(s);
                 
-                e.setNbPartiesJouees(r.getString("nb_parties_jouees"));
+                e.setNbPartiesJouees(r.getInt("nb_parties_jouees"));
                 e.setNbJoueurs(r.getInt("nb_joueurs"));
-                e.setNbMaxJoueurs(r.getString("nb_max_joueurs"));
+                e.setNbMaxJoueurs(r.getInt("nb_max_joueurs"));
                 
                 e.setImage(r.getString("equipe.image"));
                                
@@ -172,9 +172,9 @@ public class EquipesDAO extends DAO<Equipe> {
                 team.setNomEquipe(r.getString("equipe.nom_equipe"));
                 team.setSport(sport);
                 team.setCapitaine(m);
-                team.setNbPartiesJouees(r.getString("equipe.nb_parties_jouees"));
+                team.setNbPartiesJouees(r.getInt("equipe.nb_parties_jouees"));
                 team.setNbJoueurs(r.getInt("equipe.nb_joueurs"));
-                team.setNbMaxJoueurs(r.getString("sport.nb_max"));
+                team.setNbMaxJoueurs(r.getInt("sport.nb_max"));
                 team.setImage(r.getString("equipe.image"));
 
                 liste.add(team);

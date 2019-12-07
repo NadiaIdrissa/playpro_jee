@@ -35,7 +35,7 @@ public class Equipe {
         this.nbPartiesJouees = nbPartiesJouees;
         this.nbJoueurs = nbJoueurs;
         this.nbMaxJoueurs = nbMaxJoueurs;
-        membresEquipe = new LinkedList<>();
+        this.membresEquipe = new LinkedList<>();
     }
     
     public String getNomEquipe() {
@@ -68,8 +68,8 @@ public class Equipe {
         return nbPartiesJouees;
     }
 
-    public void setNbPartiesJouees(String nbPartiesJouees) {
-        this.nbPartiesJouees = Integer.parseInt(nbPartiesJouees);
+    public void setNbPartiesJouees(int nbPartiesJouees) {
+        this.nbPartiesJouees = nbPartiesJouees;
     }
 
     public int getNbJoueurs() {
@@ -84,8 +84,8 @@ public class Equipe {
         return nbMaxJoueurs;
     }
 
-    public void setNbMaxJoueurs(String nbMaxJoueurs) {
-        this.nbMaxJoueurs = Integer.parseInt(nbMaxJoueurs);
+    public void setNbMaxJoueurs(int nbMaxJoueurs) {
+        this.nbMaxJoueurs = nbMaxJoueurs;
     }
 
     public List<Membre> getMembresEquipe() {
@@ -114,9 +114,17 @@ public class Equipe {
     }
     
 
+    
+//    @Override
+//    public String toString() {
+//        return "Equipe{" + "NomEquipe=" + nomEquipe + ", capitaine=" + capitaine.getPseudo() + ", sport=" + sport.getNom() + ", nbPartiesJouees=" + nbPartiesJouees + ", nbJoueurs=" + nbJoueurs + ", nbMaxJoueurs=" + nbMaxJoueurs + ", dateCreation=" + dateCreation + '}';
+//    }
+
     @Override
     public String toString() {
-        return "Equipe{" + "NomEquipe=" + nomEquipe + ", capitaine=" + capitaine.getPseudo() + ", sport=" + sport.getNom() + ", nbPartiesJouees=" + nbPartiesJouees + ", nbJoueurs=" + nbJoueurs + ", nbMaxJoueurs=" + nbMaxJoueurs + ", dateCreation=" + dateCreation + '}';
+        return "Equipe{" + "nomEquipe=" + nomEquipe + ", capitaine=" + capitaine.getNom() + ", sport=" + sport.getNom() + ", nbPartiesJouees=" + String.valueOf(nbPartiesJouees) + ", nbJoueurs=" + String.valueOf(nbJoueurs) + ", nbMaxJoueurs=" + String.valueOf(nbMaxJoueurs) +  '}';
     }
+
+    
 
 }

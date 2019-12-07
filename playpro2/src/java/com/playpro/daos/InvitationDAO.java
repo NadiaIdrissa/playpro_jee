@@ -24,30 +24,30 @@ public class InvitationDAO extends DAO<Invitation> {
 
     @Override
     public boolean create(Invitation x) {
-        
+
         System.out.println("je suis dans dao invitation");
         String req = "INSERT INTO invitation (`id_expediteur`, `id_destinataire`, `id_requete`) "
                 + "VALUES (?,?,?)";
 
         PreparedStatement stm = null;
 
-
         try {
             stm = cnx.prepareStatement(req);
-            
+
             System.out.println("----------------------------------");
             System.out.println(x.getId_expediteur());
             System.out.println(x.getId_destinataire());
             System.out.println(x.getId_requete());
             System.out.println("----------------------------------");
-            
-            
-            
+
             stm.setString(1, x.getId_expediteur());
             stm.setString(2, x.getId_destinataire());
             stm.setString(3, x.getId_requete());
 
             int n = stm.executeUpdate();
+            if (n > 0) {
+                return true;
+            }
             System.out.println("========================================");
         } catch (SQLException exp) {
             exp.printStackTrace();
@@ -56,7 +56,7 @@ public class InvitationDAO extends DAO<Invitation> {
                 try {
                     stm.close();
                 } catch (SQLException e) {
-                    
+
                     e.printStackTrace();
                 }
             }
@@ -115,9 +115,12 @@ public class InvitationDAO extends DAO<Invitation> {
     public boolean UpdateStatus(Invitation x) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public List<Invitation> findAllById(String id){
+
+    public List<Invitation> findAllById(String id) {
         List<Invitation> liste = new LinkedList<Invitation>();
+
+        System.out.println("je suis dans invitdao avant request");
+
         String request = "SELECT * FROM invitation INNER JOIN membre "
                 + "ON invitation.id_expediteur = membre.id"
                 + " INNER JOIN equipe ON invitation.id_requete = equipe.nom_equipe "
@@ -131,38 +134,32 @@ public class InvitationDAO extends DAO<Invitation> {
             System.out.println("HEEEEEEEEOOOOOOOOOOOOOOOOOOOOOOO");
 
             while (res.next()) {
+                System.out.println("000000000000000000000");
+                System.out.println("res = " + res.next());
                 Equipe equipe = new Equipe();
                 Invitation inv = new Invitation();
                 Membre expediteur = new Membre();
 
                 equipe.setNomEquipe(res.getString("equipe.nom_equipe"));
-                
-                MembreDAO mdao = new MembreDAO();
-                expediteur=mdao.findById(res.getString("equipe.id_capitaine"));
-                
-                Sport sport = new Sport();
-                SportDAO sdao = new SportDAO();
-                sport = sdao.findById(res.getString("equipe.nom_sport"));
-                
-                
-                equipe.setCapitaine(expediteur);
-                
-//                equipe.setDateCreation(res.getTimestamp("equipe.date_creation"));
-                equipe.setSport(sport);
-                equipe.setNbPartiesJouees(res.getString("nb_parties_jouees"));
-                equipe.setNbJoueurs(res.getInt("nb_joueurs"));
-                equipe.setNbMaxJoueurs(res.getString("nb_max_joueurs"));
-                equipe.setImage(res.getString("image"));
 
-//                expediteur.setId(res.getString("UTILISATEUR.ID"));
-//                expediteur.setCourriel("UTILISATEUR.COURRIEL");
-//                expediteur.setNom_prenom("UTILISATEUR.NOM_PRENOM");
+                MembreDAO mdao = new MembreDAO();
+                expediteur = mdao.findById(res.getString("equipe.id_capitaine"));
+
+                System.out.println("expediteur invit " + expediteur.getNom());
+
+                EquipesDAO edao = new EquipesDAO();
+                equipe = edao.findById(res.getString("id_requete"));
+
+                System.out.println("nom equipe invit = " + equipe.getNomEquipe());
 
                 inv.setId_expediteur(expediteur.getId());
                 inv.setId_requete(equipe.getNomEquipe());
+                inv.setId_destinataire(id);
+
+                System.out.println("invitation = " + inv.getId_requete());
 
                 liste.add(inv);
-
+                System.out.println("000000000000000000000");
             }
 
         } catch (Exception e) {
@@ -174,7 +171,5 @@ public class InvitationDAO extends DAO<Invitation> {
         }
         return liste;
     }
-
-    
 
 }
