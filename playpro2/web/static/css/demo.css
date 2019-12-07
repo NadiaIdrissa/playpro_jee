@@ -37,6 +37,19 @@ a:hover, a:focus {
 	outline: none;
 }
 
+.btn-primary{
+  background-color: #80cca6d9 !important;
+}
+
+.btn-primary:hover{
+  background-color: #80cca6 !important;
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(128, 204, 166, 0.5) !important;
+}
+
+
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before,
 .clearfix:after {
@@ -168,10 +181,23 @@ button {
 	text-transform: uppercase !important;
 	cursor: pointer;
 	display: inline-block;
-	margin-right: 20px !important;
+/*	margin-right: 20px !important;*/
 	border-radius: .25rem !important;
 	font-weight: 800;
 	outline: none;
+}
+
+#myBtn{
+    background-color: black;
+    font-size: 1.5em;
+    border-radius: 50% !important;
+    margin-right: 20px;
+}
+
+#myBtn:hover{
+    color: #80cca6;
+    border: 3px solid #80cca6;
+    /*font-size: 1.6em;*/
 }
 
 .codrops-demos a:hover,
@@ -281,6 +307,30 @@ button:active {
     border-radius: 10px;
 }
 
+@media screen and (min-width: 1655px) {
+    .sidenav a {
+    font-size: 30px;
+    }
+    .sidenav {
+        width: 10%
+    }
+}
+
+@media screen and (min-width: 1460px) {
+    .sidenav a {
+    font-size: 27px;
+    }
+    .sidenav{
+        width: 15%;
+    }
+}
+
+/*@media screen and (min-width: 1400px) {
+    .sidenav a {
+    font-size: 27px;
+    }
+}
+
 @media screen and (max-width: 1012px) {
     .sidenav a {
     font-size: 22px;
@@ -295,7 +345,7 @@ button:active {
 
 @media screen and (max-width: 815px) {
     .sidenav a {
-    font-size: 15px;
+    font-size: 13px;
     }
 }
 
@@ -316,6 +366,123 @@ button:active {
 
     .sidenav a {
         font-size: 20px;
+    }
+}*/
+@media screen and (orientation:landscape) and (min-width: 568px){
+    .sidenav {
+        width: 24%;
+    }
+    .sidenav a {
+        font-size: 15px;
+    }
+    .mainPortail{
+        margin-left: 25%;
+    }
+}
+
+@media screen and (orientation:landscape) and (min-width: 667px){
+    .sidenav {
+        width: 21%;
+    }
+    .sidenav a {
+        font-size: 15px;
+    }
+    .mainPortail{
+        margin-left: 25%;
+    }
+}
+
+@media screen and (orientation:landscape) and (min-width: 812px){
+    .sidenav {
+        width: 20%;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+    .mainPortail{
+        margin-left: 25%;
+    }
+}
+
+@media screen and (orientation:landscape) and (min-width: 1024px){
+    .sidenav {
+        width: 18%;
+    }
+    .sidenav a {
+        font-size: 22px;
+    }
+    .mainPortail{
+        margin-left: 20%;
+    }
+}
+
+@media screen and (orientation:landscape) and (min-width: 1280px){
+    .sidenav {
+        width: 16%;
+    }
+    .sidenav a {
+        font-size: 25px;
+    }
+    .mainPortail{
+        margin-left: 17%;
+    }
+}
+
+@media screen and (orientation:landscape) and (min-width: 1680px){
+    .sidenav {
+        width: 16%;
+    }
+    .sidenav a {
+        font-size: 30px;
+    }
+    .mainPortail{
+        margin-left: 20%;
+    }
+}
+
+@media screen and (orientation:portrait) and (min-width: 320px){
+    .sideLabel {
+        display: none;
+    }
+    .sidenav {
+        width: 20%;
+    }
+    .sidenav a {
+        font-size: 25px;
+    }
+    .photoProf{
+        display: none !important;
+    }
+
+}
+
+@media screen and (orientation:portrait) and (min-width: 768px){
+    .sideLabel {
+        display: none;
+    }
+    .sidenav {
+        width: 10%;
+    }
+    .mainPortail{
+        margin-left: 10%;
+    }
+    .photoProf{
+        display: none !important;
+    }
+}
+
+@media screen and (orientation:portrait) and (min-width: 1024px){
+    .sideLabel {
+        display: none;
+    }
+    .sidenav {
+        width: 10%;
+    }
+    .sidenav a {
+        font-size: 40px;
+    }
+    .photoProf{
+        display: none !important;
     }
 }
 
@@ -338,7 +505,7 @@ button:active {
 .affichageLogo{
     width: 7%;
     height: auto;
-    margin-left: 5%;
+    margin-left: 4%;
     max-width: unset;
     min-width: 7%;
     min-height: unset;
@@ -389,6 +556,17 @@ button:active {
 .contentSuppCompte .row{
     align-items: center;
     justify-content: center;
+}
+
+.contentSuppCompte .btn-primary{
+    text-transform: uppercase;
+    outline: none !important;
+    width: auto;
+    display: inline-block;
+    margin: 1em 0 0;
+    padding: 10px 20px;
+    border: none;
+    font-weight: 800;
 }
 
 

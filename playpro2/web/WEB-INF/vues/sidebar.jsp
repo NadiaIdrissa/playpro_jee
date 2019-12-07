@@ -50,7 +50,7 @@
         <li>
             <a id="btnAnnonce" >
                 
-                <i class="fa fa-file"></i><span class="sideLabel">Annonces</span>
+                <i class="fa fa-file"></i><span class="sideLabel"> Annonces</span>
             </a>
         </li>
         <%}%>

@@ -349,9 +349,9 @@ div.col.mod{
     padding: unset;
 }
 .equipeStyle .modal-header{
+    width: 100%;
+    background-color: #80a6cc;
     padding-left: 20px;
-    padding-right: 20px;
-    background-color: #80cccc;
 }
 .equipeStyle .modal-title{
     color: black;
@@ -384,4 +384,8 @@ div.col.mod{
 
 .equipeStyle.modal-footer .col-md-12, .col-sm-12, .col-lg-12{
     margin: unset !important;
+}
+.equipeStyle.row{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
