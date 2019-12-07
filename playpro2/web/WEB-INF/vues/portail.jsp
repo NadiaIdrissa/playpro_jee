@@ -58,7 +58,7 @@
                     </div>
                     <%}
                     %>
-                    <input type="button" id="btnAnnonce"  value="AFFICHER LES ANNONCES" />
+                    
                     <div id="contenu">
                         <%if (viewConf.equals("profilaccueil")) {%>
                         <%@include file="profil.jsp"%>

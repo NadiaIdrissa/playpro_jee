@@ -23,6 +23,14 @@ public class ReponseInvitationAction extends AbstractAction{
 
     @Override
     public String execute() {
+        Membre mSession =  (Membre)request.getSession().getAttribute("membre");
+        if ((mSession == null)) {
+            String message = "Votre session a expiré, veuillez vous réauthentifier";
+            String laClasse = "danger";
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
+            return "login";
+        }
         
         //traitement de la réponse
         
@@ -69,27 +77,13 @@ public class ReponseInvitationAction extends AbstractAction{
 
             participe.setMembre(moi);
             participe.setEquipe(e);
-            
-            
-            
-//            System.out.println("particpant "+participe.getIdMembre());
-//            System.out.println("participant dans "+participe.getNomEquipe());
-            
+                        
             partDao.create(participe);
             idao.delete(encours);
        
             
         }
-        
-        
-      
         request.getSession().setAttribute("message", "L'invitation est "+reponse);
-        
-        
-        
-        
-        
-        
         
         request.getSession().setAttribute("viewConf","reponseInvitation");
         

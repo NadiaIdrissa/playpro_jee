@@ -146,8 +146,8 @@ public class ParticipationDAO extends DAO<Participation> {
     public List<Participation> findByNomEquipe(String id) {
         List<Participation> liste = new LinkedList<Participation>();
         String req = "SELECT * FROM participationEquipe INNER JOIN membre ON id_joueur = id"
-                    + " INNER JOIN equipe ON participationEquipe.nom_equipe = equipe.nom_equipe INNER JOIN Membre"
-                    + " AS CAP ON equipe.id_capitaine = membre.id WHERE `nom_equipe` = ?";
+                + " INNER JOIN equipe ON participationEquipe.nom_equipe = equipe.nom_equipe INNER JOIN Membre"
+                + " AS CAP ON equipe.id_capitaine = cap.id WHERE `nom_equipe` = ?";
 
         PreparedStatement paramStm = null;
         try {
@@ -182,8 +182,7 @@ public class ParticipationDAO extends DAO<Participation> {
             }
 
             r.close();
-           
-            
+
             paramStm.close();
         } catch (SQLException ex) {
             Logger.getLogger(ParticipationDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -193,8 +192,8 @@ public class ParticipationDAO extends DAO<Participation> {
 
     public Participation findByNomEquipeIdMembre(String nomEquipe, String idMembre) {
         String req = "SELECT * FROM participationEquipe INNER JOIN membre ON id_joueur = id"
-                    + " INNER JOIN equipe ON participationEquipe.nom_equipe = equipe.nom_equipe INNER JOIN Membre"
-                    + " AS CAP ON equipe.id_capitaine = membre.id WHERE `nom_equipe` = ? AND `id_joueur` = ?";
+                + " INNER JOIN equipe ON participationEquipe.nom_equipe = equipe.nom_equipe INNER JOIN Membre"
+                + " AS CAP ON equipe.id_capitaine = cap.id WHERE `nom_equipe` = ? AND `id_joueur` = ?";
 
         PreparedStatement paramStm = null;
         try {

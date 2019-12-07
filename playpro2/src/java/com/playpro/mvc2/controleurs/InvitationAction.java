@@ -22,6 +22,14 @@ import com.playpro.services.InvitationServices;
     @Override
     public String execute() {  
         
+        if (!((boolean) request.getSession().getAttribute("connected"))) {
+            String message = "Votre session a expiré, veuillez vous réauthentifier";
+            String laClasse = "danger";
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
+            return "login";
+        }
+        
         String nomMembre = (String) request.getParameter("nomMembreChoisi");
         MembreDAO mdao = new MembreDAO();
         Membre destinataire = new Membre();

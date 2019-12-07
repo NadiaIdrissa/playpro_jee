@@ -33,12 +33,21 @@ import static jdk.nashorn.internal.objects.NativeError.getFileName;
  *
  * @author younes-dilali
  */
-public class EquipesAction extends AbstractAction {
+public class EquipesAction extends AbstractAction  {
 
     private static final String UPLOAD_DIR = "static/images/equipes";
 
     @Override
     public String execute() {
+        
+        Membre mSession =  (Membre)request.getSession().getAttribute("membre");
+        if ((mSession == null)) {
+            String message = "Votre session a expiré, veuillez vous réauthentifier";
+            String laClasse = "danger";
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
+            return "login";
+        }
 
         response.setContentType("text/html");
 

@@ -8,6 +8,7 @@ package com.playpro.mvc2.controleurs;
 import com.playpro.daos.SportDAO;
 import com.playpro.entities.LieuSport;
 import com.playpro.entities.Lieux;
+import com.playpro.entities.Membre;
 import java.util.LinkedList;
 import java.util.List;
 import com.playpro.entities.Sport;
@@ -33,6 +34,15 @@ public class SportsAction extends AbstractAction {
 
     @Override
     public String execute() {
+        
+        Membre mSession =  (Membre)request.getSession().getAttribute("membre");
+        if ((mSession == null)) {
+            String message = "Votre session a expiré, veuillez vous réauthentifier";
+            String laClasse = "danger";
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
+            return "login";
+        }
 
         String nomSport = request.getParameter("nomSport");
         String imageSport = request.getParameter("imageSport");
