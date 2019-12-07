@@ -68,12 +68,12 @@
         <li>
             <a href="?action=traitementInvitation">
                 <i class="fa fa-paper-plane"></i>
-                <span class="sideLabel"> Invitations</span>
+                <span class="sideLabel">Invitations </span><span class="badge">
+                <c:out value="${sessionScope.NbInvitations}"/>
+        </span>
             </a>
         </li>
-        <span class="badge" style="color: #66afe9;" >
-            (<c:out value="${sessionScope.NbInvitations}"/>)
-        </span>
+        
     </ul>
     
 </div>
