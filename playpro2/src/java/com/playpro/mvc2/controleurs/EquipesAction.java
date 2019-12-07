@@ -16,6 +16,8 @@ import com.playpro.entities.Participation;
 import com.playpro.entities.Sport;
 import com.playpro.factories.ObjectFactory;
 import com.playpro.services.EquipesServices;
+import com.playpro.services.LieuSportService;
+import com.playpro.services.MembreServices;
 import com.playpro.services.SportServices;
 import java.io.File;
 import java.io.IOException;
@@ -42,9 +44,11 @@ public class EquipesAction extends AbstractAction {
 
         EquipesDAO dao = new EquipesDAO();
         String nomEquipe = request.getParameter("nomEquipe");
-        String nomSport = request.getParameter("nomSportEquipe");
+        String idSportEquipe = request.getParameter("idSportEquipe");
         String imageEquipe = request.getParameter("imageEquipe");
         Membre cap = (Membre) request.getSession().getAttribute("membre");
+        String message = "";
+        String laClasse = "";
 
         List<Part> part = null;
         try {
@@ -56,7 +60,7 @@ public class EquipesAction extends AbstractAction {
         }
 
         System.out.println("id membre = " + cap.getId());
-        System.out.println("sport choisi formulaire = " + nomSport);
+        System.out.println("sport choisi formulaire = " + idSportEquipe);
 
         int nbMaxEquipe = 0;
 
@@ -72,124 +76,78 @@ public class EquipesAction extends AbstractAction {
 
             imageEquipe = up.uploader(part, UPLOAD_DIR, applicationPath, imageEquipe);
 
-            // creates the save directory if it does not exists
-//            File fileSaveDir = new File(uploadFilePath);
-//            if (!fileSaveDir.exists()) {
-//                fileSaveDir.mkdirs();
-//            }
-//            System.out.println("Upload File Directory=" + fileSaveDir.getAbsolutePath());
-//
-//            try {
-//                //Get all the parts from request and write it to the file on server
-//                for (Part part : request.getParts()) {
-//                    String fileName = (String) getFileName(part);
-//                    if (!fileName.equals("")) {
-//                        part.write(uploadFilePath + File.separator + fileName);
-//                        imageEquipe = fileName;
-//                        System.out.println("FILE NAME : " + fileName);
-//                    }
-//                }
-//                request.setAttribute("message", "File uploaded successfully!");
-//            } catch (IOException ex) {
-//                
-//                request.setAttribute("message", "File NOT uploaded successfully!");
-//
-//            } catch (ServletException ex) {
-//                Logger.getLogger(EquipesAction.class.getName()).log(Level.SEVERE, null, ex);
-//                request.setAttribute("message", "File NOT uploaded successfully!");
-//            }
             Equipe e = new Equipe();
             e.setNomEquipe(nomEquipe);
             e.setNbJoueurs(nbMaxEquipe);
-            Sport s = new Sport();
-            s.setNom(nomSport);
+            Sport s = SportServices.trouverUnSport(idSportEquipe);
             e.setSport(s);
             e.setImage(imageEquipe);
-            e.setId_capitaine(cap.getId());
             e.setCapitaine(cap);
 
-            EquipesServices.creerEquipe(e);
-            
-            
+            System.out.println("=====================================Nom capitaine : " + cap.getNom());
+
+            boolean reussi = EquipesServices.creerEquipe(e);
+
+            if (reussi) {
+                message = "La nouvelle équipe " + e.getNomEquipe() + " a été créée";
+                laClasse = "success";
+            } else {
+                message = "Une erreur est survenue lors de la création de l'équipe";
+                laClasse = "danger";
+            }
+
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
+
             Participation participe = new Participation();
             ParticipationDAO pdao = new ParticipationDAO();
-            participe.setIdMembre(cap.getNom());
-            participe.setNomEquipe(nomEquipe);
-            
-            System.out.println("participant = "+participe.getIdMembre());
-            System.out.println("nom equipe = "+participe.getNomEquipe());
-            
+            participe.setMembre(cap);
+            participe.setEquipe(e);
+
             pdao.create(participe);
         }
-        List<String> listeq = new LinkedList<String>();
-        SportDAO sports = new SportDAO();
-        List<Sport> s = new LinkedList<Sport>();
-        s = sports.findAll();
+
+        List<Sport> slisteSports = SportServices.tousLesSports();
 
         System.out.println("liste de sport existante");
-        for (int j = 0; j < s.size(); j++) {
-            System.out.println(j + s.get(j).getNom());
-            listeq.add(s.get(j).getNom());
-        }
 
-        request.getSession().setAttribute("sportString", listeq);
+        request.getSession().setAttribute("slisteSports", slisteSports);
 
         List<Equipe> listeequipes = new LinkedList<Equipe>();
 
+        ParticipationDAO pdao = new ParticipationDAO();
+        List<Participation> participation = pdao.findAll();
 //        Equipe a = new Equipe();
         listeequipes = dao.findAll();
+        System.out.println("=======================" + participation.size() + " size");
 
-//        listeequipes.add(a);
+        for (Equipe equipe : listeequipes) {
+            for (Participation p : participation) {
+                if (equipe.getNomEquipe().equals(p.getEquipe().getNomEquipe())) {
+                    equipe.getMembresEquipe().add(p.getMembre());
+                }
+            }
+            if (equipe.getMembresEquipe().size() > 0) {
+                System.out.println("========" + equipe.getNomEquipe() + " a plus que 1 membre");
+            } else {
+                System.out.println("========" + equipe.getNomEquipe() + " a moins que 1 membre");
+
+            }
+            System.out.println("=======================" + equipe.getMembresEquipe().size() + " size");
+        }
+
         request.setAttribute("listeEquipe", listeequipes);
 
-//        System.out.println("equipe 1 = "+listeequipes.get(0).getNomEquipe());
-        request.getSession().setAttribute("viewConf", "loadEquipe");
-        
-        
         List<Membre> listeDesMembres = new LinkedList<Membre>();
-        
-        MembreDAO mDao = new MembreDAO();
-        
-        listeDesMembres = mDao.findAll();
-        
-        for (int j=0;j<listeDesMembres.size();j++){
+        listeDesMembres = MembreServices.tousLesMembre();
+
+        for (int j = 0; j < listeDesMembres.size(); j++) {
             System.out.println(listeDesMembres.get(j).getNom());
         }
-        
+
         request.getSession().setAttribute("listeDesMembres", listeDesMembres);
-        
-        
-        List<Participation> partic = new LinkedList<Participation>();
-        ParticipationDAO pdao = new ParticipationDAO();
-        partic = pdao.findAll();
-        
-        for(int k=0;k<partic.size();k++){
-            System.out.println(partic.get(k).getIdMembre());
-        }
-        
-       
-        
-        
-        request.getSession().setAttribute("listeDeParticipations", partic);
-        request.getSession().setAttribute("placeOqp", partic.size());
-        
-        
-        
-        
+        request.getSession().setAttribute("viewConf", "loadEquipe");
 
         return "portail";
     }
-
-    private String getFileName(Part part) {
-        String contentDisp = part.getHeader("content-disposition");
-        System.out.println("content-disposition header= " + contentDisp);
-        String[] tokens = contentDisp.split(";");
-        for (String token : tokens) {
-            if (token.trim().startsWith("filename")) {
-                return token.substring(token.indexOf("=") + 2, token.length() - 1);
-            }
-        }
-        return "";
-    }
-
 }

@@ -33,9 +33,7 @@ public class SportsAction extends AbstractAction {
 
     @Override
     public String execute() {
-        response.setContentType("text/html");
 
-        SportDAO dao = new SportDAO();
         String nomSport = request.getParameter("nomSport");
         String imageSport = request.getParameter("imageSport");
         String message = "";
@@ -100,13 +98,11 @@ public class SportsAction extends AbstractAction {
         //System.out.println("Chemin : " + fileName);
 
         List<Sport> liste = new LinkedList<>();
-        liste.add(new Sport());
-        liste.add(new Sport());
-        liste = dao.findAll();
+        
+        liste = SportServices.tousLesSports();
         System.out.println("Liste" + liste);
 
         request.setAttribute("sports", liste);
-        request.setAttribute("AfficherSports", true);
         
         System.out.println("Nom sport : " + nomSport);
         System.out.println("Image sport : " + imageSport);

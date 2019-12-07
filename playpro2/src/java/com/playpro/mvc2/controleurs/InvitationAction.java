@@ -20,51 +20,26 @@ import com.playpro.services.InvitationServices;
     public class InvitationAction extends AbstractAction{
 
     @Override
-    public String execute() {
-        
-        
-        
-        
+    public String execute() {  
         
         String nomMembre = (String) request.getParameter("nomMembreChoisi");
         MembreDAO mdao = new MembreDAO();
         Membre destinataire = new Membre();
         destinataire=mdao.findById(nomMembre);
         
-        
-        
-        
-        
-        
         String nomEquipe = (String) request.getParameter("nomEquipeChoisi");
         EquipesDAO edao = new EquipesDAO();
         Equipe equipe = new Equipe();
         equipe=edao.findById(nomEquipe);
         
-        
-        
-        
-        
-        
-        
-        
-        
         Membre expediteur = (Membre) request.getSession().getAttribute("membre");
         
-        
-        
-        System.out.println("nom invité "+destinataire.getNom());
-        System.out.println("nom equipe choisi "+equipe.getId_capitaine());
+        System.out.println("nom invité "+destinataire.getNom());       
         System.out.println("nom expediteur = "+expediteur.getNom());
-        
-        
         
         Invitation uneInvitation = new Invitation(expediteur.getId(),destinataire.getId(),equipe.getNomEquipe());
         
-        
-        
         System.out.println("uneInvitation expediteur = "+expediteur);
-        
         System.out.println("uneInvitation destina = "+destinataire);
         System.out.println("uneInvitation reuqte = "+equipe);
         
@@ -73,14 +48,6 @@ import com.playpro.services.InvitationServices;
 //        uneInvitation.setId_requete(equipe.getNomEquipe());
         
         InvitationServices.creerInvitation(uneInvitation);
-        
-       
-        
-        
-        
-        
-        
-        
         
         request.getSession().setAttribute("viewConf","invitation");
         return "portail";

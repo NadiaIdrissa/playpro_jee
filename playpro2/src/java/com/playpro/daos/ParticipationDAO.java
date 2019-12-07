@@ -5,6 +5,8 @@
  */
 package com.playpro.daos;
 
+import com.playpro.entities.Equipe;
+import com.playpro.entities.Membre;
 import com.playpro.entities.Participation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,101 +24,44 @@ import java.util.logging.Logger;
  *
  * @author Salpy
  */
-public class ParticipationDAO extends DAO<Participation>{
-  
+public class ParticipationDAO extends DAO<Participation> {
+
     public ParticipationDAO() {
         super();
-    }    
+    }
 
     @Override
     public boolean create(Participation x) {
-       String req = "INSERT INTO participationequipe (`id_joueur`, `id_equipe`) VALUES (?,?)";
-       
-       PreparedStatement paramStm = null;
-       try {
+        String req = "INSERT INTO participationequipe (`id_joueur`, `nom_equipe`) VALUES (?,?)";
+
+        PreparedStatement paramStm = null;
+        try {
             paramStm = cnx.prepareStatement(req);
-            paramStm.setString(1, x.getIdMembre());
-            paramStm.setString(2, x.getNomEquipe());
-            
-            
-            int nbLignesAffectees= paramStm.executeUpdate();
+            paramStm.setString(1, x.getMembre().getId());
+            paramStm.setString(2, x.getEquipe().getNomEquipe());
+
+            int nbLignesAffectees = paramStm.executeUpdate();
             System.out.println("Je suis dans le create de ParticipationDAO");
             System.out.println(nbLignesAffectees);
-            if (nbLignesAffectees>0){
+            if (nbLignesAffectees > 0) {
                 paramStm.close();
                 return true;
             }
-            
+
             return false;
-       }    
-       catch (SQLException exp){
-       }
-       finally {
+        } catch (SQLException exp) {
+            exp.printStackTrace();
+        } finally {
             try {
-                if (paramStm!=null)
+                if (paramStm != null) {
                     paramStm.close();
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(ParticipationDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
         return false;
-    } 
-
-    public Participation read(int id) {
-        try {
-            return this.read(id);
-        }
-        catch (NumberFormatException e){
-            return null;
-        }
-    }
-
-    
-    public Participation read(String id) {
-        String req = "SELECT * FROM participationEquipe WHERE 'id_equipe'= ?";
-        
-        PreparedStatement paramStm = null;
-        try {
-
-            paramStm = cnx.prepareStatement(req);
-
-            paramStm.setString(1, id);
-
-            ResultSet resultat = paramStm.executeQuery();
-
-            
-            if(resultat.next()){
-
-                Participation participe = new Participation();
-                participe.setIdMembre(resultat.getString("id_joueur"));
-                participe.setNomEquipe(resultat.getString("id_equipe"));
-                
-                
-                resultat.close();
-                paramStm.close();
-                return participe;
-            }
-
-            resultat.close();
-            paramStm.close();
-            return null;
-
-        }
-        catch (SQLException exp) {
-        }
-        finally {
-            try{
-                if (paramStm!=null)
-                    paramStm.close();
-            }
-            catch (SQLException exp) {
-            }
-             catch (Exception e) {
-            }
-        }
-
-        return null;
     }
 
     @Override
@@ -126,32 +71,32 @@ public class ParticipationDAO extends DAO<Participation>{
 
     @Override
     public boolean delete(Participation x) {
-        String req = "DELETE FROM participationequipe WHERE `id_equipe` = ? AND `id_joueur` = ?";
+        String req = "DELETE FROM participationequipe WHERE `nom_equipe` = ? AND `id_joueur` = ?";
 
         PreparedStatement paramStm = null;
         try {
 
             paramStm = cnx.prepareStatement(req);
-            paramStm.setString(1, x.getNomEquipe());
-            paramStm.setString(2, x.getIdMembre());
+            paramStm.setString(1, x.getEquipe().getNomEquipe());
+            paramStm.setString(2, x.getMembre().getId());
 
-            int nbLignesAffectees= paramStm.executeUpdate();
+            int nbLignesAffectees = paramStm.executeUpdate();
 
-            if (nbLignesAffectees>0) {
+            if (nbLignesAffectees > 0) {
                 paramStm.close();
                 return true;
             }
 
             return false;
-        }
-        catch (SQLException exp) {
-        }
-        finally {
+        } catch (SQLException exp) {
+            exp.printStackTrace();
+        } finally {
             try {
-                if (paramStm!=null)
+                if (paramStm != null) {
                     paramStm.close();
+                }
             } catch (SQLException ex) {
-                Logger.getLogger(ParticipationDAO.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
             }
 
         }
@@ -163,25 +108,46 @@ public class ParticipationDAO extends DAO<Participation>{
         List<Participation> liste = new LinkedList<Participation>();
         try {
             Statement stm = cnx.createStatement();
-            ResultSet r = stm.executeQuery("SELECT * FROM participationEquipe");
+            ResultSet r = stm.executeQuery("SELECT * FROM participationEquipe INNER JOIN membre ON id_joueur = id"
+                    + " INNER JOIN equipe ON participationEquipe.nom_equipe = equipe.nom_equipe INNER JOIN Membre"
+                    + " AS CAP ON equipe.id_capitaine = cap.id ");
             while (r.next()) {
                 Participation participe = new Participation();
-                participe.setIdMembre(r.getString("id_joueur"));
-                participe.setNomEquipe(r.getString("id_equipe"));
+                Equipe e = new Equipe();
+                Membre m = new Membre();
+                Membre cap = new Membre();
+
+                m.setId(r.getString("Membre.id"));
+                m.setPseudo(r.getString("Membre.pseudo"));
+                m.setNom(r.getString("Membre.nom"));
+                m.setPrenom(r.getString("Membre.prenom"));
+
+                cap.setId(r.getString("CAP.id"));
+                cap.setPseudo(r.getString("CAP.pseudo"));
+                cap.setNom(r.getString("CAP.nom"));
+                cap.setPrenom(r.getString("CAP.prenom"));
+
+                e.setNomEquipe(r.getString("Equipe.nom_equipe"));
+                e.setCapitaine(cap);
+
+                participe.setEquipe(e);
+                participe.setMembre(m);
                 liste.add(participe);
             }
 //            Collections.reverse(liste);
             r.close();
             stm.close();
+        } catch (SQLException exp) {
+            exp.printStackTrace();
         }
-        catch (SQLException exp) {
-            Logger.getLogger(ParticipationDAO.class.getName()).log(Level.SEVERE, null, exp);
-        }        
         return liste;
     }
-    
-    public Participation findByNomEquipe(String id) {
-        String req = "SELECT * FROM participationequipe WHERE `id_equipe` = ?";
+
+    public List<Participation> findByNomEquipe(String id) {
+        List<Participation> liste = new LinkedList<Participation>();
+        String req = "SELECT * FROM participationEquipe INNER JOIN membre ON id_joueur = id"
+                    + " INNER JOIN equipe ON participationEquipe.nom_equipe = equipe.nom_equipe INNER JOIN Membre"
+                    + " AS CAP ON equipe.id_capitaine = membre.id WHERE `nom_equipe` = ?";
 
         PreparedStatement paramStm = null;
         try {
@@ -189,31 +155,46 @@ public class ParticipationDAO extends DAO<Participation>{
 
             paramStm.setString(1, id);
 
-            ResultSet resultat = paramStm.executeQuery();
+            ResultSet r = paramStm.executeQuery();
 
-            
-            if(resultat.next()){
-
+            while (r.next()) {
                 Participation participe = new Participation();
-                participe.setIdMembre(resultat.getString("id_joueur"));
-                participe.setNomEquipe(resultat.getString("id_equipe"));
-                
-                resultat.close();
-                paramStm.close();
-                return participe;
+                Equipe e = new Equipe();
+                Membre m = new Membre();
+                Membre cap = new Membre();
+
+                m.setId(r.getString("Membre.id"));
+                m.setPseudo(r.getString("Membre.pseudo"));
+                m.setNom(r.getString("Membre.nom"));
+                m.setPrenom(r.getString("Membre.prenom"));
+
+                cap.setId(r.getString("CAP.id"));
+                cap.setPseudo(r.getString("CAP.pseudo"));
+                cap.setNom(r.getString("CAP.nom"));
+                cap.setPrenom(r.getString("CAP.prenom"));
+
+                e.setNomEquipe(r.getString("Equipe.nom_equipe"));
+                e.setCapitaine(cap);
+
+                participe.setEquipe(e);
+                participe.setMembre(m);
+                liste.add(participe);
             }
 
-            resultat.close();
+            r.close();
+           
+            
             paramStm.close();
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(ParticipationDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        return liste;
     }
-    
+
     public Participation findByNomEquipeIdMembre(String nomEquipe, String idMembre) {
-        String req = "SELECT * FROM participationequipe WHERE `id_equipe` = ? AND `id_joueur` = ?";
+        String req = "SELECT * FROM participationEquipe INNER JOIN membre ON id_joueur = id"
+                    + " INNER JOIN equipe ON participationEquipe.nom_equipe = equipe.nom_equipe INNER JOIN Membre"
+                    + " AS CAP ON equipe.id_capitaine = membre.id WHERE `nom_equipe` = ? AND `id_joueur` = ?";
 
         PreparedStatement paramStm = null;
         try {
@@ -222,28 +203,41 @@ public class ParticipationDAO extends DAO<Participation>{
             paramStm.setString(1, nomEquipe);
             paramStm.setString(2, idMembre);
 
-            ResultSet resultat = paramStm.executeQuery();
+            ResultSet r = paramStm.executeQuery();
 
-            
-            if(resultat.next()){
+            if (r.next()) {
 
                 Participation participe = new Participation();
-                participe.setIdMembre(resultat.getString("id_joueur"));
-                participe.setNomEquipe(resultat.getString("id_equipe"));
-                resultat.close();
-                paramStm.close();
+                Equipe e = new Equipe();
+                Membre m = new Membre();
+                Membre cap = new Membre();
+
+                m.setId(r.getString("Membre.id"));
+                m.setPseudo(r.getString("Membre.pseudo"));
+                m.setNom(r.getString("Membre.nom"));
+                m.setPrenom(r.getString("Membre.prenom"));
+
+                cap.setId(r.getString("CAP.id"));
+                cap.setPseudo(r.getString("CAP.pseudo"));
+                cap.setNom(r.getString("CAP.nom"));
+                cap.setPrenom(r.getString("CAP.prenom"));
+
+                e.setNomEquipe(r.getString("Equipe.nom_equipe"));
+                e.setCapitaine(cap);
+
+                participe.setEquipe(e);
+                participe.setMembre(m);
                 return participe;
             }
 
-            resultat.close();
+            r.close();
             paramStm.close();
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(ParticipationDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    
+
     public List<Participation> findByIdMembre(String id) {
         String req = "SELECT * FROM participationequipe WHERE `id_joueur` = ?";
         List<Participation> liste = new ArrayList<>();
@@ -253,29 +247,40 @@ public class ParticipationDAO extends DAO<Participation>{
 
             paramStm.setString(1, id);
 
-            ResultSet resultat = paramStm.executeQuery();
+            ResultSet r = paramStm.executeQuery();
 
-            
-            while (resultat.next()){
-
+            while (r.next()) {
                 Participation participe = new Participation();
-                participe.setNomEquipe(resultat.getString("id_equipe"));
-                participe.setIdMembre(resultat.getString("id_joueur"));
-                
-                
+                Equipe e = new Equipe();
+                Membre m = new Membre();
+                Membre cap = new Membre();
+
+                m.setId(r.getString("Membre.id"));
+                m.setPseudo(r.getString("Membre.pseudo"));
+                m.setNom(r.getString("Membre.nom"));
+                m.setPrenom(r.getString("Membre.prenom"));
+
+                cap.setId(r.getString("CAP.id"));
+                cap.setPseudo(r.getString("CAP.pseudo"));
+                cap.setNom(r.getString("CAP.nom"));
+                cap.setPrenom(r.getString("CAP.prenom"));
+
+                e.setNomEquipe(r.getString("Equipe.nom_equipe"));
+                e.setCapitaine(cap);
+
+                participe.setEquipe(e);
+                participe.setMembre(m);
                 liste.add(participe);
             }
-            Collections.reverse(liste);
-            resultat.close();
+//            Collections.reverse(liste);
+            r.close();
             paramStm.close();
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(ParticipationDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return liste;
     }
-    
-    
+
     @Override
     public Participation findById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

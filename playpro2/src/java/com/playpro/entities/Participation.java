@@ -13,36 +13,24 @@ import java.time.LocalDate;
  * @author Salpy
  */
 public class Participation {
-    private String nomEquipe;
-    private String idMembre;
+    private Equipe equipe;
+    private Membre membre;
     private LocalDate dateEnvoi;
 
-    public Participation() {
-        this.idMembre = "";
-        this.nomEquipe = "";
-    }
-    
-    public Participation(String idMembre, String nomEquipe) {
-        this.idMembre = idMembre;
-        this.nomEquipe = nomEquipe;
-        
-    }
-   
-
-    public String getIdMembre() {
-        return idMembre;
+    public Equipe getEquipe() {
+        return equipe;
     }
 
-    public void setIdMembre(String idMembre) {
-        this.idMembre = idMembre;
+    public void setEquipe(Equipe equipe) {
+        this.equipe = equipe;
     }
 
-    public String getNomEquipe() {
-        return nomEquipe;
+    public Membre getMembre() {
+        return membre;
     }
 
-    public void setNomEquipe(String nomEquipe) {
-        this.nomEquipe = nomEquipe;
+    public void setMembre(Membre membre) {
+        this.membre = membre;
     }
 
     public LocalDate getDateEnvoi() {
@@ -52,9 +40,7 @@ public class Participation {
     public void setDateEnvoi(LocalDate dateEnvoi) {
         this.dateEnvoi = dateEnvoi;
     }
-    @Override
-    public String toString() {
-        return super.toString(); 
-    }
+
+    
     
 }

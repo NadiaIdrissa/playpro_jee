@@ -10,6 +10,7 @@ import com.playpro.daos.InvitationDAO;
 import com.playpro.daos.ParticipationDAO;
 import com.playpro.entities.Equipe;
 import com.playpro.entities.Invitation;
+import com.playpro.entities.Membre;
 import com.playpro.entities.Participation;
 import java.util.LinkedList;
 import java.util.List;
@@ -31,7 +32,7 @@ public class ReponseInvitationAction extends AbstractAction{
         
         
         //nom de la personne connectée
-        String moi = (String)request.getSession().getAttribute("nomMembre");
+        Membre moi = (Membre)request.getSession().getAttribute("membre");
         
         System.out.println("reponse = "+reponse);
         System.out.println("equipe choisie = "+equipeChoisi);
@@ -60,14 +61,19 @@ public class ReponseInvitationAction extends AbstractAction{
             
             ParticipationDAO partDao = new ParticipationDAO();
             Participation participe = new Participation();
+            
+            Equipe e = new Equipe();
+            EquipesDAO edao = new EquipesDAO();
+            
+            e= edao.findById(encours.getId_requete());
 
-            participe.setIdMembre(moi);
-            participe.setNomEquipe(equipeChoisi);
+            participe.setMembre(moi);
+            participe.setEquipe(e);
             
             
             
-            System.out.println("particpant "+participe.getIdMembre());
-            System.out.println("participant dans "+participe.getNomEquipe());
+//            System.out.println("particpant "+participe.getIdMembre());
+//            System.out.println("participant dans "+participe.getNomEquipe());
             
             partDao.create(participe);
             idao.delete(encours);

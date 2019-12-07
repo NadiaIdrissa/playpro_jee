@@ -33,7 +33,7 @@ public class EquipesDAO extends DAO<Equipe> {
         System.out.println(" equipe a creer = " + x.toString());
 
         
-        String req = "INSERT INTO equipe (`nom_equipe` , `id_capitaine` , `nom_sport`, `nb_parties_jouees`, `nb_joueurs`, `nb_max_joueurs`, `image`) "
+        String req = "INSERT INTO equipe (`nom_equipe` , `id_capitaine` , `id_sport`, `nb_parties_jouees`, `nb_joueurs`, `nb_max_joueurs`, `image`) "
                 + "VALUES (?,?,?,?,?,?,?)";
         //System.out.println("REQUETE "+req);
         PreparedStatement stm = null;
@@ -43,13 +43,14 @@ public class EquipesDAO extends DAO<Equipe> {
             stm = cnx.prepareStatement(req);
             stm.setString(1, x.getNomEquipe());
             stm.setString(2, x.getCapitaine().getId());
-            stm.setString(3, x.getSport().getNom());
+            stm.setString(3, x.getSport().getId_sport());
             stm.setInt(4, x.getNbPartiesJouees());
             stm.setInt(5, x.getNbJoueurs());
-            stm.setInt(6, x.getNbMaxJoueurs());
+            stm.setInt(6, x.getSport().getNb_max());
             stm.setString(7, x.getImage());
             
             int n = stm.executeUpdate();
+            if(n>0) return true;
             System.out.println("========================================");
         } catch (SQLException exp) {
             exp.printStackTrace();
@@ -80,32 +81,32 @@ public class EquipesDAO extends DAO<Equipe> {
 
         try {
             stm = cnx.createStatement();
-            r = stm.executeQuery("SELECT * FROM equipe WHERE nom_equipe = '" + id + "'");
+            r = stm.executeQuery("SELECT * FROM equipe INNER JOIN sport ON equipe.id_sport = sport.id_sport"
+                    + " WHERE nom_equipe = '" + id + "'");
             if (r.next()) {
                 Equipe e = new Equipe();
-                
-
+               
                 e.setNomEquipe(r.getString("nom_equipe"));
-                e.setId_capitaine(r.getString("id_capitaine"));
-                
-                String nomS =r.getString("nom_sport");
+                          
                 Sport s = new Sport();
-                SportDAO sdao = new SportDAO();
-                s = sdao.findById("nomS");
+                s.setId_sport(r.getString("sport.id_sport"));
+                s.setNom(r.getString("sport.nom"));
+                s.setNb_max(r.getInt("sport.nb_max"));
+                
                 e.setSport(s);
                 
                 e.setNbPartiesJouees(r.getString("nb_parties_jouees"));
                 e.setNbJoueurs(r.getInt("nb_joueurs"));
                 e.setNbMaxJoueurs(r.getString("nb_max_joueurs"));
                 
-                e.setImage(r.getString("image"));
-                
-               
+                e.setImage(r.getString("equipe.image"));
+                               
                 r.close();
                 stm.close();
                 return e;
             }
         } catch (SQLException exp) {
+            exp.printStackTrace();
         } finally {
             if (r != null) {
                 try {
@@ -150,7 +151,7 @@ public class EquipesDAO extends DAO<Equipe> {
             Statement stm = cnx.createStatement();
             ResultSet r = stm.executeQuery("SELECT * FROM equipe INNER JOIN membre on "
                     + " equipe.id_capitaine = membre.id INNER JOIN sport on "
-                    + " equipe.nom_sport = sport.nom");
+                    + " equipe.id_sport = sport.id_sport");
             while (r.next()) {
                 System.out.println("Lecture equipe :" + r.toString());
                 Equipe team = new Equipe();
@@ -162,14 +163,12 @@ public class EquipesDAO extends DAO<Equipe> {
                 m.setId(r.getString("Membre.id"));
                 m.setCourriel(r.getString("Membre.courriel"));
                 m.setTypeMembre(r.getString("Membre.type_membre"));
-                
-                
+                    
                 sport.setNom(r.getString("sport.nom"));
                 sport.setId_sport(r.getString("sport.id_sport"));
                 sport.setNb_min(r.getInt("sport.nb_min"));
                 sport.setNb_max(r.getInt("sport.nb_max"));
-                
-                
+                   
                 team.setNomEquipe(r.getString("equipe.nom_equipe"));
                 team.setSport(sport);
                 team.setCapitaine(m);

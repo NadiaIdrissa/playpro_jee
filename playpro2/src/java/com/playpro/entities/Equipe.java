@@ -6,6 +6,8 @@
 package com.playpro.entities;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -15,55 +17,27 @@ public class Equipe {
 
     protected String nomEquipe;
     protected Membre capitaine;
-    protected String id_capitaine;
     protected Sport sport;
     protected int nbPartiesJouees;
     protected int nbJoueurs;
     protected int nbMaxJoueurs;
     protected LocalDate dateCreation;
     private String image;
-    Membre ken = new Membre();
-
-    
+    private List<Membre> membresEquipe;
+        
     public Equipe() {
-
-        this.nomEquipe = "Loups";
-        this.capitaine = ken;
-        this.id_capitaine = "1234";
-//        this.sport = "soccer";
-        this.nbPartiesJouees = 0;
-        this.nbJoueurs = 15;
-        this.nbMaxJoueurs = 30;
-
+        this("Loups", 0, 0, 30 );
+        
     }
 
-    public Equipe(String NomEquipe, String id_du_capitaine, String sport, int nbPartiesJouees, int nbJoueurs, int nbMaxJoueurs) {
+    public Equipe(String NomEquipe, int nbPartiesJouees, int nbJoueurs, int nbMaxJoueurs) {
         this.nomEquipe = NomEquipe;
-        this.id_capitaine = id_du_capitaine;
-//        this.sport = sport;
         this.nbPartiesJouees = nbPartiesJouees;
         this.nbJoueurs = nbJoueurs;
         this.nbMaxJoueurs = nbMaxJoueurs;
-    }
-
-    public String getId_capitaine() {
-        return id_capitaine;
-    }
-
-    public void setId_capitaine(String id_capitaine) {
-        this.id_capitaine = id_capitaine;
-    }
-
-    public Membre getKen() {
-        return ken;
-    }
-
-    public void setKen(Membre ken) {
-        this.ken = ken;
+        membresEquipe = new LinkedList<>();
     }
     
-    
-
     public String getNomEquipe() {
         return nomEquipe;
     }
@@ -76,13 +50,6 @@ public class Equipe {
         this.nomEquipe = NomEquipe;
     }
 
-    public String id_capitaine() {
-        return id_capitaine;
-    }
-
-    public void setid_capitaine(String id) {
-        this.id_capitaine = id;
-    }
 
     public void setCapitaine(Membre capitaine) {
         this.capitaine = capitaine;
@@ -121,6 +88,14 @@ public class Equipe {
         this.nbMaxJoueurs = Integer.parseInt(nbMaxJoueurs);
     }
 
+    public List<Membre> getMembresEquipe() {
+        return membresEquipe;
+    }
+
+    public void setMembresEquipe(List<Membre> membresEquipe) {
+        this.membresEquipe = membresEquipe;
+    }
+    
     public LocalDate getDateCreation() {
         return dateCreation;
     }
@@ -141,7 +116,7 @@ public class Equipe {
 
     @Override
     public String toString() {
-        return "Equipe{" + "NomEquipe=" + nomEquipe + ", capitaine=" + id_capitaine + ", sport=" + sport + ", nbPartiesJouees=" + nbPartiesJouees + ", nbJoueurs=" + nbJoueurs + ", nbMaxJoueurs=" + nbMaxJoueurs + ", dateCreation=" + dateCreation + ", ken=" + ken + '}';
+        return "Equipe{" + "NomEquipe=" + nomEquipe + ", capitaine=" + capitaine.getPseudo() + ", sport=" + sport.getNom() + ", nbPartiesJouees=" + nbPartiesJouees + ", nbJoueurs=" + nbJoueurs + ", nbMaxJoueurs=" + nbMaxJoueurs + ", dateCreation=" + dateCreation + '}';
     }
 
 }
