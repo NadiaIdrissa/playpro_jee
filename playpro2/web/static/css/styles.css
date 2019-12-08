@@ -225,7 +225,7 @@ h4{
 
 .carousel-item-lieu{
     height: 80px !important;
-    min-height: 300px;
+    min-height: 190px;
     background: no-repeat center center scroll;
     -webkit-background-size: cover;
     background-size: cover;
@@ -352,6 +352,7 @@ div.col.mod{
     width: 100%;
     background-color: #80a6cc;
     padding-left: 20px;
+    border-bottom: unset;
 }
 .equipeStyle .modal-title{
     color: black;
