@@ -12,7 +12,7 @@
 
 <div class="equipeStyle row">
     <div class="col-sm-10 col-md-10 col-lg-10">
-        <h1>Liste des équipes existantes</h1>
+        <h1 class="text-center">Liste des équipes existantes</h1>
 
     </div>
     <div class="colBtn col-sm-2 col-md-2 col-lg-2">
@@ -38,8 +38,6 @@
                             <c:set var="membreConnecte" value="${sessionScope.membre.id}"/>
                             <c:set var="capitaine" value="${uneEquipe.capitaine.id}"/>
                         </p>
-
-
                         <c:if test = "${uneEquipe.capitaine.id == sessionScope.membre.id}">
                             <button class="btn btn-primary blue text-danger" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.sport.nom}" />" aria-expanded="false" aria-controls="collapseExample">
                                 Inviter un joueur
@@ -47,18 +45,15 @@
 
                             <div class="collapse" id="<c:out value="${uneEquipe.sport.nom}" />">
                                 <div class="card card-body">
-
-                                    <select class="form-control" id="exampleFormControlSelect1" name="nomMembreChoisi">
+                                    <select class="form-control" id="exampleFormControlSelect1" name="membreAInviter">
                                         <option value="" >Choisir un joueur</option>
                                         <c:forEach items="${sessionScope.listeDesMembres}" var="unMembre"> 
                                             <c:if test = "${uneEquipe.capitaine.id != unMembre.id}">
-
                                                 <option value="<c:out value="${unMembre.id}" />" ><c:out value="${unMembre.pseudo}" /></option> 
                                             </c:if>
                                         </c:forEach>
                                     </select>
                                     <button type="submit" class="btn btn-primary">Envoyer</button>
-                                    <!--                                </form> -->
                                 </div>
                             </div> 
                         </c:if>
@@ -71,8 +66,8 @@
 
                                 <c:forEach items="${uneEquipe.membresEquipe}" var="joueur"> 
                                     <a href="?action=profil&idMembreAfficher=${joueur.id}" title="Voir le profil de ${joueur.pseudo}"> ${joueur.pseudo}<c:if test = "${uneEquipe.capitaine.id == joueur.id}"> <c:out value=": Capitaine" /> </c:if></a>
-                                    <br>
-                                    <input type="hidden" ${nb=nb-1}>
+                                        <br>
+                                        <input type="hidden" ${nb=nb-1}>
                                 </c:forEach>
                                 <p>Il reste encore ${nb } places de libre</p>
                             </div>
@@ -84,7 +79,6 @@
     </div>
 </div>
 
-<!-- The Modal -->
 <!-- Modal -->
 <div class="modal equipeStyle" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
@@ -106,7 +100,7 @@
 
                     <div class="form-group">
                         <select class="form-control" id="exampleFormControlSelect1" name="nbMaxEquipe">
-                            <option value="" >Nombre max de joueurs par équipe</option>
+                            <option value="" >Nombre de places</option>
                             <% for (int i = 0; i < 15; i++) {%>
                             <option value="<%=i%>"><%=i%></option>
 
@@ -117,14 +111,9 @@
 
                     <div class="form-group">
                         <select class="form-control" id="exampleFormControlSelect1" name="idSportEquipe">
-                            <% List<Sport> slisteSports = (List<Sport>) request.getSession().getAttribute("slisteSports");
-
-                                for (int h = 0; h < slisteSports.size(); h++) {%>
-                            <option value="<%=slisteSports.get(h).getId_sport()%>" ><%=slisteSports.get(h).getNom()%></option>
-                            <%}
-
-                            %>
-
+                            <c:forEach items="${slisteSports}" var="unSport"> 
+                                <option value="${unSport.id_sport}" >${unSport.nom}</option>
+                            </c:forEach> 
                         </select>
                     </div>
                     <div class="file-field">
@@ -134,8 +123,6 @@
                         </div>
 
                     </div>
-                    <!--<button class="" id="boutton1" type="submit">Créer</button>-->
-
                     <button type="submit" class="btn btn-primary">Créer</button>
                 </div>
             </form>

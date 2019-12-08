@@ -53,14 +53,14 @@ public class ReponseInvitationAction extends AbstractAction{
         Invitation encours = new Invitation();
         InvitationDAO idao = new InvitationDAO();
         
-        for(int i =0;i<toutes.size();i++){
-            if ((toutes.get(i).getId_expediteur().equals(expediteur)) && (toutes.get(i).getId_requete().equals(equipeChoisi)) ){
-                encours = toutes.get(i);
-            }
-        }
-        
-        System.out.println(" invitation = "+encours.getId_requete());
-        
+//        for(int i =0;i<toutes.size();i++){
+//            if ((toutes.get(i).getId_expediteur().equals(expediteur)) && (toutes.get(i).getId_requete().equals(equipeChoisi)) ){
+//                encours = toutes.get(i);
+//            }
+//        }
+//        
+//        System.out.println(" invitation = "+encours.getId_requete());
+//        
         if (reponse.equals("refus")){
             idao.delete(encours);
         }
@@ -73,7 +73,7 @@ public class ReponseInvitationAction extends AbstractAction{
             Equipe e = new Equipe();
             EquipesDAO edao = new EquipesDAO();
             
-            e= edao.findById(encours.getId_requete());
+//            e= edao.findById(encours.getId_requete());
 
             participe.setMembre(moi);
             participe.setEquipe(e);

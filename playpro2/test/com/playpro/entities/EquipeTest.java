@@ -144,7 +144,7 @@ public class EquipeTest {
     @Test
     public void testSetNbPartiesJouees() {
         System.out.println("setNbPartiesJouees");
-        String nbPartiesJouees = "0";
+        int nbPartiesJouees = 0;
         Equipe instance = new Equipe();
         int expResult = instance.getNbPartiesJouees();
         instance.setNbPartiesJouees(nbPartiesJouees);
@@ -204,7 +204,7 @@ public class EquipeTest {
     @Test
     public void testSetNbMaxJoueurs() {
         System.out.println("setNbMaxJoueurs");
-        String nbMaxJoueurs = "25";
+        int nbMaxJoueurs = 0;
         int result = 25;
         Equipe instance = new Equipe();
         instance.setNbMaxJoueurs(nbMaxJoueurs);

@@ -8,6 +8,7 @@ package com.playpro.entities;
 import java.awt.image.BufferedImage;
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  *
@@ -182,6 +183,31 @@ public class Membre {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Membre other = (Membre) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
     }
 
     @Override

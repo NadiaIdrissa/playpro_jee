@@ -22,4 +22,9 @@ public class EquipesServices {
         return dao.create(e);
 
     }
+    
+    public static Equipe trouverEquipe(String nom){
+        dao = new EquipesDAO();
+        return dao.findById(nom);
+    }
 }

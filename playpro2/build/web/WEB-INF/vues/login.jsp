@@ -35,15 +35,11 @@
         <!--<link href="static/css/styles.css" rel="stylesheet" type="text/css">-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-
         <link href="static/css/cssNavBar/stylesyami.css" rel="stylesheet" type="text/css">
-
     </head>
     <body>
         <%
-
             String courriel;
             String password;
             String message = (String) request.getAttribute("message");
@@ -66,11 +62,11 @@
         <% } %>
         <br><br>
 
-        <div class="container" id="FormulaireConnexion" style="margin-top: 100px;">
+        <div class="container" id="FormulaireConnexion" style="margin-top: 50px;">
 
             <%if (message != null && !message.equals("")) {
                     %>
-                    <div class="alert alert-<%=laClasse%> alert-dismissible fade show" role="alert">
+                    <div class="alert text-center alert-<%=laClasse%> alert-dismissible fade show" role="alert">
                         <strong>Important!</strong> <%=message%>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -79,7 +75,7 @@
                     <%}
                     %>
 
-        </div> <!-- /container -->
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -87,7 +83,7 @@
                         <div class="card  card-signin my-5">
                             <div class="  card-body">
                                 <h2 class="card-title text-center ">Connexion</h2>
-                                <form class="form-signin needs-validation" action="" method="post" name="action" value="login" novalidate>
+                                <form class="form-signin needs-validation" action="?action=login" method="post" name="action" value="login" novalidate>
                                     <div class="col-md-12 mb-12">
                                         <input type="email" name='email' class="form-control" id="validationCustom05" placeholder="exemple@playpro.ca" required>
                                         <div class="invalid-feedback">
