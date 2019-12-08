@@ -47,7 +47,7 @@
                     <%@include file="sidebar.jsp" %>
                 </div>
 
-                <div class="main mainPortail clearfix" style="margin-top: 20px">
+                <div class="main mainPortail clearfix">
                     <%if (message != null && !message.equals("")) {
                     %>
                     <div class="alert text-center alert-<%=laClasse%> alert-dismissible fade show" role="alert">

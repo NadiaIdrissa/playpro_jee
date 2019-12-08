@@ -147,7 +147,7 @@ input[type=submit]:hover {
 }
 
 .fondAnnonce{
-    background-color: #80cca6d9;
+    background-color: #f1f1f1;
 }
 
 .annonceInfos{
@@ -161,7 +161,7 @@ p.infos {
 }
 h2.fondAnnonce{
     text-align: center;
-    background-color: #80a6cce6;
+    background-color: #80cca6d9;
     
 }
 
