@@ -29,7 +29,7 @@ public class AnnoncesAction extends AbstractAction implements AjaxAction{
     public String execute() {
         Membre mSession =  (Membre)request.getSession().getAttribute("membre");
         if ((mSession == null)) {
-            String message = "Votre session a expiré, veuillez vous réauthentifier";
+            String message = "Votre session a expirée, veuillez vous réauthentifier";
             String laClasse = "danger";
             request.setAttribute("message", message);
             request.setAttribute("laClasse", laClasse);

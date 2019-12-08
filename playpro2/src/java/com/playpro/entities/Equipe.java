@@ -8,6 +8,7 @@ package com.playpro.entities;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -35,7 +36,7 @@ public class Equipe {
         this.nbPartiesJouees = nbPartiesJouees;
         this.nbJoueurs = nbJoueurs;
         this.nbMaxJoueurs = nbMaxJoueurs;
-        membresEquipe = new LinkedList<>();
+        this.membresEquipe = new LinkedList<>();
     }
     
     public String getNomEquipe() {
@@ -68,8 +69,8 @@ public class Equipe {
         return nbPartiesJouees;
     }
 
-    public void setNbPartiesJouees(String nbPartiesJouees) {
-        this.nbPartiesJouees = Integer.parseInt(nbPartiesJouees);
+    public void setNbPartiesJouees(int nbPartiesJouees) {
+        this.nbPartiesJouees = nbPartiesJouees;
     }
 
     public int getNbJoueurs() {
@@ -84,8 +85,8 @@ public class Equipe {
         return nbMaxJoueurs;
     }
 
-    public void setNbMaxJoueurs(String nbMaxJoueurs) {
-        this.nbMaxJoueurs = Integer.parseInt(nbMaxJoueurs);
+    public void setNbMaxJoueurs(int nbMaxJoueurs) {
+        this.nbMaxJoueurs = nbMaxJoueurs;
     }
 
     public List<Membre> getMembresEquipe() {
@@ -112,11 +113,38 @@ public class Equipe {
         this.image = image;
         
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.nomEquipe);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Equipe other = (Equipe) obj;
+        if (!Objects.equals(this.nomEquipe, other.nomEquipe)) {
+            return false;
+        }
+        return true;
+    }
     
 
     @Override
     public String toString() {
-        return "Equipe{" + "NomEquipe=" + nomEquipe + ", capitaine=" + capitaine.getPseudo() + ", sport=" + sport.getNom() + ", nbPartiesJouees=" + nbPartiesJouees + ", nbJoueurs=" + nbJoueurs + ", nbMaxJoueurs=" + nbMaxJoueurs + ", dateCreation=" + dateCreation + '}';
+        return "Equipe{" + "nomEquipe=" + nomEquipe + ", capitaine=" + capitaine.getNom() + ", sport=" + sport.getNom() + ", nbPartiesJouees=" + String.valueOf(nbPartiesJouees) + ", nbJoueurs=" + String.valueOf(nbJoueurs) + ", nbMaxJoueurs=" + String.valueOf(nbMaxJoueurs) +  '}';
     }
+
+    
 
 }

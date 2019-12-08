@@ -66,8 +66,9 @@
         <%}%>
 
         <li>
-            <a href="?action=traitementInvitation">
+            <a style="display: block" id="btnTraiterInvitation">
                 <i class="fa fa-paper-plane"></i>
+
                 <span class="sideLabel">Invitations </span><span class="badge">
                 <c:out value="${sessionScope.NbInvitations}"/>
         </span>
