@@ -163,6 +163,9 @@
 
                         </div>
                     </c:if>
+                    <c:if test = "${NbInvitations<1}">
+                        <div class="text-center">Aucune invitation</div>
+                    </c:if>
                 </div>
             </div>
         </div>

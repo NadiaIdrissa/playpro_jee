@@ -7,6 +7,7 @@ package com.playpro.services;
 
 import com.playpro.daos.EquipesDAO;
 import com.playpro.entities.Equipe;
+import java.util.List;
 
 /**
  *
@@ -14,17 +15,18 @@ import com.playpro.entities.Equipe;
  */
 public class EquipesServices {
 
-    private static EquipesDAO dao;
+    private static EquipesDAO dao = new EquipesDAO();
 
     public static boolean creerEquipe(Equipe e) {
-
-        dao = new EquipesDAO();
         return dao.create(e);
 
     }
     
     public static Equipe trouverEquipe(String nom){
-        dao = new EquipesDAO();
         return dao.findById(nom);
+    }
+    
+    public static List<Equipe> toutesLesEquipes(){
+        return dao.findAll();
     }
 }
