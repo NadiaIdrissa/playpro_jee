@@ -12,6 +12,10 @@ import com.playpro.entities.Equipe;
 import com.playpro.entities.Invitation;
 import com.playpro.entities.Membre;
 import com.playpro.entities.Participation;
+import com.playpro.services.EquipesServices;
+import com.playpro.services.InvitationServices;
+import com.playpro.services.MembreServices;
+import com.playpro.services.ParticipationServices;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,11 +23,11 @@ import java.util.List;
  *
  * @author younes-dilali
  */
-public class ReponseInvitationAction extends AbstractAction{
+public class ReponseInvitationAction extends AbstractAction {
 
     @Override
     public String execute() {
-        Membre mSession =  (Membre)request.getSession().getAttribute("membre");
+        Membre mSession = (Membre) request.getSession().getAttribute("membre");
         if ((mSession == null)) {
             String message = "Votre session a expiré, veuillez vous réauthentifier";
             String laClasse = "danger";
@@ -31,65 +35,68 @@ public class ReponseInvitationAction extends AbstractAction{
             request.setAttribute("laClasse", laClasse);
             return "login";
         }
-        
-        //traitement de la réponse
-        
-        String reponse = (String)request.getParameter("reponseI");
-        String expediteur = (String)request.getParameter("exped");
-        String equipeChoisi = (String) request.getParameter("nomEquipeChoisie");
-        
-        
-        //nom de la personne connectée
-        Membre moi = (Membre)request.getSession().getAttribute("membre");
-        
-        System.out.println("reponse = "+reponse);
-        System.out.println("equipe choisie = "+equipeChoisi);
-        
-        List<Invitation> toutes = new LinkedList<Invitation>();
-        
-        toutes = (List<Invitation>)request.getSession().getAttribute("listeInvitations");
-        
-        
-        Invitation encours = new Invitation();
-        InvitationDAO idao = new InvitationDAO();
-        
-//        for(int i =0;i<toutes.size();i++){
-//            if ((toutes.get(i).getId_expediteur().equals(expediteur)) && (toutes.get(i).getId_requete().equals(equipeChoisi)) ){
-//                encours = toutes.get(i);
-//            }
-//        }
-//        
-//        System.out.println(" invitation = "+encours.getId_requete());
-//        
-        if (reponse.equals("refus")){
-            idao.delete(encours);
-        }
-        
-        else if (reponse.equals("accept")){
-            
-            ParticipationDAO partDao = new ParticipationDAO();
-            Participation participe = new Participation();
-            
-            Equipe e = new Equipe();
-            EquipesDAO edao = new EquipesDAO();
-            
-//            e= edao.findById(encours.getId_requete());
 
-            participe.setMembre(moi);
-            participe.setEquipe(e);
-                        
-            partDao.create(participe);
-            idao.delete(encours);
-       
-            
+        //traitement de la réponse
+        String idExp = (String) request.getParameter("idExp");
+        String nomEquipe = (String) request.getParameter("nomEquipe");
+        String statutInvitation = (String) request.getParameter("statutInvitation");
+
+        System.out.println(idExp);
+        System.out.println(nomEquipe);
+        System.out.println(statutInvitation);
+        System.out.println("==================================================");
+
+        if (nomEquipe != null && statutInvitation.equals("accept")) {
+            Equipe equipe = EquipesServices.trouverEquipe(nomEquipe);
+            Participation partic = new Participation();
+            partic.setEquipe(equipe);
+            partic.setMembre(mSession);
+            Membre exp = MembreServices.trouverMembre(idExp);
+            String message = "";
+            String laClasse = "";
+            System.out.println("ca va");
+
+            List<Participation> toutesLesParticipations = ParticipationServices.toutesLesParticipation();
+
+            for (Participation p : toutesLesParticipations) {
+                System.out.println("---------------" + p);
+            }
+            System.out.println(toutesLesParticipations.contains(partic));
+
+            if (toutesLesParticipations.contains(partic)) {
+                message = "Vous êtes déja membre de l'équipe " + equipe.getNomEquipe();
+                laClasse = "danger";
+            } else {
+                boolean reussi = ParticipationServices.creerParticipation(partic);
+                if (reussi) {
+                    System.out.println("Participation créée");
+                    message = "Vous faites desormais partie de l'équipe " + equipe.getNomEquipe();
+                    laClasse = "success";
+                }
+
+            }
+            Invitation i = new Invitation();
+            i.setExpediteur(exp);
+            i.setDestinataire(mSession);
+            i.setEquipe(equipe);
+
+            boolean reussi = InvitationServices.supprimer(i);
+            if (reussi) {
+                System.out.println("Invitation supprimee============================");
+            }
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
+
         }
-        request.getSession().setAttribute("message", "L'invitation est "+reponse);
-        
-        request.getSession().setAttribute("viewConf","reponseInvitation");
-        
+
+        List<Invitation> listeInvitations;
+        listeInvitations = InvitationServices.lesinvitationspour(mSession);
+
+        System.out.println("nombre invitations = " + listeInvitations.size());
+
+        request.getSession().setAttribute("NbInvitations", listeInvitations.size());
+        request.getSession().setAttribute("listeInvitations", listeInvitations);
         return "portail";
     }
-    
-    
-    
+
 }
