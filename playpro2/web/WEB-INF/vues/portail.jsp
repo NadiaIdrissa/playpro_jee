@@ -47,7 +47,7 @@
                     <%@include file="sidebar.jsp" %>
                 </div>
 
-                <div class="main mainPortail clearfix">
+                <div class="main mainPortail clearfix" style="margin-top: 20px">
                     <%if (message != null && !message.equals("")) {
                     %>
                     <div class="alert text-center alert-<%=laClasse%> alert-dismissible fade show" role="alert">
@@ -75,7 +75,7 @@
                         <%} else if (viewConf.equals("annonces")) {%>
                         <%@include file="annonce.jsp"%>
                         <%} else if (viewConf.equals("membres")) {
-                            %>
+                        %>
                         <%@include file="membres.jsp"%>
 
                         <%} else if (viewConf.equals("invitation")) {
@@ -101,57 +101,67 @@
         </div>  
         <div class="modal" id="modalTraiterInvitation"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="" role="document">
                 <div class="modal-content col-8">
-                    <div class="modal-header">
-                        <div class="modal-header text-center">
-                            <h4 id='titreSup' class="modal-title text-center w-100 font-weight-bold">Tes invitations</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <div class="">
+                        <div class="p-2 w-90 bg-warning float-right">
+
+                            <button type="button" class="close " data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                     </div>
                     <c:if test = "${NbInvitations>0}">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Expéd.</th>
-                                    <th scope="col">Équipe</th>
-                                    <th scope="col">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${listeInvitations}" var="uneInvit">
-                                    <tr>
-                                <form  class="" action="?action=reponseInvitation" method="post" name="action" value="" >
-                                    <td>
-                                        <input name ='idExp' value='${uneInvit.expediteur.id}' type='hidden' />
-                                        <span>
-                                            <c:out value="${uneInvit.expediteur.pseudo}" />
+                        <div class="d-flex justify-content-center">
+                            <table class="table table-hover m-3">
 
-                                        </span>
 
-                                    </td>
-                                    <td>
-                                        <span>
-                                            <input name ='idEquipe' value='${uneInvit.expediteur.id}' type='hidden' />
-                                            <c:out value="${uneInvit.equipe.nomEquipe}" />
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div class="modal-footer d-flex justify-content-center">
-                                            <button class="btn btn-light btn-sm float-left " type="submit">Refuser</button>
-                                            <button class="btn btn-success btn-sm float-right " type='submit'>Accepter</button>
-                                        </div>
-                                    </td>
-
+                                <thead>
+                                    <tr >
+                                        <th style="border-bottom: none">Expéd.</th>
+                                        <th style="border-bottom: none">Équipe</th>
+                                        <th class="d-flex justify-content-center" style="border-bottom: none">Actions</th>
                                     </tr>
-                                </form>
+                                </thead>
+                                <tbody>
+
+                                    <c:forEach items="${listeInvitations}" var="uneInvit">
+                                        <tr>
 
 
-                            </c:forEach>
-                            </tbody>
-                        </table>
+                                            <td>
+                                                <span>
+                                                    <c:out value="${uneInvit.expediteur.pseudo}" />
+
+                                                </span>
+
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    <c:out value="${uneInvit.equipe.nomEquipe}" />
+                                                </span>
+                                            </td>
+                                            <td class="p-1">
+                                                <form  class="" action="?action=reponseInvitation" method="post" name="action" value="" >
+
+                                                    <input name ='idExp' value='${uneInvit.expediteur.id}' type='hidden' />
+                                                    <input name ='nomEquipe' value='${uneInvit.equipe.nomEquipe}' type='hidden' />
+                                                    <input name ='statutInvitation' id="statutInvitation" value='accept' type='hidden' />
+                                                    
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn btn-light btn-sm float-left btn_refus">Refuser</button>
+                                                        <button class="btn btn-success btn-sm float-right " type='submit'>Accepter</button>
+                                                    </div>
+                                                </form>
+                                            </td>
+
+                                        </tr>
+                                    </c:forEach>
+
+                                </tbody>
+                            </table>
+
+                        </div>
                     </c:if>
                 </div>
             </div>

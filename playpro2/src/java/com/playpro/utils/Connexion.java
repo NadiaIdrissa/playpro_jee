@@ -19,7 +19,7 @@ public class Connexion {
         }
 	public static Connection getInstance()
 	{
-            System.out.println("L url recu est "+ url);
+            
             try {
                 if (cnx == null || cnx.isClosed())
                     try {
@@ -30,7 +30,6 @@ public class Connexion {
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                System.out.println("cnx : "+cnx);
             } catch (SQLException ex) {
                 Logger.getLogger(Connexion.class.getName()).log(Level.SEVERE, null, ex);
             }

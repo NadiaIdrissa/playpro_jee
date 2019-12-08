@@ -6,6 +6,7 @@
 package com.playpro.entities;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 
 /**
@@ -15,7 +16,8 @@ import java.time.LocalDate;
 public class Participation {
     private Equipe equipe;
     private Membre membre;
-    private LocalDate dateEnvoi;
+    
+    
 
     public Equipe getEquipe() {
         return equipe;
@@ -33,14 +35,33 @@ public class Participation {
         this.membre = membre;
     }
 
-    public LocalDate getDateEnvoi() {
-        return dateEnvoi;
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.equipe);
+        hash = 37 * hash + Objects.hashCode(this.membre);
+        return hash;
     }
 
-    public void setDateEnvoi(LocalDate dateEnvoi) {
-        this.dateEnvoi = dateEnvoi;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Participation other = (Participation) obj;
+        if (!Objects.equals(this.equipe, other.equipe)) {
+            return false;
+        }
+        if (!Objects.equals(this.membre, other.membre)) {
+            return false;
+        }
+        return true;
     }
-
-    
-    
+   
 }
