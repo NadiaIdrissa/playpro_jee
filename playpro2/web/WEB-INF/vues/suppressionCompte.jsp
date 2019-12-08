@@ -10,18 +10,21 @@
     <div class="contentSuppCompte">
         <div class="container text-center border-1">
             <h2>Confirmation</h2>
-            <h6>Voulez vous vraiment supprimer votre compte</h6>
-
-
+            <h6 style="margin-bottom: 30px;">Voulez vous vraiment supprimer votre compte?</h6>
             <div class="row">
-                <div class="col-sm-6 col-md-5 col-lg-5">
-                <a class="btn btn-primary" style="text-decoration: none" href="?action=portail" role="button">Annuler</a>
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <a class="btn btn-primary" href="?action=portail" role="button">Annuler</a>
                 </div>
-                <div class="col-sm-6 col-md-5 col-lg-5">
-                <a class="btn btn-primary" style="text-decoration: none" href="?action=supp&sta=a" role="button">Suppression</a>
+                <div class="col-sm-4 col-md-4 col-lg-4 text-center text-uppercase">
+                    <label>Nous garderons vos informations en toute confidentialité. Votre profil ne sera plus accessible pour les autres membres du site. Votre compte pourra toujours être réactivé</label>
                 </div>
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <a class="btn btn-primary" href="?action=supp&sta=a" role="button">Suppression</a>
+                </div>
+                
             </div> 
-            <label>Votre compte pourra toujours être réactivé</label>
+            
+            
         </div>
     </div>
 </html>

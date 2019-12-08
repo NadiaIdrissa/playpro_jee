@@ -68,12 +68,13 @@
         <li>
             <a style="display: block" id="btnTraiterInvitation">
                 <i class="fa fa-paper-plane"></i>
-                <span class="sideLabel"> Invitations</span>
-                <span class="badge" style="color: #66afe9;" >
-                    (<c:out value="${sessionScope.NbInvitations}"/>)
-                </span>
+
+                <span class="sideLabel">Invitations </span><span class="badge">
+                <c:out value="${sessionScope.NbInvitations}"/>
+        </span>
             </a>
         </li>
+        
     </ul>
     
 </div>

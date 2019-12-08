@@ -8,13 +8,13 @@
 
 <div class="equipeStyle row">
     <div class="col-sm-10 col-md-10 col-lg-10">
-        <h1>Liste des lieux offerts</h1>
+        <!--<h1>Liste des lieux offerts</h1>-->
     </div>
     <%
         if (m.getTypeMembre().equals("Admin")) {
     %>
     <div class="colBtn col-sm-2 col-md-2 col-lg-2">
-        <button id="myBtn" type="button" >Ajouter</button>
+        <button id="myBtn" type="button" >+</button>
     </div>
     <%}%>     
 </div>
