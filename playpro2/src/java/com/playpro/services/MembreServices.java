@@ -60,4 +60,8 @@ public class MembreServices {
         
         return dao.findAll();
     }
+    public static Membre trouverMembre(String id){
+        dao = new MembreDAO();    
+        return dao.findById(id);
+    }
 }

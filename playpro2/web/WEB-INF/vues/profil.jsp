@@ -16,7 +16,7 @@
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <form  id="fprofil" action="?action=profil" method="post" name="action" value="profil" enctype="multipart/form-data">
             <div class="modal-header">
-                <div class="text-center col-sm-6 col-md-6 col-lg-6">
+                <div class="photoProf text-center col-sm-6 col-md-6 col-lg-6">
                     <img id='imagejoueur' src="static/images/profils/<c:out value="${membre.photo}"/> " class="rounded" alt="imgprofil">
                     <input id="imageMembre" type="hidden" class="form-control" name="imageMembre" />
                 </div>

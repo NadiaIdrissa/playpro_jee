@@ -35,14 +35,14 @@ public class InvitationDAO extends DAO<Invitation> {
             stm = cnx.prepareStatement(req);
 
             System.out.println("----------------------------------");
-            System.out.println(x.getId_expediteur());
-            System.out.println(x.getId_destinataire());
-            System.out.println(x.getId_requete());
+            System.out.println(x.getExpediteur().getId());
+            System.out.println(x.getDestinataire().getId());
+            System.out.println(x.getEquipe().getNomEquipe());
             System.out.println("----------------------------------");
 
-            stm.setString(1, x.getId_expediteur());
-            stm.setString(2, x.getId_destinataire());
-            stm.setString(3, x.getId_requete());
+            stm.setString(1, x.getExpediteur().getId());
+            stm.setString(2, x.getDestinataire().getId());
+            stm.setString(3, x.getEquipe().getNomEquipe());
 
             int n = stm.executeUpdate();
             if (n > 0) {
@@ -81,19 +81,25 @@ public class InvitationDAO extends DAO<Invitation> {
 
     @Override
     public boolean delete(Invitation x) {
-        Statement stm = null;
-
-        String request = "DELETE FROM invitation WHERE id_requete='" + x.getId_requete() + "'";
+        PreparedStatement stm = null;
+        
+        String req = "DELETE FROM invitation WHERE id_expediteur =? AND id_destinataire AND id_requete =? ";
+               
         try {
-            stm = cnx.createStatement();
+            stm = cnx.prepareStatement(req);
+            
+            stm.setString(1, x.getExpediteur().getId());
+            stm.setString(2, x.getDestinataire().getId());
+            stm.setString(3, x.getEquipe().getNomEquipe());
 
-            int n = stm.executeUpdate(request);
+            int n = stm.executeUpdate();
 
             if (n > 0) {
                 stm.close();
                 return true;
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
             if (stm != null) {
                 try {
@@ -117,13 +123,14 @@ public class InvitationDAO extends DAO<Invitation> {
     }
 
     public List<Invitation> findAllById(String id) {
-        List<Invitation> liste = new LinkedList<Invitation>();
+        List<Invitation> liste = new LinkedList<>();
 
         System.out.println("je suis dans invitdao avant request");
 
-        String request = "SELECT * FROM invitation INNER JOIN membre "
-                + "ON invitation.id_expediteur = membre.id"
-                + " INNER JOIN equipe ON invitation.id_requete = equipe.nom_equipe "
+        String request = "SELECT * FROM invitation INNER JOIN membre EXP "
+                + " ON invitation.id_expediteur = EXP.id"
+                + " INNER JOIN equipe ON invitation.id_requete = equipe.nom_equipe"
+                + " INNER JOIN membre DEST ON invitation.id_destinataire = DEST.id  "
                 + " WHERE invitation.id_destinataire = ? ";
 
         try {
@@ -135,34 +142,41 @@ public class InvitationDAO extends DAO<Invitation> {
 
             while (res.next()) {
                 System.out.println("000000000000000000000");
-                System.out.println("res = " + res.next());
+                //System.out.println("res = " + res.next());
                 Equipe equipe = new Equipe();
-                Invitation inv = new Invitation();
-                Membre expediteur = new Membre();
+                Membre exp = new Membre();
+                Membre dest = new Membre();
 
+                Invitation inv = new Invitation();
                 equipe.setNomEquipe(res.getString("equipe.nom_equipe"));
 
-                MembreDAO mdao = new MembreDAO();
-                expediteur = mdao.findById(res.getString("equipe.id_capitaine"));
+                exp.setId(res.getString("EXP.id"));
+                exp.setNom(res.getString("EXP.nom"));
+                exp.setPrenom(res.getString("EXP.prenom"));
+                exp.setPseudo(res.getString("EXP.pseudo"));
+                
+                dest.setId(res.getString("DEST.id"));
+                dest.setNom(res.getString("DEST.nom"));
+                dest.setPrenom(res.getString("DEST.prenom"));
+                dest.setPseudo(res.getString("DEST.pseudo"));
+                              
+                equipe.setNomEquipe(res.getString("EQUIPE.nom_equipe"));
+                equipe.setCapitaine(exp);
 
-                System.out.println("expediteur invit " + expediteur.getNom());
-
-                EquipesDAO edao = new EquipesDAO();
-                equipe = edao.findById(res.getString("id_requete"));
-
+                System.out.println("expediteur invit " + exp.getNom());
                 System.out.println("nom equipe invit = " + equipe.getNomEquipe());
 
-                inv.setId_expediteur(expediteur.getId());
-                inv.setId_requete(equipe.getNomEquipe());
-                inv.setId_destinataire(id);
+                inv.setExpediteur(exp);
+                inv.setEquipe(equipe);
+                inv.setDestinataire(dest);
 
-                System.out.println("invitation = " + inv.getId_requete());
-
+                System.out.println("invitation = " + inv.getEquipe().getNomEquipe());
                 liste.add(inv);
                 System.out.println("000000000000000000000");
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
         if (liste.size() > 0) {
             System.out.println("Tout est la");
@@ -171,5 +185,4 @@ public class InvitationDAO extends DAO<Invitation> {
         }
         return liste;
     }
-
 }

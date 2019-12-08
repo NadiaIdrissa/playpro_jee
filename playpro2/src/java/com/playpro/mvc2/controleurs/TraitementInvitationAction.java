@@ -23,7 +23,7 @@ public class TraitementInvitationAction extends AbstractAction{
         
         Membre mSession =  (Membre)request.getSession().getAttribute("membre");
         if ((mSession == null)) {
-            String message = "Votre session a expiré, veuillez vous réauthentifier";
+            String message = "Votre session a expirée, veuillez vous réauthentifier";
             String laClasse = "danger";
             request.setAttribute("message", message);
             request.setAttribute("laClasse", laClasse);
@@ -38,7 +38,7 @@ public class TraitementInvitationAction extends AbstractAction{
         System.out.println("affichage des id membre");
         
         for(int j=0;j<invit.size();j++){
-            System.out.println(invit.get(j).getId_expediteur());
+//            System.out.println(invit.get(j).getId_expediteur());
         }
         
         
@@ -49,11 +49,11 @@ public class TraitementInvitationAction extends AbstractAction{
         for (int i=0;i<invit.size();i++){
             Membre mem = new Membre();
             MembreDAO mdao = new MembreDAO();
-            mem=mdao.findById(invit.get(i).getId_expediteur());
+//            mem=mdao.findById(invit.get(i).getId_expediteur());
             
             System.out.println("mem"+(i+1)+"== "+mem);
             
-            invit.get(i).setId_expediteur(mem.getNom());
+//            invit.get(i).setId_expediteur(mem.getNom());
             nouvelList.add(invit.get(i));
         }
         

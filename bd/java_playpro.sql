@@ -64,7 +64,7 @@ INSERT INTO `annonce` (`id_annonce`, `id_createur`, `nombreMax`, `id_lieu`, `dat
 --
 
 CREATE TABLE `equipe` (
-  `nom_equipe` varchar(100) NOT NULL,
+  `nom_equipe` varchar(36) NOT NULL,
   `id_capitaine` char(36) NOT NULL,
   `id_sport` char(36) NOT NULL,
   `nb_parties_jouees` int(11) NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE `equipe` (
 CREATE TABLE `invitation` (
   `id_expediteur` char(36) NOT NULL,
   `id_destinataire` char(36) NOT NULL,
-  `id_requete` varchar(1000) NOT NULL,
+  `id_requete` varchar(36) NOT NULL,
   `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -194,7 +194,7 @@ INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `c
 
 CREATE TABLE `participationequipe` (
   `id_joueur` char(36) NOT NULL,
-  `nom_equipe` varchar(100) NOT NULL,
+  `nom_equipe` varchar(36) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -205,7 +205,7 @@ CREATE TABLE `participationequipe` (
 --
 
 CREATE TABLE `participationpartie` (
-  `nom_equipe` varchar(100) NOT NULL,
+  `nom_equipe` varchar(36) NOT NULL,
   `id_partie` char(36) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -275,7 +275,7 @@ ALTER TABLE `equipe`
 -- Index pour la table `invitation`
 --
 ALTER TABLE `invitation`
-  ADD PRIMARY KEY (`id_expediteur`,`id_destinataire`);
+  ADD PRIMARY KEY (`id_expediteur`,`id_destinataire`,`id_requete`);
 
 --
 -- Index pour la table `lieu`
