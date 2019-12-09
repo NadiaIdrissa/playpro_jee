@@ -18,6 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,6 +28,14 @@ public class MembresAction extends AbstractAction {
 
     @Override
     public String execute() {
+        Membre mSession =  (Membre)request.getSession().getAttribute("membre");
+        if ((mSession == null)) {
+            String message = "Votre session a expirée, veuillez vous réauthentifier";
+            String laClasse = "danger";
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
+            return "login";
+        }
         String pseudo = request.getParameter("pseudo");
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
@@ -41,7 +50,7 @@ public class MembresAction extends AbstractAction {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         String message = null;
-        
+
         List<Membre> liste = new LinkedList<Membre>();
 
         if (nom == null || prenom == null || email == null || mdp == null) {
@@ -78,7 +87,7 @@ public class MembresAction extends AbstractAction {
 
         }
         liste = MembreServices.tousLesMembre();
-        
+
         request.setAttribute("listeMembres", liste);
         request.getSession().setAttribute("viewConf", "membres");
         return "portail";

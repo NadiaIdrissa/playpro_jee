@@ -39,54 +39,51 @@ public class LoginAction extends AbstractAction {
             membre = MembreServices.seConnecter(email, mdp);
             if (membre == null) {
                 System.out.println("Infos inexistantes");
-                request.setAttribute("authentification", "email invalide");
+                request.setAttribute("message", "email invalide");
+                request.setAttribute("laClasse", "danger");
                 return "login";
 
             } else {
                 if (membre.getMpd().equals(mdp)) {
-                    request.setAttribute("authentification", "mot de passe invalide");
+                    request.setAttribute("message", "mot de passe invalide");
+                    request.setAttribute("laClasse", "danger");
                     return "login";
                 } else {
-                    if (membre.getStatus().equals("NotActif")){
+                    if (membre.getStatus().equals("NotActif")) {
                         dao.UpdateStatus(membre);
                     }
-                    
+
                     List<String> listeq = new LinkedList<String>();
-                    
+
                     SportDAO sports = new SportDAO();
                     List<Sport> s = new LinkedList<Sport>();
-                    s=sports.findAll();
-                    
-                    
-                    
+                    s = sports.findAll();
+
                     System.out.println("liste de sport existante");
-                    for(int j=0; j<s.size();j++){
-                        System.out.println(j+s.get(j).getNom());
+                    for (int j = 0; j < s.size(); j++) {
+                        System.out.println(j + s.get(j).getNom());
                         listeq.add(s.get(j).getNom());
                     }
-                    
+
                     request.getSession().setAttribute("sportString", listeq);
-                    
-                    
-                    
+
                     request.getSession(true);
                     request.getSession().setAttribute("connected", true);
                     request.getSession().setAttribute("membre", membre);
                     request.getSession().setAttribute("nomMembre", membre.getNom());
-                    
-                    
+
                     List<Invitation> listeInvitations;
                     listeInvitations = InvitationServices.lesinvitationspour(membre);
-                    
+
                     System.out.println("nombre invitations = " + listeInvitations.size());
-                    
+
                     request.getSession().setAttribute("NbInvitations", listeInvitations.size());
                     request.getSession().setAttribute("listeInvitations", listeInvitations);
 
                 }
             }
         }
-        request.getSession().setAttribute("viewConf","");
+        request.getSession().setAttribute("viewConf", "");
         return "portail";
     }
 

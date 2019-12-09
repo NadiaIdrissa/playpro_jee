@@ -80,7 +80,7 @@ public class EquipeTest {
         System.out.println("id_capitaine");
         Equipe instance = new Equipe();
         String expResult = "1234";
-        String result = instance.id_capitaine();
+        String result = instance.getCapitaine().getId();
         assertEquals(expResult, result);
         if (expResult.equals(result)) {
             System.out.println("<-  Réussi ->");
@@ -144,7 +144,7 @@ public class EquipeTest {
     @Test
     public void testSetNbPartiesJouees() {
         System.out.println("setNbPartiesJouees");
-        String nbPartiesJouees = "0";
+        int nbPartiesJouees = 0;
         Equipe instance = new Equipe();
         int expResult = instance.getNbPartiesJouees();
         instance.setNbPartiesJouees(nbPartiesJouees);
@@ -163,7 +163,7 @@ public class EquipeTest {
     public void testGetNbJoueurs() {
         System.out.println("getNbJoueurs");
         Equipe instance = new Equipe();
-        int expResult = 15;
+        int expResult = 0;
         int result = instance.getNbJoueurs();
         assertEquals(expResult, result);
         if (expResult == result) {
@@ -204,7 +204,7 @@ public class EquipeTest {
     @Test
     public void testSetNbMaxJoueurs() {
         System.out.println("setNbMaxJoueurs");
-        String nbMaxJoueurs = "25";
+        int nbMaxJoueurs = 0;
         int result = 25;
         Equipe instance = new Equipe();
         instance.setNbMaxJoueurs(nbMaxJoueurs);

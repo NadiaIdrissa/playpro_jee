@@ -8,13 +8,13 @@
 
 <div class="equipeStyle row">
     <div class="col-sm-10 col-md-10 col-lg-10">
-        <h1>Liste des lieux offerts</h1>
+        <!--<h1>Liste des lieux offerts</h1>-->
     </div>
     <%
         if (m.getTypeMembre().equals("Admin")) {
     %>
     <div class="colBtn col-sm-2 col-md-2 col-lg-2">
-        <button id="myBtn" type="button" >Ajouter</button>
+        <button id="myBtn" type="button" >+</button>
     </div>
     <%}%>     
 </div>
@@ -37,10 +37,10 @@
                                     <!--<img src="static/images/img1.jpg" >-->
                                 </div>
                                 <div class="carousel-item carousel-item-lieu">
-                                    <img src="static/images/park2.jpg" class="d-block w-100" alt="Responsive image">
+                                    <img src="static/images/lieux/<c:out value="${unlieu.image2}"/> " class="d-block w-100" alt="Responsive image" />
                                 </div>
                                 <div class="carousel-item carousel-item-lieu">
-                                    <img src="static/images/park3.jpg" class="d-block w-100" alt="Responsive image">
+                                    <img src="static/images/lieux/<c:out value="${unlieu.image3}"/> " class="d-block w-100" alt="Responsive image" />
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -105,7 +105,7 @@
             <form class="needs-validation" action="?action=lieux" method="post" name="action" value="lieux" novalidate>
                 <div class="modal-footer d-flex justify-content-center">
                     <input name ='idLieuSupprimer' id='idLieuSupprimer' type='hidden' value='' />
-                    <button class="btn btn-light float-left " data-dismiss="modal">Annuler</button>
+                    <button class="btn btnD float-left " data-dismiss="modal">Annuler</button>
                     <button class="btn btn-primary float-right " type='submit'>Supprimer</button>
                 </div>
             </form>

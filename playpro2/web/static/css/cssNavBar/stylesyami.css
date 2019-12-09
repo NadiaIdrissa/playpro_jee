@@ -78,6 +78,12 @@ header .headerV{
     font-weight: 800;
 }
 
+.btnD:hover {
+    text-decoration: none;
+    background-color: graytext;
+    color: #003A5C;
+}
+
 .navbar-light .navbar-toggler {
     border: none;
     color: #fff;

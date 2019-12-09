@@ -8,13 +8,13 @@
 
 <div class="equipeStyle row">
     <div class="col-sm-10 col-md-10 col-lg-10">
-        <h1>Liste des sports offerts</h1>
+        <!--<h1>Liste des sports offerts</h1>-->
     </div>
     <%
         if (m.getTypeMembre().equals("Admin")) {
     %>
     <div class="colBtn col-sm-2 col-md-2 col-lg-2">
-        <button id="myBtn" type="button" >Ajouter</button>
+        <button id="myBtn" type="button" >+</button>
     </div>
     <%}%>
 </div>
@@ -44,7 +44,7 @@
     </div> 
 </div>
 
-<div class="modal" id="modalSupprimerSport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal equipeStyle" id="modalSupprimerSport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -59,7 +59,7 @@
             <form class="needs-validation" action="?action=sports" method="post" name="action" value="sports" novalidate>
                 <div class="modal-footer d-flex justify-content-center">
                     <input name ='idSportSupprimer' id='idSportSupprimer' type='hidden' value='' />
-                    <button class="btn btn-light float-left " data-dismiss="modal">Annuler</button>
+                    <button class="btn btnD float-left " data-dismiss="modal">Annuler</button>
                     <button class="btn btn-primary float-right " type='submit'>Supprimer</button>
                 </div>
             </form>
@@ -102,12 +102,14 @@
                     </div>
                     <!--<button class="" id="boutton1" type="submit">Créer</button>-->
                 </div>
-                <button type="submit" class="btn btn-primary">Créer</button>
+                <button type="submit" class="btn btnD">Créer</button>
             </form>
         </div>
     </div>
 </div>
-<script src="static/js/sports.js"></script>
+
 <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="static/js/sports.js"></script>

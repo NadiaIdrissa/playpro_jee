@@ -50,7 +50,7 @@
                 <div class="main mainPortail clearfix">
                     <%if (message != null && !message.equals("")) {
                     %>
-                    <div class="alert alert-<%=laClasse%> alert-dismissible fade show" role="alert">
+                    <div class="alert text-center alert-<%=laClasse%> alert-dismissible fade show" role="alert">
                         <strong>Important!</strong> <%=message%>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -58,7 +58,7 @@
                     </div>
                     <%}
                     %>
-                    <input type="button" id="btnAnnonce"  value="AFFICHER LES ANNONCES" />
+
                     <div id="contenu">
                         <%if (viewConf.equals("profilaccueil")) {%>
                         <%@include file="profil.jsp"%>
@@ -75,7 +75,7 @@
                         <%} else if (viewConf.equals("annonces")) {%>
                         <%@include file="annonce.jsp"%>
                         <%} else if (viewConf.equals("membres")) {
-                            %>
+                        %>
                         <%@include file="membres.jsp"%>
 
                         <%} else if (viewConf.equals("invitation")) {
@@ -98,7 +98,78 @@
                 </div>
             </div>
             <%@include file="header4.jsp" %>
-        </div>   
+        </div>  
+        <div class="modal" id="modalTraiterInvitation"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="" role="document">
+                <div class="modal-content col-8">
+                    <div class="">
+                        <div class="p-2 w-90 bg-warning float-right">
+
+                            <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <c:if test = "${NbInvitations>0}">
+                        <div class="d-flex justify-content-center">
+                            <table class="table table-hover m-3">
+
+
+                                <thead>
+                                    <tr >
+                                        <th style="border-bottom: none">Expéd.</th>
+                                        <th style="border-bottom: none">Équipe</th>
+                                        <th class="d-flex justify-content-center" style="border-bottom: none">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <c:forEach items="${listeInvitations}" var="uneInvit">
+                                        <tr>
+
+
+                                            <td>
+                                                <span>
+                                                    <c:out value="${uneInvit.expediteur.pseudo}" />
+
+                                                </span>
+
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    <c:out value="${uneInvit.equipe.nomEquipe}" />
+                                                </span>
+                                            </td>
+                                            <td class="p-1">
+                                                <form  class="" action="?action=reponseInvitation" method="post" name="action" value="" >
+
+                                                    <input name ='idExp' value='${uneInvit.expediteur.id}' type='hidden' />
+                                                    <input name ='nomEquipe' value='${uneInvit.equipe.nomEquipe}' type='hidden' />
+                                                    <input name ='statutInvitation' id="statutInvitation" value='accept' type='hidden' />
+                                                    
+                                                    <div class="d-flex justify-content-center">
+                                                        <button class="btn btn-light btn-sm float-left btn_refus">Refuser</button>
+                                                        <button class="btn btn-success btn-sm float-right " type='submit'>Accepter</button>
+                                                    </div>
+                                                </form>
+                                            </td>
+
+                                        </tr>
+                                    </c:forEach>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </c:if>
+                    <c:if test = "${NbInvitations<1}">
+                        <div class="text-center">Aucune invitation</div>
+                    </c:if>
+                </div>
+            </div>
+        </div>
+
         <script>
             $('#btnAnnonce').click(function (e) {
                 var contenu = document.getElementById("contenu");
@@ -116,7 +187,7 @@
                         console.log("reussi");
                         console.log(response);
                         console.log(statut);
-                        
+
                         $.each(response, function (index, value) {
                             afficherAnnonces(value);
                         });
@@ -133,8 +204,7 @@
         <script src="static/js/menu.js"></script>
         <script src="static/js/validation.js" ></script>
         <script src="static/js/gestion.js" ></script>
-        
-        <!--        <script src="static/js/sports.js"></script>
-                <script src="static/js/lieux.js"></script>-->
+        <script src="static/js/invitation.js" ></script>
+
     </body>
 </html>

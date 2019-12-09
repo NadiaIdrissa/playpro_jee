@@ -16,18 +16,17 @@ import java.util.List;
  * @author younes-dilali
  */
 public class InvitationServices {
-    private static InvitationDAO dao;
+    private static InvitationDAO dao = new InvitationDAO();
+    
     public static boolean creerInvitation(Invitation i){
-        
-        dao = new InvitationDAO();
         return  dao.create(i);
     }
     
     public static List<Invitation> lesinvitationspour(Membre u) {
-        dao = new InvitationDAO();
-        List<Invitation> liste = new LinkedList<Invitation>();
-        liste = dao.findAllById(u.getId());
-
-        return liste;
+        return dao.findAllById(u.getId());
+    }
+    
+    public static boolean supprimer(Invitation i){
+        return dao.delete(i);
     }
 }

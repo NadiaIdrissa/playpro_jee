@@ -64,9 +64,9 @@ INSERT INTO `annonce` (`id_annonce`, `id_createur`, `nombreMax`, `id_lieu`, `dat
 --
 
 CREATE TABLE `equipe` (
-  `nom_equipe` varchar(100) NOT NULL,
+  `nom_equipe` varchar(36) NOT NULL,
   `id_capitaine` char(36) NOT NULL,
-  `nom_sport` varchar(30) NOT NULL,
+  `id_sport` char(36) NOT NULL,
   `nb_parties_jouees` int(11) NOT NULL,
   `nb_joueurs` int(11) NOT NULL,
   `nb_max_joueurs` int(11) NOT NULL,
@@ -78,14 +78,6 @@ CREATE TABLE `equipe` (
 -- Déchargement des données de la table `equipe`
 --
 
-INSERT INTO `equipe` (`nom_equipe`, `id_capitaine`, `nom_sport`, `nb_parties_jouees`, `nb_joueurs`, `nb_max_joueurs`, `date_creation`, `image`) VALUES
-('Eagles', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Soccer', 0, 5, 30, '2019-11-25 15:28:22', 'eagles.jpg'),
-('Killers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Soccer', 0, 4, 30, '2019-11-26 01:16:04', 'killers.jpg'),
-('Sirens', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Water polo', 0, 3, 30, '2019-11-26 14:17:07', 'sirens.jpg'),
-('Spirits', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Football', 0, 6, 30, '2019-11-26 14:53:42', 'spirit.jpg'),
-('Tigers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Football', 0, 3, 30, '2019-11-26 01:26:55', 'tigers.jpg'),
-('Wizards', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Basketball', 0, 4, 30, '2019-11-26 01:25:40', 'wizards2.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -95,7 +87,7 @@ INSERT INTO `equipe` (`nom_equipe`, `id_capitaine`, `nom_sport`, `nb_parties_jou
 CREATE TABLE `invitation` (
   `id_expediteur` char(36) NOT NULL,
   `id_destinataire` char(36) NOT NULL,
-  `id_requete` varchar(1000) NOT NULL,
+  `id_requete` varchar(36) NOT NULL,
   `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -177,7 +169,6 @@ CREATE TABLE `membre` (
   `niveau` varchar(30) DEFAULT NULL,
   `sport` varchar(30) DEFAULT NULL,
   `mdp` varchar(255) DEFAULT NULL,
-  `equipe` varchar(100) DEFAULT NULL,
   `photo` varchar(55) DEFAULT NULL,
   `statut` varchar(10) DEFAULT 'Actif'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -186,14 +177,14 @@ CREATE TABLE `membre` (
 -- Déchargement des données de la table `membre`
 --
 
-INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `courriel`, `date_inscription`, `type_membre`, `niveau`, `sport`, `mdp`, `equipe`, `photo`, `statut`) VALUES
-('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'vivi', 'Femme', 'Champagne', 'Vivianne', 1975, 'vivi@al.ca', '2019-10-24 02:16:43', 'Admin', 'PROFESSIONNEL', 'Basketball', '1000:a94d672c3840a1bbc37cde84d0a8b77bb181453ec7772a3f:e81e26e647b1d27127e19b843709d313900c9e8cd7d39d3c', NULL, 'vivi.png', 'Actif'),
-('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'jack', 'Homme', 'Henri', 'Jacques', 1968, 'jack@al.ca', '2019-10-24 02:10:20', 'Entraineur', 'PROFESSIONNEL', 'Soccer', '1000:2b26ce3cac8e6f8be3f2060ea85f00b91828b3110a52a197:3d180a72d4d9b41ce3bbfd08d960f4688561b53d065090e7', NULL, 'jack.png', 'Actif'),
-('940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'Tom', 'Homme', 'Rogers', 'Thomas', 1995, 'tom@al.ca', '2019-10-24 02:01:36', 'Joueur', 'INTERMEDIAIRE', '', '1000:891fbed7bcb15322b590f3942c1153880080f91f6cb3908c:a75aac427ef2483815461479f2418e517c5bb47393b914c9', NULL, 'tom.png', 'Actif'),
-('a407418a-7683-4abc-8193-f083d86ae9f6', 'sar', 'Femme', 'Manning', 'Sarah', 1990, 'sar@al.ca', '2019-10-24 02:03:55', 'Entraineur', 'PROFESSIONNEL', 'Volley Ball', '1000:ea9f47d68e53c54912b4f275742419af166d24acef58182a:f1abe74a17599a97fab092f8352f97fb28e8d0d9a58eabac', NULL, 'sar.png', 'Actif'),
-('adbbc2a0-3ec9-4baa-97e7-6b3b0b301aee', 'bob', 'Homme', 'Malik', 'Robert', 1983, 'rob@al.ca', '2019-10-24 02:07:13', 'Joueur', 'DEBUTANT', 'Rugby', '1000:062bd4d1165b7222de29caec7ef631a78faaa5ffb4910a93:3f01bff75c12ef30ed2cd771813907b48cb230448862b54c', NULL, 'bob.png', 'Actif'),
-('ebe2e2ec-0b79-4108-be69-f54b6654be50', 'bill', 'Homme', 'Billion', 'James', 1984, 'bill@al.ca', '2019-10-24 02:02:45', 'Entraineur', 'PROFESSIONNEL', 'Hockey', '1000:af18c2facefef686d732c45d562a8f050a19971bf6a06260:475b8017d892615e4b990a9ad0b3fc719a7b6935fb588d5d', NULL, 'man.jpg', 'Actif'),
-('fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 'lili', 'Femme', 'Graham', 'Lilianne', 1975, 'lili@al.ca', '2019-10-24 02:04:33', 'Joueur', 'PROFESSIONNEL', '', '1000:c8a26d54c05a9b9bba9fa14f3e5ff283dfd37f02bd2bc267:d604d30fda2f510ba1f0cce7e4291f1a9bd036fe2c72b29d', NULL, 'lili.png', 'Actif');
+INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `courriel`, `date_inscription`, `type_membre`, `niveau`, `sport`, `mdp`,  `photo`, `statut`) VALUES
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Vivi', 'Femme', 'Champagne', 'Vivianne', 1975, 'vivi@al.ca', '2019-10-24 02:16:43', 'Admin', 'PROFESSIONNEL', 'Basketball', '1000:a94d672c3840a1bbc37cde84d0a8b77bb181453ec7772a3f:e81e26e647b1d27127e19b843709d313900c9e8cd7d39d3c', 'vivi.png', 'Actif'),
+('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'Jack', 'Homme', 'Henri', 'Jacques', 1968, 'jack@al.ca', '2019-10-24 02:10:20', 'Entraineur', 'PROFESSIONNEL', 'Soccer', '1000:2b26ce3cac8e6f8be3f2060ea85f00b91828b3110a52a197:3d180a72d4d9b41ce3bbfd08d960f4688561b53d065090e7', 'jack.png', 'Actif'),
+('940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'Tom', 'Homme', 'Rogers', 'Thomas', 1995, 'tom@al.ca', '2019-10-24 02:01:36', 'Joueur', 'INTERMEDIAIRE', '', '1000:891fbed7bcb15322b590f3942c1153880080f91f6cb3908c:a75aac427ef2483815461479f2418e517c5bb47393b914c9', 'tom.png', 'Actif'),
+('a407418a-7683-4abc-8193-f083d86ae9f6', 'Sar', 'Femme', 'Manning', 'Sarah', 1990, 'sar@al.ca', '2019-10-24 02:03:55', 'Entraineur', 'PROFESSIONNEL', 'Volley Ball', '1000:ea9f47d68e53c54912b4f275742419af166d24acef58182a:f1abe74a17599a97fab092f8352f97fb28e8d0d9a58eabac', 'sar.png', 'Actif'),
+('adbbc2a0-3ec9-4baa-97e7-6b3b0b301aee', 'Bob', 'Homme', 'Malik', 'Robert', 1983, 'rob@al.ca', '2019-10-24 02:07:13', 'Joueur', 'DEBUTANT', 'Rugby', '1000:062bd4d1165b7222de29caec7ef631a78faaa5ffb4910a93:3f01bff75c12ef30ed2cd771813907b48cb230448862b54c', 'bob.png', 'Actif'),
+('ebe2e2ec-0b79-4108-be69-f54b6654be50', 'Bill', 'Homme', 'Billion', 'James', 1984, 'bill@al.ca', '2019-10-24 02:02:45', 'Entraineur', 'PROFESSIONNEL', 'Hockey', '1000:af18c2facefef686d732c45d562a8f050a19971bf6a06260:475b8017d892615e4b990a9ad0b3fc719a7b6935fb588d5d', 'man.jpg', 'Actif'),
+('fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 'Lili', 'Femme', 'Graham', 'Lilianne', 1975, 'lili@al.ca', '2019-10-24 02:04:33', 'Joueur', 'PROFESSIONNEL', '', '1000:c8a26d54c05a9b9bba9fa14f3e5ff283dfd37f02bd2bc267:d604d30fda2f510ba1f0cce7e4291f1a9bd036fe2c72b29d', 'lili.png', 'Actif');
 
 -- --------------------------------------------------------
 
@@ -203,7 +194,7 @@ INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `c
 
 CREATE TABLE `participationequipe` (
   `id_joueur` char(36) NOT NULL,
-  `id_equipe` varchar(100) NOT NULL,
+  `nom_equipe` varchar(36) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -214,8 +205,8 @@ CREATE TABLE `participationequipe` (
 --
 
 CREATE TABLE `participationpartie` (
-  `id_equipe` varchar(100) NOT NULL,
-  `id_partie` varchar(100) NOT NULL,
+  `nom_equipe` varchar(36) NOT NULL,
+  `id_partie` char(36) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -278,13 +269,13 @@ ALTER TABLE `annonce`
 ALTER TABLE `equipe`
   ADD PRIMARY KEY (`nom_equipe`),
   ADD KEY `Capitaine_FK_membre` (`id_capitaine`) USING BTREE,
-  ADD KEY `Nom_sport_FK_sport` (`nom_sport`) USING BTREE;
+  ADD KEY `id_sport_FK_sport` (`id_sport`) USING BTREE;
 
 --
 -- Index pour la table `invitation`
 --
 ALTER TABLE `invitation`
-  ADD PRIMARY KEY (`id_expediteur`,`id_destinataire`);
+  ADD PRIMARY KEY (`id_expediteur`,`id_destinataire`,`id_requete`);
 
 --
 -- Index pour la table `lieu`
@@ -306,20 +297,19 @@ ALTER TABLE `lieusport`
 --
 ALTER TABLE `membre`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `pseudo` (`pseudo`),
-  ADD KEY `Membre_FK_nom_equipe` (`equipe`);
+  ADD UNIQUE KEY `pseudo` (`pseudo`);
 
 --
 -- Index pour la table `participationequipe`
 --
 ALTER TABLE `participationequipe`
-  ADD PRIMARY KEY (`id_joueur`,`id_equipe`);
+  ADD PRIMARY KEY (`id_joueur`,`nom_equipe`);
 
 --
 -- Index pour la table `participationpartie`
 --
 ALTER TABLE `participationpartie`
-  ADD PRIMARY KEY (`id_equipe`,`id_partie`);
+  ADD PRIMARY KEY (`nom_equipe`,`id_partie`);
 
 --
 -- Index pour la table `partie`
@@ -353,12 +343,6 @@ ALTER TABLE `annonce`
 ALTER TABLE `lieusport`
   ADD CONSTRAINT `Lieu_FK_codepostale` FOREIGN KEY (`id_lieu`) REFERENCES `lieu` (`id_lieu`),
   ADD CONSTRAINT `Sport_FK_sport` FOREIGN KEY (`id_sport`) REFERENCES `sport` (`id_sport`);
-
---
--- Contraintes pour la table `membre`
---
-ALTER TABLE `membre`
-  ADD CONSTRAINT `Membre_FK_nom_equipe` FOREIGN KEY (`equipe`) REFERENCES `equipe` (`nom_equipe`);
 
 --
 -- Contraintes pour la table `partie`

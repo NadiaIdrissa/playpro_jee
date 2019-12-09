@@ -12,27 +12,21 @@
 <!DOCTYPE html>
 <html>
     <div class="contentProfil">
-        <%--        <img id='imagejoueur' src="static/images/head01.png" class="rounded" alt="imgprofil">
 
-    </div>
-<!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-        </div>--%>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <form  id="fprofil" action="?action=profil" method="post" name="action" value="profil" enctype="multipart/form-data">
             <div class="modal-header">
-                <div class="text-center col-sm-6 col-md-6 col-lg-6">
+                <div class="photoProf text-center col-sm-6 col-md-6 col-lg-6">
                     <img id='imagejoueur' src="static/images/profils/<c:out value="${membre.photo}"/> " class="rounded" alt="imgprofil">
                     <input id="imageMembre" type="hidden" class="form-control" name="imageMembre" />
                 </div>
                 <div class="text-center col-sm-6 col-md-6 col-lg-6 nomProfil">
-                    <a class="affichageNom navbar-header">Profil de <%=m.getPrenom()%></a>
+                    <a class="affichageNom navbar-header">Profil de ${membre.pseudo}</a>
                 </div>
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <!--                <form  id="fprofil" action="" method="post" name="action" value="profil">-->
-                    <!--<input type="hidden" name="action" value="profil" method="post"/>-->
+                   
 
                     <div class="form-group formProfil">
                         <div class="row">
@@ -43,7 +37,7 @@
                                 <div class="form-row">
                                     <div class="col-md-12 mb-12">
                                         <label for="pseudoR">Pseudo</label>
-                                        <input type="text" name='pseudoR' class="form-control" id="pse1" value="${sessionScope.membre.pseudo}"  disabled required>
+                                        <input type="text" name='pseudoR' class="form-control" id="pse1" value="${membre.pseudo}"  disabled required>
                                         <div class="invalid-feedback">
                                             Champ requis.
                                         </div>
@@ -51,37 +45,37 @@
 
                                     <div class="col-md-12 mb-12">
                                         <label for="nomR">Nom</label>
-                                        <input type="text" name='nomR' class="form-control" id="nom2" value="${sessionScope.membre.nom}"  disabled required>
+                                        <input type="text" name='nomR' class="form-control" id="nom2" value="${membre.nom}"  disabled required>
                                         <div class="invalid-feedback">
                                             Champ requis.
                                         </div>
                                     </div>
                                     <div class="col-md-12 mb-12">
                                         <label for="prenomR">Prénom</label>
-                                        <input type="text" name='prenomR' class="form-control" id="pre3" value="${sessionScope.membre.prenom}"  disabled required>
+                                        <input type="text" name='prenomR' class="form-control" id="pre3" value="${membre.prenom}"  disabled required>
                                         <div class="invalid-feedback">
                                             Champ requis.
                                         </div>
                                     </div>
                                     <div class="col-md-12 mb-12">
                                         <label for="inputLevel">Année de naissance</label>
-                                        <input type="text" name='anneeR' class="form-control" id="ann4" value="${sessionScope.membre.anneeNaissance}"  disabled required>
+                                        <input type="text" name='anneeR' class="form-control" id="ann4" value="${membre.anneeNaissance}"  disabled required>
                                         <div class="invalid-feedback">
                                             Champ requis.
                                         </div>
                                     </div>
                                     <div id='prenom' class="col-md-12 mb-12">
                                         <!--<div  class="form-group">-->
-                                            <label for="inputLevel">Sexe</label>
-                                            <select class="form-control" name="sexeR" id="sex5"  disabled required>
-                                                <option value='' >${sessionScope.membre.sexe}</option>
+                                        <label for="inputLevel">Sexe</label>
+                                        <select class="form-control" name="sexeR" id="sex5"  disabled required>
+                                            <option value='' >${membre.sexe}</option>
 
-                                                <%for (Sexe s : Sexe.values()) {%>
+                                            <%for (Sexe s : Sexe.values()) {%>
 
-                                                <option value='<%=s.toString()%>'><%=s.toString()%></option>
+                                            <option value='<%=s.toString()%>'><%=s.toString()%></option>
 
-                                                <%}%>
-                                            </select>
+                                            <%}%>
+                                        </select>
                                         <!--</div>-->   
                                         <div class="valid-feedback">
                                             Looks good!
@@ -90,7 +84,7 @@
 
                                     <div class="col-md-12 mb-12">
                                         <label for="inputLevel">Courriel</label>
-                                        <input type="email" name='emailR' class="form-control" id="ema6" value="${sessionScope.membre.courriel}"  disabled  required>
+                                        <input type="email" name='emailR' class="form-control" id="ema6" value="${membre.courriel}"  disabled  required>
                                         <div class="invalid-feedback">
                                             Entrez un courriel valide.
                                         </div>
@@ -102,19 +96,19 @@
                                 <div class="form-row">
                                     <div id='niveaug' class="col-md-12 mb-12">
                                         <!--<div  class="form-group">-->
-                                            <label for="tMembreR">Type de membre</label>
-                                            <select class="form-control" name="tMembreR" id="mem7" disabled required>
+                                        <label for="tMembreR">Type de membre</label>
+                                        <select class="form-control" name="tMembreR" id="mem7" disabled required>
 
-                                                <option selected="selected">${sessionScope.membre.typeMembre}</option>
+                                            <option selected="selected">${membre.typeMembre}</option>
 
-                                                <option value='Joueur'>Joueur</option>
-                                            </select>
+                                            <option value='Joueur'>Joueur</option>
+                                        </select>
                                         <!--</div>-->
                                     </div>
 
                                     <div class="col-md-12 mb-12">
                                         <label for="pseudoR">Sport</label>
-                                        <input type="text" name='sportR' class="form-control" id="spo8" value="${sessionScope.membre.sport}"   disabled required>
+                                        <input type="text" name='sportR' class="form-control" id="spo8" value="${membre.sport}"   disabled required>
                                         <div class="invalid-feedback">
                                             Champ requis.
                                         </div>
@@ -122,16 +116,16 @@
 
                                     <div id='niveaug' class="col-md-12 mb-12">
                                         <!--<div  class="form-group">-->
-                                            <label for="inputLevel">Niveau</label>
-                                            <select class="form-control" name="niveauR" id="niv9"  disabled required>
-                                                <option value='' >${sessionScope.membre.niveau}</option>
+                                        <label for="inputLevel">Niveau</label>
+                                        <select class="form-control" name="niveauR" id="niv9"  disabled required>
+                                            <option value='' >${membre.niveau}</option>
 
-                                                <%for (Niveau n : Niveau.values()) {%>
+                                            <%for (Niveau n : Niveau.values()) {%>
 
-                                                <option value='<%=n.toString()%>'><%=n.toString()%></option>
+                                            <option value='<%=n.toString()%>'><%=n.toString()%></option>
 
-                                                <%}%>
-                                            </select>
+                                            <%}%>
+                                        </select>
                                         <!--</div>-->
                                     </div>
 
@@ -158,16 +152,21 @@
                                         </div>
                                     </div>
                                 </div>
+                                <c:if test="${requestScope.membre.id == sessionScope.membre.id or sessionScope.membre.typeMembre =='Admin'}">                                  
+                                    <div class="modal-footer">
+                                        <button class="btn btn-primary btn-sm" id="bb" onclick="enableSummit()" type="button">Modifier</button>
+                                    </div>
+                                </c:if>
 
-                                <div class="modal-footer">
-                                    <button class="btn btn-primary btn-sm" id="bb" onclick="enableSummit()" type="button">Modifier</button>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="divbtnSuppr">                       
-                        <a class="btn btn-danger btnSuppr" href="?action=portail&sousAction=loadSupp" role="button">Fermer le compte</a>
-                    </div>
+                    <c:if test="${requestScope.membre.id == sessionScope.membre.id or sessionScope.membre.typeMembre =='Admin'}">  
+                    
+                        <div class="divbtnSuppr">                       
+                            <a class="btn btn-danger btnSuppr" href="?action=portail&sousAction=loadSupp" role="button">Fermer le compte</a>
+                        </div>
+                    </c:if>
                 </div>    
             </div>
         </form>

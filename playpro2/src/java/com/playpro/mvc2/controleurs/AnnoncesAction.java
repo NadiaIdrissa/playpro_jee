@@ -22,9 +22,21 @@ import java.util.logging.Logger;
  * @author toute
  */
 public class AnnoncesAction extends AbstractAction implements AjaxAction{
+    
+    
 
     @Override
     public String execute() {
+        Membre mSession =  (Membre)request.getSession().getAttribute("membre");
+        if ((mSession == null)) {
+            String message = "Votre session a expirée, veuillez vous réauthentifier";
+            String laClasse = "danger";
+            request.setAttribute("message", message);
+            request.setAttribute("laClasse", laClasse);
+            return "login";
+        }
+        
+        
         String titre = (String) request.getParameter("titre");
         String message = (String) request.getParameter("message");
         String gratuit[] = request.getParameterValues("gratuit");
