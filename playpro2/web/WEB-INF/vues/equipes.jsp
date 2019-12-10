@@ -21,27 +21,42 @@
 
 <div class="equipeStyle">
     <div class="card-columns">
-        
-        
-        
-        
-       
-        
+
+
+
+
+
+
         <c:forEach items="${requestScope.listeEquipe}" var="uneEquipe"> 
-            
-            
-            
-            
-            
+
+
+
+
+
             <form class="form-signin needs-validation " action="?action=invitation" method="post" name="action" novalidate>
                 <div class="card">
                     <div class="card-body text-center">
                         <img class="avatar rounded-circle" src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
 
-                        <p class='card-text'>Nom de l'équipe: <c:out value="${uneEquipe.nomEquipe}" /></p>
+
+                        <ul class="list-group font-weight-bold">
+                            <li class="list-group-item">Équipe &#10132; <c:out value="${uneEquipe.nomEquipe}" /> </li>
+                            <input name="nomEquipeChoisi" type="hidden" value="<c:out value="${uneEquipe.nomEquipe}" />">
+                            <li class="list-group-item">Sport &#10132; <c:out value="${uneEquipe.sport.nom}" /></li>
+                            <li class="list-group-item">Effectif &#10132; <c:out value="${uneEquipe.nbJoueurs}" /></li>
+                            
+                        </ul>
+
+
+<!--                        <p class='card-text'>Nom de l'équipe: <c:out value="${uneEquipe.nomEquipe}" /></p>
                         <input name="nomEquipeChoisi" type="hidden" value="<c:out value="${uneEquipe.nomEquipe}" />">
                         <p class='card-text'>Sport de l'équipe: <c:out value="${uneEquipe.sport.nom}" /></p>
-                        <p class="card-text">Nombre de places: <c:out value="${uneEquipe.nbJoueurs}" /></p>
+                        <p class="card-text">Nombre de places: <c:out value="${uneEquipe.nbJoueurs}" /></p>-->
+
+
+
+
+
                         <p>
                             <c:set var="nb" value="${uneEquipe.nbJoueurs}"/>
                             <c:set var="nbOqp" value="${sessionScope.placeOqp}"/>
@@ -49,12 +64,12 @@
                             <c:set var="capitaine" value="${uneEquipe.capitaine.id}"/>
                         </p>
                         <c:if test = "${uneEquipe.capitaine.id == sessionScope.membre.id}">
-                            
-                            
-                            
-                            
-                           
-                            
+
+
+
+
+
+
                             <button class="btn btn-primary" style="color: #003A5C;" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
                                 Inviter un joueur
                             </button>
@@ -73,13 +88,13 @@
                                 </div>
                             </div> 
                         </c:if>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
+
+
                         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
                             Afficher les membres
                         </button>
@@ -87,15 +102,35 @@
                         <div class="collapse" id="<c:out value="${uneEquipe.nomEquipe}" />">  
                             <div class="card card-body">
 
-                                <c:forEach items="${uneEquipe.membresEquipe}" var="joueur"> 
-                                    <a href="?action=profil&idMembreAfficher=${joueur.id}" title="Voir le profil de ${joueur.pseudo}"> ${joueur.pseudo}<c:if test = "${uneEquipe.capitaine.id == joueur.id}"> <c:out value=": Capitaine" /> </c:if></a>
-                                        <br>
-                                        <input type="hidden" ${nb=nb-1}>
-                                </c:forEach>
-                                <p>Il reste encore ${nb} places de libre</p>
+
+                                <div class="list-group">
+
+
+
+                                    <c:forEach items="${uneEquipe.membresEquipe}" var="joueur" varStatus="loop"> 
+                                        <a href="?action=profil&idMembreAfficher=${joueur.id}" class="list-group-item list-group-item-action list-group-item-primary text-left" title="Voir le profil de ${joueur.pseudo}">
+                                            <span class="badge badge-primary badge-pill text-right">${loop.index+1}</span> ${joueur.pseudo}
+                                            <c:if test = "${uneEquipe.capitaine.id == joueur.id}"> <c:out value=": Capitaine" /> </c:if> </a>
+
+                                            <input type="hidden" ${nb=nb-1}>
+                                    </c:forEach>
+
+
+                                </div>
+
+                                <br>
+
+                                <div class="list-group">
+
+                                    <div class="list-group-item list-group-item-warning">
+                                        Places libres: 
+                                        <div class="spinner-border text-success"> ${nb}</div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                            
+
                     </div> 
                 </div> 
             </form>
