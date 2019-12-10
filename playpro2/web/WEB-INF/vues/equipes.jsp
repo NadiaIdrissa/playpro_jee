@@ -68,7 +68,7 @@
                                         <br>
                                         <input type="hidden" ${nb=nb-1}>
                                 </c:forEach>
-                                <p>Il reste encore ${nb-1} places de libre</p>
+                                <p>Il reste encore ${nb} places de libre</p>
                             </div>
                         </div>
                     </div> 

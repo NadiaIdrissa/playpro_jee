@@ -45,15 +45,21 @@ public class ReponseInvitationAction extends AbstractAction {
         System.out.println(nomEquipe);
         System.out.println(statutInvitation);
         System.out.println("==================================================");
+        String message = "";
+        String laClasse = "warning";
+        Equipe equipe = EquipesServices.trouverEquipe(nomEquipe);;
 
-        if (nomEquipe != null && statutInvitation.equals("accept")) {
-            Equipe equipe = EquipesServices.trouverEquipe(nomEquipe);
-            Participation partic = new Participation();
-            partic.setEquipe(equipe);
-            partic.setMembre(mSession);
-            Membre exp = MembreServices.trouverMembre(idExp);
-            String message = "";
-            String laClasse = "";
+        Participation partic = new Participation();
+        partic.setEquipe(equipe);
+        partic.setMembre(mSession);
+        Membre exp = MembreServices.trouverMembre(idExp);
+        Invitation i = new Invitation();
+        i.setExpediteur(exp);
+        i.setDestinataire(mSession);
+        i.setEquipe(equipe);
+
+        if (statutInvitation.equals("accept")) {
+
             System.out.println("ca va");
 
             List<Participation> toutesLesParticipations = ParticipationServices.toutesLesParticipation();
@@ -65,38 +71,32 @@ public class ReponseInvitationAction extends AbstractAction {
 
             if (toutesLesParticipations.contains(partic)) {
                 message = "Vous êtes déja membre de l'équipe " + equipe.getNomEquipe();
-                laClasse = "danger";
             } else {
                 boolean reussi = ParticipationServices.creerParticipation(partic);
                 if (reussi) {
                     System.out.println("Participation créée");
                     message = "Vous faites desormais partie de l'équipe " + equipe.getNomEquipe();
-                    laClasse = "success";
                 }
-
             }
-            Invitation i = new Invitation();
-            i.setExpediteur(exp);
-            i.setDestinataire(mSession);
-            i.setEquipe(equipe);
 
-            boolean reussi = InvitationServices.supprimer(i);
-            if (reussi) {
-                System.out.println("Invitation supprimee============================");
-            }
-            request.setAttribute("message", message);
-            request.setAttribute("laClasse", laClasse);
-
+        } else if (statutInvitation.equals("refus")) {
+            message = "Vous avez refusé l'invitation de l'équipe " + equipe.getNomEquipe();
         }
+        boolean reussi = InvitationServices.supprimer(i);
+        if (reussi) {
+            System.out.println("Invitation supprimee============================");
+        }
+        request.setAttribute("message", message);
+        request.setAttribute("laClasse", laClasse);
 
         List<Invitation> listeInvitations;
         listeInvitations = InvitationServices.lesinvitationspour(mSession);
 
         System.out.println("nombre invitations = " + listeInvitations.size());
 
+        request.getSession().setAttribute("viewConf", "invitations");
         request.getSession().setAttribute("NbInvitations", listeInvitations.size());
         request.getSession().setAttribute("listeInvitations", listeInvitations);
         return "portail";
     }
-
 }
