@@ -71,7 +71,7 @@
                         </c:forEach>
                     </p>
 
-                    <a target="_blank" href="https://www.google.ca/maps/place/Stade+IGA/@45.5329897,-73.6293616,17z/data=!3m1!4b1!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729">
+                    <a target="_blank" href="<c:out value="${unlieu.surCarte}" />">
                         Afficher sur la carte
                     </a>
 
@@ -126,30 +126,66 @@
             <form class="form-signin needs-validation " action="?action=lieux" method="post" name="action" value="ajoutImage" enctype="multipart/form-data" novalidate>
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="text" name="nom" placeholder="Nom du lieu"  />
-                        <input type="text" name="numero" placeholder="Numéro civique"  />
-                        <input type="text" name="rue" placeholder="Nom de la rue"  />
-                        <input type="text" name="ville" placeholder="Ville"  />
-                        <input type="text" name="pays" placeholder="Pays"  />
-                        <input type="text" name="code_postal" placeholder="Code postal"  />
-                        <input type="text" name="infos" placeholder="Info supplémentaire"  />
+                        <input type="text" class="form-control" name="nom" placeholder="Nom du lieu" required  />
+                        <div class="invalid-feedback">
+                            Un nom est requis
+                        </div>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect1" name="sports" multiple required> 
-                            <c:forEach items="${requestScope.sports}" var="unSport"> 
-                                <option value="<c:out value="${unSport.id_sport}" />"><c:out value="${unSport.nom}" /></option> 
-                            </c:forEach>
-                        </select>
-                    </div>
-                    <div class="file-field">
-                        <div class="btn btn-primary btn-sm float-left">
-                            <span>Glissez une photo</span>
-                            <input class="form-control" id="imageSport" name="image1" type="file" multiple/>
+                        <input type="text" class="form-control" name="numero" placeholder="Numéro civique" required  />
+                        <div class="invalid-feedback">
+                            Champ requis.
                         </div>
-
                     </div>
-                    <!--<button class="" id="boutton1" type="submit">Créer</button>-->
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="rue" placeholder="Nom de la rue" required  />
+                        <div class="invalid-feedback">
+                            Champ requis.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="ville" placeholder="Ville" required  />
+                        <div class="invalid-feedback">
+                            Champ requis.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="pays" placeholder="Pays" required  />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="code_postal" placeholder='Code postal "A1A 1A1"' required pattern="^[ABCEGHJKLMNPRSTVXYabceghjklmnprstvxy]{1}\d{1}[A-Za-z]{1}[ ]{0,1}\d{1}[A-Za-z]{1}\d{1}$"  />
+                        <div class="invalid-feedback">
+                            Champs invalide
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-12">
+                        <input type="text" name='prenom' class="form-control" id="validationCustom03" placeholder="Prénom" required>
+                        <div class="invalid-feedback">
+                            Champ requis.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="infos" placeholder="Info supplémentaire" required  />
+                        <div class="invalid-feedback">
+                            Champ requis.
+                        </div>
+                    </div>
                 </div>
+                <div class="form-group">
+                    <select class="form-control" id="exampleFormControlSelect1" name="sports" multiple required> 
+                        <c:forEach items="${requestScope.sports}" var="unSport"> 
+                            <option value="<c:out value="${unSport.id_sport}" />"><c:out value="${unSport.nom}" /></option> 
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="file-field">
+                    <div class="btn btn-primary btn-sm float-left">
+                        <span>Glissez une photo</span>
+                        <input class="form-control" id="imageSport" name="image1" type="file" multiple/>
+                    </div>
+
+                </div>
+
                 <button type="submit" class="btn btn-primary">Créer</button>
             </form>
         </div>
@@ -161,7 +197,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!-- The Modal -->
-
+<script src="static/js/validation.js" ></script>
 <script>
     $('input[type=file]').change(function () {
         // debugger;

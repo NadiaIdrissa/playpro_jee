@@ -4,38 +4,45 @@
  * and open the template in the editor.
  */
 
-var modalTraiterInvitation = document.getElementById("modalTraiterInvitation");
-
-// Get the button that opens the modal
-var btnTraiterInvitation = document.getElementById("btnTraiterInvitation");
-
-// Get the <span> element that closes the modal
-var spanInvit = document.getElementsByClassName("close")[0];
-
 var btn_refus = $(".btn_refus");
 
-btnTraiterInvitation.onclick = function () {
-    $(".container").hide();
-    modalTraiterInvitation.style.display = "block";
-}
-
-spanInvit.onclick = function () {
-    modalTraiterInvitation.style.display = "none";
-    $(".container").show();
-}
-
-window.onclick = function (event) {
-    if (event.target == modalTraiterInvitation) {
-        modalTraiterInvitation.style.display = "none";
-        $(".container").show();
-    }
-}
-
-$(document).ready(function () {
-    btn_refus.onclick = function (e) {
-        e.preventDefault();
+btn_refus.each(function (index) {
+    $(this).on("click", function () {
+        var formulaire = $(".formInvit")[index];
+        var input1 = $(".statutInvitation")[index];
+        input1.value = "refus";
+        console.log("ALLO"+index);
         debugger;
-        $("statutInvitation").val("refus");
-        console.log($("statutInvitation").val());
-    }
+        formulaire.submit();
+    });
 });
+
+
+//window.onclick = function (event) {
+//
+//    if (event.target === modalTraiterInvitation) {
+//        modalTraiterInvitation.style.display = "none";
+//        $(".container").show();
+//    } else if (event.target === document.getElementById("modalLieuSupprimer")) {
+//        document.getElementById("modalLieuSupprimer").style.display = "none";
+//    } else if (event.target === document.getElementById("modalSupprimerSport")) {
+//        document.getElementById("modalSupprimerSport").style.display = "none";
+//    } else if (event.target === modal) {
+//        modal.style.display = "none";
+//    }
+//};
+
+//$(".close").each(function (index) {
+//    $(this).on("click", function () {
+//        console.log("ALLO");
+//        if (event.target === document.getElementById("modalLieuSupprimer")) {
+//            document.getElementById("modalLieuSupprimer").style.display = "none";
+//        } else if (event.target === document.getElementById("modalSupprimerSport")) {
+//            document.getElementById("modalSupprimerSport").style.display = "none";
+//        } else if (event.target === modal) {
+//            modal.style.display = "none";
+//        }
+//    });
+//});
+
+

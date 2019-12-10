@@ -66,7 +66,8 @@
         <%}%>
 
         <li>
-            <a class="btnSide" style="display: block" id="btnTraiterInvitation">
+            <!--<a class="btnSide" style="display: block" id="btnTraiterInvitation">-->
+            <a href="?action=portail&sousAction=invitations">
                 <i class="fa fa-paper-plane"></i>
 
                 <span class="sideLabel">Invitations </span><span class="badge">
