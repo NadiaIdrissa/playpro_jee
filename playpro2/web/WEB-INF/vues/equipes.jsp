@@ -21,7 +21,18 @@
 
 <div class="equipeStyle">
     <div class="card-columns">
+        
+        
+        
+        
+       
+        
         <c:forEach items="${requestScope.listeEquipe}" var="uneEquipe"> 
+            
+            
+            
+            
+            
             <form class="form-signin needs-validation " action="?action=invitation" method="post" name="action" novalidate>
                 <div class="card">
                     <div class="card-body text-center">
@@ -38,11 +49,17 @@
                             <c:set var="capitaine" value="${uneEquipe.capitaine.id}"/>
                         </p>
                         <c:if test = "${uneEquipe.capitaine.id == sessionScope.membre.id}">
-                            <button class="btn btn-primary" style="color: #003A5C;" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.sport.nom}" />" aria-expanded="false" aria-controls="collapseExample">
+                            
+                            
+                            
+                            
+                           
+                            
+                            <button class="btn btn-primary" style="color: #003A5C;" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
                                 Inviter un joueur
                             </button>
 
-                            <div class="collapse" id="<c:out value="${uneEquipe.sport.nom}" />">
+                            <div class="collapse" id="<c:out value="${uneEquipe.nomEquipe}${uneEquipe.nomEquipe}" />">
                                 <div class="card card-body">
                                     <select class="form-control" id="exampleFormControlSelect1" name="membreAInviter">
                                         <option value="" >Choisir un joueur</option>
@@ -56,11 +73,18 @@
                                 </div>
                             </div> 
                         </c:if>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
                             Afficher les membres
                         </button>
 
-                        <div class="collapse" id="<c:out value="${uneEquipe.nomEquipe}" />">
+                        <div class="collapse" id="<c:out value="${uneEquipe.nomEquipe}" />">  
                             <div class="card card-body">
 
                                 <c:forEach items="${uneEquipe.membresEquipe}" var="joueur"> 
@@ -71,6 +95,7 @@
                                 <p>Il reste encore ${nb} places de libre</p>
                             </div>
                         </div>
+                            
                     </div> 
                 </div> 
             </form>
