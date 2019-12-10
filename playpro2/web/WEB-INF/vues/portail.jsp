@@ -78,6 +78,10 @@
                         %>
                         <%@include file="membres.jsp"%>
 
+                        <%} else if (viewConf.equals("parties")) {
+                        %>
+                        <%@include file="parties.jsp"%>
+
                         <%} else if (viewConf.equals("invitation")) {
                         %>
                         <%@include file="invitation.jsp"%>

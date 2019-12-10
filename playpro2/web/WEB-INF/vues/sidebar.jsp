@@ -29,7 +29,7 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="?action=parties">
                 <i class="fa fa-play-circle"></i> <span class="sideLabel">Parties</span>
             </a>
         </li>

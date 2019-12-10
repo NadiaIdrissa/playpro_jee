@@ -10,6 +10,13 @@
 <%@page import="com.playpro.entities.Equipe"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+</head>
+
+
+
+
 <div class="equipeStyle row">
     <div class="col-sm-10 col-md-10 col-lg-10">
         <!--<h1 class="text-center">Liste des équipes existantes</h1>-->
@@ -27,6 +34,8 @@
 
 
 
+
+
         <c:forEach items="${requestScope.listeEquipe}" var="uneEquipe"> 
 
 
@@ -35,6 +44,13 @@
 
             <form class="form-signin needs-validation " action="?action=invitation" method="post" name="action" novalidate>
                 <div class="card">
+                    <div class="  col-sm-1" style="font-size:5px;">
+                        <button id="pref" type="button" ><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></button>
+                    </div>
+                  
+
+
+
                     <div class="card-body text-center">
                         <img class="avatar rounded-circle" src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
 
@@ -44,7 +60,7 @@
                             <input name="nomEquipeChoisi" type="hidden" value="<c:out value="${uneEquipe.nomEquipe}" />">
                             <li class="list-group-item">Sport &#10132; <c:out value="${uneEquipe.sport.nom}" /></li>
                             <li class="list-group-item">Effectif &#10132; <c:out value="${uneEquipe.nbJoueurs}" /></li>
-                            
+
                         </ul>
 
 
