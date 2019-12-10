@@ -83,10 +83,13 @@ public class InvitationDAO extends DAO<Invitation> {
     public boolean delete(Invitation x) {
         PreparedStatement stm = null;
         
-        String req = "DELETE FROM invitation WHERE id_expediteur =? AND id_destinataire AND id_requete =? ";
+        String req = "DELETE FROM invitation WHERE id_expediteur =? AND id_destinataire =? AND id_requete =? ";
                
         try {
             stm = cnx.prepareStatement(req);
+            System.out.println("EXP  "+x.getExpediteur().getId());
+            System.out.println("DEST  "+x.getDestinataire().getId());
+            System.out.println("EQUIPE  "+x.getEquipe().getNomEquipe());
             
             stm.setString(1, x.getExpediteur().getId());
             stm.setString(2, x.getDestinataire().getId());

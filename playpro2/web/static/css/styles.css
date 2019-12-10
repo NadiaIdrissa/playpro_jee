@@ -225,7 +225,7 @@ h4{
 
 .carousel-item-lieu{
     height: 80px !important;
-    min-height: 300px;
+    min-height: 190px;
     background: no-repeat center center scroll;
     -webkit-background-size: cover;
     background-size: cover;
@@ -352,6 +352,7 @@ div.col.mod{
     width: 100%;
     background-color: #80a6cc;
     padding-left: 20px;
+    border-bottom: unset;
 }
 .equipeStyle .modal-title{
     color: black;
@@ -388,4 +389,26 @@ div.col.mod{
 .equipeStyle.row{
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+/*Membres style*/
+.thread-perso{
+    background-color: #80cccc;
+    color: white;
+}
+
+.m1{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+.m1 h4{
+    color: black;
+}
+
+.m1 button.close{
+    color: grey;
+    margin-right: initial;
 }

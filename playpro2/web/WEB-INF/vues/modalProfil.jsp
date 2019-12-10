@@ -27,17 +27,13 @@
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <!--<form  action="" method="post" name="action" value="signup">-->
                     <form  action="" method="post" name="action" value="profil" novalidate>
                         <div class="form-group">
                             <div class="row">
-
                                 <div class="vl">
                                     <span class="vl-innertext">+</span>
                                 </div>
-
                                 <div class="col">
-
                                     <div class="form-row">
                                         <div class="col-md-12 mb-12">
                                             <label for="pseudoR">Pseudo</label>
@@ -46,7 +42,6 @@
                                                 Champs recquis.
                                             </div>
                                         </div>
-
                                         <div class="col-md-12 mb-12">
                                             <label for="nomR">Nom</label>
                                             <input type="text" name='nomR' class="form-control" id="validationCustom03" value="${sessionScope.membre.nom}" required>
@@ -73,15 +68,12 @@
                                                 <label for="inputLevel">Sexe</label>
                                                 <select class="form-control" name="sexeR" required>
                                                     <option value='' >${sessionScope.membre.sexe}</option>
-
+                                                    
                                                     <%for (Sexe s : Sexe.values()) {%>
 
                                                     <option value='<%=s.toString()%>'><%=s.toString()%></option>
-
                                                     <%}%>
-
                                                 </select>
-
                                             </div>
                                             <div class="valid-feedback">
                                                 Looks good!
@@ -93,34 +85,19 @@
                                                 Entrez un courriel valide.
                                             </div>
                                         </div>
-
                                     </div>
-
                                 </div>
-
                                 <div class="col">
-
-
-
-
-
                                     <div class="form-row">
-
                                         <div id='niveaug' class="col-md-12 mb-12">
                                             <div  class="form-group">
                                                 <label for="tMembreR">Type de membre</label>
                                                 <select class="form-control" name="tMembreR" required>
-
                                                     <option selected="selected">${sessionScope.membre.typeMembre}</option>
-
                                                     <option value='Joueur'>Joueur</option>
                                                 </select>
-
                                             </div>
-
                                         </div>
-
-
                                         <div class="col-md-12 mb-12">
                                             <label for="pseudoR">Sport</label>
                                             <input type="text" name='sportR' class="form-control" id="validationCustom03" value="${sessionScope.membre.sport}" required>
@@ -128,33 +105,18 @@
                                                 Champs recquis.
                                             </div>
                                         </div>
-
-
-
                                         <div id='niveaug' class="col-md-12 mb-12">
                                             <div  class="form-group">
                                                 <label for="inputLevel">Niveau</label>
                                                 <select class="form-control" name="niveauR" required>
                                                     <option value='' >${sessionScope.membre.niveau}</option>
-
-
                                                     <%for (Niveau n : Niveau.values()) {%>
 
                                                     <option value='<%=n.toString()%>'><%=n.toString()%></option>
-
                                                     <%}%>
-
                                                 </select>
-
                                             </div>
                                         </div>
-
-
-
-
-
-
-
                                         <div class="col-md-12 mb-12">
 
                                             <label for="passwordR">Changement de mot de passe</label>
@@ -188,25 +150,17 @@
 
                                         <button class="btn btn-primary btn-sm" id="commit" type="submit">Enregistrer</button>
                                     </div>
-
                                 </div>
-                                <!--</form>-->
-
-
                             </div>
-
-                            <!--</form>-->
                         </div>
                     </form>
                     <div>                       
                         <a class="btn btn-danger btn-sm" href="?action=supp" role="button">Suppression de compte</a>
                     </div>
-                </div>btn btn-danger
+                </div>
             </div>
         </div>
-    </div>                        
+    </div>            
 </div>
-
-
 <br>
 

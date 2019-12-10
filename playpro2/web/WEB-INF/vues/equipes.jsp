@@ -12,9 +12,7 @@
 
 <div class="equipeStyle row">
     <div class="col-sm-10 col-md-10 col-lg-10">
-
-        <h1 class="text-center">Liste des équipes existantes</h1>
-
+        <!--<h1 class="text-center">Liste des équipes existantes</h1>-->
     </div>
     <div class="colBtn col-sm-2 col-md-2 col-lg-2">
         <button id="myBtn" type="button" >+</button>
@@ -40,7 +38,7 @@
                             <c:set var="capitaine" value="${uneEquipe.capitaine.id}"/>
                         </p>
                         <c:if test = "${uneEquipe.capitaine.id == sessionScope.membre.id}">
-                            <button class="btn btn-primary blue text-danger" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.sport.nom}" />" aria-expanded="false" aria-controls="collapseExample">
+                            <button class="btn btn-primary" style="color: #003A5C;" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.sport.nom}" />" aria-expanded="false" aria-controls="collapseExample">
                                 Inviter un joueur
                             </button>
 
@@ -54,11 +52,11 @@
                                             </c:if>
                                         </c:forEach>
                                     </select>
-                                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                                    <button type="submit" class="btn btn-primary btnD">Envoyer</button>
                                 </div>
                             </div> 
                         </c:if>
-                        <button class="btn btn-primary blue" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
                             Afficher les membres
                         </button>
 
@@ -70,7 +68,7 @@
                                         <br>
                                         <input type="hidden" ${nb=nb-1}>
                                 </c:forEach>
-                                <p>Il reste encore ${nb } places de libre</p>
+                                <p>Il reste encore ${nb} places de libre</p>
                             </div>
                         </div>
                     </div> 

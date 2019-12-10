@@ -75,7 +75,7 @@
                         <%} else if (viewConf.equals("annonces")) {%>
                         <%@include file="annonce.jsp"%>
                         <%} else if (viewConf.equals("membres")) {
-                            %>
+                        %>
                         <%@include file="membres.jsp"%>
 
                         <%} else if (viewConf.equals("invitation")) {
@@ -89,6 +89,9 @@
                         <%} else if (viewConf.equals("reponseInvitation")) {
                         %>
                         <%@include file="reponseInvitation.jsp"%>
+                        <%} else if (viewConf.equals("invitations")) {
+                        %>
+                        <%@include file="reponseInvitation.jsp"%>
 
                         <%} else {%>
                         <%@include file="calendrier.jsp"%>
@@ -99,64 +102,7 @@
             </div>
             <%@include file="header4.jsp" %>
         </div>  
-        <div class="modal" id="modalTraiterInvitation"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content col-8">
-                    <div class="modal-header">
-                        <div class="modal-header text-center">
-                            <h4 id='titreSup' class="modal-title text-center w-100 font-weight-bold">Tes invitations</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    </div>
-                    <c:if test = "${NbInvitations>0}">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Expéd.</th>
-                                    <th scope="col">Équipe</th>
-                                    <th scope="col">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${listeInvitations}" var="uneInvit">
-                                    <tr>
-                                <form  class="" action="?action=reponseInvitation" method="post" name="action" value="" >
-                                    <td>
-                                        <input name ='idExp' value='${uneInvit.expediteur.id}' type='hidden' />
-                                        <span>
-                                            <c:out value="${uneInvit.expediteur.pseudo}" />
-
-                                        </span>
-
-                                    </td>
-                                    <td>
-                                        <span>
-                                            <input name ='idEquipe' value='${uneInvit.expediteur.id}' type='hidden' />
-                                            <c:out value="${uneInvit.equipe.nomEquipe}" />
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div class="modal-footer d-flex justify-content-center">
-                                            <button class="btn btn-light btn-sm float-left " type="submit">Refuser</button>
-                                            <button class="btn btn-success btn-sm float-right " type='submit'>Accepter</button>
-                                        </div>
-                                    </td>
-
-                                    </tr>
-                                </form>
-
-
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                    </c:if>
-                </div>
-            </div>
-        </div>
-
+        
         <script>
             $('#btnAnnonce').click(function (e) {
                 var contenu = document.getElementById("contenu");
@@ -191,7 +137,6 @@
         <script src="static/js/menu.js"></script>
         <script src="static/js/validation.js" ></script>
         <script src="static/js/gestion.js" ></script>
-        <script src="static/js/invitation.js" ></script>
-
+        
     </body>
 </html>

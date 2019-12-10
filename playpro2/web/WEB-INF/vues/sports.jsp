@@ -44,7 +44,7 @@
     </div> 
 </div>
 
-<div class="modal" id="modalSupprimerSport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal equipeStyle" id="modalSupprimerSport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -59,7 +59,7 @@
             <form class="needs-validation" action="?action=sports" method="post" name="action" value="sports" novalidate>
                 <div class="modal-footer d-flex justify-content-center">
                     <input name ='idSportSupprimer' id='idSportSupprimer' type='hidden' value='' />
-                    <button class="btn btn-light float-left " data-dismiss="modal">Annuler</button>
+                    <button class="btn btnD float-left " data-dismiss="modal">Annuler</button>
                     <button class="btn btn-primary float-right " type='submit'>Supprimer</button>
                 </div>
             </form>

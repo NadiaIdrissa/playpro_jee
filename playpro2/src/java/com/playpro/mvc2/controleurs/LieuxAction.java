@@ -27,14 +27,14 @@ import javax.servlet.http.Part;
  *
  * @author nadym
  */
-public class LieuxAction extends AbstractAction  {
+public class LieuxAction extends AbstractAction {
 
     private static final String UPLOAD_DIR = "static/images/lieux";
     private final UploadPhoto up = new UploadPhoto();
 
     @Override
     public String execute() {
-        Membre mSession =  (Membre)request.getSession().getAttribute("membre");
+        Membre mSession = (Membre) request.getSession().getAttribute("membre");
         if ((mSession == null)) {
             String message = "Votre session a expirée, veuillez vous réauthentifier";
             String laClasse = "danger";
@@ -42,16 +42,16 @@ public class LieuxAction extends AbstractAction  {
             request.setAttribute("laClasse", laClasse);
             return "login";
         }
-        
+
         response.setContentType("text/html");
         LieuxDAO dao = new LieuxDAO();
         SportDAO daoSport = new SportDAO();
         LieuSportDAO lsDao = new LieuSportDAO();
-        
+
         String message = "";
-        String laClasse="";
+        String laClasse = "";
         String idLieuSupprimer = request.getParameter("idLieuSupprimer");
-        
+
         String nom = request.getParameter("nom");
         String rue = request.getParameter("rue");
         String ville = request.getParameter("ville");
@@ -63,37 +63,34 @@ public class LieuxAction extends AbstractAction  {
         String[] sports = request.getParameterValues("sports");
         List<Part> part = null;
         try {
-             part = (List<Part>) request.getParts();
+            part = (List<Part>) request.getParts();
         } catch (IOException | ServletException ex) {
             Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if(idLieuSupprimer !=null){
+
+        if (idLieuSupprimer != null) {
             System.out.println("Je suis nul");
             Lieux l = LieuxServices.trouverUnLieu(idLieuSupprimer);
-            
+
             LieuSport ls = new LieuSport();
             Sport s = new Sport();
             s.setId_sport("");
-            
+
             ls.setLieu(l);
-            
+
             ls.setSport(s);
-            
-            boolean reussi  = LieuSportService.supprimer(ls);
-                    
+
+            boolean reussi = LieuSportService.supprimer(ls);
+
             reussi = LieuxServices.supprimer(l);
-            
-            if(reussi){
-                message = "Le lieu "+l.getNom()+" a été supprimé avec succès";
+
+            if (reussi) {
+                message = "Le lieu " + l.getNom() + " a été supprimé avec succès";
                 laClasse = "success";
-            }else{
+            } else {
                 message = "Une erreur est survenue lors de la suppression du lieu";
                 laClasse = "danger";
             }
-            
-            request.setAttribute("message", message);
-            request.setAttribute("laClasse", laClasse);
         }
 
         System.out.println("Sports : " + sports);
@@ -109,11 +106,10 @@ public class LieuxAction extends AbstractAction  {
                 int w = request.getParameter("sports").length();
                 System.out.println("Longueur" + w);
             }
-            
-            String applicationPath = request.getServletContext().getRealPath("");
-            
-            image1 = up.uploader(part, UPLOAD_DIR,applicationPath, image1);
 
+            String applicationPath = request.getServletContext().getRealPath("");
+
+            image1 = up.uploader(part, UPLOAD_DIR, applicationPath, image1);
 
             s = ObjectFactory.getNewLieu();
             s.setNom(nom);
@@ -125,17 +121,23 @@ public class LieuxAction extends AbstractAction  {
             s.setInfos(infos);
             s.setImage1(image1);
 
-            LieuxServices.creerLieux(s);
-            System.out.println("Longueur "+sports.length);
+            if(LieuxServices.creerLieux(s)){
+                message = "Le lieu " + s.getNom() + " a été ajouté";
+                laClasse = "success";
+            } else {
+                message = "Une erreur est survenue lors de l'enrégistrement du lieu";
+                laClasse = "danger";
+            }
+            System.out.println("Longueur " + sports.length);
             for (int i = 0; i < sports.length; i++) {
-                System.out.println("Sport ==="+sports[i]);
+                System.out.println("Sport ===" + sports[i]);
                 sp = daoSport.findById(sports[i]);
-                System.out.println("sport trouve: "+sp.getNom());
+                System.out.println("sport trouve: " + sp.getNom());
                 ls.setLieu(s);
                 ls.setSport(sp);
-                
+
                 LieuSportService.creerLieuSport(ls);
-                
+
             }
 
         }
@@ -153,11 +155,14 @@ public class LieuxAction extends AbstractAction  {
         List<Sport> listeSports = daoSport.findAll();
         List<Lieux> liste = new LinkedList<>();
         List<LieuSport> listeLieuSport = new LinkedList<>();
-        
+
         listeLieuSport = lsDao.findAll();
 
         liste = dao.findAll();
         System.out.println("Liste des Sports" + listeSports);
+
+        request.setAttribute("message", message);
+        request.setAttribute("laClasse", laClasse);
 
         request.setAttribute("lieuxSports", listeLieuSport);
         request.setAttribute("sports", listeSports);

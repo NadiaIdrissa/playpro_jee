@@ -152,7 +152,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <c:if test="${requestScope.membre.id == sessionScope.membre.id}">                                  
+                                <c:if test="${requestScope.membre.id == sessionScope.membre.id or sessionScope.membre.typeMembre =='Admin'}">                                  
                                     <div class="modal-footer">
                                         <button class="btn btn-primary btn-sm" id="bb" onclick="enableSummit()" type="button">Modifier</button>
                                     </div>
@@ -161,7 +161,8 @@
                             </div>
                         </div>
                     </div>
-                    <c:if test="${requestScope.membre.id == sessionScope.membre.id}">                                  
+                    <c:if test="${requestScope.membre.id == sessionScope.membre.id or sessionScope.membre.typeMembre =='Admin'}">  
+                    
                         <div class="divbtnSuppr">                       
                             <a class="btn btn-danger btnSuppr" href="?action=portail&sousAction=loadSupp" role="button">Fermer le compte</a>
                         </div>

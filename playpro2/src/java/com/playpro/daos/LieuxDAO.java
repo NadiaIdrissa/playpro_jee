@@ -93,6 +93,7 @@ public class LieuxDAO extends DAO<Lieux> {
                 c.setVille(r.getString("ville"));
                 c.setPays(r.getString("pays"));
                 c.setInfos(r.getString("infos"));
+                c.setSurCarte(r.getString("surCarte"));
                 r.close();
                 stm.close();
                 return c;
@@ -134,6 +135,7 @@ public class LieuxDAO extends DAO<Lieux> {
                 return true;
             }
         } catch (SQLException exp) {
+            exp.printStackTrace();
         } finally {
             if (stm != null) {
                 try {
@@ -158,6 +160,7 @@ public class LieuxDAO extends DAO<Lieux> {
                 return true;
             }
         } catch (SQLException exp) {
+            exp.printStackTrace();
         } finally {
             if (stm != null) {
                 try {
@@ -189,6 +192,11 @@ public class LieuxDAO extends DAO<Lieux> {
                 c.setPays(r.getString("pays"));
                 c.setInfos(r.getString("infos"));
                 c.setImage1(r.getString("image1"));
+                c.setImage2(r.getString("image2"));
+                c.setImage3(r.getString("image3"));
+                c.setSurCarte(r.getString("SurCarte"));
+                
+                System.out.println("SUR CARTE "+c.getSurCarte());
 
                 liste.add(c);
                 System.out.println(liste.size());

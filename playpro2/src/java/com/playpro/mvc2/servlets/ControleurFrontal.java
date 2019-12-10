@@ -29,7 +29,6 @@ import com.playpro.mvc2.controleurs.ReponseInvitationAction;
 import com.playpro.mvc2.controleurs.RequirePRG;
 import com.playpro.mvc2.controleurs.SuppressionCompteAction;
 import com.playpro.mvc2.controleurs.SportsAction;
-import com.playpro.mvc2.controleurs.TraitementInvitationAction;
 //import com.playpro.mvc2.controleurs.SoustractionAction;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -127,10 +126,7 @@ public class ControleurFrontal extends HttpServlet {
             case "invitation":
                 action = new InvitationAction();
                 break;
-            case "traitementInvitation":
-                action = new TraitementInvitationAction();
-                break;
-
+            
             case "reponseInvitation":
                 action = new ReponseInvitationAction();
                 break;

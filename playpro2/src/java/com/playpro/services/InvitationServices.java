@@ -25,4 +25,8 @@ public class InvitationServices {
     public static List<Invitation> lesinvitationspour(Membre u) {
         return dao.findAllById(u.getId());
     }
+    
+    public static boolean supprimer(Invitation i){
+        return dao.delete(i);
+    }
 }
