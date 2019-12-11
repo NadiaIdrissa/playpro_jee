@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
         <link href="static/css/cssNavBar/stylesyami.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
         <title >Contact</title> 
     </head>
 
@@ -41,37 +41,40 @@
                                 <br>
 
                                 <!--Body-->
+                                <form action="" accept-charset="UTF-8" method="get">
                                 <div class="md-form">
                                     <label for="form-name" class>Votre nom<i class="fa fa-user"></i></label>
-                                    <input type="text" id="form-name" class="form-control">
+                                    <input type="text" name = "nom" id="form-name" class="form-control">
 
                                 </div>
                                 <br>
 
                                 <div class="md-form">
                                     <label for="form-email"> Votre courriel <i class="fa fa-envelope-square"> </i></label>
-                                    <input type="email" id="form-email" class="form-control" required>
+                                    <input type="email" name ="courriel" id="form-email" class="form-control" required>
                                     <br>
 
                                 </div>
 
                                 <div class="md-form">
                                     <label for="form-Subject">Sujet <i class="fa fa-tag"></i></label>
-                                    <input type="text" id="form-Subject" class="form-control">
+                                    <input type="text" name="sujet" id="form-Subject" class="form-control">
 
                                 </div>
                                 <br>
 
                                 <div class="md-form">
                                     <label for="form-text">Votre texte <i class="fa fa-pencil-alt"></i></label>
-                                    <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
+                                    <textarea id="form-text" name="commentaire" class="form-control md-textarea" rows="3"></textarea>
 
                                 </div>
                                 <br>
 
                                 <div class="text-center mt-4">
-                                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Envoyer</button>
+                                    <button name="action" value="Commentaire" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Envoyer</button>
+                                    
                                 </div>
+                                </form>
 
                             </div>
 
