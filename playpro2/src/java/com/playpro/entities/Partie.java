@@ -7,25 +7,28 @@ package com.playpro.entities;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
+import static javax.management.Query.eq;
 
 /**
  *
  * @author toute
  */
 public class Partie {
-    private int idPartie;
+    private String id;
+    private String idPartie;
     private LocalDate datePartie;
     private LocalTime heurePArtie;
     private Equipe equipe1;
     private Equipe equipe2;
     private LieuSport lieuSportPartie;
+    private String score;
 
     public Partie() {
     }
-    
-    
 
-    public Partie(LocalDate datePartie, LocalTime heurePArtie, Equipe equipe1, Equipe equipe2, LieuSport lieuSportPartie) {
+    public Partie(String idPartie, LocalDate datePartie, LocalTime heurePArtie, Equipe equipe1, Equipe equipe2, LieuSport lieuSportPartie) {
+        this.idPartie = idPartie;
         this.datePartie = datePartie;
         this.heurePArtie = heurePArtie;
         this.equipe1 = equipe1;
@@ -33,11 +36,19 @@ public class Partie {
         this.lieuSportPartie = lieuSportPartie;
     }
 
-    public int getIdPartie() {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getIdPartie() {
         return idPartie;
     }
 
-    public void setIdPartie(int idPartie) {
+    public void setIdPartie(String idPartie) {
         this.idPartie = idPartie;
     }
 
@@ -81,20 +92,46 @@ public class Partie {
         this.lieuSportPartie = lieuSportPartie;
     }
 
-    @Override
-    public String toString() {
-        return "Partie{" + "idPartie=" + idPartie + ", datePartie=" + datePartie + ", heurePArtie=" + heurePArtie + ", equipe1=" + equipe1 + ", equipe2=" + equipe2 + ", lieuSportPartie=" + lieuSportPartie + '}';
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Partie other = (Partie) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Partie{" + "id=" + id + ", idPartie=" + idPartie + ", datePartie=" + datePartie + ", heurePArtie=" + heurePArtie + ", equipe1=" + equipe1 + ", equipe2=" + equipe2 + ", lieuSportPartie=" + lieuSportPartie + '}';
+    }
+
 }
 
 

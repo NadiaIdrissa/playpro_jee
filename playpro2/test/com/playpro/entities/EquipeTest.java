@@ -19,7 +19,15 @@ import static org.junit.Assert.*;
  */
 public class EquipeTest {
 
+    final static int NB_MAX_JOUEURS = 30;
+    final static int NB_PARTIES_JOUEES = 2;
+    final static int NB_JOUEURS = 6;
+    final static String NB_Parties = "14";
+    Sport s;
+    Equipe e;
+
     public EquipeTest() {
+
     }
 
     @BeforeClass
@@ -32,10 +40,36 @@ public class EquipeTest {
 
     @Before
     public void setUp() {
+        s = new Sport();
+        e = new Equipe();
+        e.setNbMaxJoueurs(34);
+        e.setNbJoueurs(NB_JOUEURS);
+        e.setNbPartiesJouees(4);
     }
 
     @After
     public void tearDown() {
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testsetNbJoueursNegatif() {
+
+        final int nvMax = -1;
+        e.setNbJoueurs(nvMax);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testsetNbPartieJoueeNegatif() {
+
+        final int nvMax = -1;
+        e.setNbJoueurs(nvMax);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testsetNbMaxJoueursNegatif() {
+
+        final int nvMax = -1;
+        e.setNbMaxJoueurs(nvMax);
     }
 
     /**
@@ -110,7 +144,7 @@ public class EquipeTest {
      */
     @Test
     public void testGetSport() {
-  
+
     }
 
     /**
@@ -118,7 +152,7 @@ public class EquipeTest {
      */
     @Test
     public void testSetSport() {
-
+        e.setSport(s);
     }
 
     /**
@@ -126,23 +160,17 @@ public class EquipeTest {
      */
     @Test
     public void testGetNbPartiesJouees() {
-        System.out.println("getNbPartiesJouees");
-        Equipe instance = new Equipe();
-        int expResult = 0;
-        int result = instance.getNbPartiesJouees();
-        assertEquals(expResult, result);
-        if (expResult == result) {
-            System.out.println("<-  Réussi ->");
-        } else {
-            fail("The test case is a prototype.");
-        }
+        assertEquals(e.getNbPartiesJouees(), 4);
+
     }
 
     /**
      * Test of setNbPartiesJouees method, of class Equipe.
      */
     @Test
+
     public void testSetNbPartiesJouees() {
+
         System.out.println("setNbPartiesJouees");
         int nbPartiesJouees = 0;
         Equipe instance = new Equipe();
@@ -154,6 +182,10 @@ public class EquipeTest {
         } else {
             fail("The test case is a prototype.");
         }
+
+        final int nvPartiejouees = 4;
+        e.setNbPartiesJouees(nvPartiejouees);
+
     }
 
     /**
@@ -161,6 +193,7 @@ public class EquipeTest {
      */
     @Test
     public void testGetNbJoueurs() {
+
         System.out.println("getNbJoueurs");
         Equipe instance = new Equipe();
         int expResult = 0;
@@ -171,6 +204,8 @@ public class EquipeTest {
         } else {
             fail("The test case is a prototype.");
         }
+        assertEquals(e.getNbJoueurs(), NB_JOUEURS);
+
     }
 
     /**
@@ -178,7 +213,8 @@ public class EquipeTest {
      */
     @Test
     public void testSetNbJoueurs() {
-    
+        final int maxj = 15;
+        e.setNbJoueurs(maxj);
     }
 
     /**
@@ -186,16 +222,7 @@ public class EquipeTest {
      */
     @Test
     public void testGetNbMaxJoueurs() {
-        System.out.println("getNbMaxJoueurs");
-        Equipe instance = new Equipe();
-        int expResult = 30;
-        int result = instance.getNbMaxJoueurs();
-        assertEquals(expResult, result);
-        if (expResult == result) {
-            System.out.println("<-  Réussi ->");
-        } else {
-            fail("The test case is a prototype.");
-        }
+        assertEquals(e.getNbMaxJoueurs(), 34);
     }
 
     /**
@@ -203,6 +230,9 @@ public class EquipeTest {
      */
     @Test
     public void testSetNbMaxJoueurs() {
+         
+        
+        
         System.out.println("setNbMaxJoueurs");
         int nbMaxJoueurs = 0;
         int result = 25;
@@ -214,6 +244,10 @@ public class EquipeTest {
         } else {
             fail("The test case is a prototype.");
         }
+
+        final int nvNbMaxJoueurs = 5;
+        e.setNbMaxJoueurs(nvNbMaxJoueurs);
+         
     }
 
 }
