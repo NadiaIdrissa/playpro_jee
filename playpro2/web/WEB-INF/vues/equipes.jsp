@@ -28,32 +28,16 @@
 
 <div class="equipeStyle">
     <div class="card-columns">
-
-
-
-
-
-
-
-
         <c:forEach items="${requestScope.listeEquipe}" var="uneEquipe"> 
-
-
-
-
 
             <form class="form-signin needs-validation " action="?action=invitation" method="post" name="action" novalidate>
                 <div class="card">
                     <div class="  col-sm-1" style="font-size:5px;">
                         <button id="pref" type="button" ><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></button>
                     </div>
-                  
-
-
 
                     <div class="card-body text-center">
                         <img class="avatar rounded-circle" src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
-
 
                         <ul class="list-group font-weight-bold">
                             <li class="list-group-item">Équipe &#10132; <c:out value="${uneEquipe.nomEquipe}" /> </li>
@@ -68,11 +52,6 @@
                         <input name="nomEquipeChoisi" type="hidden" value="<c:out value="${uneEquipe.nomEquipe}" />">
                         <p class='card-text'>Sport de l'équipe: <c:out value="${uneEquipe.sport.nom}" /></p>
                         <p class="card-text">Nombre de places: <c:out value="${uneEquipe.nbJoueurs}" /></p>-->
-
-
-
-
-
                         <p>
                             <c:set var="nb" value="${uneEquipe.nbJoueurs}"/>
                             <c:set var="nbOqp" value="${sessionScope.placeOqp}"/>
@@ -80,11 +59,6 @@
                             <c:set var="capitaine" value="${uneEquipe.capitaine.id}"/>
                         </p>
                         <c:if test = "${uneEquipe.capitaine.id == sessionScope.membre.id}">
-
-
-
-
-
 
                             <button class="btn btn-primary" style="color: #003A5C;" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
                                 Inviter un joueur
@@ -104,24 +78,13 @@
                                 </div>
                             </div> 
                         </c:if>
-
-
-
-
-
-
-
                         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
                             Afficher les membres
                         </button>
 
                         <div class="collapse" id="<c:out value="${uneEquipe.nomEquipe}" />">  
                             <div class="card card-body">
-
-
                                 <div class="list-group">
-
-
 
                                     <c:forEach items="${uneEquipe.membresEquipe}" var="joueur" varStatus="loop"> 
                                         <a href="?action=profil&idMembreAfficher=${joueur.id}" class="list-group-item list-group-item-action list-group-item-primary text-left" title="Voir le profil de ${joueur.pseudo}">
@@ -130,7 +93,6 @@
 
                                             <input type="hidden" ${nb=nb-1}>
                                     </c:forEach>
-
 
                                 </div>
 
