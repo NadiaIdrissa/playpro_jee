@@ -167,11 +167,17 @@ S.setNb_min(nvmin);
     /**
      * Test of toString method, of class Sport.
      */
-    @Test
-    public void testToString() {
-     
-        // TODO review the generated test code and remove the default call to fail.
+    @Test(expected = IllegalArgumentException.class)
+    public void testNB_MaxNegatif() {
 
+        final int nvMax = -1;
+        S.setNb_max(nvMax);
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void testNB_MinNegatif() {
+
+        final int nvMin = -1;
+        S.setNb_max(nvMin);
     }
     
 }
