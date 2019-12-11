@@ -14,6 +14,7 @@ import com.playpro.mvc2.controleurs.AbstractAction;
 import com.playpro.mvc2.controleurs.Action;
 import com.playpro.mvc2.controleurs.AjaxAction;
 import com.playpro.mvc2.controleurs.AnnoncesAction;
+import com.playpro.mvc2.controleurs.CommentaireAction;
 import com.playpro.mvc2.controleurs.DefaultAction;
 import com.playpro.mvc2.controleurs.CreerEquipeAction;
 import com.playpro.mvc2.controleurs.EquipesAction;
@@ -130,6 +131,9 @@ public class ControleurFrontal extends HttpServlet {
 
             case "reponseInvitation":
                 action = new ReponseInvitationAction();
+                break;
+            case "Commentaire":
+                action = new CommentaireAction();
                 break;
 
             case "parties":

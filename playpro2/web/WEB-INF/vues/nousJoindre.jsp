@@ -1,8 +1,7 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
+    <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
     <title >Contact</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -40,29 +39,31 @@
                     <p>Vous pouvez nous envoyer vos suggestions</p>
 
                     <!--Body-->
-                    <div class="md-form">
-                        <label for="form-name" class>Votre nom <span class="fas fa-user"></span></label>
-                        <input type="text" id="form-name" class="form-control">
-                    </div>
+                    <form action="" accept-charset="UTF-8" method="get">
+                        <div class="md-form">
+                            <label for="form-name" class>Votre nom <span class="fas fa-user"></span></label>
+                            <input type="text" name="nom" id="form-name" class="form-control">
+                        </div>
 
-                    <div class="md-form">
-                        <label for="form-email"> Votre courriel <span class="fas fa-envelope"> </span></label>
-                        <input type="text" id="form-email" class="form-control">
-                    </div>
+                        <div class="md-form">
+                            <label for="form-email"> Votre courriel <span class="fas fa-envelope"> </span></label>
+                            <input type="text" name="courriel" id="form-email" class="form-control">
+                        </div>
 
-                    <div class="md-form">
-                        <label for="form-Subject">Sujet <span class="fas fa-tag"></span></label>
-                        <input type="text" id="form-Subject" class="form-control">
-                    </div>
-                    
-                    <div class="md-form">
-                        <label for="form-text">Votre texte <span class="fas fa-pencil-alt"></span></label>
-                        <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
-                    </div>
+                        <div class="md-form">
+                            <label for="form-Subject">Sujet <span class="fas fa-tag"></span></label>
+                            <input type="text" name="sujet" id="form-Subject" class="form-control">
+                        </div>
 
-                    <div class="text-center mt-4">
-                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Envoyer</button>
-                    </div>
+                        <div class="md-form">
+                            <label for="form-text">Votre texte <span class="fas fa-pencil-alt"></span></label>
+                            <textarea id="form-text" name="commentaire" class="form-control md-textarea" rows="3"></textarea>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" name="action" value="Commentaire" type="submit">Envoyer</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
