@@ -24,6 +24,7 @@ public class Equipe {
     protected int nbMaxJoueurs;
     protected LocalDate dateCreation;
     private String image;
+    
     private List<Membre> membresEquipe;
         
     public Equipe() {
@@ -37,6 +38,7 @@ public class Equipe {
         this.nbJoueurs = nbJoueurs;
         this.nbMaxJoueurs = nbMaxJoueurs;
         this.membresEquipe = new LinkedList<>();
+        
     }
     
     public String getNomEquipe() {
@@ -56,6 +58,8 @@ public class Equipe {
         this.capitaine = capitaine;
 
     }
+    
+    
 
     public Sport getSport() {
         return sport;

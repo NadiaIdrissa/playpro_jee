@@ -46,6 +46,9 @@ public class PortailAction extends AbstractAction  {
             case "loadEquipe" :
                 viewConf = "equipe";
                 break;
+            case "invitations" :
+                viewConf = "invitations";
+                break;
             default :
                 viewConf= "";
                 break;

@@ -22,6 +22,7 @@ public class Lieux {
     private String image1;
     private String image2;
     private String image3;
+    private String surCarte;
 
     public Lieux() {
     }
@@ -58,6 +59,10 @@ public class Lieux {
         return infos;
     }
 
+    public String getSurCarte() {
+        return surCarte;
+    }
+    
     public void setId_lieu(String id_lieu) {
         this.id_lieu = id_lieu;
     }
@@ -89,6 +94,11 @@ public class Lieux {
     public void setInfos(String infos) {
         this.infos = infos;
     }
+
+    public void setSurCarte(String surCarte) {
+        this.surCarte = surCarte;
+    }
+    
 
     @Override
     public String toString() {

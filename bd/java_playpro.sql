@@ -117,17 +117,19 @@ CREATE TABLE `lieu` (
   `infos` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `image1` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `image2` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `image3` varchar(255) CHARACTER SET utf8 DEFAULT NULL
+  `image3` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `surCarte` varchar(255) CHARACTER SET utf8 DEFAULT 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815'
+
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `lieu`
 --
 
-INSERT INTO `lieu` (`id_lieu`, `nom`, `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`, `image1`, `image2`, `image3`) VALUES
-('685c7074-42e0-4169-b4e9-706b8161e1e3', 'Complexe sportif C.Robillard', '1000', 'Avenue Emile-Journault', 'H2M 2E7', 'Montreal', 'Canada', 'Acces par l\'avenue Christophe Colomb', 'CRobillard3.jpg', 'CRobillard2.jpg', 'CRobillard1.jpg'),
-('942bf489-d040-4115-9c2a-1909fd7e11de', 'Parc Jarry', '285', 'Rue Gary-Carter', 'H2R 2W1', 'Montreal', 'Canada', 'Parking gratuit sur place', 'Jarry1.jpg', 'Jarry2.jpg', 'Jarry3.jpg'),
-('aedf248d-a10a-4a5a-a55f-3a800c428db5', 'Parc Lafontaine', '3819', 'Avenue Calixa-Lavallée', 'H2L 3A7', 'Montreal', 'Canada', 'Cours de tennis gratuit sur réservation', 'Lafontaine1.jpg', 'Lafontaine2.jpg', 'Lafontaine3.jpg');
+INSERT INTO `lieu` (`id_lieu`, `nom`, `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`, `image1`, `image2`, `image3`,`surCarte`) VALUES
+('685c7074-42e0-4169-b4e9-706b8161e1e3', 'Complexe sportif C.Robillard', '1000', 'Avenue Emile-Journault', 'H2M 2E7', 'Montreal', 'Canada', 'Acces par l\'avenue Christophe Colomb', 'CRobillard3.jpg', 'CRobillard2.jpeg', 'CRobillard1.jpg','https://www.google.ca/maps/place/Stade+IGA/@45.5535874,-73.6381173,15.81z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
+('942bf489-d040-4115-9c2a-1909fd7e11de', 'Parc Jarry', '285', 'Rue Gary-Carter', 'H2R 2W1', 'Montreal', 'Canada', 'Parking gratuit sur place', 'Jarry1.jpg', 'Jarry2.jpg', 'Jarry3.jpg','https://www.google.ca/maps/place/Stade+IGA/@45.5336136,-73.6299097,16.05z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
+('aedf248d-a10a-4a5a-a55f-3a800c428db5', 'Parc Lafontaine', '3819', 'Avenue Calixa-Lavallée', 'H2L 3A7', 'Montreal', 'Canada', 'Cours de tennis gratuit sur réservation', 'Lafontaine1.jpg', 'Lafontaine2.jpg', 'Lafontaine3.jpeg','https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815');
 
 -- --------------------------------------------------------
 

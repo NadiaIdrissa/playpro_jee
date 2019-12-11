@@ -64,6 +64,19 @@ public class LoginAction extends AbstractAction {
                         System.out.println(j + s.get(j).getNom());
                         listeq.add(s.get(j).getNom());
                     }
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    request.getSession().setAttribute("listeTousSports", s);
+                    
+                    
+                    
+                    
 
                     request.getSession().setAttribute("sportString", listeq);
 
@@ -79,6 +92,14 @@ public class LoginAction extends AbstractAction {
 
                     request.getSession().setAttribute("NbInvitations", listeInvitations.size());
                     request.getSession().setAttribute("listeInvitations", listeInvitations);
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
 
                 }
             }
