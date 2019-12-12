@@ -1,22 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le :  jeu. 05 déc. 2019 à 16:50
--- Version du serveur :  5.7.27-0ubuntu0.18.04.1
--- Version de PHP :  7.2.24-0ubuntu0.18.04.1
+-- Hôte : localhost:8889
+-- Généré le :  jeu. 12 déc. 2019 à 20:32
+-- Version du serveur :  5.7.23
+-- Version de PHP :  7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `playpro2`
@@ -78,6 +70,14 @@ CREATE TABLE `equipe` (
 -- Déchargement des données de la table `equipe`
 --
 
+INSERT INTO `equipe` (`nom_equipe`, `id_capitaine`, `id_sport`, `nb_parties_jouees`, `nb_joueurs`, `nb_max_joueurs`, `date_creation`, `image`) VALUES
+('Batars', 'a407418a-7683-4abc-8193-f083d86ae9f6', '64f50de6-759f-48dc-83db-299ebd8b0aab', 0, 6, 18, '2019-12-10 04:51:07', 'tigers.jpg'),
+('Bathcers', 'a407418a-7683-4abc-8193-f083d86ae9f6', 'db031a56-2a4f-485a-b463-7165df255302', 0, 9, 22, '2019-12-10 04:13:22', 'eagles.jpg'),
+('Browns', '8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', '48b957f8-1a7c-47a4-b8d3-770c91b32f21', 0, 7, 4, '2019-12-10 04:01:16', 'wizards2.jpg'),
+('Kiko', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '64f50de6-759f-48dc-83db-299ebd8b0aab', 0, 7, 18, '2019-12-11 01:04:01', 'wizard.jpg'),
+('Killers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '0df302b1-ae4d-497e-8a43-4bc188f8a83a', 0, 4, 22, '2019-12-10 04:00:21', 'tigers.jpg'),
+('Teters', 'a407418a-7683-4abc-8193-f083d86ae9f6', 'eade52d3-1ccc-49ef-8d86-34023d9f35a2', 0, 7, 21, '2019-12-10 04:13:42', 'sirens.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -98,7 +98,9 @@ CREATE TABLE `invitation` (
 INSERT INTO `invitation` (`id_expediteur`, `id_destinataire`, `id_requete`, `date_creation`) VALUES
 ('29e405ab-2014-43e1-b01e-492d4dcc5ebd', '8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'bravo', '2019-11-27 02:30:25'),
 ('29e405ab-2014-43e1-b01e-492d4dcc5ebd', '940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'bravo', '2019-11-28 23:52:47'),
-('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'ebe2e2ec-0b79-4108-be69-f54b6654be50', 'bravo', '2019-11-27 02:33:08');
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', '940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'Killers', '2019-12-10 04:10:38'),
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'ebe2e2ec-0b79-4108-be69-f54b6654be50', 'bravo', '2019-11-27 02:33:08'),
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'ebe2e2ec-0b79-4108-be69-f54b6654be50', 'Killers', '2019-12-11 03:57:48');
 
 -- --------------------------------------------------------
 
@@ -119,17 +121,16 @@ CREATE TABLE `lieu` (
   `image2` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `image3` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `surCarte` varchar(255) CHARACTER SET utf8 DEFAULT 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815'
-
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `lieu`
 --
 
-INSERT INTO `lieu` (`id_lieu`, `nom`, `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`, `image1`, `image2`, `image3`,`surCarte`) VALUES
-('685c7074-42e0-4169-b4e9-706b8161e1e3', 'Complexe sportif C.Robillard', '1000', 'Avenue Emile-Journault', 'H2M 2E7', 'Montreal', 'Canada', 'Acces par l\'avenue Christophe Colomb', 'CRobillard3.jpg', 'CRobillard2.jpeg', 'CRobillard1.jpg','https://www.google.ca/maps/place/Stade+IGA/@45.5535874,-73.6381173,15.81z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
-('942bf489-d040-4115-9c2a-1909fd7e11de', 'Parc Jarry', '285', 'Rue Gary-Carter', 'H2R 2W1', 'Montreal', 'Canada', 'Parking gratuit sur place', 'Jarry1.jpg', 'Jarry2.jpg', 'Jarry3.jpg','https://www.google.ca/maps/place/Stade+IGA/@45.5336136,-73.6299097,16.05z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
-('aedf248d-a10a-4a5a-a55f-3a800c428db5', 'Parc Lafontaine', '3819', 'Avenue Calixa-Lavallée', 'H2L 3A7', 'Montreal', 'Canada', 'Cours de tennis gratuit sur réservation', 'Lafontaine1.jpg', 'Lafontaine2.jpg', 'Lafontaine3.jpeg','https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815');
+INSERT INTO `lieu` (`id_lieu`, `nom`, `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`, `image1`, `image2`, `image3`, `surCarte`) VALUES
+('685c7074-42e0-4169-b4e9-706b8161e1e3', 'Complexe sportif C.Robillard', '1000', 'Avenue Emile-Journault', 'H2M 2E7', 'Montreal', 'Canada', 'Acces par l\'avenue Christophe Colomb', 'CRobillard3.jpg', 'CRobillard2.jpeg', 'CRobillard1.jpg', 'https://www.google.ca/maps/place/Stade+IGA/@45.5535874,-73.6381173,15.81z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
+('942bf489-d040-4115-9c2a-1909fd7e11de', 'Parc Jarry', '285', 'Rue Gary-Carter', 'H2R 2W1', 'Montreal', 'Canada', 'Parking gratuit sur place', 'Jarry1.jpg', 'Jarry2.jpg', 'Jarry3.jpg', 'https://www.google.ca/maps/place/Stade+IGA/@45.5336136,-73.6299097,16.05z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
+('aedf248d-a10a-4a5a-a55f-3a800c428db5', 'Parc Lafontaine', '3819', 'Avenue Calixa-Lavallée', 'H2L 3A7', 'Montreal', 'Canada', 'Cours de tennis gratuit sur réservation', 'Lafontaine1.jpg', 'Lafontaine2.jpg', 'Lafontaine3.jpeg', 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815');
 
 -- --------------------------------------------------------
 
@@ -179,7 +180,7 @@ CREATE TABLE `membre` (
 -- Déchargement des données de la table `membre`
 --
 
-INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `courriel`, `date_inscription`, `type_membre`, `niveau`, `sport`, `mdp`,  `photo`, `statut`) VALUES
+INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `courriel`, `date_inscription`, `type_membre`, `niveau`, `sport`, `mdp`, `photo`, `statut`) VALUES
 ('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Vivi', 'Femme', 'Champagne', 'Vivianne', 1975, 'vivi@al.ca', '2019-10-24 02:16:43', 'Admin', 'PROFESSIONNEL', 'Basketball', '1000:a94d672c3840a1bbc37cde84d0a8b77bb181453ec7772a3f:e81e26e647b1d27127e19b843709d313900c9e8cd7d39d3c', 'vivi.png', 'Actif'),
 ('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'Jack', 'Homme', 'Henri', 'Jacques', 1968, 'jack@al.ca', '2019-10-24 02:10:20', 'Entraineur', 'PROFESSIONNEL', 'Soccer', '1000:2b26ce3cac8e6f8be3f2060ea85f00b91828b3110a52a197:3d180a72d4d9b41ce3bbfd08d960f4688561b53d065090e7', 'jack.png', 'Actif'),
 ('940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'Tom', 'Homme', 'Rogers', 'Thomas', 1995, 'tom@al.ca', '2019-10-24 02:01:36', 'Joueur', 'INTERMEDIAIRE', '', '1000:891fbed7bcb15322b590f3942c1153880080f91f6cb3908c:a75aac427ef2483815461479f2418e517c5bb47393b914c9', 'tom.png', 'Actif'),
@@ -200,6 +201,21 @@ CREATE TABLE `participationequipe` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `participationequipe`
+--
+
+INSERT INTO `participationequipe` (`id_joueur`, `nom_equipe`, `date`) VALUES
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Browns', '2019-12-10 05:43:25'),
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Kiko', '2019-12-11 01:04:01'),
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Killers', '2019-12-10 04:00:21'),
+('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'Browns', '2019-12-10 04:01:16'),
+('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'Killers', '2019-12-10 04:11:17'),
+('a407418a-7683-4abc-8193-f083d86ae9f6', 'Batars', '2019-12-10 04:51:07'),
+('a407418a-7683-4abc-8193-f083d86ae9f6', 'Bathcers', '2019-12-10 04:13:22'),
+('a407418a-7683-4abc-8193-f083d86ae9f6', 'Killers', '2019-12-11 01:09:02'),
+('a407418a-7683-4abc-8193-f083d86ae9f6', 'Teters', '2019-12-10 04:13:42');
+
 -- --------------------------------------------------------
 
 --
@@ -219,8 +235,9 @@ CREATE TABLE `participationpartie` (
 --
 
 CREATE TABLE `partie` (
-  `id_partie` char(36) NOT NULL,
-  `date_partie_heure` date NOT NULL,
+  `id_partie` int(36) NOT NULL,
+  `date_partie` date NOT NULL,
+  `heure_partie` time NOT NULL,
   `sport` varchar(30) NOT NULL,
   `equipe_1` varchar(100) DEFAULT NULL,
   `equipe_2` varchar(100) DEFAULT NULL,
@@ -330,6 +347,16 @@ ALTER TABLE `sport`
   ADD UNIQUE KEY `nom_sport` (`nom`);
 
 --
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `partie`
+--
+ALTER TABLE `partie`
+  MODIFY `id_partie` int(36) NOT NULL AUTO_INCREMENT;
+
+--
 -- Contraintes pour les tables déchargées
 --
 
@@ -352,8 +379,3 @@ ALTER TABLE `lieusport`
 ALTER TABLE `partie`
   ADD CONSTRAINT `Partie_FK_nom_equipe1` FOREIGN KEY (`equipe_1`) REFERENCES `equipe` (`nom_equipe`),
   ADD CONSTRAINT `Partie_FK_nom_equipe2` FOREIGN KEY (`equipe_2`) REFERENCES `equipe` (`nom_equipe`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
