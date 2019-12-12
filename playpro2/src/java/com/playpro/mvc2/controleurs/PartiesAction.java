@@ -11,6 +11,7 @@ import com.playpro.entities.Lieux;
 import com.playpro.entities.Membre;
 import com.playpro.entities.Partie;
 import com.playpro.services.EquipesServices;
+import com.playpro.services.PartiesServices;
 import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -115,6 +116,7 @@ public class PartiesAction extends AbstractAction {
         partie.setHeurePArtie(time);
         partie.setLieuSportPartie(lieu);
         
+        PartiesServices.creerPartie(partie);
         
         
 
