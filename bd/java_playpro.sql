@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1
--- http://www.phpmyadmin.net
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
 --
--- Client :  localhost
--- Généré le :  Mer 11 Décembre 2019 à 15:41
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.18
+-- Hôte : localhost
+-- Généré le :  jeu. 05 déc. 2019 à 16:50
+-- Version du serveur :  5.7.27-0ubuntu0.18.04.1
+-- Version de PHP :  7.2.24-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -40,7 +42,7 @@ CREATE TABLE `annonce` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `annonce`
+-- Déchargement des données de la table `annonce`
 --
 
 INSERT INTO `annonce` (`id_annonce`, `id_createur`, `nombreMax`, `id_lieu`, `date_event`, `montant`, `gratuit`, `titre_annonce`, `description`, `date_creation`) VALUES
@@ -54,19 +56,6 @@ INSERT INTO `annonce` (`id_annonce`, `id_createur`, `nombreMax`, `id_lieu`, `dat
 ('a2dba22b-417a-4c5a-8a79-ae9ee29cc9cd', 'fd6a948e-7f78-4c73-b54c-fe2e8085a6d5', 13, 'aedf248d-a10a-4a5a-a55f-3a800c428db5', '2019-12-29 15:50:08', 80.00, 0, 'Cours de ballet', 'Danse classique pour tous dans un studio aménagé. Ballet prévu en fin d\'année.\r\n', '2019-11-29 00:44:12'),
 ('ca777a31-5348-478a-b639-2f9775744956', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 13, 'aedf248d-a10a-4a5a-a55f-3a800c428db5', '2019-12-29 15:50:08', 300.00, 0, 'Pratique salsa', 'Devenez danseur professionnel. Pour danseurs aguéris seulement. Répétitions avant show.', '2019-11-29 00:44:51'),
 ('fc87369e-1da1-4fd3-afb6-57e1c8422bae', 'a407418a-7683-4abc-8193-f083d86ae9f6', 6, 'aedf248d-a10a-4a5a-a55f-3a800c428db5', '2019-12-29 15:50:08', 0.00, 1, 'Cours de Tennis', 'Venez nombreux! Cours participatif.', '2019-11-29 00:35:48');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `commentaire`
---
-
-CREATE TABLE `commentaire` (
-  `Nom` varchar(255) NOT NULL,
-  `Courriel` varchar(255) NOT NULL,
-  `Sujet` varchar(255) NOT NULL,
-  `Commentaire` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -86,11 +75,8 @@ CREATE TABLE `equipe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `equipe`
+-- Déchargement des données de la table `equipe`
 --
-
-INSERT INTO `equipe` (`nom_equipe`, `id_capitaine`, `id_sport`, `nb_parties_jouees`, `nb_joueurs`, `nb_max_joueurs`, `date_creation`, `image`) VALUES
-('Ken', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '0df302b1-ae4d-497e-8a43-4bc188f8a83a', 0, 8, 22, '2019-12-11 00:29:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -106,13 +92,12 @@ CREATE TABLE `invitation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `invitation`
+-- Déchargement des données de la table `invitation`
 --
 
 INSERT INTO `invitation` (`id_expediteur`, `id_destinataire`, `id_requete`, `date_creation`) VALUES
 ('29e405ab-2014-43e1-b01e-492d4dcc5ebd', '8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'bravo', '2019-11-27 02:30:25'),
 ('29e405ab-2014-43e1-b01e-492d4dcc5ebd', '940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'bravo', '2019-11-28 23:52:47'),
-('29e405ab-2014-43e1-b01e-492d4dcc5ebd', '940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'Ken', '2019-12-11 00:29:45'),
 ('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'ebe2e2ec-0b79-4108-be69-f54b6654be50', 'bravo', '2019-11-27 02:33:08');
 
 -- --------------------------------------------------------
@@ -134,24 +119,17 @@ CREATE TABLE `lieu` (
   `image2` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `image3` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `surCarte` varchar(255) CHARACTER SET utf8 DEFAULT 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815'
+
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `lieu`
+-- Déchargement des données de la table `lieu`
 --
 
-INSERT INTO `lieu` (`id_lieu`, `nom`, `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`, `image1`, `image2`, `image3`, `surCarte`) VALUES
-('17501023-14cf-4e1a-a3ba-ed9ec3c9eb0b', 'Mama', 'mmm', 'mmm', 'h1r3e2', 'mm', 'mm', 'kkk', '11705105_912350035487934_456455735201473855_n.jpg', NULL, NULL, 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815'),
-('66fbbbda-6f3e-481a-904d-2d4b5600d323', 'Mama', 'mmm', 'mmm', 'h1r3e2', 'mm', 'mm', 'kkk', '11705105_912350035487934_456455735201473855_n.jpg', NULL, NULL, 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815'),
-('685c7074-42e0-4169-b4e9-706b8161e1e3', 'Complexe sportif C.Robillard', '1000', 'Avenue Emile-Journault', 'H2M 2E7', 'Montreal', 'Canada', 'Acces par l\'avenue Christophe Colomb', 'CRobillard3.jpg', 'CRobillard2.jpeg', 'CRobillard1.jpg', 'https://www.google.ca/maps/place/Stade+IGA/@45.5535874,-73.6381173,15.81z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
-('723c646e-70c9-473c-b806-549391e504ef', '', '', '', '', '', '', '', NULL, NULL, NULL, 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815'),
-('7dd78123-72e2-4109-904f-417d502f5dc3', '', '', '', '', '', '', '', NULL, NULL, NULL, 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815'),
-('942bf489-d040-4115-9c2a-1909fd7e11de', 'Parc Jarry', '285', 'Rue Gary-Carter', 'H2R 2W1', 'Montreal', 'Canada', 'Parking gratuit sur place', 'Jarry1.jpg', 'Jarry2.jpg', 'Jarry3.jpg', 'https://www.google.ca/maps/place/Stade+IGA/@45.5336136,-73.6299097,16.05z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
-('a40db44f-420b-4244-9c83-dd909ddaf601', 'Mama', 'mmm', 'mmm', 'h1r3e2', 'mm', 'mm', 'kkk', '11705105_912350035487934_456455735201473855_n.jpg', NULL, NULL, 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815'),
-('aedf248d-a10a-4a5a-a55f-3a800c428db5', 'Parc Lafontaine', '3819', 'Avenue Calixa-Lavallée', 'H2L 3A7', 'Montreal', 'Canada', 'Cours de tennis gratuit sur réservation', 'Lafontaine1.jpg', 'Lafontaine2.jpg', 'Lafontaine3.jpeg', 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815'),
-('d6c18b37-42e0-479a-8e54-bc1a9f60e563', 'aaaa', 'lll', 'lll', 'h1h2h2', 'llll', 'lll', 'llll', NULL, NULL, NULL, 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815'),
-('df673f29-a957-4989-8c6d-e04fc68c210f', '', '', '', '', '', '', '', NULL, NULL, NULL, 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815'),
-('e2ef1618-0fa1-429c-b3df-67a45e6928ed', '', '', '', '', '', '', '', NULL, NULL, NULL, 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815');
+INSERT INTO `lieu` (`id_lieu`, `nom`, `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`, `image1`, `image2`, `image3`,`surCarte`) VALUES
+('685c7074-42e0-4169-b4e9-706b8161e1e3', 'Complexe sportif C.Robillard', '1000', 'Avenue Emile-Journault', 'H2M 2E7', 'Montreal', 'Canada', 'Acces par l\'avenue Christophe Colomb', 'CRobillard3.jpg', 'CRobillard2.jpeg', 'CRobillard1.jpg','https://www.google.ca/maps/place/Stade+IGA/@45.5535874,-73.6381173,15.81z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
+('942bf489-d040-4115-9c2a-1909fd7e11de', 'Parc Jarry', '285', 'Rue Gary-Carter', 'H2R 2W1', 'Montreal', 'Canada', 'Parking gratuit sur place', 'Jarry1.jpg', 'Jarry2.jpg', 'Jarry3.jpg','https://www.google.ca/maps/place/Stade+IGA/@45.5336136,-73.6299097,16.05z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
+('aedf248d-a10a-4a5a-a55f-3a800c428db5', 'Parc Lafontaine', '3819', 'Avenue Calixa-Lavallée', 'H2L 3A7', 'Montreal', 'Canada', 'Cours de tennis gratuit sur réservation', 'Lafontaine1.jpg', 'Lafontaine2.jpg', 'Lafontaine3.jpeg','https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815');
 
 -- --------------------------------------------------------
 
@@ -165,20 +143,12 @@ CREATE TABLE `lieusport` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `lieusport`
+-- Déchargement des données de la table `lieusport`
 --
 
 INSERT INTO `lieusport` (`id_lieu`, `id_sport`) VALUES
 ('942bf489-d040-4115-9c2a-1909fd7e11de', '0df302b1-ae4d-497e-8a43-4bc188f8a83a'),
 ('aedf248d-a10a-4a5a-a55f-3a800c428db5', '0df302b1-ae4d-497e-8a43-4bc188f8a83a'),
-('17501023-14cf-4e1a-a3ba-ed9ec3c9eb0b', '48b957f8-1a7c-47a4-b8d3-770c91b32f21'),
-('66fbbbda-6f3e-481a-904d-2d4b5600d323', '48b957f8-1a7c-47a4-b8d3-770c91b32f21'),
-('723c646e-70c9-473c-b806-549391e504ef', '48b957f8-1a7c-47a4-b8d3-770c91b32f21'),
-('7dd78123-72e2-4109-904f-417d502f5dc3', '48b957f8-1a7c-47a4-b8d3-770c91b32f21'),
-('a40db44f-420b-4244-9c83-dd909ddaf601', '48b957f8-1a7c-47a4-b8d3-770c91b32f21'),
-('d6c18b37-42e0-479a-8e54-bc1a9f60e563', '48b957f8-1a7c-47a4-b8d3-770c91b32f21'),
-('df673f29-a957-4989-8c6d-e04fc68c210f', '48b957f8-1a7c-47a4-b8d3-770c91b32f21'),
-('e2ef1618-0fa1-429c-b3df-67a45e6928ed', '48b957f8-1a7c-47a4-b8d3-770c91b32f21'),
 ('942bf489-d040-4115-9c2a-1909fd7e11de', '64f50de6-759f-48dc-83db-299ebd8b0aab'),
 ('aedf248d-a10a-4a5a-a55f-3a800c428db5', '64f50de6-759f-48dc-83db-299ebd8b0aab');
 
@@ -206,10 +176,10 @@ CREATE TABLE `membre` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `membre`
+-- Déchargement des données de la table `membre`
 --
 
-INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `courriel`, `date_inscription`, `type_membre`, `niveau`, `sport`, `mdp`, `photo`, `statut`) VALUES
+INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `courriel`, `date_inscription`, `type_membre`, `niveau`, `sport`, `mdp`,  `photo`, `statut`) VALUES
 ('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Vivi', 'Femme', 'Champagne', 'Vivianne', 1975, 'vivi@al.ca', '2019-10-24 02:16:43', 'Admin', 'PROFESSIONNEL', 'Basketball', '1000:a94d672c3840a1bbc37cde84d0a8b77bb181453ec7772a3f:e81e26e647b1d27127e19b843709d313900c9e8cd7d39d3c', 'vivi.png', 'Actif'),
 ('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'Jack', 'Homme', 'Henri', 'Jacques', 1968, 'jack@al.ca', '2019-10-24 02:10:20', 'Entraineur', 'PROFESSIONNEL', 'Soccer', '1000:2b26ce3cac8e6f8be3f2060ea85f00b91828b3110a52a197:3d180a72d4d9b41ce3bbfd08d960f4688561b53d065090e7', 'jack.png', 'Actif'),
 ('940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'Tom', 'Homme', 'Rogers', 'Thomas', 1995, 'tom@al.ca', '2019-10-24 02:01:36', 'Joueur', 'INTERMEDIAIRE', '', '1000:891fbed7bcb15322b590f3942c1153880080f91f6cb3908c:a75aac427ef2483815461479f2418e517c5bb47393b914c9', 'tom.png', 'Actif'),
@@ -229,13 +199,6 @@ CREATE TABLE `participationequipe` (
   `nom_equipe` varchar(36) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `participationequipe`
---
-
-INSERT INTO `participationequipe` (`id_joueur`, `nom_equipe`, `date`) VALUES
-('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Ken', '2019-12-11 00:29:00');
 
 -- --------------------------------------------------------
 
@@ -280,7 +243,7 @@ CREATE TABLE `sport` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `sport`
+-- Déchargement des données de la table `sport`
 --
 
 INSERT INTO `sport` (`id_sport`, `nom`, `nb_max`, `nb_min`, `image`) VALUES
@@ -290,8 +253,15 @@ INSERT INTO `sport` (`id_sport`, `nom`, `nb_max`, `nb_min`, `image`) VALUES
 ('db031a56-2a4f-485a-b463-7165df255302', 'Basketball', 22, 2, 'basket.jpg'),
 ('eade52d3-1ccc-49ef-8d86-34023d9f35a2', 'Water polo', 21, 2, 'waterpolo.jpg');
 
+
+CREATE TABLE `commentaire` (
+  `Nom` varchar(255) NOT NULL,
+  `Courriel` varchar(255) NOT NULL,
+  `Sujet` varchar(255) NOT NULL,
+  `Commentaire` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
--- Index pour les tables exportées
+-- Index pour les tables déchargées
 --
 
 --
@@ -301,12 +271,6 @@ ALTER TABLE `annonce`
   ADD PRIMARY KEY (`id_annonce`),
   ADD KEY `Annonce_FK_pseudo` (`id_createur`) USING BTREE,
   ADD KEY `AnnonceLieu_FK_lieu` (`id_lieu`) USING BTREE;
-
---
--- Index pour la table `commentaire`
---
-ALTER TABLE `commentaire`
-  ADD PRIMARY KEY (`Courriel`);
 
 --
 -- Index pour la table `equipe`
@@ -373,7 +337,7 @@ ALTER TABLE `sport`
   ADD UNIQUE KEY `nom_sport` (`nom`);
 
 --
--- Contraintes pour les tables exportées
+-- Contraintes pour les tables déchargées
 --
 
 --
@@ -381,6 +345,12 @@ ALTER TABLE `sport`
 --
 ALTER TABLE `annonce`
   ADD CONSTRAINT `Annonce_FK_pseudo` FOREIGN KEY (`id_createur`) REFERENCES `membre` (`id`);
+
+--
+-- Index pour la table `commentaire`
+--
+ALTER TABLE `commentaire`
+  ADD PRIMARY KEY (`Courriel`);
 
 --
 -- Contraintes pour la table `lieusport`
@@ -395,6 +365,7 @@ ALTER TABLE `lieusport`
 ALTER TABLE `partie`
   ADD CONSTRAINT `Partie_FK_nom_equipe1` FOREIGN KEY (`equipe_1`) REFERENCES `equipe` (`nom_equipe`),
   ADD CONSTRAINT `Partie_FK_nom_equipe2` FOREIGN KEY (`equipe_2`) REFERENCES `equipe` (`nom_equipe`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

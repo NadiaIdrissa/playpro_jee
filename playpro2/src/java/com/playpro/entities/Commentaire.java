@@ -42,7 +42,7 @@ public class Commentaire {
     }
     
     public String getSujet() {
-        return nom;
+        return sujet;
     }
     
     public void setSujet(String sujet) {

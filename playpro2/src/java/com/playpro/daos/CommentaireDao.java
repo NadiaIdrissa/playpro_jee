@@ -22,9 +22,7 @@ import java.util.logging.Logger;
  * @author salpy
  */
 public class CommentaireDao extends DAO<Commentaire> {
-    public CommentaireDao(Connection cnx) {
-        super(cnx);
-    }
+   
     public boolean create(Commentaire x) {
         
        

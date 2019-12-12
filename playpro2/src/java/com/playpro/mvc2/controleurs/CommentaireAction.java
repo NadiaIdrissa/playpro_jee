@@ -27,8 +27,8 @@ public class CommentaireAction extends AbstractAction {
         String sujet = (String) request.getParameter("sujet");
         String commentaire = (String) request.getParameter("commentaire");
         
-        Connection cnx = Connexion.getInstance();
-        CommentaireDao c_Dao = new CommentaireDao(cnx);
+       // Connection cnx = Connexion.getInstance();
+        CommentaireDao c_Dao = new CommentaireDao();
         Commentaire c = new Commentaire(nom, courriel, sujet, commentaire);
         c_Dao.create(c);
         return action;
