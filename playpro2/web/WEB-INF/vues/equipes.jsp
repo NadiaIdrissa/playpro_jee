@@ -127,6 +127,8 @@
                                     <div class="list-group-item list-group-item-warning">
                                         Places libres: 
                                         <div class=" text-success"> ${nb}</div>
+
+                                        
                                     </div>
 
                                 </div>
