@@ -35,6 +35,7 @@
                             </div>
                             <div class="col">
                                 <div class="form-row">
+                                    <input type="hidden" name='id'  id="id" value="${membre.id}">
                                     <div class="col-md-12 mb-12">
                                         <label for="pseudoR">Pseudo</label>
                                         <input type="text" name='pseudoR' class="form-control" id="pse1" value="${membre.pseudo}"  disabled required>

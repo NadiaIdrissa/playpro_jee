@@ -25,23 +25,23 @@ public class CommentaireDao extends DAO<Commentaire> {
    
     public boolean create(Commentaire x) {
         
-       
         String req = "INSERT INTO commentaire (`Nom`, `Courriel`, `Sujet`, `Commentaire`) "
                 + "VALUES (?,?,?,?)";
 
         PreparedStatement stm = null;
 
-
         try {
             stm = cnx.prepareStatement(req);
-            
-            
+              
             stm.setString(1, x.getNom());
             stm.setString(2, x.getCourriel());
             stm.setString(3, x.getSujet());
             stm.setString(4, x.getCommentaire());
 
             int n = stm.executeUpdate();
+            if(n>0){
+                return true;
+            }
         } catch (SQLException exp) {
             exp.printStackTrace();
         } finally {
@@ -64,9 +64,11 @@ public class CommentaireDao extends DAO<Commentaire> {
             ResultSet r = stm.executeQuery("SELECT * FROM commentaire");
             while (r.next()) {
                 Commentaire c = new Commentaire();
-                c.setNom(r.getString("ID_EXPEDITEUR"));
-                c.setCourriel(r.getString("ID_DESTINATAIRE"));
-                c.setSujet(r.getString("ID_PROJET"));
+                c.setNom(r.getString("nom"));
+                c.setCourriel(r.getString("courriel"));
+                c.setSujet(r.getString("sujet"));
+                c.setCommentaire(r.getString("commentaire"));
+                c.setDateReception(r.getTimestamp("dateReception"));
                 liste.add(c);
             }
             Collections.reverse(liste);

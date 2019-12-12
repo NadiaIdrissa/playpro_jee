@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1
+-- http://www.phpmyadmin.net
 --
--- Hôte : localhost
--- Généré le :  jeu. 05 déc. 2019 à 16:50
--- Version du serveur :  5.7.27-0ubuntu0.18.04.1
--- Version de PHP :  7.2.24-0ubuntu0.18.04.1
+-- Client :  localhost
+-- Généré le :  Jeu 12 Décembre 2019 à 01:26
+-- Version du serveur :  5.7.11
+-- Version de PHP :  5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -42,7 +40,7 @@ CREATE TABLE `annonce` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `annonce`
+-- Contenu de la table `annonce`
 --
 
 INSERT INTO `annonce` (`id_annonce`, `id_createur`, `nombreMax`, `id_lieu`, `date_event`, `montant`, `gratuit`, `titre_annonce`, `description`, `date_creation`) VALUES
@@ -60,6 +58,27 @@ INSERT INTO `annonce` (`id_annonce`, `id_createur`, `nombreMax`, `id_lieu`, `dat
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `commentaire`
+--
+
+CREATE TABLE `commentaire` (
+  `Nom` varchar(255) NOT NULL,
+  `Courriel` varchar(255) NOT NULL,
+  `Sujet` varchar(255) NOT NULL,
+  `Commentaire` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `commentaire`
+--
+
+INSERT INTO `commentaire` (`Nom`, `Courriel`, `Sujet`, `Commentaire`) VALUES
+('Kennedy', 'ke@al.ca', 'Nadia fait chier', 'Mettez la dehors\r\n'),
+('ken', 'ken', 'ken', 'ken');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `equipe`
 --
 
@@ -71,18 +90,18 @@ CREATE TABLE `equipe` (
   `nb_joueurs` int(11) NOT NULL,
   `nb_max_joueurs` int(11) NOT NULL,
   `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `image` char(67) DEFAULT 'newteam.jpg'
+  `image` char(67) DEFAULT 'blueplay.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `equipe`
+-- Contenu de la table `equipe`
 --
+
 INSERT INTO `equipe` (`nom_equipe`, `id_capitaine`, `id_sport`, `nb_parties_jouees`, `nb_joueurs`, `nb_max_joueurs`, `date_creation`, `image`) VALUES
 ('Bears', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '64f50de6-759f-48dc-83db-299ebd8b0aab', 0, 13, 18, '2019-12-11 16:35:16', 'bears.jpg'),
 ('Eagles', 'adbbc2a0-3ec9-4baa-97e7-6b3b0b301aee', '48b957f8-1a7c-47a4-b8d3-770c91b32f21', 0, 11, 4, '2019-12-12 01:13:55', 'eagles.jpg'),
 ('Sirenes', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'eade52d3-1ccc-49ef-8d86-34023d9f35a2', 0, 12, 21, '2019-12-12 01:12:01', 'sirens.jpg'),
-('Tigers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '0df302b1-ae4d-497e-8a43-4bc188f8a83a', 0, 10, 22, '2019-12-12 01:11:06', 'tigers.jpg'),
-('Lions', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '0df302b1-ae4d-497e-8a43-4bc188f8a83a', 0, 10, 22, '2019-12-12 01:11:06', 'newteam.jpg');
+('Tigers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '0df302b1-ae4d-497e-8a43-4bc188f8a83a', 0, 10, 22, '2019-12-12 01:11:06', 'tigers.jpg');
 
 -- --------------------------------------------------------
 
@@ -98,7 +117,7 @@ CREATE TABLE `invitation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `invitation`
+-- Contenu de la table `invitation`
 --
 
 INSERT INTO `invitation` (`id_expediteur`, `id_destinataire`, `id_requete`, `date_creation`) VALUES
@@ -125,17 +144,16 @@ CREATE TABLE `lieu` (
   `image2` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `image3` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `surCarte` varchar(255) CHARACTER SET utf8 DEFAULT 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815'
-
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `lieu`
+-- Contenu de la table `lieu`
 --
 
-INSERT INTO `lieu` (`id_lieu`, `nom`, `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`, `image1`, `image2`, `image3`,`surCarte`) VALUES
-('685c7074-42e0-4169-b4e9-706b8161e1e3', 'Complexe sportif C.Robillard', '1000', 'Avenue Emile-Journault', 'H2M 2E7', 'Montreal', 'Canada', 'Acces par l\'avenue Christophe Colomb', 'CRobillard3.jpg', 'CRobillard2.jpeg', 'CRobillard1.jpg','https://www.google.ca/maps/place/Stade+IGA/@45.5535874,-73.6381173,15.81z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
-('942bf489-d040-4115-9c2a-1909fd7e11de', 'Parc Jarry', '285', 'Rue Gary-Carter', 'H2R 2W1', 'Montreal', 'Canada', 'Parking gratuit sur place', 'Jarry1.jpg', 'Jarry2.jpg', 'Jarry3.jpg','https://www.google.ca/maps/place/Stade+IGA/@45.5336136,-73.6299097,16.05z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
-('aedf248d-a10a-4a5a-a55f-3a800c428db5', 'Parc Lafontaine', '3819', 'Avenue Calixa-Lavallée', 'H2L 3A7', 'Montreal', 'Canada', 'Cours de tennis gratuit sur réservation', 'Lafontaine1.jpg', 'Lafontaine2.jpg', 'Lafontaine3.jpeg','https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815');
+INSERT INTO `lieu` (`id_lieu`, `nom`, `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`, `image1`, `image2`, `image3`, `surCarte`) VALUES
+('685c7074-42e0-4169-b4e9-706b8161e1e3', 'Complexe sportif C.Robillard', '1000', 'Avenue Emile-Journault', 'H2M 2E7', 'Montreal', 'Canada', 'Acces par l\'avenue Christophe Colomb', 'CRobillard3.jpg', 'CRobillard2.jpeg', 'CRobillard1.jpg', 'https://www.google.ca/maps/place/Stade+IGA/@45.5535874,-73.6381173,15.81z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
+('942bf489-d040-4115-9c2a-1909fd7e11de', 'Parc Jarry', '285', 'Rue Gary-Carter', 'H2R 2W1', 'Montreal', 'Canada', 'Parking gratuit sur place', 'Jarry1.jpg', 'Jarry2.jpg', 'Jarry3.jpg', 'https://www.google.ca/maps/place/Stade+IGA/@45.5336136,-73.6299097,16.05z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
+('aedf248d-a10a-4a5a-a55f-3a800c428db5', 'Parc Lafontaine', '3819', 'Avenue Calixa-Lavallée', 'H2L 3A7', 'Montreal', 'Canada', 'Cours de tennis gratuit sur réservation', 'Lafontaine1.jpg', 'Lafontaine2.jpg', 'Lafontaine3.jpeg', 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815');
 
 -- --------------------------------------------------------
 
@@ -149,7 +167,7 @@ CREATE TABLE `lieusport` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `lieusport`
+-- Contenu de la table `lieusport`
 --
 
 INSERT INTO `lieusport` (`id_lieu`, `id_sport`) VALUES
@@ -182,10 +200,10 @@ CREATE TABLE `membre` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `membre`
+-- Contenu de la table `membre`
 --
 
-INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `courriel`, `date_inscription`, `type_membre`, `niveau`, `sport`, `mdp`,  `photo`, `statut`) VALUES
+INSERT INTO `membre` (`id`, `pseudo`, `sexe`, `nom`, `prenom`, `annee_naiss`, `courriel`, `date_inscription`, `type_membre`, `niveau`, `sport`, `mdp`, `photo`, `statut`) VALUES
 ('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Vivi', 'Femme', 'Champagne', 'Vivianne', 1975, 'vivi@al.ca', '2019-10-24 02:16:43', 'Admin', 'PROFESSIONNEL', 'Basketball', '1000:a94d672c3840a1bbc37cde84d0a8b77bb181453ec7772a3f:e81e26e647b1d27127e19b843709d313900c9e8cd7d39d3c', 'vivi.png', 'Actif'),
 ('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'Jack', 'Homme', 'Henri', 'Jacques', 1968, 'jack@al.ca', '2019-10-24 02:10:20', 'Entraineur', 'PROFESSIONNEL', 'Soccer', '1000:2b26ce3cac8e6f8be3f2060ea85f00b91828b3110a52a197:3d180a72d4d9b41ce3bbfd08d960f4688561b53d065090e7', 'jack.png', 'Actif'),
 ('940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'Tom', 'Homme', 'Rogers', 'Thomas', 1995, 'tom@al.ca', '2019-10-24 02:01:36', 'Joueur', 'INTERMEDIAIRE', '', '1000:891fbed7bcb15322b590f3942c1153880080f91f6cb3908c:a75aac427ef2483815461479f2418e517c5bb47393b914c9', 'tom.png', 'Actif'),
@@ -205,6 +223,16 @@ CREATE TABLE `participationequipe` (
   `nom_equipe` varchar(36) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `participationequipe`
+--
+
+INSERT INTO `participationequipe` (`id_joueur`, `nom_equipe`, `date`) VALUES
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Bears', '2019-12-11 16:35:16'),
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Sirenes', '2019-12-12 01:12:01'),
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Tigers', '2019-12-12 01:11:06'),
+('adbbc2a0-3ec9-4baa-97e7-6b3b0b301aee', 'Eagles', '2019-12-12 01:13:55');
 
 -- --------------------------------------------------------
 
@@ -249,7 +277,7 @@ CREATE TABLE `sport` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `sport`
+-- Contenu de la table `sport`
 --
 
 INSERT INTO `sport` (`id_sport`, `nom`, `nb_max`, `nb_min`, `image`) VALUES
@@ -259,16 +287,8 @@ INSERT INTO `sport` (`id_sport`, `nom`, `nb_max`, `nb_min`, `image`) VALUES
 ('db031a56-2a4f-485a-b463-7165df255302', 'Basketball', 22, 2, 'basket.jpg'),
 ('eade52d3-1ccc-49ef-8d86-34023d9f35a2', 'Water polo', 21, 2, 'waterpolo.jpg');
 
-
-CREATE TABLE `commentaire` (
-  `Nom` varchar(255) NOT NULL,
-  `Courriel` varchar(255) NOT NULL,
-  `Sujet` varchar(255) NOT NULL,
-  `Commentaire` longtext NOT NULL,
-  `dateReception` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
--- Index pour les tables déchargées
+-- Index pour les tables exportées
 --
 
 --
@@ -278,6 +298,12 @@ ALTER TABLE `annonce`
   ADD PRIMARY KEY (`id_annonce`),
   ADD KEY `Annonce_FK_pseudo` (`id_createur`) USING BTREE,
   ADD KEY `AnnonceLieu_FK_lieu` (`id_lieu`) USING BTREE;
+
+--
+-- Index pour la table `commentaire`
+--
+ALTER TABLE `commentaire`
+  ADD PRIMARY KEY (`Courriel`);
 
 --
 -- Index pour la table `equipe`
@@ -344,7 +370,7 @@ ALTER TABLE `sport`
   ADD UNIQUE KEY `nom_sport` (`nom`);
 
 --
--- Contraintes pour les tables déchargées
+-- Contraintes pour les tables exportées
 --
 
 --
@@ -352,12 +378,6 @@ ALTER TABLE `sport`
 --
 ALTER TABLE `annonce`
   ADD CONSTRAINT `Annonce_FK_pseudo` FOREIGN KEY (`id_createur`) REFERENCES `membre` (`id`);
-
---
--- Index pour la table `commentaire`
---
-ALTER TABLE `commentaire`
-  ADD PRIMARY KEY (`Courriel`);
 
 --
 -- Contraintes pour la table `lieusport`
@@ -372,7 +392,6 @@ ALTER TABLE `lieusport`
 ALTER TABLE `partie`
   ADD CONSTRAINT `Partie_FK_nom_equipe1` FOREIGN KEY (`equipe_1`) REFERENCES `equipe` (`nom_equipe`),
   ADD CONSTRAINT `Partie_FK_nom_equipe2` FOREIGN KEY (`equipe_2`) REFERENCES `equipe` (`nom_equipe`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -78,13 +78,5 @@ window.onclick = function (event) {
 
 
 
-$('input[type=file]').change(function () {
-
-    var sourceVal = document.getElementById("imageSport").files[0].path;
-    $("#sourceDirPath").val(sourceVal);
-    console.log(this.files[0].mozFullPath);
-
-});
-
 
 
