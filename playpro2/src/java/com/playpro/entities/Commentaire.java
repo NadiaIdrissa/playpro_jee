@@ -5,6 +5,8 @@
  */
 package com.playpro.entities;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author salpy
@@ -14,6 +16,7 @@ public class Commentaire {
     private String courriel;
     private String sujet;
     private String commentaire;
+    private Timestamp dateReception;
     
     public Commentaire() {
     }
@@ -42,7 +45,7 @@ public class Commentaire {
     }
     
     public String getSujet() {
-        return nom;
+        return sujet;
     }
     
     public void setSujet(String sujet) {
@@ -56,4 +59,14 @@ public class Commentaire {
     public void setCommentaire(String commentaire) {
         this.commentaire = commentaire;
     }
+
+    public Timestamp getDateReception() {
+        return dateReception;
+    }
+
+    public void setDateReception(Timestamp dateReception) {
+        this.dateReception = dateReception;
+    }
+    
+    
 }

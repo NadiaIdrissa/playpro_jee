@@ -52,7 +52,8 @@ public class ProfilAction extends AbstractAction {
         Niveau niveauN = mCourrant.getNiveau();
         int pAnnee = 2000;
         String UPLOAD_DIR = "static/images/profils/" + mCourrant.getId();
-
+        
+        String idRequest = (String) request.getParameter("id");
         String pseudo = (String) request.getParameter("pseudoR");
         String nom = (String) request.getParameter("nomR");
         String prenom = (String) request.getParameter("prenomR");
