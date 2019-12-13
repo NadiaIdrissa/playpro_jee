@@ -11,7 +11,7 @@
         message = (String) request.getAttribute("message");
         laClasse = (String) request.getAttribute("laClasse");
     }
-%>
+%> 
 <!DOCTYPE html>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en" class="no-js">
@@ -77,6 +77,8 @@
                         <%} else if (viewConf.equals("membres")) {
                         %>
                         <%@include file="membres.jsp"%>
+                        <%} else if (viewConf.equals("contact")) {%>
+                        <%@include file="contact.jsp"%>
 
                         <%} else if (viewConf.equals("parties")) {
                         %>

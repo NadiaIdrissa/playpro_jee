@@ -68,7 +68,7 @@ public class SignupAction extends AbstractAction {
                 Logger.getLogger(SignupAction.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InvalidKeySpecException ex) {
                 Logger.getLogger(SignupAction.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            } 
 
             membre.setNom(nom);
             membre.setPrenom(prenom);
