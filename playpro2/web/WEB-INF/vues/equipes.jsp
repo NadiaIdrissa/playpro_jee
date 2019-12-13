@@ -47,11 +47,11 @@
                             </button>
                         </div>
 
-                        <div class="modal-body">
+<!--                        <div class="modal-body">
                             <button type="button" class="btn-primary" style="color:greenyellow" data-dismiss="" aria-label="">Modifier</button>
                             <button type="button" class="btn-info" style="color:red" data-dismiss="" aria-label="">Supprimer</button>
                             </button>
-                        </div>
+                        </div>-->
 
 
                     </div>
@@ -130,10 +130,12 @@
                                 </div>
                             </div>
                         </div>
+                        <c:if test="${(uneEquipe.capitaine.id == unMembre.id) || (unMembre.typeMembre.equals('Admin'))}">
                         <div>
                             <button class="btn btn-primary btnMod col-4" data-index='<c:out value="${uneEquipe.nomEquipe}" />' data-status='<c:out value="${uneEquipe.membresEquipe}" />'>Modifier</button>
                             <button class="btn btn-danger btnSup col-4" data-index='<c:out value="${uneEquipe.nomEquipe}" />' data-status='<c:out value="${uneEquipe.membresEquipe}" />'>Supprimer</button>
                         </div>
+                        </c:if>
                     </div> 
                 </div> 
             </form>

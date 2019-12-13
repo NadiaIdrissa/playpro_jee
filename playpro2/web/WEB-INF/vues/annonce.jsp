@@ -16,11 +16,20 @@
 
 <body>
     <h1>Liste des annonces</h1>
+    <!--A MODIFIER KENNEDY !!!!-->
     <%
-        if (m.getTypeMembre().equals("Admin")) {
+        if (!(m.getTypeMembre().equals("Joueur"))) {
     %>
+        <div class="equipeStyle row">
+            <div class="col-sm-10 col-md-10 col-lg-10">
+                <!--<h1 class="text-center">Liste des annonces</h1>-->
+            </div>
+            <div class="colBtn col-sm-2 col-md-2 col-lg-2">
+                <button id="myBtn" type="button" >+</button>
+            </div>
+        </div>
     <%}%>
-    <button id="myBtn" type="button" >Ajouter</button>
+    <!--!!!-->
     <div >
         <div class=" " style="">
             <c:forEach items="${requestScope.annonces}" var="uneAnnonce"> 

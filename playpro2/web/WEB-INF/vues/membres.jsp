@@ -233,6 +233,12 @@
                                         <div id='niveau' class="col-md-12 mb-12">
                                             <div  class="form-group">
                                                 <select class="form-control" name="niveau" required>
+                                                    <option value='' >Type</option>
+                                                    <option value='' >ADMIN</option>
+                                                    <option value='' >JOUEUR</option>
+                                                    <option value='' >ENTRAINEUR</option>
+                                                </select>
+                                                <select class="form-control" name="niveau" required>
                                                     <option value='' >Niveau</option>
 
                                                     <%for (Niveau n : Niveau.values()) {%>

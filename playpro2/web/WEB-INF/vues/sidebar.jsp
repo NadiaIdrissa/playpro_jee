@@ -44,16 +44,14 @@
             </a>
         </li>
 
-        <%
-            if (!m.getTypeMembre().equals("Joueur")) {
-        %>
+        
         <li>
             <a class="btnSide" id="btnAnnonce" >
                 
                 <i class="fa fa-file"></i><span class="sideLabel"> Annonces</span>
             </a>
         </li>
-        <%}%>
+        
 
         <%
             if (m.getTypeMembre().equals("Admin")) {
