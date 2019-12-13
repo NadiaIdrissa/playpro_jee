@@ -63,6 +63,11 @@
                 <i class="fa fa-user-plus"></i><span class="sideLabel"> Membres</span>
             </a>
         </li>
+        <li>
+            <a href="?action=contact">
+                <i class="fa fa-pencil"></i><span class="sideLabel"> Commentaires</span>
+            </a>
+        </li>
         <%}%>
 
         <li>
