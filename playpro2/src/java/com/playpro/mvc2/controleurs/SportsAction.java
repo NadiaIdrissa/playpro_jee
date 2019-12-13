@@ -34,8 +34,8 @@ public class SportsAction extends AbstractAction {
 
     @Override
     public String execute() {
-        
-        Membre mSession =  (Membre)request.getSession().getAttribute("membre");
+
+        Membre mSession = (Membre) request.getSession().getAttribute("membre");
         if ((mSession == null)) {
             String message = "Votre session a expirée, veuillez vous réauthentifier";
             String laClasse = "danger";
@@ -47,39 +47,39 @@ public class SportsAction extends AbstractAction {
         String nomSport = request.getParameter("nomSport");
         String imageSport = request.getParameter("imageSport");
         String message = "";
-        String laClasse="";
+        String laClasse = "";
         String idSportSupprimer = request.getParameter("idSportSupprimer");
-        
+
         int nbMax = 0;
         List<Part> part = null;
         try {
-             part = (List<Part>) request.getParts();
+            part = (List<Part>) request.getParts();
         } catch (IOException | ServletException ex) {
             Logger.getLogger(LieuxAction.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if(idSportSupprimer !=null){
+
+        if (idSportSupprimer != null) {
             System.out.println("Je suis nul");
             Sport s = SportServices.trouverUnSport(idSportSupprimer);
-            
+
             LieuSport ls = new LieuSport();
             Lieux l = new Lieux();
             l.setId_lieu("");
             ls.setSport(s);
             ls.setLieu(l);
-            
-            boolean reussi  = LieuSportService.supprimer(ls);
-                    
+
+            boolean reussi = LieuSportService.supprimer(ls);
+
             reussi = SportServices.supprimer(s);
-            
-            if(reussi){
-                message = "Le sport "+s.getNom()+" a été supprimé avec succès";
+
+            if (reussi) {
+                message = "Le sport " + s.getNom() + " a été supprimé avec succès";
                 laClasse = "success";
-            }else{
+            } else {
                 message = "Une erreur est survenue lors de la suppression";
                 laClasse = "danger";
             }
-            
+
             request.setAttribute("message", message);
             request.setAttribute("laClasse", laClasse);
         }
@@ -91,9 +91,14 @@ public class SportsAction extends AbstractAction {
             String applicationPath = request.getServletContext().getRealPath("");
             // constructs path of the directory to save uploaded file
             String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
-            
-            imageSport = up.uploader(part, UPLOAD_DIR, applicationPath, imageSport);
-            
+
+            if (imageSport != null) {
+
+                imageSport = up.uploader(part, UPLOAD_DIR, applicationPath, imageSport);
+            }else{
+                imageSport = "sportslogo.jpg";
+            }
+
             Sport s = ObjectFactory.getNewSport();
             s.setNom(nomSport);
             s.setNb_max(nbMax);
@@ -108,19 +113,19 @@ public class SportsAction extends AbstractAction {
         //System.out.println("Chemin : " + fileName);
 
         List<Sport> liste = new LinkedList<>();
-        
+
         liste = SportServices.tousLesSports();
         System.out.println("Liste" + liste);
 
         request.setAttribute("sports", liste);
-        
+
         System.out.println("Nom sport : " + nomSport);
         System.out.println("Image sport : " + imageSport);
         System.out.println("Nb max sport : " + nbMax);
-        
-        System.out.println("size de la liste sports =  "+ liste.size());
 
-        request.getSession().setAttribute("viewConf","sports");
+        System.out.println("size de la liste sports =  " + liste.size());
+
+        request.getSession().setAttribute("viewConf", "sports");
         return "portail";
     }
 

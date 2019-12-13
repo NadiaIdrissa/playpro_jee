@@ -109,7 +109,11 @@ public class LieuxAction extends AbstractAction {
 
             String applicationPath = request.getServletContext().getRealPath("");
 
-            image1 = up.uploader(part, UPLOAD_DIR, applicationPath, image1);
+            if (image1 != null) {
+                image1 = up.uploader(part, UPLOAD_DIR, applicationPath, image1);
+            } else {
+                image1 = "lieulogo.jpg";
+            }
 
             s = ObjectFactory.getNewLieu();
             s.setNom(nom);
@@ -121,7 +125,7 @@ public class LieuxAction extends AbstractAction {
             s.setInfos(infos);
             s.setImage1(image1);
 
-            if(LieuxServices.creerLieux(s)){
+            if (LieuxServices.creerLieux(s)) {
                 message = "Le lieu " + s.getNom() + " a été ajouté";
                 laClasse = "success";
             } else {
