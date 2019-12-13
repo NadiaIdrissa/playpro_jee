@@ -23,16 +23,14 @@ var span1 = document.getElementsByClassName("closing")[0];
 var btnSup = $(".btnSup");
 var btnMod = $(".btnMod");
 
+btnP.onclick = function(){
+    modalP.style.display ="block";
+    
+}
 
-
-//btnP.onclick = function(){
-//    modalP.style.display ="block";
-//    
-//}
-
-//span1.onclick = function () {
-//    modalP.style.display = "none";
-//}
+span1.onclick = function () {
+    modalP.style.display = "none";
+}
 
 
 $(document).ready(function(){
