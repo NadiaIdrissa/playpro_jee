@@ -10,13 +10,11 @@
     <div class="col-sm-10 col-md-10 col-lg-10">
         <!--<h1>Liste des lieux offerts</h1>-->
     </div>
-    <%
-        if (m.getTypeMembre().equals("Admin")) {
-    %>
+
     <div class="colBtn col-sm-2 col-md-2 col-lg-2">
         <button id="myBtn" type="button" >+</button>
     </div>
-    <%}%>     
+    
 </div>
 
 <div>
@@ -78,8 +76,12 @@
                     <p class='card-text'>Infos : <c:out value="${unlieu.infos}" /></p>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <input name ='idLieuSup' id='idLieuSup' type='hidden' value='' />
+                        <%
+                            if (m.getTypeMembre().equals("Admin")) {
+                        %>
                         <button class="btn btn-primary btnModLieu col-4" data-index='<c:out value="${unlieu.id_lieu}" />' data-status='<c:out value="${unlieu.nom}" />'>Modifier</button>
                         <button class="btn btn-danger btnSupLieu col-4" data-index='<c:out value="${unlieu.id_lieu}" />' data-status='<c:out value="${unlieu.nom}" />'>Supprimer</button>
+                        <%}%>
                     </div>
                 </div> 
             </div> 
