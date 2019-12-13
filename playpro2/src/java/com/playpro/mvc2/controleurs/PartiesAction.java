@@ -12,6 +12,7 @@ import com.playpro.entities.Lieux;
 import com.playpro.entities.Membre;
 import com.playpro.entities.Partie;
 import com.playpro.services.EquipesServices;
+import com.playpro.services.LieuxServices;
 import com.playpro.services.PartiesServices;
 import java.text.DateFormat;
 import java.time.LocalDate;
@@ -48,6 +49,14 @@ public class PartiesAction extends AbstractAction {
 
         System.out.println("nom personne connecté = " + cap.getNom());
 
+        List<Lieux> listeLieux = new LinkedList<Lieux>();
+        listeLieux = LieuxServices.tousLesLieux();
+
+        request.setAttribute("listeLieux", listeLieux);
+
+//        for(int y=0;y<listeLieux.size();y++){
+//            System.out.println("lieu "+y+": "+listeLieux.get(y).getNom());
+//        }
         List<Equipe> listeEquipes = new LinkedList<Equipe>();
         listeEquipes = EquipesServices.toutesLesEquipes();
 
@@ -67,9 +76,11 @@ public class PartiesAction extends AbstractAction {
 
         String equipeChoisi = (String) request.getParameter("idUneEquipe");
         String equipeAdvers = (String) request.getParameter("equipeAdverse");
+        String lieux = request.getParameter("idLieuEquipe");
 
         String date = (String) request.getParameter("datePartie");
 
+<<<<<<< HEAD
         LocalDate localDate = null;
         ////if (date != null) {
 
@@ -77,15 +88,23 @@ public class PartiesAction extends AbstractAction {
         //}
 
         LocalTime time = null;
+=======
+//        LocalDate localDate = null;
+//        if (date != null) {
+//
+//            localDate = LocalDate.parse(date, formatter);
+//        }
+//        LocalTime time = null;
+>>>>>>> a4dede1f1f2e872672b3e5ec30c52cdf40cc9a52
         String heure = (String) request.getParameter("heurePartie");
-        if (heure != null) {
-
-            time = LocalTime.parse(heure);
-        }
-        if (date != null && heure != null) {
-
-            System.out.println("info form = " + equipeChoisi + "," + equipeAdvers + "," + localDate.toString() + "," + time.toString());
-        }
+//        if (heure != null) {
+//
+//            time = LocalTime.parse(heure);
+//        }
+//        if (date != null && heure != null) {
+//
+//            System.out.println("info form = " + equipeChoisi + "," + equipeAdvers + "," + localDate.toString() + "," + time.toString());
+//        }
 
         request.getSession().setAttribute("listeSesequipes", listeSesequipes);
         request.getSession().setAttribute("listeEquipesParties", listeEquipes);
@@ -100,29 +119,48 @@ public class PartiesAction extends AbstractAction {
         if (equipeC != null) {
 
             System.out.println("nom equipe choisi = " + equipeC.getNomEquipe());
+            System.out.println("sport = " + equipeC.getSport().getNom());
         }
         if (equipeAd != null) {
 
             System.out.println("nom equipe adversaire = " + equipeAd.getNomEquipe());
         }
-        
+
         //un lieu provisoire
-        
         LieuSport lieu = new LieuSport();
-        
+
         Partie partie = new Partie();
+<<<<<<< HEAD
         
         partie.setDatePartie(localDate);
         
+=======
+
+        partie.setDatePartie(date);
+>>>>>>> a4dede1f1f2e872672b3e5ec30c52cdf40cc9a52
         partie.setEquipe1(equipeC);
         partie.setEquipe2(equipeAd);
-        partie.setHeurePArtie(time);
-        partie.setLieuSportPartie(lieu);
+        partie.setHeurePArtie(heure);
+        partie.setLeLieu(lieux);
+
+        if (equipeC!=null) {
+
+            PartiesServices.creerPartie(partie);
+        }
         
+        List<Partie> lesParties = new LinkedList<Partie>();
+        lesParties = PartiesServices.toutesLesParties();
+        
+        System.out.println("nombre de partie = "+lesParties.size());
+        
+<<<<<<< HEAD
         PartiesDAO dao = new PartiesDAO();
         
       //System.out.println("Creation de partie:=== "+dao.create(partie));
        // PartiesServices.creerPartie(partie);
+=======
+        request.getSession().setAttribute("lesParties", lesParties);
+>>>>>>> a4dede1f1f2e872672b3e5ec30c52cdf40cc9a52
         
         
 

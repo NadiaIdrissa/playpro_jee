@@ -298,14 +298,25 @@ CREATE TABLE `participationpartie` (
 
 CREATE TABLE `partie` (
   `id_partie` int(36) NOT NULL,
-  `date_partie` date NOT NULL,
-  `heure_partie` time NOT NULL,
+  `date_partie` varchar(250) NOT NULL,
+  `heure_partie` varchar(250) NOT NULL,
   `sport` varchar(30) NOT NULL,
   `equipe_1` varchar(100) DEFAULT NULL,
   `equipe_2` varchar(100) DEFAULT NULL,
   `lieu_partie` varchar(300) NOT NULL,
   `score` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- CREATE TABLE `partie` (
+--   `id_partie` int(36) NOT NULL,
+--   `date_partie` date NOT NULL,
+--   `heure_partie` time NOT NULL,
+--   `sport` varchar(30) NOT NULL,
+--   `equipe_1` varchar(100) DEFAULT NULL,
+--   `equipe_2` varchar(100) DEFAULT NULL,
+--   `lieu_partie` varchar(300) NOT NULL,
+--   `score` varchar(20) NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
