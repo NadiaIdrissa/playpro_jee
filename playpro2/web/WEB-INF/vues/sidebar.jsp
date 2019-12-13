@@ -64,7 +64,7 @@
             </a>
         </li>
         <li>
-            <a href="?action=contact">
+            <a href="?action=Commentaire">
                 <i class="fa fa-pencil"></i><span class="sideLabel"> Commentaires</span>
             </a>
         </li>

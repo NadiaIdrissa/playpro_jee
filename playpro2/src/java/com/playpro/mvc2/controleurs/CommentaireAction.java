@@ -18,22 +18,26 @@ import java.util.logging.Logger;
  * @author salpy
  */
 public class CommentaireAction extends AbstractAction {
+
     @Override
     public String execute() {
-        
-        String action="?action=portail";
+
+        String action = "?action=portail";
         String nom = (String) request.getParameter("nom");
         String courriel = (String) request.getParameter("courriel");
         String sujet = (String) request.getParameter("sujet");
         String commentaire = (String) request.getParameter("commentaire");
-        
 
-        CommentaireDao c_Dao = new CommentaireDao();
-        Commentaire c = new Commentaire(nom, courriel, sujet, commentaire);
-        c_Dao.create(c);
+        if (nom != null) {
+
+            CommentaireDao c_Dao = new CommentaireDao();
+            Commentaire c = new Commentaire(nom, courriel, sujet, commentaire);
+            c_Dao.create(c);
+        }else{
+            System.out.println("je suis la");
+            return "portail";
+        }
         return "nousJoindre";
-    
+
     }
 }
-    
-
