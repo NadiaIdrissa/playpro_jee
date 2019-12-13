@@ -60,10 +60,6 @@
 
             <form class="form-signin needs-validation " action="?action=invitation" method="post" name="action" novalidate>
                 <div class="card">
-                    <div class="  col-sm-1" style="font-size:5px;">
-                        <button id="myBtnP" type="button" ><i class="fa fa-cog fa-spin fa-3x fa-fw"></i></button>
-                    </div>
-
 
                     <div class="card-body text-center">
                         <img class="avatar rounded-circle" src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
@@ -102,7 +98,7 @@
                                 </div>
                             </div> 
                         </c:if>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-primary" style="color: #003A5C;" type="button" data-toggle="collapse" data-target="#<c:out value="${uneEquipe.nomEquipe}" />" aria-expanded="false" aria-controls="collapseExample">
                             Afficher les membres
                         </button>
 
@@ -134,7 +130,10 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div>
+                            <button class="btn btn-primary btnMod col-4" data-index='<c:out value="${uneEquipe.nomEquipe}" />' data-status='<c:out value="${uneEquipe.membresEquipe}" />'>Modifier</button>
+                            <button class="btn btn-danger btnSup col-4" data-index='<c:out value="${uneEquipe.nomEquipe}" />' data-status='<c:out value="${uneEquipe.membresEquipe}" />'>Supprimer</button>
+                        </div>
                     </div> 
                 </div> 
             </form>
