@@ -15,7 +15,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <body>
-    <h1>Liste des annonces</h1>
+    <!--<h1>Liste des annonces</h1>-->
     <!--A MODIFIER KENNEDY !!!!-->
     <%
         if (!(m.getTypeMembre().equals("Joueur"))) {
@@ -35,9 +35,9 @@
             <c:forEach items="${requestScope.annonces}" var="uneAnnonce"> 
 
                 <div class="annonce" >
-                    <h2 class='card-text font-weight-bold bg-primary text-uppercase' ><c:out value="${uneAnnonce.titre}" /><br></h2>
+                    <h2 class='card-text font-weight-bold text-uppercase fondAnnonce' ><c:out value="${uneAnnonce.titre}" /><br></h2>
                     <div class="row" >
-                        <div class="cadre text-center col-4 border">
+                        <div class="cadre text-center col-4 border annonceInfos fondAnnonce">
 
                             <p class='card-text'>Annonceur: <c:out value="${uneAnnonce.createur.prenom}" /></p>
                             <p class="card-text">Nombre de places: <c:out value="${uneAnnonce.nombreMax}" /></p>
@@ -52,7 +52,7 @@
                             <p class="card-text">Date et heure: <c:out value="${uneAnnonce.date_event}" /></p>
                         </div>
                         <div class='col-8'>
-                            <h3>Message de l'entrainneur :</h3>
+                            <h3 class="border-bottom">Message de l'entrainneur :</h3>
                             <p class="card-text"> <c:out value="${uneAnnonce.description}" /></p>
                         </div> 
                     </div> 
