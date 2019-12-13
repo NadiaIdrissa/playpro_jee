@@ -31,6 +31,40 @@
     </div>
 </div>
 
+<body>
+    <!--<h1>Liste des parties</h1>-->
+
+    <!--<button id="myBtn" type="button" >Ajouter</button>-->
+    <div >
+        <div class=" " style="">
+            <c:forEach items="${sessionScope.lesParties}" var="unePartie"> 
+
+                <div class="annonce" >
+                    <h2 class='card-text font-weight-bold bg-primary text-uppercase' > Partie de <c:out value="${unePartie.sport}" /><br></h2>
+                    <div class="row" >
+                        <div class="cadre text-center col-4 border">
+
+                            <p class='card-text'>Prévue le : <c:out value="${unePartie.datePartie}" /></p>
+                            <p class="card-text">Heure de la rencontre: <c:out value="${unePartie.heurePArtie}" /></p>
+
+                            
+                            <p class="card-text">Lieu: <c:out value="${unePartie.leLieu}" /></p>
+                           
+                        </div>
+                        <div class='col-8'>
+                            <h3>Cette rencontre se passe entre :</h3>
+                            <p class="card-text col-sm-2"> <c:out value="${unePartie.equipe1.nomEquipe}" /></p>
+                            <h2 class="col-sm-2">V.S</h2>
+                            <p class="card-text col-sm-2"> <c:out value="${unePartie.equipe2.nomEquipe}" /></p>
+                        </div> 
+                    </div> 
+                </div> 
+
+            </c:forEach>
+        </div> 
+    </div>
+
+</body>
 
 <!-- Modal -->
 <div class="modal equipeStyle" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -74,8 +108,8 @@
                     <div class="form-group">
                         <select class="form-control" id="exampleFormControlSelect3" name="idLieuEquipe">
                             <option value="" >Choisir le lieu</option>
-                            <c:forEach items="${liste}" var="lieuP"> 
-                                <option value="${lieuP.id_lieu}" >${lieuP.nom}</option>
+                            <c:forEach items="${listeLieux}" var="lieuP"> 
+                                <option value="${lieuP.nom}" >${lieuP.nom}</option>
                             </c:forEach> 
                         </select>
                     </div>

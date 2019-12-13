@@ -7,16 +7,11 @@
 -- Version du serveur :  5.7.27-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.1
 
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `playpro2`
@@ -80,9 +75,10 @@ CREATE TABLE `equipe` (
 INSERT INTO `equipe` (`nom_equipe`, `id_capitaine`, `id_sport`, `nb_parties_jouees`, `nb_joueurs`, `nb_max_joueurs`, `date_creation`, `image`) VALUES
 ('Bears', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '64f50de6-759f-48dc-83db-299ebd8b0aab', 0, 13, 18, '2019-12-11 16:35:16', 'bears.jpg'),
 ('Eagles', 'adbbc2a0-3ec9-4baa-97e7-6b3b0b301aee', '48b957f8-1a7c-47a4-b8d3-770c91b32f21', 0, 11, 4, '2019-12-12 01:13:55', 'eagles.jpg'),
-('Sirenes', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'eade52d3-1ccc-49ef-8d86-34023d9f35a2', 0, 12, 21, '2019-12-12 01:12:01', 'sirens.jpg'),
+('Sirens', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'eade52d3-1ccc-49ef-8d86-34023d9f35a2', 0, 12, 21, '2019-12-12 01:12:01', 'sirens.jpg'),
 ('Tigers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '0df302b1-ae4d-497e-8a43-4bc188f8a83a', 0, 10, 22, '2019-12-12 01:11:06', 'tigers.jpg'),
 ('Lions', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '0df302b1-ae4d-497e-8a43-4bc188f8a83a', 0, 10, 22, '2019-12-12 01:11:06', 'newteam.jpg');
+
 
 -- --------------------------------------------------------
 
@@ -101,10 +97,7 @@ CREATE TABLE `invitation` (
 -- Déchargement des données de la table `invitation`
 --
 
-INSERT INTO `invitation` (`id_expediteur`, `id_destinataire`, `id_requete`, `date_creation`) VALUES
-('29e405ab-2014-43e1-b01e-492d4dcc5ebd', '8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'bravo', '2019-11-27 02:30:25'),
-('29e405ab-2014-43e1-b01e-492d4dcc5ebd', '940e6b1f-9190-453e-8c39-3e03bbbd36a9', 'bravo', '2019-11-28 23:52:47'),
-('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'ebe2e2ec-0b79-4108-be69-f54b6654be50', 'bravo', '2019-11-27 02:33:08');
+
 
 -- --------------------------------------------------------
 
@@ -121,9 +114,9 @@ CREATE TABLE `lieu` (
   `ville` varchar(255) CHARACTER SET utf8 NOT NULL,
   `pays` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT 'Canada',
   `infos` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `image1` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `image2` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `image3` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `image1` varchar(255) CHARACTER SET utf8 DEFAULT "lieulogo.jpg",
+  `image2` varchar(255) CHARACTER SET utf8 DEFAULT "lieulogo.jpg",
+  `image3` varchar(255) CHARACTER SET utf8 DEFAULT "lieulogo.jpg",
   `surCarte` varchar(255) CHARACTER SET utf8 DEFAULT 'https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815'
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -133,9 +126,10 @@ CREATE TABLE `lieu` (
 --
 
 INSERT INTO `lieu` (`id_lieu`, `nom`, `numero`, `rue`, `code_postal`, `ville`, `pays`, `infos`, `image1`, `image2`, `image3`,`surCarte`) VALUES
-('685c7074-42e0-4169-b4e9-706b8161e1e3', 'Complexe sportif C.Robillard', '1000', 'Avenue Emile-Journault', 'H2M 2E7', 'Montreal', 'Canada', 'Acces par l\'avenue Christophe Colomb', 'CRobillard3.jpg', 'CRobillard2.jpeg', 'CRobillard1.jpg','https://www.google.ca/maps/place/Stade+IGA/@45.5535874,-73.6381173,15.81z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
-('942bf489-d040-4115-9c2a-1909fd7e11de', 'Parc Jarry', '285', 'Rue Gary-Carter', 'H2R 2W1', 'Montreal', 'Canada', 'Parking gratuit sur place', 'Jarry1.jpg', 'Jarry2.jpg', 'Jarry3.jpg','https://www.google.ca/maps/place/Stade+IGA/@45.5336136,-73.6299097,16.05z/data=!4m5!3m4!1s0x4cc9190fedc1e617:0xc3efd9e5fbb085a8!8m2!3d45.5329897!4d-73.6271729'),
+('685c7074-42e0-4169-b4e9-706b8161e1e3', 'Complexe sportif C.Robillard', '1000', 'Avenue Emile-Journault', 'H2M 2E7', 'Montreal', 'Canada', 'Acces par l\'avenue Christophe Colomb', 'CRobillard3.jpg', 'CRobillard2.jpeg', 'CRobillard1.jpg','https://www.google.com/maps/place/Complexe+sportif+Claude-Robillard/@45.5529381,-73.6392317,17z/data=!3m1!4b1!4m5!3m4!1s0x4cc918da45abf9cf:0x7e6d8f235484c77d!8m2!3d45.5529381!4d-73.637043'),
+('942bf489-d040-4115-9c2a-1909fd7e11de', 'Parc Jarry', '285', 'Rue Gary-Carter', 'H2R 2W1', 'Montreal', 'Canada', 'Parking gratuit sur place', 'Jarry1.jpg', 'Jarry2.jpg', 'Jarry3.jpg','https://www.google.com/maps/place/Parc+Jarry/@45.5344533,-73.6320944,16.14z/data=!4m5!3m4!1s0x4cc9191aeace1b63:0x494859493c9dc733!8m2!3d45.5352962!4d-73.6284584'),
 ('aedf248d-a10a-4a5a-a55f-3a800c428db5', 'Parc Lafontaine', '3819', 'Avenue Calixa-Lavallée', 'H2L 3A7', 'Montreal', 'Canada', 'Cours de tennis gratuit sur réservation', 'Lafontaine1.jpg', 'Lafontaine2.jpg', 'Lafontaine3.jpeg','https://www.google.com/maps/place/Parc+La+Fontaine/@45.5261636,-73.5714842,16.31z/data=!4m5!3m4!1s0x4cc91bc84bbfa227:0x45962228026ccc97!8m2!3d45.5270784!4d-73.5692815');
+
 
 -- --------------------------------------------------------
 
@@ -206,6 +200,22 @@ CREATE TABLE `participationequipe` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+
+-- Déchargement des données de la table `participationequipe`
+--
+
+INSERT INTO `participationequipe` (`id_joueur`, `nom_equipe`, `date`) VALUES
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Browns', '2019-12-10 05:43:25'),
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Kiko', '2019-12-11 01:04:01'),
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Killers', '2019-12-10 04:00:21'),
+('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'Browns', '2019-12-10 04:01:16'),
+('8a1d34ce-cd0b-490f-a47a-b3e39fadddb5', 'Killers', '2019-12-10 04:11:17'),
+('a407418a-7683-4abc-8193-f083d86ae9f6', 'Batars', '2019-12-10 04:51:07'),
+('a407418a-7683-4abc-8193-f083d86ae9f6', 'Bathcers', '2019-12-10 04:13:22'),
+('a407418a-7683-4abc-8193-f083d86ae9f6', 'Killers', '2019-12-11 01:09:02'),
+('a407418a-7683-4abc-8193-f083d86ae9f6', 'Teters', '2019-12-10 04:13:42');
+
 -- --------------------------------------------------------
 
 --
@@ -225,14 +235,26 @@ CREATE TABLE `participationpartie` (
 --
 
 CREATE TABLE `partie` (
-  `id_partie` char(36) NOT NULL,
-  `date_partie_heure` date NOT NULL,
+  `id_partie` int(36) NOT NULL,
+  `date_partie` varchar(250) NOT NULL,
+  `heure_partie` varchar(250) NOT NULL,
   `sport` varchar(30) NOT NULL,
   `equipe_1` varchar(100) DEFAULT NULL,
   `equipe_2` varchar(100) DEFAULT NULL,
   `lieu_partie` varchar(300) NOT NULL,
   `score` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- CREATE TABLE `partie` (
+--   `id_partie` int(36) NOT NULL,
+--   `date_partie` date NOT NULL,
+--   `heure_partie` time NOT NULL,
+--   `sport` varchar(30) NOT NULL,
+--   `equipe_1` varchar(100) DEFAULT NULL,
+--   `equipe_2` varchar(100) DEFAULT NULL,
+--   `lieu_partie` varchar(300) NOT NULL,
+--   `score` varchar(20) NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -245,7 +267,7 @@ CREATE TABLE `sport` (
   `nom` varchar(30) NOT NULL,
   `nb_max` int(2) NOT NULL DEFAULT '2',
   `nb_min` int(1) NOT NULL DEFAULT '2',
-  `image` char(67) DEFAULT 'blueplay.png'
+  `image` char(67) DEFAULT 'sportslogo.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -344,7 +366,21 @@ ALTER TABLE `sport`
   ADD UNIQUE KEY `nom_sport` (`nom`);
 
 --
+
+-- Contraintes pour les tables exportées
+
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `partie`
+--
+ALTER TABLE `partie`
+  MODIFY `id_partie` int(36) NOT NULL AUTO_INCREMENT;
+
+--
 -- Contraintes pour les tables déchargées
+
 --
 
 --
@@ -372,8 +408,9 @@ ALTER TABLE `lieusport`
 ALTER TABLE `partie`
   ADD CONSTRAINT `Partie_FK_nom_equipe1` FOREIGN KEY (`equipe_1`) REFERENCES `equipe` (`nom_equipe`),
   ADD CONSTRAINT `Partie_FK_nom_equipe2` FOREIGN KEY (`equipe_2`) REFERENCES `equipe` (`nom_equipe`);
+
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+

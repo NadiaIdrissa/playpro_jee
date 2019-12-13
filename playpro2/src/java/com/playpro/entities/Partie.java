@@ -15,56 +15,84 @@ import static javax.management.Query.eq;
  * @author toute
  */
 public class Partie {
-    private String id;
-    private String idPartie;
-    private LocalDate datePartie;
-    private LocalTime heurePArtie;
+
+
+    private int idPartie;
+    private String datePartie;
+    private String heurePArtie;
+    private String sport;
+
     private Equipe equipe1;
     private Equipe equipe2;
+    private String leLieu;
     private LieuSport lieuSportPartie;
     private String score;
 
     public Partie() {
     }
 
-    public Partie(String idPartie, LocalDate datePartie, LocalTime heurePArtie, Equipe equipe1, Equipe equipe2, LieuSport lieuSportPartie) {
-        this.idPartie = idPartie;
+
+    public Partie(String datePartie, String heurePArtie, Equipe equipe1, Equipe equipe2, String leLieu) {
+
         this.datePartie = datePartie;
         this.heurePArtie = heurePArtie;
         this.equipe1 = equipe1;
         this.equipe2 = equipe2;
-        this.lieuSportPartie = lieuSportPartie;
+        this.leLieu = leLieu;
     }
 
-    public String getId() {
-        return id;
+    public String getScore() {
+        return score;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setScore(String score) {
+        this.score = score;
+    }
+    
+    
+
+    public String getSport() {
+        return sport;
     }
 
-    public String getIdPartie() {
+    public void setSport(String sport) {
+        this.sport = sport;
+    }
+
+    
+    public String getLeLieu() {
+        return leLieu;
+    }
+
+
+    public void setLeLieu(String leLieu) {
+        this.leLieu = leLieu;
+    }
+    
+    
+
+    public int getIdPartie() {
+
         return idPartie;
     }
 
-    public void setIdPartie(String idPartie) {
+    public void setIdPartie(int idPartie) {
         this.idPartie = idPartie;
     }
 
-    public LocalDate getDatePartie() {
+    public String getDatePartie() {
         return datePartie;
     }
 
-    public void setDatePartie(LocalDate datePartie) {
+    public void setDatePartie(String datePartie) {
         this.datePartie = datePartie;
     }
 
-    public LocalTime getHeurePArtie() {
+    public String getHeurePArtie() {
         return heurePArtie;
     }
 
-    public void setHeurePArtie(LocalTime heurePArtie) {
+    public void setHeurePArtie(String heurePArtie) {
         this.heurePArtie = heurePArtie;
     }
 
@@ -92,22 +120,12 @@ public class Partie {
         this.lieuSportPartie = lieuSportPartie;
     }
 
-    public String getScore() {
-        return score;
-    }
 
-    public void setScore(String score) {
-        this.score = score;
-    }
+
     
     
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.id);
-        return hash;
-    }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -121,7 +139,7 @@ public class Partie {
             return false;
         }
         final Partie other = (Partie) obj;
-        if (!Objects.equals(this.id, other.id)) {
+        if (!Objects.equals(this.idPartie, other.idPartie)) {
             return false;
         }
         return true;
@@ -129,9 +147,12 @@ public class Partie {
 
     @Override
     public String toString() {
-        return "Partie{" + "id=" + id + ", idPartie=" + idPartie + ", datePartie=" + datePartie + ", heurePArtie=" + heurePArtie + ", equipe1=" + equipe1 + ", equipe2=" + equipe2 + ", lieuSportPartie=" + lieuSportPartie + '}';
+        return "Partie{" + "idPartie=" + idPartie + ", datePartie=" + datePartie + ", heurePArtie=" + heurePArtie + ", sport=" + sport + ", equipe1=" + equipe1 + ", equipe2=" + equipe2 + ", leLieu=" + leLieu + ", lieuSportPartie=" + lieuSportPartie + ", score=" + score + '}';
     }
 
+
+
 }
+
 
 

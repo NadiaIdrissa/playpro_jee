@@ -158,17 +158,10 @@
                             Champs invalide
                         </div>
                     </div>
-                    <div class="col-md-12 mb-12">
-                        <input type="text" name='prenom' class="form-control" id="validationCustom03" placeholder="Prénom" required>
-                        <div class="invalid-feedback">
-                            Champ requis.
-                        </div>
-                    </div>
+                    
                     <div class="form-group">
-                        <input type="text" class="form-control" name="infos" placeholder="Info supplémentaire" required  />
-                        <div class="invalid-feedback">
-                            Champ requis.
-                        </div>
+                        <input type="text" class="form-control" name="infos" placeholder="Infos supplémentaires"  />
+                        
                     </div>
                 </div>
                 <div class="form-group">
