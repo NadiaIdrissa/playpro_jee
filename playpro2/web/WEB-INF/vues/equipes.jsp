@@ -68,11 +68,11 @@
                     <div class="card-body text-center">
                         <img class="avatar rounded-circle" src="static/images/equipes/<c:out value="${uneEquipe.image}"/> " />
 
-                        <ul class="list-group font-weight-bold">
-                            <li class="list-group-item">Équipe &#10132; <c:out value="${uneEquipe.nomEquipe}" /> </li>
+                        <ul class="list-group">
+                            <li class="list-group-item">Équipe : <strong><c:out value="${uneEquipe.nomEquipe}" /> </li></strong>
                             <input name="nomEquipeChoisi" type="hidden" value="<c:out value="${uneEquipe.nomEquipe}" />">
-                            <li class="list-group-item">Sport &#10132; <c:out value="${uneEquipe.sport.nom}" /></li>
-                            <li class="list-group-item">Effectif &#10132; <c:out value="${uneEquipe.nbJoueurs}" /></li>
+                            <li class="list-group-item">Sport : <strong><c:out value="${uneEquipe.sport.nom}" /></li></strong>
+                            <li class="list-group-item">Effectif : <strong><c:out value="${uneEquipe.nbJoueurs}" /></li></strong>
 
                         </ul>
 
@@ -124,9 +124,9 @@
 
                                 <div class="list-group">
 
-                                    <div class="list-group-item list-group-item-warning">
+                                    <div class="list-group-item" style="background-color: #80cccc">
                                         Places libres: 
-                                        <div class=" text-success"> ${nb}</div>
+                                        <div> ${nb}</div>
 
 
                                     </div>

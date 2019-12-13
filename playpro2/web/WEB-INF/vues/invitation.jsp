@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Invitation envoyé</h1>
+        <h1>Invitation envoyée</h1>
     </body>
 </html>
