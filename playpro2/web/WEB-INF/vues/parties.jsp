@@ -8,18 +8,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <head>
-
     <!--<meta charset="utf-8">-->
     <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
 
     <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet"/>-->
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
 </head>
 
 
@@ -33,17 +32,14 @@
 </div>
 
 
-
-
-
 <!-- Modal -->
 <div class="modal equipeStyle" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" style="display: flex;align-items: center;">
                 <h5 class="modal-title" id="exampleModalLabel">Créer une nouvelle partie</h5>
-                <button type="button" class="close" style="color:gray" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" style="color:gray; margin:unset !important;" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -51,7 +47,6 @@
             <form class="form-signin needs-validation " action="?action=parties" method="post" name="action" value="ajoutImage" enctype="multipart/form-data" novalidate>
 
                 <div class="modal-body">
-
 
                     <div class="form-group">
                         <select class="form-control" id="exampleFormControlSelect1" name="idUneEquipe">
@@ -64,19 +59,17 @@
                     </div>
 
                     <div>
-
                         <h1 class="text-center">V.S</h1>
                     </div>
 
                     <div class="form-group">
                         <select class="form-control" id="exampleFormControlSelect2" name="equipeAdverse">
-                            <option SELECTED >équipe invité</option>
+                            <option SELECTED >Equipe invitée</option>
                             <c:forEach items="${sessionScope.listeEquipesParties}" var="equipo"> 
                                 <option value="${equipo.nomEquipe}" >${equipo.nomEquipe}</option>
                             </c:forEach> 
                         </select>
                     </div>
-                    
                     
                     <div class="form-group">
                         <select class="form-control" id="exampleFormControlSelect3" name="idLieuEquipe">
@@ -86,11 +79,6 @@
                             </c:forEach> 
                         </select>
                     </div>
-
-
-
-
-
 
                     <input name="datePartie" id="datepicker" width="276" />
                     <script>
@@ -108,15 +96,12 @@
                         });
                     </script>
 
-
-
                     <button type="submit" class="btn btn-primary">Créer une partie</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
