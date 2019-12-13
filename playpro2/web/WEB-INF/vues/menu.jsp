@@ -16,6 +16,7 @@
             me = (Membre) request.getSession().getAttribute("membre");
         --%>
             <a class="affichageNom navbar-header" style="text-transform: uppercase;">Portail PlayPro <%=m.getTypeMembre()%></a>
+            <a class="affichageNom navbar-header" style="font-size: 1em;">Bienvenue <%=m.getPseudo()%></a>
             <button id="showMenu" class="float-right">Menu</button>
     </div>
 </header>
