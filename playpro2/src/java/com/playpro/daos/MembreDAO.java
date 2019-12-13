@@ -240,6 +240,7 @@ public class MembreDAO extends DAO<Membre> {
                 c.setSport(r.getString("sport"));
                 c.setDateInscription(r.getTimestamp("date_inscription"));
                 c.setPhoto(r.getString("photo"));
+                c.setNiveau(r.getString("niveau"));
 
                 liste.add(c);
             }
