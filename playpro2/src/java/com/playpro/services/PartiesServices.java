@@ -7,6 +7,7 @@ package com.playpro.services;
 
 import com.playpro.daos.PartiesDAO;
 import com.playpro.entities.Partie;
+import java.util.List;
 
 /**
  *
@@ -18,6 +19,11 @@ public class PartiesServices {
 
     public static boolean creerPartie(Partie e) {
         return dao.create(e);
+
+    }
+    
+    public static List<Partie> toutesLesParties() {
+        return dao.findAll();
 
     }
     
