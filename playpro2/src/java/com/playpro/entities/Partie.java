@@ -15,18 +15,13 @@ import static javax.management.Query.eq;
  * @author toute
  */
 public class Partie {
-<<<<<<< HEAD
-    private String id;
-    private String idPartie;
-    private LocalDate datePartie;
-    private LocalTime heurePArtie;
-=======
+
 
     private int idPartie;
     private String datePartie;
     private String heurePArtie;
     private String sport;
->>>>>>> a4dede1f1f2e872672b3e5ec30c52cdf40cc9a52
+
     private Equipe equipe1;
     private Equipe equipe2;
     private String leLieu;
@@ -36,12 +31,9 @@ public class Partie {
     public Partie() {
     }
 
-<<<<<<< HEAD
-    public Partie(String idPartie, LocalDate datePartie, LocalTime heurePArtie, Equipe equipe1, Equipe equipe2, LieuSport lieuSportPartie) {
-        this.idPartie = idPartie;
-=======
+
     public Partie(String datePartie, String heurePArtie, Equipe equipe1, Equipe equipe2, String leLieu) {
->>>>>>> a4dede1f1f2e872672b3e5ec30c52cdf40cc9a52
+
         this.datePartie = datePartie;
         this.heurePArtie = heurePArtie;
         this.equipe1 = equipe1;
@@ -72,17 +64,7 @@ public class Partie {
         return leLieu;
     }
 
-<<<<<<< HEAD
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getIdPartie() {
-=======
     public void setLeLieu(String leLieu) {
         this.leLieu = leLieu;
     }
@@ -90,11 +72,11 @@ public class Partie {
     
 
     public int getIdPartie() {
->>>>>>> a4dede1f1f2e872672b3e5ec30c52cdf40cc9a52
+
         return idPartie;
     }
 
-    public void setIdPartie(String idPartie) {
+    public void setIdPartie(int idPartie) {
         this.idPartie = idPartie;
     }
 
@@ -138,23 +120,12 @@ public class Partie {
         this.lieuSportPartie = lieuSportPartie;
     }
 
-    public String getScore() {
-        return score;
-    }
 
-    public void setScore(String score) {
-        this.score = score;
-    }
-<<<<<<< HEAD
+
     
     
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.id);
-        return hash;
-    }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -168,7 +139,7 @@ public class Partie {
             return false;
         }
         final Partie other = (Partie) obj;
-        if (!Objects.equals(this.id, other.id)) {
+        if (!Objects.equals(this.idPartie, other.idPartie)) {
             return false;
         }
         return true;
@@ -176,12 +147,12 @@ public class Partie {
 
     @Override
     public String toString() {
-        return "Partie{" + "id=" + id + ", idPartie=" + idPartie + ", datePartie=" + datePartie + ", heurePArtie=" + heurePArtie + ", equipe1=" + equipe1 + ", equipe2=" + equipe2 + ", lieuSportPartie=" + lieuSportPartie + '}';
+        return "Partie{" + "idPartie=" + idPartie + ", datePartie=" + datePartie + ", heurePArtie=" + heurePArtie + ", sport=" + sport + ", equipe1=" + equipe1 + ", equipe2=" + equipe2 + ", leLieu=" + leLieu + ", lieuSportPartie=" + lieuSportPartie + ", score=" + score + '}';
     }
 
-}
 
-=======
->>>>>>> a4dede1f1f2e872672b3e5ec30c52cdf40cc9a52
 
 }
+
+
+

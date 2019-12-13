@@ -80,31 +80,9 @@ public class PartiesAction extends AbstractAction {
 
         String date = (String) request.getParameter("datePartie");
 
-<<<<<<< HEAD
-        LocalDate localDate = null;
-        ////if (date != null) {
 
-            //localDate = LocalDate.parse(date, formatter);
-        //}
-
-        LocalTime time = null;
-=======
-//        LocalDate localDate = null;
-//        if (date != null) {
-//
-//            localDate = LocalDate.parse(date, formatter);
-//        }
-//        LocalTime time = null;
->>>>>>> a4dede1f1f2e872672b3e5ec30c52cdf40cc9a52
         String heure = (String) request.getParameter("heurePartie");
-//        if (heure != null) {
-//
-//            time = LocalTime.parse(heure);
-//        }
-//        if (date != null && heure != null) {
-//
-//            System.out.println("info form = " + equipeChoisi + "," + equipeAdvers + "," + localDate.toString() + "," + time.toString());
-//        }
+
 
         request.getSession().setAttribute("listeSesequipes", listeSesequipes);
         request.getSession().setAttribute("listeEquipesParties", listeEquipes);
@@ -130,14 +108,10 @@ public class PartiesAction extends AbstractAction {
         LieuSport lieu = new LieuSport();
 
         Partie partie = new Partie();
-<<<<<<< HEAD
-        
-        partie.setDatePartie(localDate);
-        
-=======
+
 
         partie.setDatePartie(date);
->>>>>>> a4dede1f1f2e872672b3e5ec30c52cdf40cc9a52
+
         partie.setEquipe1(equipeC);
         partie.setEquipe2(equipeAd);
         partie.setHeurePArtie(heure);
@@ -153,14 +127,9 @@ public class PartiesAction extends AbstractAction {
         
         System.out.println("nombre de partie = "+lesParties.size());
         
-<<<<<<< HEAD
-        PartiesDAO dao = new PartiesDAO();
-        
-      //System.out.println("Creation de partie:=== "+dao.create(partie));
-       // PartiesServices.creerPartie(partie);
-=======
+
         request.getSession().setAttribute("lesParties", lesParties);
->>>>>>> a4dede1f1f2e872672b3e5ec30c52cdf40cc9a52
+
         
         
 
