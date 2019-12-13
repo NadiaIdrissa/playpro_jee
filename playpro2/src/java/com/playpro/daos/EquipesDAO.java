@@ -6,6 +6,9 @@
 package com.playpro.daos;
 
 import com.playpro.entities.Equipe;
+import com.playpro.entities.Membre;
+import com.playpro.entities.Sport;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,28 +27,40 @@ public class EquipesDAO extends DAO<Equipe> {
 
     @Override
     public boolean create(Equipe x) {
-        String type = "";
 
-        String req = "INSERT INTO `equipe` (`nom_equipe`,`id_capitaine`,`nom_sport`,`nb_parties_jouees`,`nb_joueurs`,`nb_max_joueurs`) "
-                + "VALUES('" + x.getNomEquipe() + "','" + x.id_capitaine() + "','" + x.getSport() + "','" + x.getNbPartiesJouees() + "','"
-                + x.getNbJoueurs() + "','" + x.getNbMaxJoueurs() + "','" + x.getNbMaxJoueurs() + "')";
+        System.out.println("je suis dans equipdao");
 
-        Statement stm = null;
+        System.out.println(" equipe a creer = " + x.toString());
+
+        
+        String req = "INSERT INTO equipe (`nom_equipe` , `id_capitaine` , `id_sport`, `nb_parties_jouees`, `nb_joueurs`, `nb_max_joueurs`, `image`) "
+                + "VALUES (?,?,?,?,?,?,?)";
+        //System.out.println("REQUETE "+req);
+        PreparedStatement stm = null;
+
+//        Statement stm = null;
         try {
-            stm = cnx.createStatement();
-            int n = stm.executeUpdate(req);
-            if (n > 0) {
-                stm.close();
-                return true;
-            }
+            stm = cnx.prepareStatement(req);
+            stm.setString(1, x.getNomEquipe());
+            stm.setString(2, x.getCapitaine().getId());
+            stm.setString(3, x.getSport().getId_sport());
+            stm.setInt(4, x.getNbPartiesJouees());
+            stm.setInt(5, x.getNbJoueurs());
+            stm.setInt(6, x.getSport().getNb_max());
+            stm.setString(7, x.getImage());
+            
+            int n = stm.executeUpdate();
+            if(n>0) return true;
+            System.out.println("========================================");
         } catch (SQLException exp) {
+            exp.printStackTrace();
         } finally {
             if (stm != null) {
                 try {
                     stm.close();
-                } catch (SQLException exp) {
+                } catch (SQLException e) {
                     // TODO Auto-generated catch block
-                    exp.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }
@@ -59,7 +74,61 @@ public class EquipesDAO extends DAO<Equipe> {
 
     @Override
     public Equipe findById(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                // TODO Auto-generated method stub
+        Statement stm = null;
+        ResultSet r = null;
+      
+
+        try {
+            stm = cnx.createStatement();
+            r = stm.executeQuery("SELECT * FROM equipe INNER JOIN sport ON equipe.id_sport = sport.id_sport"
+                    + " WHERE nom_equipe = '" + id + "'");
+            if (r.next()) {
+                Equipe e = new Equipe();
+               
+                e.setNomEquipe(r.getString("nom_equipe"));
+                          
+                Sport s = new Sport();
+                s.setId_sport(r.getString("sport.id_sport"));
+                s.setNom(r.getString("sport.nom"));
+                s.setNb_max(r.getInt("sport.nb_max"));
+                
+                e.setSport(s);
+                
+                e.setNbPartiesJouees(r.getInt("nb_parties_jouees"));
+                e.setNbJoueurs(r.getInt("nb_joueurs"));
+                e.setNbMaxJoueurs(r.getInt("nb_max_joueurs"));
+                
+                e.setImage(r.getString("equipe.image"));
+                               
+                r.close();
+                stm.close();
+                return e;
+            }
+        } catch (SQLException exp) {
+            exp.printStackTrace();
+        } finally {
+            if (r != null) {
+                try {
+                    r.close();
+                    
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            if (stm != null) {
+                try {
+                    
+                    stm.close();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return null;
     }
 
     @Override
@@ -74,23 +143,39 @@ public class EquipesDAO extends DAO<Equipe> {
 
     @Override
     public List<Equipe> findAll() {
-        
-         List<Equipe> liste = new LinkedList<>();
-         
-         System.out.println("je suis dans findAll de equipeDAO");
+
+        List<Equipe> liste = new LinkedList<>();
+
+        System.out.println("je suis dans findAll de equipeDAO");
         try {
             Statement stm = cnx.createStatement();
-            ResultSet r = stm.executeQuery("SELECT * FROM equipe");
+            ResultSet r = stm.executeQuery("SELECT * FROM equipe INNER JOIN membre on "
+                    + " equipe.id_capitaine = membre.id INNER JOIN sport on "
+                    + " equipe.id_sport = sport.id_sport");
             while (r.next()) {
                 System.out.println("Lecture equipe :" + r.toString());
                 Equipe team = new Equipe();
-                team.setNomEquipe(r.getString("nom_equipe"));
-                team.setid_capitaine(r.getString("id_capitaine"));
-                team.setSport(r.getString("nom_sport"));
-                team.setNbPartiesJouees(r.getString("nb_parties_jouees"));
-                team.setNbJoueurs(r.getString("nb_joueurs"));
-                team.setNbMaxJoueurs(r.getString("nb_max_joueurs"));
-                
+                Sport sport = new Sport();
+                Membre m = new Membre();
+
+                m.setNom(r.getString("Membre.nom"));
+                m.setPrenom(r.getString("Membre.prenom"));
+                m.setId(r.getString("Membre.id"));
+                m.setCourriel(r.getString("Membre.courriel"));
+                m.setTypeMembre(r.getString("Membre.type_membre"));
+                    
+                sport.setNom(r.getString("sport.nom"));
+                sport.setId_sport(r.getString("sport.id_sport"));
+                sport.setNb_min(r.getInt("sport.nb_min"));
+                sport.setNb_max(r.getInt("sport.nb_max"));
+                   
+                team.setNomEquipe(r.getString("equipe.nom_equipe"));
+                team.setSport(sport);
+                team.setCapitaine(m);
+                team.setNbPartiesJouees(r.getInt("equipe.nb_parties_jouees"));
+                team.setNbJoueurs(r.getInt("equipe.nb_joueurs"));
+                team.setNbMaxJoueurs(r.getInt("sport.nb_max"));
+                team.setImage(r.getString("equipe.image"));
 
                 liste.add(team);
                 System.out.println(liste.size());
@@ -99,7 +184,7 @@ public class EquipesDAO extends DAO<Equipe> {
             r.close();
             stm.close();
         } catch (SQLException exp) {
-             exp.printStackTrace();
+            exp.printStackTrace();
         }
         return liste;
     }
@@ -107,7 +192,5 @@ public class EquipesDAO extends DAO<Equipe> {
     public boolean UpdateStatus(Equipe x) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
 
 }

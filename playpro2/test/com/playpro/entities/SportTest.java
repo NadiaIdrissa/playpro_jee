@@ -9,40 +9,52 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
  *
  * @author toute
  */
 public class SportTest {
-    
+     final static String NOM="Tennis";
+     final static String IMGAGE="://stattic/img1";
+     final static int NB_MAX=2;
+     final static int NB_MIN=8;
+     String id="ABC";
+     String sportc="Hockey";
+     Sport S;
     public SportTest() {
+        
+    
     }
     
     @BeforeClass
     public static void setUpClass() {
-        Sport s = new Sport();
-        String nom = "Hockey";
-        s.setNom(nom);
+   
         
     }
     
     @AfterClass
     public static void tearDownClass() {
     }
-
+   
+    @Before
+    public void setUp() {
+   S=new Sport(id,NOM);
+   S.setId_sport(id);
+   S.setNom(NOM);
+   S.setImage(IMGAGE);
+   S.setNb_max(NB_MAX);
+   S.setNb_min(NB_MIN);
+   
+        
+    }
     /**
      * Test of getNb_max method, of class Sport.
      */
     @Test
     public void testGetNb_max() {
-        System.out.println("getNb_max");
-        Sport instance = new Sport();
-        int expResult = 0;
-        int result = instance.getNb_max();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(S.getNb_max(), NB_MAX);
     }
 
     /**
@@ -51,12 +63,9 @@ public class SportTest {
     @Test
     public void testGetNb_min() {
         System.out.println("getNb_min");
-        Sport instance = new Sport();
-        int expResult = 0;
-        int result = instance.getNb_min();
-        assertEquals(expResult, result);
+        assertEquals(S.getNb_min(),NB_MIN);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -64,12 +73,8 @@ public class SportTest {
      */
     @Test
     public void testSetNb_max() {
-        System.out.println("setNb_max");
-        int nb_joueurs_max = 0;
-        Sport instance = new Sport();
-        instance.setNb_max(nb_joueurs_max);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+final int nvmax=8;
+S.setNb_max(nvmax);
     }
 
     /**
@@ -77,12 +82,8 @@ public class SportTest {
      */
     @Test
     public void testSetNb_min() {
-        System.out.println("setNb_min");
-        int nb_joueurs_min = 0;
-        Sport instance = new Sport();
-        instance.setNb_min(nb_joueurs_min);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+final int nvmin=3;
+S.setNb_min(nvmin);
     }
 
     /**
@@ -90,13 +91,8 @@ public class SportTest {
      */
     @Test
     public void testGetId_sport() {
-        System.out.println("getId_sport");
-        Sport instance = new Sport();
-        String expResult = "";
-        String result = instance.getId_sport();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       final String nvId="abc";
+       S.setId_sport(nvId);
     }
 
     /**
@@ -154,12 +150,9 @@ public class SportTest {
     @Test
     public void testGetImage() {
         System.out.println("getImage");
-        Sport instance = new Sport();
-        String expResult = "";
-        String result = instance.getImage();
-        assertEquals(expResult, result);
+        assertEquals(S.getImage(),IMGAGE);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
 
     /**
@@ -167,26 +160,24 @@ public class SportTest {
      */
     @Test
     public void testSetImage() {
-        System.out.println("setImage");
-        String image = "";
-        Sport instance = new Sport();
-        instance.setImage(image);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+  final String nvImg="c://static/im2";
+  S.setImage(nvImg);
     }
 
     /**
      * Test of toString method, of class Sport.
      */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Sport instance = new Sport();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    @Test(expected = IllegalArgumentException.class)
+    public void testNB_MaxNegatif() {
+
+        final int nvMax = -1;
+        S.setNb_max(nvMax);
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void testNB_MinNegatif() {
+
+        final int nvMin = -1;
+        S.setNb_max(nvMin);
     }
     
 }

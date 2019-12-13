@@ -30,23 +30,17 @@
         <title>Connexion</title>
   
 
-        <!--<link href="static/css/styles.css" rel="stylesheet">-->
-        <!--<script src="static/js/gestion.js" ></script>-->
-        <!--<link href="static/css/styles.css" rel="stylesheet" type="text/css">-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-
         <link href="static/css/cssNavBar/stylesyami.css" rel="stylesheet" type="text/css">
-
     </head>
     <body>
         <%
-
             String courriel;
             String password;
-            String message = (String) request.getAttribute("authentification");
+            String message = (String) request.getAttribute("message");
+            String laClasse = (String) request.getAttribute("laClasse");
 
             if ((request.getSession().getAttribute("connected") == null) || ((boolean) request.getSession().getAttribute("connected") == false)) {%>
         
@@ -60,29 +54,33 @@
             courriel = membre.getCourriel();
         %>
        
-        <%@include file="headerMembre.jsp" %>
+        <%@include file="header.jsp" %>
 
         <% } %>
         <br><br>
 
-        <div class="container" id="FormulaireConnexion" style="margin-top: 100px;">
+        <div class="container" id="FormulaireConnexion" style="margin-top: 50px;">
 
-            <%    if (request.getAttribute("authentification") != null) {%>
+            <%if (message != null && !message.equals("")) {
+                    %>
+                    <div class="alert text-center alert-<%=laClasse%> alert-dismissible fade show" role="alert">
+                        <strong>Important!</strong> <%=message%>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <%}
+                    %>
 
-
-            <div class="visible" id ="message"><%=message%></div>
-            <%
-                }%>
-
-        </div> <!-- /container -->
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                     <div class="wrapper fadeInDown">
                         <div class="card  card-signin my-5">
                             <div class="  card-body">
-                                <h5 class="card-title text-center ">Connexion</h5>
-                                <form class="form-signin needs-validation" action="" method="post" name="action" value="login" novalidate>
+                                <h2 class="card-title text-center ">Connexion</h2>
+                                <form class="form-signin needs-validation" action="?action=login" method="post" name="action" value="login" novalidate>
                                     <div class="col-md-12 mb-12">
                                         <input type="email" name='email' class="form-control" id="validationCustom05" placeholder="exemple@playpro.ca" required>
                                         <div class="invalid-feedback">
@@ -93,13 +91,13 @@
                                     <div class="col-md-12 mb-12">
                                         <input type="password" id='password' name='mdp' class="form-control"  placeholder="Mot de passe" required>
                                         <div class="invalid-feedback">
-                                            Mot de passe recquis.
+                                            Mot de passe requis.
                                         </div>
                                     </div>
 
                                     <div class="custom-control custom-checkbox mb-3">
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1">Se souvenir de mon courriel</label>
+                                        <label class="custom-control-label" for="customCheck1">Se souvenir moi</label>
                                     </div>
                                     <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Connexion</button>
 

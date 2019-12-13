@@ -9,27 +9,27 @@
 
     <ul class="nav">
         <li>
-</a>
+            </a>
             <a href="?action=portail&sousAction=loadProfil">
                 <i class="fa fa-user"></i> <span class="sideLabel">Mon profil</span>
             </a>
         </li>
-        
+
         <li>
             <a href="?action=portail&sousAction=loadCalendrier">
                 <i class="fa fa-calendar"></i> <span class="sideLabel">Calendrier</span>
             </a>
         </li>
-        
+
         <li>
-<!--            <a href="?action=equipes">-->
+            <!--            <a href="?action=equipes">-->
             <a href="?action=equipe&sousAction=loadEquipe">
                 <i class="fa fa-users"></i> <span class="sideLabel">Equipes</span>
             </a>
         </li>
-        
+
         <li>
-            <a href="#">
+            <a href="?action=parties">
                 <i class="fa fa-play-circle"></i> <span class="sideLabel">Parties</span>
             </a>
         </li>
@@ -38,37 +38,45 @@
                 <i class="fa fa-soccer-ball-o"></i> <span class="sideLabel">Sports</span>
             </a>
         </li>
-         <li>
+        <li>
             <a href="?action=lieux">
                 <i class="fa fa-map-marker"></i> <span class="sideLabel">Lieux</span>
             </a>
         </li>
-        
+
         <%
-          if (!m.getTypeMembre().equals("Joueur")){  
-        %>
-            <li>
-                <a href="#">
-                    <i class="fa fa-file"></i><span class="sideLabel"> Annonces</span>
-                </a>
-            </li>
-        <%}%>
-        
-        <%
-          if (m.getTypeMembre().equals("Admin")){  
+            if (!m.getTypeMembre().equals("Joueur")) {
         %>
         <li>
-            <a href="#">
+            <a class="btnSide" id="btnAnnonce" >
+                
+                <i class="fa fa-file"></i><span class="sideLabel"> Annonces</span>
+            </a>
+        </li>
+        <%}%>
+
+        <%
+            if (m.getTypeMembre().equals("Admin")) {
+        %>
+        <li>
+            <a href="?action=membres">
                 <i class="fa fa-user-plus"></i><span class="sideLabel"> Membres</span>
             </a>
         </li>
         <%}%>
-        
+
         <li>
-            <a href="#">
-                <i class="fa fa-paper-plane"></i><span class="sideLabel"> Invitations</span>
+            <!--<a class="btnSide" style="display: block" id="btnTraiterInvitation">-->
+            <a href="?action=portail&sousAction=invitations">
+                <i class="fa fa-paper-plane"></i>
+
+                <span class="sideLabel">Invitations </span><span class="badge">
+                <c:out value="${sessionScope.NbInvitations}"/>
+        </span>
             </a>
         </li>
+        
     </ul>
+    
 </div>
 

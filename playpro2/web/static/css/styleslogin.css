@@ -30,12 +30,12 @@ body {
   border-radius: 1rem;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
 }
-
+/*
 .card-signin .card-title {
   margin-bottom: 2rem;
   font-weight: 300;
   font-size: 1.5rem;
-}
+}*/
 
 .card-signin {
     
@@ -51,7 +51,6 @@ body {
 
 .form-signin .btn {
   font-size: 80%;
-  border-radius: 5rem;
   letter-spacing: .1rem;
   font-weight: bold;
   padding: 1rem;
@@ -123,12 +122,14 @@ body {
 
 .btn-google {
   color: white;
-  background-color: #ea4335 !important;
+  background-color: #dc3545 !important;
+      /*#ea4335 !important;*/
 }
 
 .btn-facebook {
   color: white;
-  background-color: #3b5998 !important;
+  background-color: #07334a !important;
+      /*#3b5998 !important;*/
 }
 
 /* Fallback for Edge

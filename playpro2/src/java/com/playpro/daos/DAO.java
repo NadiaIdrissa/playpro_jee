@@ -17,9 +17,12 @@ public abstract class DAO<T> {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-                System.out.println("entrée DAO");
+                
                 cnx = Connexion.getInstance();
 		//this.cnx = cnx;
+	}
+        public DAO(Connection cnx) {
+		this.cnx = cnx;
 	}
 	
 	public Connection getCnx() {

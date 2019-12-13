@@ -6,6 +6,9 @@
 package com.playpro.entities;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -13,39 +16,33 @@ import java.time.LocalDate;
  */
 public class Equipe {
 
-    protected String NomEquipe;
+    protected String nomEquipe;
     protected Membre capitaine;
-    protected String id_capitaine;
-    protected String sport;
+    protected Sport sport;
     protected int nbPartiesJouees;
     protected int nbJoueurs;
     protected int nbMaxJoueurs;
     protected LocalDate dateCreation;
-    Membre ken = new Membre();
+    private String image;
 
-    public Equipe() {
-
-        this.NomEquipe = "Loups";
-        this.capitaine = ken;
-        this.id_capitaine = "1234";
-        this.sport = "soccer";
-        this.nbPartiesJouees = 0;
-        this.nbJoueurs = 15;
-        this.nbMaxJoueurs = 30;
-
+    private List<Membre> membresEquipe;
+        
+    public Equipe() throws IllegalArgumentException {
+        this("Loups", 0, 0, 30 );
+        
     }
 
-    public Equipe(String NomEquipe, String id_du_capitaine, String sport, int nbPartiesJouees, int nbJoueurs, int nbMaxJoueurs) {
-        this.NomEquipe = NomEquipe;
-        this.id_capitaine = id_du_capitaine;
-        this.sport = sport;
+    public Equipe(String NomEquipe, int nbPartiesJouees, int nbJoueurs, int nbMaxJoueurs) {
+        this.nomEquipe = NomEquipe;
         this.nbPartiesJouees = nbPartiesJouees;
         this.nbJoueurs = nbJoueurs;
         this.nbMaxJoueurs = nbMaxJoueurs;
+        this.membresEquipe = new LinkedList<>();
+        
     }
-
+    
     public String getNomEquipe() {
-        return NomEquipe;
+        return nomEquipe;
     }
 
     public Membre getCapitaine() {
@@ -53,27 +50,22 @@ public class Equipe {
     }
 
     public void setNomEquipe(String NomEquipe) {
-        this.NomEquipe = NomEquipe;
+        this.nomEquipe = NomEquipe;
     }
 
-    public String id_capitaine() {
-        return id_capitaine;
-    }
-
-    public void setid_capitaine(String id) {
-        this.id_capitaine = id;
-    }
 
     public void setCapitaine(Membre capitaine) {
         this.capitaine = capitaine;
 
     }
+    
+    
 
-    public String getSport() {
+    public Sport getSport() {
         return sport;
     }
 
-    public void setSport(String sport) {
+    public void setSport(Sport sport) {
         this.sport = sport;
     }
 
@@ -81,33 +73,93 @@ public class Equipe {
         return nbPartiesJouees;
     }
 
-    public void setNbPartiesJouees(String nbPartiesJouees) {
-        this.nbPartiesJouees = Integer.parseInt(nbPartiesJouees);
+    public void setNbPartiesJouees(int nbPartiesJouees) {
+        //int nv=Integer.parseInt(nbPartiesJouees);
+        if(nbPartiesJouees<0){
+            throw new IllegalArgumentException("Nombre parties jouees inferior à 0");
+        }
+        this.nbPartiesJouees = nbPartiesJouees;
     }
-
+        
     public int getNbJoueurs() {
         return nbJoueurs;
     }
 
-    public void setNbJoueurs(String nbJoueurs) {
-        this.nbJoueurs = Integer.parseInt(nbJoueurs);
+    public void setNbJoueurs(int nbJoueurs) {
+        if(nbJoueurs<0){
+            throw new IllegalArgumentException("Nombre NbJoueurs inferior à 0");
+        }
+        this.nbJoueurs = nbJoueurs;
     }
 
     public int getNbMaxJoueurs() {
         return nbMaxJoueurs;
     }
 
-    public void setNbMaxJoueurs(String nbMaxJoueurs) {
-        this.nbMaxJoueurs = Integer.parseInt(nbMaxJoueurs);
+    public void setNbMaxJoueurs(int nbMaxJoueurs) {
+        if(nbMaxJoueurs<0){
+            throw new IllegalArgumentException("Nombre Max_Joueurs inferior à 0");
+        }
+        this.nbMaxJoueurs = nbMaxJoueurs;
     }
 
+
+    public List<Membre> getMembresEquipe() {
+        return membresEquipe;
+    }
+
+    public void setMembresEquipe(List<Membre> membresEquipe) {
+        this.membresEquipe = membresEquipe;
+    }
+    
     public LocalDate getDateCreation() {
         return dateCreation;
     }
 
+    public void setDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+    
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+        
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.nomEquipe);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Equipe other = (Equipe) obj;
+        if (!Objects.equals(this.nomEquipe, other.nomEquipe)) {
+            return false;
+        }
+        return true;
+    }
+    
+
     @Override
     public String toString() {
-        return "Equipe{" + "NomEquipe=" + NomEquipe + ", capitaine=" + id_capitaine + ", sport=" + sport + ", nbPartiesJouees=" + nbPartiesJouees + ", nbJoueurs=" + nbJoueurs + ", nbMaxJoueurs=" + nbMaxJoueurs + ", dateCreation=" + dateCreation + ", ken=" + ken + '}';
+        return "Equipe{" + "nomEquipe=" + nomEquipe + ", capitaine=" + capitaine.getNom() + ", sport=" + sport.getNom() + ", nbPartiesJouees=" + String.valueOf(nbPartiesJouees) + ", nbJoueurs=" + String.valueOf(nbJoueurs) + ", nbMaxJoueurs=" + String.valueOf(nbMaxJoueurs) +  '}';
     }
+
+    
 
 }

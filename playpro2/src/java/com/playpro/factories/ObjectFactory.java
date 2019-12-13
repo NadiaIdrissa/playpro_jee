@@ -5,6 +5,7 @@
  */
 package com.playpro.factories;
 
+import com.playpro.entities.Annonce;
 import com.playpro.entities.Equipe;
 import com.playpro.entities.Membre;
 import com.playpro.entities.Sport;
@@ -16,23 +17,29 @@ import java.util.UUID;
  * @author toute
  */
 public class ObjectFactory {
+
     public static Membre getNewMembre() {
         Membre objet = new Membre();
-        
-        
+
         objet.setId(UUID.randomUUID().toString());
         return objet;
     }
- 
-      
+
     public static Sport getNewSport() {
         Sport objet = new Sport();
         objet.setId_sport(UUID.randomUUID().toString());
         return objet;
-    }    
+    }
+
     public static Lieux getNewLieu() {
-    Lieux objet = new Lieux();
-    objet.setId_lieu(UUID.randomUUID().toString());
-    return objet;
-    }    
+        Lieux objet = new Lieux();
+        objet.setId_lieu(UUID.randomUUID().toString());
+        return objet;
+    }
+
+    public static Annonce getNewAnnonce() {
+        Annonce object = new Annonce();
+        object.setIdAnnonce(UUID.randomUUID().toString());
+        return object;
+    }
 }

@@ -5,17 +5,123 @@
  */
 package com.playpro.entities;
 
-import java.time.LocalDate;
+
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  *
  * @author toute
  */
 public class Annonce {
-
-    private int idAnnonce;
-    private Entraineur createur;
+    private String idAnnonce;
+    private Membre createur;
     private String titre;
-    private String message;
-    private LocalDate dateCreation;
+    private String description;
+    private Boolean gratuit;
+    private double montant;
+    private int nombreMax;
+    private Timestamp dateCreation;
+    private Timestamp date_event;
+    private Lieux lieu;
+
+    
+
+    
+    
+    
+    public Annonce()throws IllegalArgumentException {
+    }
+
+    public String getIdAnnonce() {
+        return idAnnonce;
+    }
+
+    public Timestamp getDate_event() {
+        return date_event;
+    }
+
+    public Lieux getLieu() {
+        return lieu;
+    }
+
+    public Membre getCreateur() {
+        return createur;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Boolean getGratuit() {
+        return gratuit;
+    }
+
+    public double getMontant() {
+        return montant;
+    }
+
+    public int getNombreMax() {
+        return nombreMax;
+    }
+
+    public Timestamp getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDate_event(Timestamp date_event) {
+        this.date_event = date_event;
+    }
+
+    public void setLieu(Lieux id_lieu) {
+        this.lieu = id_lieu;
+    }
+
+    public void setIdAnnonce(String idAnnonce) {
+        this.idAnnonce = idAnnonce;
+    }
+
+    public void setCreateur(Membre createur) {
+        this.createur = createur;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setGratuit(Boolean gratuit) {
+        this.gratuit = gratuit;
+    }
+
+    public void setMontant(double montant) {
+        if(montant<0){
+            throw new IllegalArgumentException("Le montant est inferior a 0");
+        }
+        this.montant = montant;
+    }
+
+    public void setNombreMax(int nombreMax) {
+        if(nombreMax<=0){
+            throw new IllegalArgumentException("Le nombre max de participants et inferior ou egal a 0");
+        }
+        this.nombreMax = nombreMax;
+    }
+
+    public void setDateCreation(Timestamp dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    @Override
+    public String toString() {
+        return "Annonce{" + "idAnnonce=" + idAnnonce + ", createur=" + createur + ", titre=" + titre + ", description=" + description + ", gratuit=" + gratuit + ", montant=" + montant + ", nombreMax=" + nombreMax + ", dateCreation=" + dateCreation + ", date_event=" + date_event + ", id_lieu=" + lieu + '}';
+    }
+    
 }

@@ -10,6 +10,7 @@ import com.playpro.entities.Membre;
 import com.playpro.utils.PasswordHash;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,41 +18,50 @@ import java.util.logging.Logger;
  *
  * @author toute
  */
-
 public class MembreServices {
+
     private static MembreDAO dao;
-    public static boolean creerMembre(Membre m){
+
+    public static boolean creerMembre(Membre m) {
         dao = new MembreDAO();
-       
+
         boolean reussi = dao.create(m);
-        
+
         return reussi;
     }
-    
-    public static Membre seConnecter(String email,  String mdp){
-        Membre m; 
+
+    public static Membre seConnecter(String email, String mdp) {
+        Membre m;
         dao = new MembreDAO();
-        
-        
+
         m = dao.findById(email);
-        if(m != null){
+        if (m != null) {
             try {
-                System.out.println("Mot de passe lu: "+m.getMpd());
-                if(!PasswordHash.validatePassword(mdp, m.getMpd())){
-                    
+                System.out.println("Mot de passe lu: " + m.getMpd());
+                if (!PasswordHash.validatePassword(mdp, m.getMpd())) {
+
                     m.setMpd(mdp);
-                    
+
                 }
             } catch (NoSuchAlgorithmException ex) {
                 Logger.getLogger(MembreServices.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InvalidKeySpecException ex) {
                 Logger.getLogger(MembreServices.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else{
-            
+        } else {
+
         }
-        
-        
+
         return m;
+    }
+    
+    public static List<Membre> tousLesMembre(){
+        dao = new MembreDAO();
+        
+        return dao.findAll();
+    }
+    public static Membre trouverMembre(String id){
+        dao = new MembreDAO();    
+        return dao.findById(id);
     }
 }

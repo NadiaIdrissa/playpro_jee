@@ -11,15 +11,25 @@ and open the template in the editor.
 img {
   width: auto;
   height : auto;
-  max-height: 100%;
+  max-height: auto;
   max-width: 100%;
+  min-width: 50%;
+  min-height: auto;
 }
 
+
+.annonce{
+    width : 100% !important;
+    border:#002752 solid 1px;
+    border-radius: 4px;
+    margin-top: 20px;
+    box-shadow: 2px 2px 5px;
+}
 
 .card{
     width: 30%; 
     display: inline-block; 
-    background-color: powderblue;
+    background-color: #fefefe;
     border-radius: 3%;
         
 }
@@ -81,16 +91,100 @@ img {
 }
 
 .modal-header {
-  padding: 2px 10px;
-  background-color: #b3d7ff;
+  /*padding: 2px 10px;*/
+  padding: 0px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 10px;
+  background-color: #80a6cc;
   color: white;
 }
 
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-  padding: 2px 10px;
-  background-color: #b3d7ff;
-  color: white;
+.modal-body {
+    padding: 2px 16px;
+    background: white;
 }
 
+.formProfil .modal-footer .btn-primary{
+    margin: unset !important;
+}
+
+.formProfil .modal-footer{
+    padding: unset;
+    padding-top: 30px;
+}
+
+/*Profil*/
+.nomProfil{
+    height: 225px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.formProfil label{
+    margin-bottom: 0;
+}
+
+.formProfil input{
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.formProfil select{
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.formProfil .col{
+    margin-bottom: 0;
+}
+
+.btnSuppr{
+    width: unset !important;
+    padding: 10px 20px !important;
+    letter-spacing: 1px;
+    text-transform: uppercase !important;
+    color: #fff;
+    cursor: pointer;
+    border-radius: .25rem !important;
+    font-weight: 800;
+}
+
+.divbtnSuppr{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px 35px;
+}
+
+#fprofil{
+    border: 2px solid #dee2e6;
+    border-radius: .3rem;
+}
+
+#fprofil .form-control:focus{
+    border-color: #80cccc;
+    box-shadow: 0 0 0 0.2rem rgba(128,204,204,.33);
+}
+
+/*Modale Partie*/
+.gj-datepicker-bootstrap [role=right-icon] button {
+    border: none !important;
+}
+
+.btn-outline-secondary:hover{
+    color: #838a91;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn-outline-secondary:active{
+    color: #838a91;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.gj-picker.gj-picker-bootstrap.timepicker div{
+    justify-content: center;
+    display: flex;
+}

@@ -6,7 +6,9 @@
 package com.playpro.entities;
 
 import java.awt.image.BufferedImage;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  *
@@ -22,11 +24,11 @@ public class Membre {
     protected String prenom;
     protected int anneeNaissance;
     protected String courriel;
-    protected LocalDate dateInscription;
+    protected Timestamp dateInscription;
     protected Equipe equipe;
     protected String sport;
     protected Niveau niveau;
-    protected BufferedImage photo;
+    protected String photo;
     protected String typeMembre;
     protected String status;
 
@@ -85,9 +87,12 @@ public class Membre {
         if (sexe.equalsIgnoreCase("homme")) {
 
             this.sexe = Sexe.Homme;
+            this.photo = "man.jpg";
         } else if (sexe.equalsIgnoreCase("femme")) {
             this.sexe = Sexe.Femme;
+            this.photo = "woman.jpg";
         } else {
+            this.photo = "woman.jpg";
             this.sexe = Sexe.Autre;
         }
     }
@@ -124,11 +129,11 @@ public class Membre {
         this.courriel = courriel;
     }
 
-    public LocalDate getDateInscription() {
+    public Timestamp getDateInscription() {
         return dateInscription;
     }
 
-    public void setDateInscription(LocalDate dateInscription) {
+    public void setDateInscription(Timestamp dateInscription) {
         this.dateInscription = dateInscription;
     }
 
@@ -172,12 +177,37 @@ public class Membre {
         }
     }
 
-    public BufferedImage getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(BufferedImage photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Membre other = (Membre) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
     }
 
     @Override

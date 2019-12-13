@@ -20,7 +20,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body body2">
                 <div class="container">
                     <div class="row">
 
@@ -28,7 +28,7 @@
                             <span class="vl-innertext">ou</span>
                         </div>
 
-                        <div class="col">
+                        <div class="col mod">
                             <a href="#" class="fb color-white btn">
                                 <i class="fa fa-facebook fa-fw"></i> Login with Facebook
                             </a>
@@ -40,19 +40,14 @@
                             </a>
                         </div>
 
-                        <div class="col">
-
+                        <div class="col mod">
                             <form class="needs-validation" action="" method="post" name="action" value="signup" novalidate>
                                 <div class="form-group">
-
-
-
                                     <div class="form-row">
                                         <div id='niveau' class="col-md-12 mb-12">
                                             <div  class="form-group">
-                                                <label for="inputLevel">Niveau</label>
                                                 <select class="form-control" name="niveau" required>
-                                                    <option value='' >Choisissez...</option>
+                                                    <option value='' >Niveau</option>
 
                                                     <%for (Niveau n : Niveau.values()) {%>
 
@@ -76,14 +71,14 @@
                                         <div class="col-md-12 mb-12">
 
                                             <div class="input-group" >
-                                                <div class="input-group-prepend" style='padding-top: 5px' >
+                                                <div class="input-group-prepend"  >
                                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                                                 </div>
                                                 <input type="text" name='pseudo' class="form-control" id="validationCustomUsername" placeholder="Pseudo"
                                                        aria-describedby="inputGroupPrepend" required>
                                                 <div class="input-group-prepend" style='padding-top: 5px'>
                                                     <select class="form-control" name="sexe" required>
-                                                        <option value='' >Choisissez...</option>
+                                                        <option value='' >Sexe</option>
 
                                                         <%for (Sexe s : Sexe.values()) {%>
 
@@ -112,7 +107,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-12">
-                                            <input type="email" name='email' class="form-control" id="validationCustom05" placeholder="exemple@playpro.ca" required>
+                                            <input type="email" name='email' class="form-control" id="validationCustom05" placeholder="Courriel" required>
                                             <div class="invalid-feedback">
                                                 Entrez un courriel valide.
                                             </div>
@@ -130,7 +125,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" style="margin-top: 1rem;">
                                         <div class="form-check">
                                             <label class="form-check-label" for="invalidCheck">
                                                 <input style="width: 5%" class="form-check-input checkbox-primary" type="checkbox" value="" id="invalidCheck" required>
@@ -143,8 +138,8 @@
                                     </div>
                                     <div class="modal-footer">
 
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                        <button class="btn btn-primary btn-sm" id="commit" type="submit">S'inscrire</button>
+                                        <button type="button" class="btn btn-secondary btnD" data-dismiss="modal">Fermer</button>
+                                        <button class="btn btn-primary" id="commit" type="submit">S'inscrire</button>
                                     </div>
 
                                 </div>
@@ -155,8 +150,11 @@
                     </div>
 
                 </div>
-                <div class="text-center">Vous avez déjà un compte ? <a href="?action=login">Connectez-vous</a></div>
-                <br>
+            </div>
+            <div class="text-center footer2">
+                Vous avez déjà un compte ? 
+                <a href="?action=login">Connectez-vous</a>
             </div>
         </div>
     </div>
+</div>
