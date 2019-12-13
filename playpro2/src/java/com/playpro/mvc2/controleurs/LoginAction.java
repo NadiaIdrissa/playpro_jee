@@ -39,7 +39,7 @@ public class LoginAction extends AbstractAction {
             membre = MembreServices.seConnecter(email, mdp);
             if (membre == null) {
                 System.out.println("Infos inexistantes");
-                request.setAttribute("message", "email invalide");
+                request.setAttribute("message", "Echec de la connexion. Il semble que vous ne soyiez pas membre de PlayPro");
                 request.setAttribute("laClasse", "danger");
                 return "login";
 
