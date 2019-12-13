@@ -40,7 +40,7 @@
         </li>
         <li>
             <a href="?action=lieux">
-                <i class="fa fa-map-marker"></i> <span class="sideLabel">Lieux</span>
+                <i class="fa fa-map-marker"></i> <span class="sideLabel" style="margin-right: 50px;">Lieux</span>
             </a>
         </li>
 
