@@ -32,7 +32,7 @@
 </div>
 
 <body>
-    <h1>Liste des parties</h1>
+    <!--<h1>Liste des parties</h1>-->
 
     <!--<button id="myBtn" type="button" >Ajouter</button>-->
     <div >
