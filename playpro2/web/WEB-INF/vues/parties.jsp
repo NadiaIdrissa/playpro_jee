@@ -60,7 +60,7 @@
                             <div class='row'>
                                 
                                 <p class="card-text col-sm-5 col-md-5 col-lg-5">
-                                <c:forEach items="${sessionScope.listeSesequipes}" var="e"> 
+                                <c:forEach items="${requestScope.listeEquipes}" var="e"> 
                                     <c:if test = "${e.nomEquipe == unePartie.equipe1.nomEquipe}">
                                         <img class="" src="static/images/equipes/<c:out value="${e.image}"/> "/>
                                     </c:if>
@@ -68,7 +68,7 @@
                                 </p>
                                 <h2 class="col-sm-2 col-md-2 col-lg-2" style="font-style: italic; display: flex;position: relative;align-items: center;justify-content: center;" >VS</h2>
                                 <p class="card-text col-sm-5 col-md-5 col-lg-5">
-                                    <c:forEach items="${sessionScope.listeSesequipes}" var="e"> 
+                                    <c:forEach items="${requestScope.listeEquipes}" var="e"> 
                                         <c:if test = "${e.nomEquipe == unePartie.equipe2.nomEquipe}">
                                             <img class="" src="static/images/equipes/<c:out value="${e.image}"/> "/>
                                         </c:if>
