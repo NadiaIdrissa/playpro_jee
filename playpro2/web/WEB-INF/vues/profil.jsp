@@ -15,7 +15,7 @@
 
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <form  id="fprofil" action="?action=profil" method="post" name="action" value="profil" enctype="multipart/form-data">
-            <div class="modal-header">
+            <div class="modal-header" style="background-color: #f1f1f1;">
                 <div class="photoProf text-center col-sm-6 col-md-6 col-lg-6">
                     <img id='imagejoueur' src="static/images/profils/<c:out value="${membre.photo}"/> " class="rounded" alt="imgprofil">
                     <input id="imageMembre" type="hidden" class="form-control" name="imageMembre" />
@@ -35,6 +35,7 @@
                             </div>
                             <div class="col">
                                 <div class="form-row">
+                                    <input type="hidden" name='id'  id="id" value="${membre.id}">
                                     <div class="col-md-12 mb-12">
                                         <label for="pseudoR">Pseudo</label>
                                         <input type="text" name='pseudoR' class="form-control" id="pse1" value="${membre.pseudo}"  disabled required>

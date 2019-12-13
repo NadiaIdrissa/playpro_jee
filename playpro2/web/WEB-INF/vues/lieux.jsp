@@ -21,15 +21,15 @@
 
 <div>
     <div class="card-columns" style="">
-        <c:forEach items="${requestScope.lieux}" var="unlieu"> 
+        <c:forEach items="${requestScope.lieux}" var="unlieu" varStatus="loop"> 
             <div class="card" >
                 <div class="cadre text-center">
                     <div>
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <div id="#carouselExampleIndicators<c:out value="${loop.index}"/>" class="carousel slide" data-ride="carousel">
+                            <ol>
+                                <li data-target="#carouselExampleIndicators<c:out value="${loop.index}"/>" data-slide-to="0"></li>
+                                <li data-target="#carouselExampleIndicators<c:out value="${loop.index}"/>" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators<c:out value="${loop.index}"/>" data-slide-to="2"></li>
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item carousel-item-lieu active">
@@ -43,14 +43,14 @@
                                     <img src="static/images/lieux/<c:out value="${unlieu.image3}"/> " class="d-block w-100" alt="Responsive image" />
                                 </div>
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+<!--                            <a class="carousel-control-prev" href="#carouselExampleIndicators<c:out value="${loop.index}"/>" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <a class="carousel-control-next" href="#carouselExampleIndicators<c:out value="${loop.index}"/>" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
-                            </a>
+                            </a>-->
                         </div>
                     </div>
 
@@ -117,7 +117,7 @@
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header equipeStyle">
                 <h5 class="modal-title" id="exampleModalLabel">Informations sur le nouveau lieu</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

@@ -23,6 +23,7 @@ public class AnnonceTest {
     final static String IDCREATEUR = "abc";
     final static String TITRE = "Participer";
     final static String DESCRIPTION = "MESSAGE";
+    
     final static boolean GRATUIT = false;
     final static double MONTANT = 25;
     final static int NB_MAX = 20;

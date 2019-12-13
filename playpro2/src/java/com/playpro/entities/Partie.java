@@ -7,6 +7,8 @@ package com.playpro.entities;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
+import static javax.management.Query.eq;
 
 /**
  *
@@ -14,10 +16,17 @@ import java.time.LocalTime;
  */
 public class Partie {
 
+
     private int idPartie;
     private String datePartie;
     private String heurePArtie;
     private String sport;
+    private String id;
+
+//    private String idPartie;
+//    private LocalDate datePartie;
+//    private LocalTime heurePArtie;
+
     private Equipe equipe1;
     private Equipe equipe2;
     private String leLieu;
@@ -27,13 +36,21 @@ public class Partie {
     public Partie() {
     }
 
+
     public Partie(String datePartie, String heurePArtie, Equipe equipe1, Equipe equipe2, String leLieu) {
+
         this.datePartie = datePartie;
         this.heurePArtie = heurePArtie;
         this.equipe1 = equipe1;
         this.equipe2 = equipe2;
         this.leLieu = leLieu;
     }
+
+    public void setLeLieu(String leLieu) {
+        this.leLieu = leLieu;
+    }
+    
+    
 
     public String getScore() {
         return score;
@@ -58,12 +75,6 @@ public class Partie {
         return leLieu;
     }
 
-    public void setLeLieu(String leLieu) {
-        this.leLieu = leLieu;
-    }
-    
-    
-
     public int getIdPartie() {
         return idPartie;
     }
@@ -71,6 +82,15 @@ public class Partie {
     public void setIdPartie(int idPartie) {
         this.idPartie = idPartie;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
 
     public String getDatePartie() {
         return datePartie;
@@ -112,9 +132,44 @@ public class Partie {
         this.lieuSportPartie = lieuSportPartie;
     }
 
+
+
+
+    
+    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Partie other = (Partie) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public String toString() {
         return "Partie{" + "idPartie=" + idPartie + ", datePartie=" + datePartie + ", heurePArtie=" + heurePArtie + ", equipe1=" + equipe1 + ", equipe2=" + equipe2 + ", lieuSportPartie=" + lieuSportPartie + '}';
     }
 
 }
+
+
+
+

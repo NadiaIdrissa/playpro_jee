@@ -15,7 +15,7 @@
                     <tr >
                         <th style="border-bottom: none">Expéd.</th>
                         <th style="border-bottom: none">Équipe</th>
-                        <th class="d-flex justify-content-center" style="border-bottom: none">Actions</th>
+                        <th class="d-flex justify-content-center" style="border-bottom: none">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,8 +42,8 @@
                                     <input name ='statutInvitation' class="statutInvitation" value='accept' type='hidden' />
 
                                     <div class="d-flex justify-content-center">
-                                        <button class="btn btn-light btn-sm float-left btn_refus">Refuser</button>
-                                        <button class="btn btn-success btn-sm float-right " type='submit'>Accepter</button>
+                                        <button class="btn btn-light btn-sm float-left">Refuser</button>
+                                        <button class="btn btn-primary float-right" type='submit'>Accepter</button>
                                     </div>
                                 </form>
                             </td>
@@ -57,7 +57,7 @@
         </div>
     </c:if>
     <c:if test = "${NbInvitations<1}">
-        <div class="text-center">Aucune invitation</div>
+        <h3 class="text-center" style="margin-top: 10%; color: black;">Aucune invitation</h3>
     </c:if>
     <script src="static/js/invitation.js" ></script>
 </div>

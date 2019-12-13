@@ -63,12 +63,18 @@ CREATE TABLE `equipe` (
   `nb_joueurs` int(11) NOT NULL,
   `nb_max_joueurs` int(11) NOT NULL,
   `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `image` char(67) DEFAULT 'blueplay.png'
+  `image` char(67) DEFAULT 'newteam.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `equipe`
 --
+INSERT INTO `equipe` (`nom_equipe`, `id_capitaine`, `id_sport`, `nb_parties_jouees`, `nb_joueurs`, `nb_max_joueurs`, `date_creation`, `image`) VALUES
+('Bears', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '64f50de6-759f-48dc-83db-299ebd8b0aab', 0, 13, 18, '2019-12-11 16:35:16', 'bears.jpg'),
+('Eagles', 'adbbc2a0-3ec9-4baa-97e7-6b3b0b301aee', '48b957f8-1a7c-47a4-b8d3-770c91b32f21', 0, 11, 4, '2019-12-12 01:13:55', 'eagles.jpg'),
+('Sirenes', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'eade52d3-1ccc-49ef-8d86-34023d9f35a2', 0, 12, 21, '2019-12-12 01:12:01', 'sirens.jpg'),
+('Tigers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '0df302b1-ae4d-497e-8a43-4bc188f8a83a', 0, 10, 22, '2019-12-12 01:11:06', 'tigers.jpg'),
+('Lions', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '0df302b1-ae4d-497e-8a43-4bc188f8a83a', 0, 10, 22, '2019-12-12 01:11:06', 'newteam.jpg');
 
 INSERT INTO `equipe` (`nom_equipe`, `id_capitaine`, `id_sport`, `nb_parties_jouees`, `nb_joueurs`, `nb_max_joueurs`, `date_creation`, `image`) VALUES
 ('Batars', 'a407418a-7683-4abc-8193-f083d86ae9f6', '64f50de6-759f-48dc-83db-299ebd8b0aab', 0, 6, 18, '2019-12-10 04:51:07', 'tigers.jpg'),
@@ -281,6 +287,14 @@ INSERT INTO `sport` (`id_sport`, `nom`, `nb_max`, `nb_min`, `image`) VALUES
 ('db031a56-2a4f-485a-b463-7165df255302', 'Basketball', 22, 2, 'basket.jpg'),
 ('eade52d3-1ccc-49ef-8d86-34023d9f35a2', 'Water polo', 21, 2, 'waterpolo.jpg');
 
+
+CREATE TABLE `commentaire` (
+  `Nom` varchar(255) NOT NULL,
+  `Courriel` varchar(255) NOT NULL,
+  `Sujet` varchar(255) NOT NULL,
+  `Commentaire` longtext NOT NULL,
+  `dateReception` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Index pour les tables déchargées
 --
@@ -376,6 +390,12 @@ ALTER TABLE `partie`
 --
 ALTER TABLE `annonce`
   ADD CONSTRAINT `Annonce_FK_pseudo` FOREIGN KEY (`id_createur`) REFERENCES `membre` (`id`);
+
+--
+-- Index pour la table `commentaire`
+--
+ALTER TABLE `commentaire`
+  ADD PRIMARY KEY (`Courriel`);
 
 --
 -- Contraintes pour la table `lieusport`

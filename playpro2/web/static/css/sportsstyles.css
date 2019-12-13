@@ -95,7 +95,8 @@ img {
   padding: 0px;
   padding-bottom: 5px;
   padding-top: 5px;
-  background-color: #f1f1f1;
+  padding-left: 10px;
+  background-color: #80a6cc;
   color: white;
 }
 
@@ -164,4 +165,26 @@ img {
 #fprofil .form-control:focus{
     border-color: #80cccc;
     box-shadow: 0 0 0 0.2rem rgba(128,204,204,.33);
+}
+
+/*Modale Partie*/
+.gj-datepicker-bootstrap [role=right-icon] button {
+    border: none !important;
+}
+
+.btn-outline-secondary:hover{
+    color: #838a91;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn-outline-secondary:active{
+    color: #838a91;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.gj-picker.gj-picker-bootstrap.timepicker div{
+    justify-content: center;
+    display: flex;
 }

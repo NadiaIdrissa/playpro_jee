@@ -24,10 +24,10 @@ public class Equipe {
     protected int nbMaxJoueurs;
     protected LocalDate dateCreation;
     private String image;
-    
+
     private List<Membre> membresEquipe;
         
-    public Equipe() {
+    public Equipe() throws IllegalArgumentException {
         this("Loups", 0, 0, 30 );
         
     }
@@ -74,14 +74,21 @@ public class Equipe {
     }
 
     public void setNbPartiesJouees(int nbPartiesJouees) {
+        //int nv=Integer.parseInt(nbPartiesJouees);
+        if(nbPartiesJouees<0){
+            throw new IllegalArgumentException("Nombre parties jouees inferior à 0");
+        }
         this.nbPartiesJouees = nbPartiesJouees;
     }
-
+        
     public int getNbJoueurs() {
         return nbJoueurs;
     }
 
     public void setNbJoueurs(int nbJoueurs) {
+        if(nbJoueurs<0){
+            throw new IllegalArgumentException("Nombre NbJoueurs inferior à 0");
+        }
         this.nbJoueurs = nbJoueurs;
     }
 
@@ -90,8 +97,12 @@ public class Equipe {
     }
 
     public void setNbMaxJoueurs(int nbMaxJoueurs) {
+        if(nbMaxJoueurs<0){
+            throw new IllegalArgumentException("Nombre Max_Joueurs inferior à 0");
+        }
         this.nbMaxJoueurs = nbMaxJoueurs;
     }
+
 
     public List<Membre> getMembresEquipe() {
         return membresEquipe;

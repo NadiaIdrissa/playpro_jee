@@ -21,6 +21,9 @@ public abstract class DAO<T> {
                 cnx = Connexion.getInstance();
 		//this.cnx = cnx;
 	}
+        public DAO(Connection cnx) {
+		this.cnx = cnx;
+	}
 	
 	public Connection getCnx() {
 		return cnx;

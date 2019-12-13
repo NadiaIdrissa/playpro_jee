@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  *
- * @author younes-dilali
+ * @author Salpy
  */
 public class InvitationDAO extends DAO<Invitation> {
 

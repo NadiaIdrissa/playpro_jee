@@ -15,11 +15,6 @@ var btn = document.getElementById("myBtn");
 var btnP = document.getElementById("myBtnP");
 
 
-
-
-
-
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
@@ -30,14 +25,14 @@ var btnMod = $(".btnMod");
 
 
 
-btnP.onclick = function(){
-    modalP.style.display ="block";
-    
-}
+//btnP.onclick = function(){
+//    modalP.style.display ="block";
+//    
+//}
 
-span1.onclick = function () {
-    modalP.style.display = "none";
-}
+//span1.onclick = function () {
+//    modalP.style.display = "none";
+//}
 
 
 $(document).ready(function(){
@@ -82,14 +77,6 @@ window.onclick = function (event) {
 }
 
 
-
-$('input[type=file]').change(function () {
-
-    var sourceVal = document.getElementById("imageSport").files[0].path;
-    $("#sourceDirPath").val(sourceVal);
-    console.log(this.files[0].mozFullPath);
-
-});
 
 
 
