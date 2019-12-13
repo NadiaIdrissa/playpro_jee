@@ -107,7 +107,7 @@
                                 <div class="list-group">
 
                                     <c:forEach items="${uneEquipe.membresEquipe}" var="joueur" varStatus="loop"> 
-                                        <a href="?action=profil&idMembreAfficher=${joueur.id}" class="list-group-item list-group-item-action list-group-item-primary text-left" title="Voir le profil de ${joueur.pseudo}">
+                                        <a href="?action=profil&idMembreAfficher=${joueur.id}" class="list-group-item list-group-item-action list-group-item-primary text-left" style="background-color: #80cccc;" title="Voir le profil de ${joueur.pseudo}">
                                             <span class="badge badge-primary badge-pill text-right">${loop.index+1}</span> ${joueur.pseudo}
                                             <c:if test = "${uneEquipe.capitaine.id == joueur.id}"> <c:out value=": Capitaine" /> </c:if> </a>
 
