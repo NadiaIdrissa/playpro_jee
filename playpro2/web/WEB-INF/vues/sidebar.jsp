@@ -40,20 +40,18 @@
         </li>
         <li>
             <a href="?action=lieux">
-                <i class="fa fa-map-marker"></i> <span class="sideLabel">Lieux</span>
+                <i class="fa fa-map-marker"></i> <span class="sideLabel" style="margin-right: 50px;">Lieux</span>
             </a>
         </li>
 
-        <%
-            if (!m.getTypeMembre().equals("Joueur")) {
-        %>
+        
         <li>
             <a class="btnSide" id="btnAnnonce" >
                 
                 <i class="fa fa-file"></i><span class="sideLabel"> Annonces</span>
             </a>
         </li>
-        <%}%>
+        
 
         <%
             if (m.getTypeMembre().equals("Admin")) {
@@ -61,6 +59,11 @@
         <li>
             <a href="?action=membres">
                 <i class="fa fa-user-plus"></i><span class="sideLabel"> Membres</span>
+            </a>
+        </li>
+        <li>
+            <a href="?action=Commentaire">
+                <i class="fa fa-pencil"></i><span class="sideLabel"> Commentaires</span>
             </a>
         </li>
         <%}%>

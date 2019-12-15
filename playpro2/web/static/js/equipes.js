@@ -7,7 +7,7 @@
 
 // Get the modal
 var modal = document.getElementById("myModal");
-var modalP = document.getElementById("myModalParam");
+//var modalP = document.getElementById("myModalParam");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
@@ -23,10 +23,11 @@ var span1 = document.getElementsByClassName("closing")[0];
 var btnSup = $(".btnSup");
 var btnMod = $(".btnMod");
 
-btnP.onclick = function(){
-    modalP.style.display ="block";
-    
-}
+//btnP.onclick = function(){
+//    debugger;
+//    modalP.style.display ="block";
+//    
+//}
 
 span1.onclick = function () {
     modalP.style.display = "none";

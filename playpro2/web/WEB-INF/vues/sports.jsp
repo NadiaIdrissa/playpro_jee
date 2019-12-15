@@ -10,13 +10,11 @@
     <div class="col-sm-10 col-md-10 col-lg-10">
         <!--<h1>Liste des sports offerts</h1>-->
     </div>
-    <%
-        if (m.getTypeMembre().equals("Admin")) {
-    %>
+
     <div class="colBtn col-sm-2 col-md-2 col-lg-2">
         <button id="myBtn" type="button" >+</button>
     </div>
-    <%}%>
+
 </div>
 
 <div>
@@ -32,9 +30,12 @@
                     <div class="col-12">
 
                         <input name ='idSportSup' id='idSportSup' type='hidden' value='' />
+                        <%
+                            if (m.getTypeMembre().equals("Admin")) {
+                        %>
                         <button class="btn btn-primary btnMod col-4" data-index='<c:out value="${unSport.id_sport}" />' data-status='<c:out value="${unSport.nom}" />'>Modifier</button>
                         <button class="btn btn-danger btnSup col-4" data-index='<c:out value="${unSport.id_sport}" />' data-status='<c:out value="${unSport.nom}" />'>Supprimer</button>
-
+                        <%}%>
                     </div>
 
                 </div>

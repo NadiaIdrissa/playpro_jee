@@ -59,6 +59,8 @@ public class PartiesAction extends AbstractAction {
 //        }
         List<Equipe> listeEquipes = new LinkedList<Equipe>();
         listeEquipes = EquipesServices.toutesLesEquipes();
+        
+        request.setAttribute("listeEquipes", listeEquipes);
 
         List<Equipe> listeSesequipes = new LinkedList<Equipe>();
 
@@ -129,10 +131,6 @@ public class PartiesAction extends AbstractAction {
         
 
         request.getSession().setAttribute("lesParties", lesParties);
-
-        
-        
-
         request.getSession().setAttribute("viewConf", "parties");
         return "portail";
     }

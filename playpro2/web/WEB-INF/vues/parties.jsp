@@ -40,22 +40,42 @@
             <c:forEach items="${sessionScope.lesParties}" var="unePartie"> 
 
                 <div class="annonce" >
-                    <h2 class='card-text font-weight-bold bg-primary text-uppercase' > Partie de <c:out value="${unePartie.sport}" /><br></h2>
+                    <h2 class='card-text font-weight-bold text-uppercase fondAnnonce' > Partie de <c:out value="${unePartie.sport}" /><br></h2>
                     <div class="row" >
-                        <div class="cadre text-center col-4 border">
+                        <div class="cadre text-center col-sm-3 col-md-3 col-lg-3 border annonceInfos fondAnnonce" style="padding: 3%;" >
 
-                            <p class='card-text'>Prévue le : <c:out value="${unePartie.datePartie}" /></p>
-                            <p class="card-text">Heure de la rencontre: <c:out value="${unePartie.heurePArtie}" /></p>
-
-                            
-                            <p class="card-text">Lieu: <c:out value="${unePartie.leLieu}" /></p>
+                            <p class='card-text'>Prévue le : <strong><c:out value="${unePartie.datePartie}" /></strong></p>
+                            <p class="card-text">Heure: <strong><c:out value="${unePartie.heurePArtie}" /></strong></p>
+                            <p class="card-text">Lieu: <strong><c:out value="${unePartie.leLieu}" /></strong></p>
+                            <p class="card-text">Score: <strong><c:out value="${unePartie.score}" /></strong></p>
                            
                         </div>
-                        <div class='col-8'>
-                            <h3>Cette rencontre se passe entre :</h3>
-                            <p class="card-text col-sm-2"> <c:out value="${unePartie.equipe1.nomEquipe}" /></p>
-                            <h2 class="col-sm-2">V.S</h2>
-                            <p class="card-text col-sm-2"> <c:out value="${unePartie.equipe2.nomEquipe}" /></p>
+                        <div class='col-sm-8 col-md-8 col-lg-8'>
+                            
+                            <h3 class="border-bottom">Rencontre entre :
+                            <strong><c:out value="${unePartie.equipe1.nomEquipe}" /></strong>
+                            &
+                            <strong><c:out value="${unePartie.equipe2.nomEquipe}" /></strong>
+                            </h3>
+                            <div class='row'>
+                                
+                                <p class="card-text col-sm-5 col-md-5 col-lg-5">
+                                <c:forEach items="${requestScope.listeEquipes}" var="e"> 
+                                    <c:if test = "${e.nomEquipe == unePartie.equipe1.nomEquipe}">
+                                        <img class="" src="static/images/equipes/<c:out value="${e.image}"/> "/>
+                                    </c:if>
+                                </c:forEach>
+                                </p>
+                                <h2 class="col-sm-2 col-md-2 col-lg-2" style="font-style: italic; display: flex;position: relative;align-items: center;justify-content: center;" >VS</h2>
+                                <p class="card-text col-sm-5 col-md-5 col-lg-5">
+                                    <c:forEach items="${requestScope.listeEquipes}" var="e"> 
+                                        <c:if test = "${e.nomEquipe == unePartie.equipe2.nomEquipe}">
+                                            <img class="" src="static/images/equipes/<c:out value="${e.image}"/> "/>
+                                        </c:if>
+                                    </c:forEach>
+                                </p>
+                                
+                            </div>
                         </div> 
                     </div> 
                 </div> 

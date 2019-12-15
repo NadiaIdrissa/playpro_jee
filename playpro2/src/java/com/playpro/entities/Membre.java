@@ -167,10 +167,10 @@ public class Membre {
 
     public void setNiveau(String niveau) {
         System.out.println("valeur: " + niveau.equalsIgnoreCase("Professionnel"));
-        if (niveau.equalsIgnoreCase("Professionnel")) {
+        if (niveau.equalsIgnoreCase("PROFESSIONNEL")) {
 
             this.niveau = Niveau.PROFESSIONNEL;
-        } else if (niveau.equalsIgnoreCase("intermediaire")) {
+        } else if (niveau.equalsIgnoreCase("INTERMEDIAIRE")) {
             this.niveau = Niveau.INTERMEDIAIRE;
         } else {
             this.niveau = Niveau.DEBUTANT;
