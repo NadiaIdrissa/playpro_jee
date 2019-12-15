@@ -138,11 +138,11 @@
                         console.log("echec");
                         console.log(response);
                     }
-                })
+                });
             });
 
         </script>
-        
+
         <%@include file="annonce.jsp"%>
         <script src="static/js/classie.js"></script>
         <script src="static/js/menu.js"></script>

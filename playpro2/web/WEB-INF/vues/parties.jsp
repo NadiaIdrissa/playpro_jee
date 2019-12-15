@@ -103,8 +103,8 @@
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect1" name="idUneEquipe">
-                            <option value="" >Choisir une de vos équipes</option>
+                        <select class="form-control" id="exampleFormControlSelect1" name="idUneEquipe" required>
+                            <option value="">Choisir une de vos équipes</option>
                             <c:forEach items="${sessionScope.listeSesequipes}" var="sonEquipe"> 
                                 <option value="${sonEquipe.nomEquipe}" >${sonEquipe.nomEquipe}</option>
                                 <c:set var="equipeC" value="${sonEquipe}"/>
@@ -117,8 +117,8 @@
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect2" name="equipeAdverse">
-                            <option SELECTED >Equipe invitée</option>
+                        <select class="form-control" id="exampleFormControlSelect2" name="equipeAdverse" required>
+                            <option value="">Equipe invitée</option>
                             <c:forEach items="${sessionScope.listeEquipesParties}" var="equipo"> 
                                 <option value="${equipo.nomEquipe}" >${equipo.nomEquipe}</option>
                             </c:forEach> 
@@ -126,7 +126,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect3" name="idLieuEquipe">
+                        <select class="form-control" id="exampleFormControlSelect3" name="idLieuEquipe" required>
                             <option value="" >Choisir le lieu</option>
                             <c:forEach items="${listeLieux}" var="lieuP"> 
                                 <option value="${lieuP.nom}" >${lieuP.nom}</option>
@@ -134,7 +134,7 @@
                         </select>
                     </div>
 
-                    <input name="datePartie" id="datepicker" width="276" />
+                    <input name="datePartie" id="datepicker" width="276" required/>
                     <script>
                         $('#datepicker').datepicker({
                             uiLibrary: 'bootstrap4'
@@ -143,7 +143,7 @@
 
 
 
-                    <input name="heurePartie" id="timepicker" width="276" />
+                    <input name="heurePartie" id="timepicker" width="276" required/>
                     <script>
                         $('#timepicker').timepicker({
                             uiLibrary: 'bootstrap4'
