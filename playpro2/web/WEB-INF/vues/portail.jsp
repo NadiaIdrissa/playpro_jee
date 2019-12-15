@@ -156,7 +156,7 @@
                     url: 'playpro2/?action=annonce',
                     type: 'POST',
                     dataType: "json",
-                    data: $('#annonceForm').serialize()
+                    data: $('#annonceForm').serialize(),
                     success: function (response, statut) {
                         console.log("reussi");
                         console.log(response);
