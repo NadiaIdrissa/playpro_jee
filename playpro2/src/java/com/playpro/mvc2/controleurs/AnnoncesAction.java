@@ -43,6 +43,7 @@ public class AnnoncesAction extends AbstractAction implements AjaxAction{
         String montant = (String) request.getParameter("montant");
         Membre createur = (Membre) request.getSession().getAttribute("membre");
         String dateheure = (String) request.getParameter("dateheure");
+        String id_lieu = (String) request.getParameter("lieux");
 
         if (titre != null && message != null) {
             System.out.println("Date time: " + dateheure);
@@ -52,7 +53,8 @@ public class AnnoncesAction extends AbstractAction implements AjaxAction{
             annonce.setDescription(message);
             annonce.setTitre(titre);
             annonce.setNombreMax(nbMax);
-            annonce.setDate_event(creerDate(dateheure));
+            annonce.setLieu(LieuxServices.trouverUnLieu(id_lieu));
+           // annonce.setDate_event(creerDate(dateheure));
             System.out.println("Date time: " + annonce.getDate_event());
             if (gratuit == null) {
                 annonce.setGratuit(Boolean.FALSE);

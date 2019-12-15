@@ -142,41 +142,7 @@
             });
 
         </script>
-        <script>
-            $('#btnCreerAnnonce').click(function (e) {
-                e.preventDefault();
-                var contenu = document.getElementById("contenu");
-
-                contenu.innerHTML = "";
-//        e.preventDefault();
-                console.log("allo");
-                console.log("allo");
-
-                $.ajax({
-                    url: 'playpro2/?action=annonce',
-                    type: 'POST',
-                    dataType: "json",
-                    data: $('#annonceForm').serialize(),
-                    success: function (response, statut) {
-                        console.log("reussi");
-                        console.log(response);
-                        console.log(statut);
-                        if ($("#typeMembre").html().toLowerCase() === "Entraineur".toLowerCase()) {
-                            fabriquerBtnPlus();
-                        }
-                        $.each(response, function (index, value) {
-                            afficherAnnonces(value);
-                        });
-                        $("#contenu").append( FabriqueNoeud("script", {src:"static/js/annonces.js"}));
-                    },
-                    error: function (response, statut, message) {
-                        console.log("echec");
-                        console.log(response);
-                    }
-                })
-            });
-
-        </script>
+        
         <%@include file="annonce.jsp"%>
         <script src="static/js/classie.js"></script>
         <script src="static/js/menu.js"></script>

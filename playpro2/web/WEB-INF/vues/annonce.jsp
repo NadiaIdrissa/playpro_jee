@@ -129,6 +129,43 @@ Entrez votre message ici
         </div>
     </div>
 </div>
+                        <script>
+            $('#btnCreerAnnonce').click(function (e) {
+                debugger;
+                e.preventDefault();
+                var contenu = document.getElementById("contenu");
+
+                contenu.innerHTML = "";
+//                $("#myModalAnnonce").style.display = "none";
+                $("#perspective").show();
+                console.log("allo");
+                console.log("allo");
+
+                $.ajax({
+                    url: 'playpro2/?action=annonce',
+                    type: 'POST',
+                    dataType: "json",
+                    data: $('#annonceForm').serialize(),
+                    success: function (response, statut) {
+                        console.log("reussi");
+                        console.log(response);
+                        console.log(statut);
+                        if ($("#typeMembre").html().toLowerCase() === "Entraineur".toLowerCase()) {
+                            fabriquerBtnPlus();
+                        }
+                        $.each(response, function (index, value) {
+                            afficherAnnonces(value);
+                        });
+                        $("#contenu").append( FabriqueNoeud("script", {src:"static/js/annonces.js"}));
+                    },
+                    error: function (response, statut, message) {
+                        console.log("echec");
+                        console.log(response);
+                    }
+                })
+            });
+
+        </script>
 <!--<script src="static/js/annonces.js"></script>-->
 <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
