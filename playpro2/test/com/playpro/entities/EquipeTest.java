@@ -106,42 +106,15 @@ public class EquipeTest {
         }
     }
 
-    /**
-     * Test of id_capitaine method, of class Equipe.
-     */
-    @Test
-    public void testId_capitaine() {
-        System.out.println("id_capitaine");
-        Equipe instance = new Equipe();
-        String expResult = "1234";
-        String result = instance.getCapitaine().getId();
-        assertEquals(expResult, result);
-        if (expResult.equals(result)) {
-            System.out.println("<-  Réussi ->");
-        } else {
-            fail("The test case is a prototype.");
-        }
-    }
+ 
+
 
     /**
      * Test of setCapitaine method, of class Equipe.
      */
-    @Test
-    public void testSetCapitaine() {
-        System.out.println("setCapitaine");
-        Membre capitaine = new Membre();
-        Equipe instance = new Equipe();
-        instance.setCapitaine(capitaine);
-        if (capitaine.getPseudo().equals(instance.getCapitaine().getPseudo())) {
-            System.out.println("<-  Réussi ->");
-        } else {
-            fail("The test case is a prototype.");
-        }
-    }
 
-    /**
-     * Test of getSport method, of class Equipe.
-     */
+
+
     @Test
     public void testGetSport() {
 
@@ -164,24 +137,11 @@ public class EquipeTest {
 
     }
 
-    /**
-     * Test of setNbPartiesJouees method, of class Equipe.
-     */
     @Test
 
     public void testSetNbPartiesJouees() {
 
-        System.out.println("setNbPartiesJouees");
-        int nbPartiesJouees = 0;
-        Equipe instance = new Equipe();
-        int expResult = instance.getNbPartiesJouees();
-        instance.setNbPartiesJouees(nbPartiesJouees);
-        int result = instance.getNbPartiesJouees();;
-        if (expResult == result) {
-            System.out.println("<-  Réussi ->");
-        } else {
-            fail("The test case is a prototype.");
-        }
+
 
         final int nvPartiejouees = 4;
         e.setNbPartiesJouees(nvPartiejouees);
@@ -194,16 +154,7 @@ public class EquipeTest {
     @Test
     public void testGetNbJoueurs() {
 
-        System.out.println("getNbJoueurs");
-        Equipe instance = new Equipe();
-        int expResult = 0;
-        int result = instance.getNbJoueurs();
-        assertEquals(expResult, result);
-        if (expResult == result) {
-            System.out.println("<-  Réussi ->");
-        } else {
-            fail("The test case is a prototype.");
-        }
+  
         assertEquals(e.getNbJoueurs(), NB_JOUEURS);
 
     }
@@ -213,41 +164,10 @@ public class EquipeTest {
      */
     @Test
     public void testSetNbJoueurs() {
-        final int maxj = 15;
+        final int maxj = 30;
         e.setNbJoueurs(maxj);
     }
 
-    /**
-     * Test of getNbMaxJoueurs method, of class Equipe.
-     */
-    @Test
-    public void testGetNbMaxJoueurs() {
-        assertEquals(e.getNbMaxJoueurs(), 34);
-    }
 
-    /**
-     * Test of setNbMaxJoueurs method, of class Equipe.
-     */
-    @Test
-    public void testSetNbMaxJoueurs() {
-         
-        
-        
-        System.out.println("setNbMaxJoueurs");
-        int nbMaxJoueurs = 0;
-        int result = 25;
-        Equipe instance = new Equipe();
-        instance.setNbMaxJoueurs(nbMaxJoueurs);
-        int expResult = instance.getNbMaxJoueurs();
-        if (expResult == result) {
-            System.out.println("<-  Réussi ->");
-        } else {
-            fail("The test case is a prototype.");
-        }
-
-        final int nvNbMaxJoueurs = 5;
-        e.setNbMaxJoueurs(nvNbMaxJoueurs);
-         
-    }
 
 }
