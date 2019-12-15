@@ -18,17 +18,17 @@
             <c:forEach items="${requestScope.listeComm}" var="unComm"> 
 
                 <div class="annonce" >
-                    <h2 class='card-text font-weight-bold bg-primary text-uppercase' ><c:out value="${unComm.sujet}" /><br></h2>
+                    <h2 class='card-text font-weight-bold text-uppercase fondAnnonce' ><c:out value="${unComm.sujet}" /><br></h2>
                     <div class="row" >
-                        <div class="cadre text-center col-4 border">
+                        <div class="cadre text-center col-sm-3 col-md-3 col-lg-3 border annonceInfos fondAnnonce" style="padding: 3%;">
 
-                            <p class='card-text'>Nom: <c:out value="${unComm.nom}" /></p>
-                            <p class="card-text">Courriel: <c:out value="${unComm.courriel}" /></p>
+                            <p class='card-text'>Nom: <strong><c:out value="${unComm.nom}" /></strong></p>
+                            <p class="card-text">Courriel: <strong><c:out value="${unComm.courriel}" /></strong></p>
 
-                            <p class="card-text">Date et heure: <c:out value="${unComm.dateReception}" /></p>
+                            <p class="card-text">Date et heure: <strong><c:out value="${unComm.dateReception}" /></strong></p>
                         </div>
-                        <div class='col-8'>
-                            <h3>Message </h3>
+                        <div class='col-sm-8 col-md-8 col-lg-8'>
+                            <h3>Message</h3>
                             <p class="card-text"> <c:out value="${unComm.commentaire}" /></p>
                         </div> 
                     </div> 
