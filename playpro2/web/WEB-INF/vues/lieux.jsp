@@ -8,7 +8,7 @@
 
 <div class="equipeStyle row">
     <div class="col-sm-10 col-md-10 col-lg-10">
-        <!--<h1>Liste des lieux offerts</h1>-->
+        
     </div>
 
     <div class="colBtn col-sm-2 col-md-2 col-lg-2">

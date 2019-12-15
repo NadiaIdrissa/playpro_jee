@@ -75,7 +75,7 @@
                         <%} else if (viewConf.equals("annonces")) {%>
                         <%@include file="annonce.jsp"%>
                         <%} else if (viewConf.equals("membres")) {
-                        %>
+                            %>
                         <%@include file="membres.jsp"%>
                         <%} else if (viewConf.equals("contact")) {%>
                         <%@include file="contact.jsp"%>
@@ -108,7 +108,7 @@
             </div>
             <%@include file="header4.jsp" %>
         </div>  
-        
+
         <script>
             $('#btnAnnonce').click(function (e) {
                 var contenu = document.getElementById("contenu");
@@ -126,10 +126,13 @@
                         console.log("reussi");
                         console.log(response);
                         console.log(statut);
-
+                        if ($("#typeMembre").html().toLowerCase() === "Entraineur".toLowerCase()) {
+                            fabriquerBtnPlus();
+                        }
                         $.each(response, function (index, value) {
                             afficherAnnonces(value);
                         });
+                        $("#contenu").append( FabriqueNoeud("script", {src:"static/js/annonces.js"}));
                     },
                     error: function (response, statut, message) {
                         console.log("echec");
@@ -139,10 +142,46 @@
             });
 
         </script>
+        <script>
+            $('#btnCreerAnnonce').click(function (e) {
+                e.preventDefault();
+                var contenu = document.getElementById("contenu");
+
+                contenu.innerHTML = "";
+//        e.preventDefault();
+                console.log("allo");
+                console.log("allo");
+
+                $.ajax({
+                    url: 'playpro2/?action=annonce',
+                    type: 'POST',
+                    dataType: "json",
+                    data: $('#annonceForm').serialize()
+                    success: function (response, statut) {
+                        console.log("reussi");
+                        console.log(response);
+                        console.log(statut);
+                        if ($("#typeMembre").html().toLowerCase() === "Entraineur".toLowerCase()) {
+                            fabriquerBtnPlus();
+                        }
+                        $.each(response, function (index, value) {
+                            afficherAnnonces(value);
+                        });
+                        $("#contenu").append( FabriqueNoeud("script", {src:"static/js/annonces.js"}));
+                    },
+                    error: function (response, statut, message) {
+                        console.log("echec");
+                        console.log(response);
+                    }
+                })
+            });
+
+        </script>
+        <%@include file="annonce.jsp"%>
         <script src="static/js/classie.js"></script>
         <script src="static/js/menu.js"></script>
         <script src="static/js/validation.js" ></script>
         <script src="static/js/gestion.js" ></script>
-        
+
     </body>
 </html>

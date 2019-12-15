@@ -75,6 +75,10 @@ public class AnnoncesAction extends AbstractAction implements AjaxAction{
         System.out.println("montant" + montant);
         Gson gson = new Gson();
         String lst = gson.toJson(liste);
+        
+        request.setAttribute("lieux", listeLieux);
+        request.setAttribute("annonces", liste);
+        request.getSession().setAttribute("viewConf", "annonces");
         try {
             response.getWriter().print(lst);
         } catch (IOException ex) {

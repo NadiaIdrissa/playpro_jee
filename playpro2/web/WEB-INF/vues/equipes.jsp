@@ -14,9 +14,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 </head>
 
-
-
-
 <div class="equipeStyle row">
     <div class="col-sm-10 col-md-10 col-lg-10">
         <!--<h1 class="text-center">Liste des équipes existantes</h1>-->

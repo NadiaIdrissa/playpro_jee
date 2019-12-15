@@ -28,23 +28,7 @@ public class contactAction extends AbstractAction implements AjaxAction {
 
     @Override
     public String execute() {
-//        Membre mSession = (Membre) request.getSession().getAttribute("membre");
-//        if ((mSession == null)) {
-//            String message = "Votre session a expirée, veuillez vous réauthentifier";
-//            String laClasse = "danger";
-//            request.setAttribute("message", message);
-//            request.setAttribute("laClasse", laClasse);
-//            return "login";
-//        }
-//        
-//        CommentaireDao dao = new CommentaireDao();
-//        List<Commentaire> lst = dao.findAll();
-//
-//        request.getSession().setAttribute("viewConf", "sports");
-//        request.setAttribute("listeComm",lst);
-//        System.out.println("Je suis dans contactAction");
-//        return "portail";
-        System.out.println("Je suis perdu la");
+
         return "index";
     }
 
