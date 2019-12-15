@@ -343,12 +343,6 @@ button:active {
     }
 }
 
-@media screen and (max-width: 1012px) {
-    .sidenav a {
-    font-size: 22px;
-    }
-}
-
 @media screen and (max-width: 913px) {
     .sidenav a {
     font-size: 20px;
@@ -416,9 +410,9 @@ button:active {
     }
 }
 
-@media screen and (orientation:landscape) and (min-width: 1024px){
+@media screen and (orientation:landscape) and (min-width: 1013px){
     .sidenav {
-        width: 18%;
+        width: 20%;
     }
     .sidenav a {
         font-size: 22px;
@@ -430,13 +424,13 @@ button:active {
 
 @media screen and (orientation:landscape) and (min-width: 1280px){
     .sidenav {
-        width: 16%;
+        width: 18%;
     }
     .sidenav a {
         font-size: 25px;
     }
     .mainPortail{
-        margin-left: 17%;
+        margin-left: 19%;
     }
 }
 
@@ -448,7 +442,7 @@ button:active {
         font-size: 30px;
     }
     .mainPortail{
-        margin-left: 20%;
+        margin-left: 21%;
     }
 }
 

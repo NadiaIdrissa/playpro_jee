@@ -49,9 +49,10 @@ public class CommentaireAction extends AbstractAction {
             CommentaireDao dao = new CommentaireDao();
             List<Commentaire> lst = dao.findAll();
 
-            request.getSession().setAttribute("viewConf", "sports");
+//            request.getSession().setAttribute("viewConf", "sports");
             request.setAttribute("listeComm", lst);
             System.out.println("Je suis dans contactAction");
+            request.getSession().setAttribute("viewConf", "contact");
             return "portail";
         }
 

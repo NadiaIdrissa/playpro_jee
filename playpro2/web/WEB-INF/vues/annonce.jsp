@@ -30,7 +30,8 @@
         </div>
     <%}%>
     !!!
--->    <div  >
+-->    
+        <div>
         <div class=" " style="">
             <c:forEach items="${requestScope.annonces}" var="uneAnnonce"> 
 
