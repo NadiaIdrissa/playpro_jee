@@ -6,66 +6,41 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%-- 
-    Document   : sports
-    Created on : 2019-11-02, 21:17:27
-    Author     : toute
---%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!--<body>
-    <h1>Liste des annonces</h1>
-    A MODIFIER KENNEDY !!!!
-    <%
-        if (!(m.getTypeMembre().equals("Joueur"))) {
-    %>
-        <div class="equipeStyle row">
-            <div class="col-sm-10 col-md-10 col-lg-10">
-                <h1 class="text-center">Liste des annonces</h1>
-            </div>
-            <div class="colBtn col-sm-2 col-md-2 col-lg-2">
-                <button id="myBtn" type="button" >+</button>
-            </div>
-        </div>
-    <%}%>
-    !!!
--->    
-        <div>
-        <div class=" " style="">
-            <c:forEach items="${requestScope.annonces}" var="uneAnnonce"> 
+<div>
+    <div class=" " style="">
+        <c:forEach items="${requestScope.annonces}" var="uneAnnonce"> 
 
-                <div class="annonce" >
-                    <h2 class='card-text font-weight-bold text-uppercase fondAnnonce' ><c:out value="${uneAnnonce.titre}" /><br></h2>
-                    <div class="row" >
-                        <div class="cadre text-center col-4 border annonceInfos fondAnnonce">
+            <div class="annonce" >
+                <h2 class='card-text font-weight-bold text-uppercase fondAnnonce' ><c:out value="${uneAnnonce.titre}" /><br></h2>
+                <div class="row" >
+                    <div class="cadre text-center col-4 border annonceInfos fondAnnonce">
 
-                            <p class='card-text'>Annonceur: <c:out value="${uneAnnonce.createur.prenom}" /></p>
-                            <p class="card-text">Nombre de places: <c:out value="${uneAnnonce.nombreMax}" /></p>
+                        <p class='card-text'>Annonceur: <c:out value="${uneAnnonce.createur.prenom}" /></p>
+                        <p class="card-text">Nombre de places: <c:out value="${uneAnnonce.nombreMax}" /></p>
 
-                            <c:if test="${uneAnnonce.gratuit}"> 
-                                <p class="card-text">Ce cours est gratuit</p>
-                            </c:if>
-                            <c:if test="${!uneAnnonce.gratuit}"> 
-                                <p class="card-text">Montant: <c:out value="${uneAnnonce.montant}" /> $</p>
-                            </c:if>
-                            <p class="card-text">Lieu: <c:out value="${uneAnnonce.lieu.nom}" /></p>
-                            <p class="card-text">Date et heure: <c:out value="${uneAnnonce.date_event}" /></p>
-                        </div>
-                        <div class='col-8'>
-                            <h3 class="border-bottom">Message de l'entrainneur :</h3>
-                            <p class="card-text"> <c:out value="${uneAnnonce.description}" /></p>
-                        </div> 
+                        <c:if test="${uneAnnonce.gratuit}"> 
+                            <p class="card-text">Ce cours est gratuit</p>
+                        </c:if>
+                        <c:if test="${!uneAnnonce.gratuit}"> 
+                            <p class="card-text">Montant: <c:out value="${uneAnnonce.montant}" /> $</p>
+                        </c:if>
+                        <p class="card-text">Lieu: <c:out value="${uneAnnonce.lieu.nom}" /></p>
+                        <p class="card-text">Date et heure: <c:out value="${uneAnnonce.date_event}" /></p>
+                    </div>
+                    <div class='col-8'>
+                        <h3 class="border-bottom">Message de l'entrainneur :</h3>
+                        <p class="card-text"> <c:out value="${uneAnnonce.description}" /></p>
                     </div> 
                 </div> 
+            </div> 
 
-            </c:forEach>
-        </div> 
-    </div><!--
+        </c:forEach>
+    </div> 
+</div>
 
-</body>-->
-
-<!-- The Modal -->
 <!-- Modal -->
 <div class="modal" id="myModalAnnonce" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
@@ -109,7 +84,7 @@
                     <div class="form-group">
                         <select class="form-control" id="exampleFormControlSelect1" name="lieux"  required> 
                             <option value="" >Lieu de l'événement</option>
-                            <c:forEach items="${requestScope.lieux}" var="unLieu"> 
+                            <c:forEach items="${lieux}" var="unLieu"> 
                                 <option value="<c:out value="${unLieu.id_lieu}" />"><c:out value="${unLieu.nom}" /></option> 
                             </c:forEach>
                         </select>
@@ -130,43 +105,43 @@ Entrez votre message ici
         </div>
     </div>
 </div>
-                        <script>
-            $('#btnCreerAnnonce').click(function (e) {
-                debugger;
-                e.preventDefault();
-                var contenu = document.getElementById("contenu");
+<script>
+    $('#btnCreerAnnonce').click(function (e) {
+        debugger;
+        e.preventDefault();
+        var contenu = document.getElementById("contenu");
 
-                contenu.innerHTML = "";
+        contenu.innerHTML = "";
 //                $("#myModalAnnonce").style.display = "none";
-                $("#perspective").show();
-                console.log("allo");
-                console.log("allo");
+        $("#perspective").show();
+        console.log("allo");
+        console.log("allo");
 
-                $.ajax({
-                    url: 'playpro2/?action=annonce',
-                    type: 'POST',
-                    dataType: "json",
-                    data: $('#annonceForm').serialize(),
-                    success: function (response, statut) {
-                        console.log("reussi");
-                        console.log(response);
-                        console.log(statut);
-                        if ($("#typeMembre").html().toLowerCase() === "Entraineur".toLowerCase()) {
-                            fabriquerBtnPlus();
-                        }
-                        $.each(response, function (index, value) {
-                            afficherAnnonces(value);
-                        });
-                        $("#contenu").append( FabriqueNoeud("script", {src:"static/js/annonces.js"}));
-                    },
-                    error: function (response, statut, message) {
-                        console.log("echec");
-                        console.log(response);
-                    }
-                })
-            });
+        $.ajax({
+            url: 'playpro2/?action=annonce',
+            type: 'POST',
+            dataType: "json",
+            data: $('#annonceForm').serialize(),
+            success: function (response, statut) {
+                console.log("reussi");
+                console.log(response);
+                console.log(statut);
+                if ($("#typeMembre").html().toLowerCase() === "Entraineur".toLowerCase()) {
+                    fabriquerBtnPlus();
+                }
+                $.each(response, function (index, value) {
+                    afficherAnnonces(value);
+                });
+                $("#contenu").append(FabriqueNoeud("script", {src: "static/js/annonces.js"}));
+            },
+            error: function (response, statut, message) {
+                console.log("echec");
+                console.log(response);
+            }
+        })
+    });
 
-        </script>
+</script>
 <!--<script src="static/js/annonces.js"></script>-->
 <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
