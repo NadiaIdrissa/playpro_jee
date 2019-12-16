@@ -19,18 +19,23 @@ import static org.junit.Assert.*;
  * @author Piaf
  */
 public class PartieTest {
-     final static String ID_PARTIE = "ABC";
+     
     final static String SCORE = "3";
     final static Equipe EQUIPE_1 = new Equipe();
     final static Equipe EQUIPE_2 = new Equipe();
     final static Sport SPORT_PARTIE = new Sport();
     final static LieuSport LIEU_SPORT_PARTIE = new LieuSport();
-    final static LocalTime HEURE_PARTIE = LocalTime.MIN;
+    final static String HEURE_PARTIE = "10:00";
+    final static String DATE_PARTIE="30/02/2020";
     Partie p;
     Equipe e1;
     Equipe e2;
     Sport nvSport;
     LieuSport nvLieu;  
+    
+     
+
+   
     public PartieTest() {
     }
     
@@ -44,33 +49,22 @@ public class PartieTest {
     
     @Before
     public void setUp() {
-        p = new Partie();
-        p.setId(ID_PARTIE);
+        p = new Partie();       
         p.setEquipe1(EQUIPE_1);
         p.setEquipe2(EQUIPE_2);
         p.setLieuSportPartie(LIEU_SPORT_PARTIE);
         p.setScore(SCORE);
         p.setHeurePArtie(HEURE_PARTIE);
-        p.setDatePartie(LocalDate.MIN);
+        p.setDatePartie(DATE_PARTIE);
     }
     
     @After
     public void tearDown() {
     }
 
- @Test
-    public void testGetId_Partie() {
-        assertEquals(ID_PARTIE, p.getId());
-    }
+ 
 
-    /**
-     * Test of setId_Partie method, of class Partie.
-     */
-    @Test
-    public void testSetId_Partie() {
-        final String nvId = "nnn";
-        p.setId(nvId);
-    }
+
 
     /**
      * Test of getScore method, of class Partie.
@@ -80,27 +74,8 @@ public class PartieTest {
         assertEquals(p.getScore(), SCORE);
     }
 
-    /**
-     * Test of setScore method, of class Partie.
-     */
-    @Test
-    public void testSetScore() {
-        final String nvScore = "4";
-        p.setScore(nvScore);
-    }
 
-    /**
-     * Test of getSport method, of class Partie.
-     */
-    
-    /**
-     * Test of setSport method, of class Partie.
-     */
-   
 
-    /**
-     * Test of getEquipe1 method, of class Partie.
-     */
     @Test
     public void testGetEquipe1() {
         assertEquals(p.getEquipe1(), EQUIPE_1);
@@ -135,48 +110,24 @@ public class PartieTest {
      */
     @Test
     public void testGetDatePartie() {
-        assertEquals(p.getDatePartie(), LocalDate.MIN);
+        assertEquals(p.getDatePartie(),DATE_PARTIE);
     }
 
-    /**
-     * Test of setDatePartie method, of class Partie.
-     */
-    @Test
-    public void testSetDatePartie() {
-        p.setDatePartie(LocalDate.MIN);
-    }
-
-    /**
-     * Test of getHeurePartie method, of class Partie.
-     */
+   
+   
+  
     @Test
     public void testGetHeurePartie() {
         assertEquals(p.getHeurePArtie(), HEURE_PARTIE);
     }
 
-    /**
-     * Test of setHeurePartie method, of class Partie.
-     */
-    @Test
-    public void testSetHeurePartie() {
-        final LocalTime nvHeurePartie = LocalTime.MIN;
-        p.setHeurePArtie(nvHeurePartie);
-    }
 
-    /**
-     * Test of getLieuSportPartie method, of class Partie.
-     */
+
     @Test
     public void testGetLieuSportPartie() {
         assertEquals(p.getLieuSportPartie(), LIEU_SPORT_PARTIE);
     }
 
-    /**
-     * Test of setLieuSportPartie method, of class Partie.
-     */
-    @Test
-    public void testSetLieuSportPartie() {
-        p.setLieuSportPartie(nvLieu);
-    }
+  
 
 }
