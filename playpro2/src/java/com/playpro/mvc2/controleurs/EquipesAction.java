@@ -83,11 +83,10 @@ public class EquipesAction extends AbstractAction {
 
             UploadPhoto up = new UploadPhoto();
 
-            if (imageEquipe != null) {
-                imageEquipe = up.uploader(part, UPLOAD_DIR, applicationPath, imageEquipe);
-            }else{
+            imageEquipe = up.uploader(part, UPLOAD_DIR, applicationPath, imageEquipe);
+            if (imageEquipe == null || imageEquipe.equals("")) {
                 imageEquipe = "newteam.jpg";
-            }
+            } 
 
             Equipe e = new Equipe();
             e.setNomEquipe(nomEquipe);
