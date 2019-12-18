@@ -75,7 +75,7 @@ CREATE TABLE `equipe` (
 INSERT INTO `equipe` (`nom_equipe`, `id_capitaine`, `id_sport`, `nb_parties_jouees`, `nb_joueurs`, `nb_max_joueurs`, `date_creation`, `image`) VALUES
 ('Bears', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '64f50de6-759f-48dc-83db-299ebd8b0aab', 0, 13, 18, '2019-12-11 16:35:16', 'bears.jpg'),
 ('Eagles', 'adbbc2a0-3ec9-4baa-97e7-6b3b0b301aee', '48b957f8-1a7c-47a4-b8d3-770c91b32f21', 0, 11, 4, '2019-12-12 01:13:55', 'eagles.jpg'),
-('Sirens', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'eade52d3-1ccc-49ef-8d86-34023d9f35a2', 0, 12, 21, '2019-12-12 01:12:01', 'sirens.jpg'),
+-- ('Sirens', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'eade52d3-1ccc-49ef-8d86-34023d9f35a2', 0, 12, 21, '2019-12-12 01:12:01', 'sirens.jpg'),
 ('Tigers', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '0df302b1-ae4d-497e-8a43-4bc188f8a83a', 0, 10, 22, '2019-12-12 01:11:06', 'tigers.jpg'),
 ('Lions', '29e405ab-2014-43e1-b01e-492d4dcc5ebd', '0df302b1-ae4d-497e-8a43-4bc188f8a83a', 0, 10, 22, '2019-12-12 01:11:06', 'newteam.jpg');
 
@@ -209,8 +209,8 @@ INSERT INTO `participationequipe` (`id_joueur`, `nom_equipe`, `date`) VALUES
 ('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Bears', '2019-12-10 05:43:25'),
 ('adbbc2a0-3ec9-4baa-97e7-6b3b0b301aee', 'Eagles', '2019-12-11 01:04:01'),
 ('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Lions', '2019-12-10 04:01:16'),
-('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Tigers', '2019-12-10 04:11:17'),
-('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Sirens', '2019-12-10 04:51:07');
+('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Tigers', '2019-12-10 04:11:17');
+-- ('29e405ab-2014-43e1-b01e-492d4dcc5ebd', 'Sirens', '2019-12-10 04:51:07');
 
 
 -- --------------------------------------------------------
@@ -275,8 +275,8 @@ INSERT INTO `sport` (`id_sport`, `nom`, `nb_max`, `nb_min`, `image`) VALUES
 ('0df302b1-ae4d-497e-8a43-4bc188f8a83a', 'Soccer', 22, 2, 'soccer.jpg'),
 ('48b957f8-1a7c-47a4-b8d3-770c91b32f21', 'Tennis', 4, 2, 'tennis.jpg'),
 ('64f50de6-759f-48dc-83db-299ebd8b0aab', 'Football', 18, 2, 'football.jpg'),
-('db031a56-2a4f-485a-b463-7165df255302', 'Basketball', 22, 2, 'basket.jpg'),
-('eade52d3-1ccc-49ef-8d86-34023d9f35a2', 'Water polo', 21, 2, 'waterpolo.jpg');
+('db031a56-2a4f-485a-b463-7165df255302', 'Basketball', 22, 2, 'basket.jpg');
+-- ('eade52d3-1ccc-49ef-8d86-34023d9f35a2', 'Water polo', 21, 2, 'waterpolo.jpg');
 
 
 CREATE TABLE `commentaire` (

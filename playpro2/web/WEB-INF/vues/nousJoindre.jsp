@@ -22,15 +22,15 @@
         <%@include file="header.jsp" %>
         <!--Section: Contact v.1-->
     <section class="section pb-5 contactSect">
-        
-        <c:if test="${message ne ''}"> 
+
+        <c:if test="${message ne '' and message ne null}"> 
             <c:out value="${ls.sport.nom}" />
-        <div class="alert text-center alert-<c:out value="${laClasse}" /> alert-dismissible fade show" role="alert">
-            <strong>Important!</strong> <c:out value="${message}" />
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+            <div class="alert text-center alert-<c:out value="${laClasse}" /> alert-dismissible fade show" role="alert">
+                 <c:out value="${message}" />
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         </c:if>
         <!--Section heading-->
         <h2 class="section-heading h1 pt-4 nsContacter">Nous contacter</h2>

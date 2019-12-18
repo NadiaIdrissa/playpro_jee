@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="col mod">
-                            <form class="needs-validation" action="" method="post" name="action" value="signup" novalidate>
+                            <form class="needs-validation" action="?action=signup" method="post" name="action" value="signup" novalidate>
                                 <div class="form-group">
                                     <div class="form-row">
                                         <div id='niveau' class="col-md-12 mb-12">

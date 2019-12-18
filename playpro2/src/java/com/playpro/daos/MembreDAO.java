@@ -121,14 +121,7 @@ public class MembreDAO extends DAO<Membre> {
             r = stm.executeQuery("SELECT * FROM membre WHERE " + critere + " = '" + id + "'");
             if (r.next()) {
                 Membre c = new Membre();
-//                System.out.println("------------------------");
-//                System.out.println(r.getString("id"));
-//                System.out.println(r.getString("nom"));
-//                System.out.println(r.getString("prenom"));
-//                System.out.println(r.getString("pseudo"));
-//                System.out.println(r.getString("mdp"));
-//
-//                System.out.println("------------------------");
+
 
                 c.setId(r.getString("id"));
                 c.setNom(r.getString("nom"));

@@ -204,7 +204,7 @@ public class AnnonceDAO extends DAO<Annonce> {
         try {
             Statement stm = cnx.createStatement();
             ResultSet r = stm.executeQuery("SELECT * FROM `annonce` INNER JOIN `membre`on annonce.id_createur = id"
-                    + " INNER JOIN lieu ON annonce.id_lieu = lieu.id_lieu");
+                    + " INNER JOIN lieu ON annonce.id_lieu = lieu.id_lieu ORDER BY annonce.date_creation desc");
                                 
             while (r.next()) {
                 Annonce c = new Annonce();

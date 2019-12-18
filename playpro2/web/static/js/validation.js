@@ -40,7 +40,7 @@ function  cacherJ() {
 //        debugger
         niveau.style.display = "none";
         ($("img")[1]).style.display = "none";
-        niveau.children[0].children[1].required = false;
+        niveau.children[0].children[0].required = false;
     }
     if (sport.style.display === "none") {
         sport.style.display = "block";

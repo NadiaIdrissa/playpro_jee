@@ -43,6 +43,7 @@ public class CommentaireAction extends AbstractAction {
             request.setAttribute("message", message);
             request.setAttribute("laClasse", laClasse);
 
+            System.out.println("Message : "+message);
             return "nousJoindre";
         } else {
 
