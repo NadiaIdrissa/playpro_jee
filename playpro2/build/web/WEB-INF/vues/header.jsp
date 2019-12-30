@@ -1,3 +1,9 @@
+<head>
+   
+        <link href="static/css/cssNavBar/stylesyami.css" rel="stylesheet" type="text/css">
+        
+    </head>
+
 <header>
     <div class="container headerV">
         <nav class="navbar navbar-expand-lg navbar-light bg-secondary text-white fixed-top" role="navigation">

@@ -108,12 +108,11 @@ public class LieuxAction extends AbstractAction {
             }
 
             String applicationPath = request.getServletContext().getRealPath("");
-
-            if (image1 != null) {
-                image1 = up.uploader(part, UPLOAD_DIR, applicationPath, image1);
-            } else {
+            
+            image1 = up.uploader(part, UPLOAD_DIR, applicationPath, image1);
+            if (image1 == null|| image1.equals("")) {
                 image1 = "lieulogo.jpg";
-            }
+            } 
 
             s = ObjectFactory.getNewLieu();
             s.setNom(nom);

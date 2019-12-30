@@ -24,8 +24,8 @@ public class AnnonceDAO extends DAO<Annonce> {
 
     @Override
     public boolean create(Annonce x) {
-        String req = "INSERT INTO annonce (`id_annonce` , `id_createur` , `nombreMax`,`id_lieu`,`date_events` ,`montant`, `titre_annonce`, `gratuit`, `description`, `date_creation`) "
-                + "VALUES (?,?,?,?,?,?,?,?,?,?)";
+        String req = "INSERT INTO annonce (`id_annonce` , `id_createur` , `nombreMax`,`id_lieu` ,`montant`, `titre_annonce`, `gratuit`, `description`, `date_creation`) "
+                + "VALUES (?,?,?,?,?,?,?,?,?)";
 
         PreparedStatement stm = null;
         try {
@@ -34,12 +34,12 @@ public class AnnonceDAO extends DAO<Annonce> {
             stm.setString(2, x.getCreateur().getId());
             stm.setInt(3, x.getNombreMax());
             stm.setString(4, x.getLieu().getId_lieu());
-            stm.setTimestamp(5,  x.getDate_event());
-            stm.setDouble(6, x.getMontant());
-            stm.setString(7, x.getTitre());
-            stm.setBoolean(8, x.getGratuit());
-            stm.setString(9, x.getDescription());
-            stm.setTimestamp(10, x.getDateCreation());
+            //stm.setTimestamp(5,  x.getDate_event());
+            stm.setDouble(5, x.getMontant());
+            stm.setString(6, x.getTitre());
+            stm.setBoolean(7, x.getGratuit());
+            stm.setString(8, x.getDescription());
+            stm.setTimestamp(9, x.getDateCreation());
 
             int n = stm.executeUpdate();
             System.out.println("========================================");
@@ -204,7 +204,7 @@ public class AnnonceDAO extends DAO<Annonce> {
         try {
             Statement stm = cnx.createStatement();
             ResultSet r = stm.executeQuery("SELECT * FROM `annonce` INNER JOIN `membre`on annonce.id_createur = id"
-                    + " INNER JOIN lieu ON annonce.id_lieu = lieu.id_lieu");
+                    + " INNER JOIN lieu ON annonce.id_lieu = lieu.id_lieu ORDER BY annonce.date_creation desc");
                                 
             while (r.next()) {
                 Annonce c = new Annonce();

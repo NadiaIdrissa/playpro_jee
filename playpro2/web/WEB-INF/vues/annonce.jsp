@@ -6,58 +6,43 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%-- 
-    Document   : sports
-    Created on : 2019-11-02, 21:17:27
-    Author     : toute
---%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<body>
-    <h1>Liste des annonces</h1>
-    <%
-        if (m.getTypeMembre().equals("Admin")) {
-    %>
-    <%}%>
-    <button id="myBtn" type="button" >Ajouter</button>
-    <div >
-        <div class=" " style="">
-            <c:forEach items="${requestScope.annonces}" var="uneAnnonce"> 
+<div>
+    <div class=" " style="">
+        <c:forEach items="${requestScope.annonces}" var="uneAnnonce"> 
 
-                <div class="annonce" >
-                    <h2 class='card-text font-weight-bold bg-primary text-uppercase' ><c:out value="${uneAnnonce.titre}" /><br></h2>
-                    <div class="row" >
-                        <div class="cadre text-center col-4 border">
+            <div class="annonce" >
+                <h2 class='card-text font-weight-bold text-uppercase fondAnnonce' ><c:out value="${uneAnnonce.titre}" /><br></h2>
+                <div class="row" >
+                    <div class="cadre text-center col-4 border annonceInfos fondAnnonce">
 
-                            <p class='card-text'>Annonceur: <c:out value="${uneAnnonce.createur.prenom}" /></p>
-                            <p class="card-text">Nombre de places: <c:out value="${uneAnnonce.nombreMax}" /></p>
+                        <p class='card-text'>Annonceur: <c:out value="${uneAnnonce.createur.prenom}" /></p>
+                        <p class="card-text">Nombre de places: <c:out value="${uneAnnonce.nombreMax}" /></p>
 
-                            <c:if test="${uneAnnonce.gratuit}"> 
-                                <p class="card-text">Ce cours est gratuit</p>
-                            </c:if>
-                            <c:if test="${!uneAnnonce.gratuit}"> 
-                                <p class="card-text">Montant: <c:out value="${uneAnnonce.montant}" /> $</p>
-                            </c:if>
-                            <p class="card-text">Lieu: <c:out value="${uneAnnonce.lieu.nom}" /></p>
-                            <p class="card-text">Date et heure: <c:out value="${uneAnnonce.date_event}" /></p>
-                        </div>
-                        <div class='col-8'>
-                            <h3>Message de l'entrainneur :</h3>
-                            <p class="card-text"> <c:out value="${uneAnnonce.description}" /></p>
-                        </div> 
+                        <c:if test="${uneAnnonce.gratuit}"> 
+                            <p class="card-text">Ce cours est gratuit</p>
+                        </c:if>
+                        <c:if test="${!uneAnnonce.gratuit}"> 
+                            <p class="card-text">Montant: <c:out value="${uneAnnonce.montant}" /> $</p>
+                        </c:if>
+                        <p class="card-text">Lieu: <c:out value="${uneAnnonce.lieu.nom}" /></p>
+                        <p class="card-text">Date et heure: <c:out value="${uneAnnonce.date_event}" /></p>
+                    </div>
+                    <div class='col-8'>
+                        <h3 class="border-bottom">Message de l'entrainneur :</h3>
+                        <p class="card-text"> <c:out value="${uneAnnonce.description}" /></p>
                     </div> 
                 </div> 
+            </div> 
 
-            </c:forEach>
-        </div> 
-    </div>
+        </c:forEach>
+    </div> 
+</div>
 
-</body>
-
-<!-- The Modal -->
 <!-- Modal -->
-<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal" id="myModalAnnonce" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -67,7 +52,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="needs-validation " action="?action=annonce" method="post" name="action" value="ajoutImage" enctype="multipart/form-data" novalidate>
+            <form class="needs-validation " id="annonceForm" action="?action=annonce" method="post" name="action" value="ajoutImage" enctype="multipart/form-data" novalidate>
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" name="titre" placeholder="Titre de l'annonce" required />
@@ -99,7 +84,7 @@
                     <div class="form-group">
                         <select class="form-control" id="exampleFormControlSelect1" name="lieux"  required> 
                             <option value="" >Lieu de l'événement</option>
-                            <c:forEach items="${requestScope.lieux}" var="unLieu"> 
+                            <c:forEach items="${lieux}" var="unLieu"> 
                                 <option value="<c:out value="${unLieu.id_lieu}" />"><c:out value="${unLieu.nom}" /></option> 
                             </c:forEach>
                         </select>
@@ -107,20 +92,57 @@
 
                     <div class="form-group">
                         <textarea name='message' rows="6" cols="43">
-At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
+Entrez votre message ici
                         </textarea>
                     </div>
                 </div>
                 <div class="text-center justify-content-center">
                     <div class="col-3 ">
-                        <button type="submit" class="btn btn-primary btnD">Créer</button>
+                        <button id="btnCreerAnnonce" type="submit" class="btn btn-primary btnD">Créer</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<script src="static/js/annonces.js"></script>
+<script>
+    $('#btnCreerAnnonce').click(function (e) {
+        debugger;
+        e.preventDefault();
+        var contenu = document.getElementById("contenu");
+
+        contenu.innerHTML = "";
+//                $("#myModalAnnonce").style.display = "none";
+        $("#perspective").show();
+        console.log("allo");
+        console.log("allo");
+
+        $.ajax({
+            url: 'playpro2/?action=annonce',
+            type: 'POST',
+            dataType: "json",
+            data: $('#annonceForm').serialize(),
+            success: function (response, statut) {
+                console.log("reussi");
+                console.log(response);
+                console.log(statut);
+                if ($("#typeMembre").html().toLowerCase() === "Entraineur".toLowerCase()) {
+                    fabriquerBtnPlus();
+                }
+                $.each(response, function (index, value) {
+                    afficherAnnonces(value);
+                });
+                $("#contenu").append(FabriqueNoeud("script", {src: "static/js/annonces.js"}));
+            },
+            error: function (response, statut, message) {
+                console.log("echec");
+                console.log(response);
+            }
+        })
+    });
+
+</script>
+<!--<script src="static/js/annonces.js"></script>-->
 <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

@@ -49,6 +49,7 @@ public class SportsAction extends AbstractAction {
         String message = "";
         String laClasse = "";
         String idSportSupprimer = request.getParameter("idSportSupprimer");
+        System.out.println("===================================IMAGE" + imageSport);
 
         int nbMax = 0;
         List<Part> part = null;
@@ -92,13 +93,12 @@ public class SportsAction extends AbstractAction {
             // constructs path of the directory to save uploaded file
             String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
 
-            if (imageSport != null) {
+            imageSport = up.uploader(part, UPLOAD_DIR, applicationPath, imageSport);
+            if (imageSport == null ||  imageSport.equals("") ) {
 
-                imageSport = up.uploader(part, UPLOAD_DIR, applicationPath, imageSport);
-            }else{
                 imageSport = "sportslogo.jpg";
-            }
-
+            } 
+            
             Sport s = ObjectFactory.getNewSport();
             s.setNom(nomSport);
             s.setNb_max(nbMax);

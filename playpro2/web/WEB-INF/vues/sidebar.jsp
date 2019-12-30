@@ -9,7 +9,6 @@
 
     <ul class="nav">
         <li>
-            </a>
             <a href="?action=portail&sousAction=loadProfil">
                 <i class="fa fa-user"></i> <span class="sideLabel">Mon profil</span>
             </a>
@@ -29,31 +28,29 @@
         </li>
 
         <li>
-            <a href="?action=parties">
-                <i class="fa fa-play-circle"></i> <span class="sideLabel">Parties</span>
+            <a id='parties' href="?action=parties">
+                <i class="fa fa-play-circle"></i> <span class="sideLabel" style="margin-right: 30px;">Parties</span>
             </a>
         </li>
         <li>
-            <a href="?action=sports">
-                <i class="fa fa-soccer-ball-o"></i> <span class="sideLabel">Sports</span>
+            <a  href="?action=sports">
+                <i class="fa fa-soccer-ball-o"></i> <span class="sideLabel" style="margin-right: 30px;">Sports</span>
             </a>
         </li>
         <li>
-            <a href="?action=lieux">
-                <i class="fa fa-map-marker"></i> <span class="sideLabel">Lieux</span>
+            <a  href="?action=lieux">
+                <i class="fa fa-map-marker"></i> <span class="sideLabel" style="margin-right: 50px;">Lieux</span>
             </a>
         </li>
 
-        <%
-            if (!m.getTypeMembre().equals("Joueur")) {
-        %>
+        
         <li>
             <a class="btnSide" id="btnAnnonce" >
                 
                 <i class="fa fa-file"></i><span class="sideLabel"> Annonces</span>
             </a>
         </li>
-        <%}%>
+        
 
         <%
             if (m.getTypeMembre().equals("Admin")) {
@@ -61,6 +58,12 @@
         <li>
             <a href="?action=membres">
                 <i class="fa fa-user-plus"></i><span class="sideLabel"> Membres</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="?action=Commentaire">
+                <i class="fa fa-pencil"></i><span class="sideLabel"> Commentaires</span>
             </a>
         </li>
         <%}%>
@@ -72,11 +75,10 @@
 
                 <span class="sideLabel">Invitations </span><span class="badge">
                 <c:out value="${sessionScope.NbInvitations}"/>
-        </span>
+                </span>
             </a>
         </li>
-        
     </ul>
-    
+
 </div>
 

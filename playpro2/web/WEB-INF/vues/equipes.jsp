@@ -14,9 +14,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 </head>
 
-
-
-
 <div class="equipeStyle row">
     <div class="col-sm-10 col-md-10 col-lg-10">
         <!--<h1 class="text-center">Liste des équipes existantes</h1>-->
@@ -47,11 +44,11 @@
                             </button>
                         </div>
 
-                        <div class="modal-body">
+<!--                        <div class="modal-body">
                             <button type="button" class="btn-primary" style="color:greenyellow" data-dismiss="" aria-label="">Modifier</button>
                             <button type="button" class="btn-info" style="color:red" data-dismiss="" aria-label="">Supprimer</button>
                             </button>
-                        </div>
+                        </div>-->
 
 
                     </div>
@@ -107,7 +104,7 @@
                                 <div class="list-group">
 
                                     <c:forEach items="${uneEquipe.membresEquipe}" var="joueur" varStatus="loop"> 
-                                        <a href="?action=profil&idMembreAfficher=${joueur.id}" class="list-group-item list-group-item-action list-group-item-primary text-left" title="Voir le profil de ${joueur.pseudo}">
+                                        <a href="?action=profil&idMembreAfficher=${joueur.id}" class="list-group-item list-group-item-action list-group-item-primary text-left" style="background-color: #80cccc;" title="Voir le profil de ${joueur.pseudo}">
                                             <span class="badge badge-primary badge-pill text-right">${loop.index+1}</span> ${joueur.pseudo}
                                             <c:if test = "${uneEquipe.capitaine.id == joueur.id}"> <c:out value=": Capitaine" /> </c:if> </a>
 
@@ -130,10 +127,12 @@
                                 </div>
                             </div>
                         </div>
+                        <c:if test="${(uneEquipe.capitaine.id == unMembre.id) || (unMembre.typeMembre.equals('Admin'))}">
                         <div>
                             <button class="btn btn-primary btnMod col-4" data-index='<c:out value="${uneEquipe.nomEquipe}" />' data-status='<c:out value="${uneEquipe.membresEquipe}" />'>Modifier</button>
                             <button class="btn btn-danger btnSup col-4" data-index='<c:out value="${uneEquipe.nomEquipe}" />' data-status='<c:out value="${uneEquipe.membresEquipe}" />'>Supprimer</button>
                         </div>
+                        </c:if>
                     </div> 
                 </div> 
             </form>

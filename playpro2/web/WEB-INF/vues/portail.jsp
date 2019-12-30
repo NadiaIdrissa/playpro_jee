@@ -11,7 +11,7 @@
         message = (String) request.getAttribute("message");
         laClasse = (String) request.getAttribute("laClasse");
     }
-%>
+%> 
 <!DOCTYPE html>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en" class="no-js">
@@ -75,8 +75,10 @@
                         <%} else if (viewConf.equals("annonces")) {%>
                         <%@include file="annonce.jsp"%>
                         <%} else if (viewConf.equals("membres")) {
-                        %>
+                            %>
                         <%@include file="membres.jsp"%>
+                        <%} else if (viewConf.equals("contact")) {%>
+                        <%@include file="contact.jsp"%>
 
                         <%} else if (viewConf.equals("parties")) {
                         %>
@@ -106,7 +108,7 @@
             </div>
             <%@include file="header4.jsp" %>
         </div>  
-        
+
         <script>
             $('#btnAnnonce').click(function (e) {
                 var contenu = document.getElementById("contenu");
@@ -124,23 +126,28 @@
                         console.log("reussi");
                         console.log(response);
                         console.log(statut);
-
+                        if ($("#typeMembre").html().toLowerCase() === "Entraineur".toLowerCase()) {
+                            fabriquerBtnPlus();
+                        }
                         $.each(response, function (index, value) {
                             afficherAnnonces(value);
                         });
+                        $("#contenu").append( FabriqueNoeud("script", {src:"static/js/annonces.js"}));
                     },
                     error: function (response, statut, message) {
                         console.log("echec");
                         console.log(response);
                     }
-                })
+                });
             });
 
         </script>
+
+        <%@include file="annonce.jsp"%>
         <script src="static/js/classie.js"></script>
         <script src="static/js/menu.js"></script>
         <script src="static/js/validation.js" ></script>
         <script src="static/js/gestion.js" ></script>
-        
+
     </body>
 </html>

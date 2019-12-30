@@ -39,13 +39,13 @@ public class LoginAction extends AbstractAction {
             membre = MembreServices.seConnecter(email, mdp);
             if (membre == null) {
                 System.out.println("Infos inexistantes");
-                request.setAttribute("message", "email invalide");
+                request.setAttribute("message", "Echec de la connexion. Il semble que vous ne soyiez pas membre de PlayPro");
                 request.setAttribute("laClasse", "danger");
                 return "login";
 
             } else {
                 if (membre.getMpd().equals(mdp)) {
-                    request.setAttribute("message", "mot de passe invalide");
+                    request.setAttribute("message", "Email ou/et mot de passe invalides");
                     request.setAttribute("laClasse", "danger");
                     return "login";
                 } else {
@@ -63,21 +63,9 @@ public class LoginAction extends AbstractAction {
                     for (int j = 0; j < s.size(); j++) {
                         System.out.println(j + s.get(j).getNom());
                         listeq.add(s.get(j).getNom());
-                    }
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    }  
                     
                     request.getSession().setAttribute("listeTousSports", s);
-                    
-                    
-                    
-                    
-
                     request.getSession().setAttribute("sportString", listeq);
 
                     request.getSession(true);
@@ -92,15 +80,6 @@ public class LoginAction extends AbstractAction {
 
                     request.getSession().setAttribute("NbInvitations", listeInvitations.size());
                     request.getSession().setAttribute("listeInvitations", listeInvitations);
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
                 }
             }
         }
